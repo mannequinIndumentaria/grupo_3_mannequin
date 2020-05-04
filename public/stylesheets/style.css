@@ -1,8 +1,10 @@
 
-body .container-fluid {
+body .container-fluid, .row {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
+
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -14,6 +16,7 @@ body {
   color: white;
   padding: 5px;
 }
+
 
 .texto-oferta{
   display: flex;
