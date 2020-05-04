@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('./partials/head.ejs') %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="container-fluid">
+      <%- include('./partials/header.ejs') %>
+      <div class="container">
+        <h1></h1>
+        <p>Welcome to</p>
+        <%- include('./partials/scriptBootstrap.ejs') %>
+      </div>
+    </div>
   </body>
+
 </html>
