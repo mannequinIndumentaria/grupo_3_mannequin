@@ -1,8 +1,33 @@
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  padding: 0.5% 0;
+}
+
+.busqueda {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-right: 2%;
+}
+
+img {
+  width: 50%;
+}
+
+body .container-fluid {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.linkLogo{
+  display: contents;
 }
