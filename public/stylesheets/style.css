@@ -1,8 +1,10 @@
 
-body .container-fluid {
+body .container-fluid, .row {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
+
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -14,6 +16,7 @@ body {
   color: white;
   padding: 5px;
 }
+
 
 .texto-oferta{
   display: flex;
@@ -233,4 +236,102 @@ img {
       display: block;
       width: auto;
   }
+} 
+
+                                   /*FOOTER*/
+
+/*Footer*/
+
+footer .container-fluid {
+  background-color: #3A3A3A;
+  margin: 20px 0 0 0;
+  width: 100%;
 }
+
+/* footer items */
+
+.col-footer, .col-subfooter, .col-legal {
+  display:flex;
+  justify-content: center;
+  margin-top:35px;
+}
+
+.col-footer ul, .col-subfooter ul {
+  list-style: none;
+  padding: 0px;
+  display: inline-block;  
+}
+
+.col-footer ul li{
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+.col-footer ul li a, .col-subfooter ul li a{
+  padding: 30px;
+  height: 100%;
+  color: white; 
+  text-decoration: none;
+}
+
+/*Form suscribe*/
+
+#leyenda {
+  color:white;
+  display: block;
+}
+
+.form-suscribe {
+  margin: 35px 0px 0px 0px;
+}
+
+.form-suscribe button{
+  background-color: #3A3A3A;
+  color:#8AC5C3;
+  border: none;
+  font-size: 25px;
+}
+
+.form-suscribe input[type=email]{
+  border: 0.5px solid white; 
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/*Sub-footer*/
+
+.col-subfooter ul li {
+  display: inline-block; 
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.col-subfooter ul li a{
+  padding: 0px;
+  font-size: 15px;
+}
+
+/*Legal*/ 
+.col-legal {
+  margin: 15px 0 0 0;
+  color:white;
+  font-size: 13px;
+}
+
+.iconos-footer{
+  margin-top: 30px;
+  display: inline-block; 
+}
+
+.redes img {
+  margin-left: 5px;
+  width:3%;
+}
+
+              /*BANNER*/
+
+.banner {
+  margin: 2% 0 0 0;
+  width:100%;
+}
+
