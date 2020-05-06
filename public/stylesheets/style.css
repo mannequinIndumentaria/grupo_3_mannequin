@@ -1,3 +1,5 @@
+@import url("./breadcrumb.css");
+@import url("./pagination.css");
 
 body .container-fluid, .row {
   margin: 0px;
@@ -365,3 +367,4 @@ footer .container-fluid {
     75% {margin-left: -300%;}
     100% {margin-left: -300%;}
 }
+
