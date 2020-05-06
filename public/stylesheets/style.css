@@ -328,40 +328,37 @@ footer .container-fluid {
   width:3%;
 }
 
-              /*BANNER*/
+  /*GALERIA*/
 
-.slider {
-    width:100%;
-    margin: auto;
-    overflow: hidden;
+.col-md-3{
+  display: inline-block;
+  margin-left:-4px;
+}
+.col-md-3 img{
+  width:100%;
+  height:auto;
+}
+body .carousel-indicators li{
+  background-color:black;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:black;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.slider ul {
-    display: flex;
-    padding:0;
-    width:400%;
-    animation: cambio 20s infinite alternate;
+
+.precioItem {
+  color: #3A3A3A;
+  font-size: 20px;
+  text-align: center;
 }
 
-.slider ul li {
-    width:100%;
-    list-style: none;
-}
-
-.slider ul li img {
-    width:100%;
-}
-
-@keyframes cambio {
-    0% {margin-left: 0;}
-    20% {margin-left: 0;}
-    
-    25% {margin-left: -100%;}
-    45% {margin-left: -100%;}
-
-    50% {margin-left: -200%;}
-    70% {margin-left: -200%;}
-
-    75% {margin-left: -300%;}
-    100% {margin-left: -300%;}
+.descripcionItem {
+  font-size: 17px;
+  line-height: 0px;
+  text-align: center;
 }
