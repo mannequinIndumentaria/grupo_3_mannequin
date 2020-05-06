@@ -1,4 +1,6 @@
 
+@import "/stylesheets/carrito.css";
+
 body .container-fluid, .row {
   margin: 0px;
   padding: 0px;

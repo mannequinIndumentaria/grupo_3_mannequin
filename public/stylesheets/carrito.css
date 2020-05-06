@@ -1,0 +1,46 @@
+/* Carrito */
+.foto-item-carrito{
+    width: 100%;
+}
+
+.boton-slector-color{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.color-elegido{
+    margin-top: 8px;
+    margin-bottom:2px;
+    padding: 0px;
+}
+
+.cantidadCarrito{
+    font-size: 22px;
+    font-weight: bold;
+    max-width: 45px;
+    border: 0px;
+    background-color: blanchedalmond;
+}
+
+.botones-cantidad{
+    border:0px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0);
+}
+
+.far, .fa-heart, .fas, .fa-trash-alt{
+    font-size: 18px;
+}
+
+
+.trash-carrito, .heart-carrito{
+    border: 0px;
+    background-color: rgba(0,0,0,0);
+    margin:5px;
+}
+
+.articulo{
+    margin: 20px;
+}
