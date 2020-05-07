@@ -3,6 +3,8 @@ var router = express.Router();
 const registerController = require('../controllers/registerController')
 
 /* GET home page. */
-router.get('/register', registerController.register);
+router.get('/', registerController.register);
+
+router.get('/registro', registerController.registro);
 
 module.exports = router;
