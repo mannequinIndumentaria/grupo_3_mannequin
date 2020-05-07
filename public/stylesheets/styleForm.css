@@ -41,7 +41,7 @@
     border-radius: 15px;
 }
 
-.casilleroEmail , .casilleroPassword {
+.casilleroTexto, .casilleroEmail , .casilleroPassword {
     width:100%;
     height:30px;
     border:none;
@@ -102,6 +102,15 @@ input[type=email]:focus, input[type=password]:focus {
 }
 
 /*FORMULARIO REGISTRO DETALLES*/
+
+.registerDetalle {
+    max-width: 500px;
+    background-color: lightgray;
+    width:100%;
+    padding:30px;
+    font-size:15px;
+    border-radius: 15px;
+}
 
 .generalRegistro {
     margin: 3% 0;
