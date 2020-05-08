@@ -88,7 +88,7 @@ padding: 0 30px;
   }
 */
 
-.nav-link:hover {
+.nav-link:hover, .nav-link:visited {
   color:white;
 }
 
@@ -98,6 +98,17 @@ padding: 0 30px;
 
 }
 
+.dropdown-item:hover, .dropdown-item:active, .dropdown-item:visited {
+  background-color: #6DAAA7;
+  color:white
+}
+
+/*
+.dropdown:hover {
+  background-color: #6DAAA7;
+  color:white
+}
+*/
 
 /*ICONS*/
 
