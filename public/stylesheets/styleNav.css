@@ -3,6 +3,7 @@
     background-color: #3A3A3A;
     color: white;
     padding: 5px;
+    font-size: 15px;
   }
   
   
@@ -29,7 +30,7 @@
     padding-right: 2%;
   }
   
-  img {
+  .row-logo img {
     width: 50%;
   }
   
@@ -106,5 +107,38 @@ padding: 0 10px;
 font-size: larger;
 }
 
+/*Mobile*/
 
+@media (max-width: 460px) {
 
+  .busqueda, .row-logo {
+    display:flex;
+    flex-direction: column;
+    margin:10px 0;
+  }
+  
+  .texto-oferta i {
+    font-size:13px;
+  }
+  
+}
+
+@media (max-width: 460px) {
+
+  .busqueda, .row-logo {
+    display:flex;
+    flex-direction: column;
+    margin:10px 0;
+  }
+
+  @media (max-width: 320px) {
+  
+  .banner-oferta{
+    display:none;
+  }
+
+  .row-logo {
+    margin-top:20px;
+  }
+  
+}
