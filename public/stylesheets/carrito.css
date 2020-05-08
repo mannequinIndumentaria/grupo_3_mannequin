@@ -1,6 +1,18 @@
 /* Carrito */
+.carrito-contenedor-principal{
+    padding-top:20px;
+}
+
 .foto-item-carrito{
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detalle-item-carrito{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .boton-slector-color{
@@ -15,25 +27,38 @@
     padding: 0px;
 }
 
+.selector-cantidad-carrito{
+    border:1px solid #eee;
+    border-radius: 5px;
+    background-color: white;
+}
+
 .cantidadCarrito{
     font-size: 22px;
     font-weight: bold;
+    text-align: center;
     max-width: 45px;
     border: 0px;
-    background-color: blanchedalmond;
+    background-color: white;
 }
 
 .botones-cantidad{
     border:0px;
+    height: 100%;
     font-size: 15px;
     font-weight: bold;
     background-color: rgba(0,0,0,0);
 }
 
-.far, .fa-heart, .fas, .fa-trash-alt{
-    font-size: 18px;
+.boton-favorito-carrito, .boton-borrar-carrito{
+    font-size: 22px;
 }
 
+.botones-fav-del-carrito{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 .trash-carrito, .heart-carrito{
     border: 0px;
@@ -45,15 +70,101 @@
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
+    padding:10px;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
 }
 
 .tituloArticulos{
-    background-color: rgba(240,240,240,0.3);
     display: flex;
     flex-wrap: wrap;
     padding:12px;
-    margin-top: 5px;
     /* width: 100%; */
     color: black;
     font-size: 15px;
+    -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+}
+
+.precio-item-carrito{
+    font-size: 27px;
+}
+
+.titulo-item-carrito{
+    font-size: 20px;
+}
+
+.botones-detalle-carrito{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ORDEN DE COMPRA */
+.orden-de-compra{
+    padding: 15px;
+    -webkit-box-shadow: 0px 2px 9px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 9px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 9px -4px rgba(0,0,0,0.75);
+}
+
+.order-discount, .order-location, .order-type, .order-send, .order-titulo{
+    width: 100%;
+    padding: 5px;
+    margin-bottom:5px;
+    text-align: center;
+}
+
+.order-location, .order-type, .order-discount{
+    border:1px solid #eee;
+}
+
+.order-send{
+    margin: 10px 0px 10px 0px;
+    border:1px solid;
+    border-radius: 3px;
+    background-color: #8AC5C3;
+}
+
+.order-titulo{
+    padding: 5px;
+}
+
+.order-amounts{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.order-text-amounts{
+    display: flex;
+    padding: 0px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 100%;
+    text-align: left;
+}
+
+.order-row{
+    margin:0px;
+}
+
+.medios-de-pago{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
+}
+
+.medios-de-pago img{
+    width: calc(100%/8);
+    height: auto;
 }
