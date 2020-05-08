@@ -43,6 +43,7 @@
 		<div class="container">
          <div class="row">
             <div class="col-8"> 
+				<span class="tituloArticulos">Articulos</span>
 					<% for(let i = 1; i < 5 ; i++){ %>
                <div class="articulo" id="<%= i %>">
                   <div class="row">
@@ -50,8 +51,8 @@
                         <img class="foto-item-carrito" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" id="foto<%= i %>">
                      </div>
                      <div class="col-8">
-								<h5>Remera algodon</h5>
-								<h4>$27</h4>
+						 		<h4>$27</h4>
+								<p>Remera algodon</p>
 								<p id="nombreElegido<%= i %>" class="color-elegido">Color elegido:</p>
 								<button class="boton-slector-color" style="background-color: black;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg','negro')"></button>
 								<button class="boton-slector-color" style="background-color: white;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715637.jpg','blanco')"></button>

@@ -43,4 +43,17 @@
 
 .articulo{
     margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tituloArticulos{
+    background-color: rgba(240,240,240,0.3);
+    display: flex;
+    flex-wrap: wrap;
+    padding:12px;
+    margin-top: 5px;
+    /* width: 100%; */
+    color: black;
+    font-size: 15px;
 }
