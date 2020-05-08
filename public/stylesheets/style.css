@@ -1,3 +1,4 @@
+@import "/stylesheets/carrito.css";
 
 body .container-fluid, .row {
   margin: 0px;
@@ -9,5 +10,3 @@ body .container-fluid, .row {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-
