@@ -1,5 +1,8 @@
 @import url("./breadcrumb.css");
 @import url("./pagination.css");
+@import url("./dropdown.css");
+@import url("./navCategories.css");
+@import url("./productsWrapper.css");
 
 body .container-fluid, .row {
   margin: 0px;

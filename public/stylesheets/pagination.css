@@ -1,4 +1,14 @@
  /* Pagination links */
+ .pagBar{
+    margin: 0px;
+    padding: 0px;
+ }
+ 
+ .pagination {
+    margin: 0px;
+    padding: 0px;
+ }
+ 
  .pagination a {
     color: black;
     float: left;
@@ -6,6 +16,7 @@
     text-decoration: none;
     transition: background-color .3s;
   }
+  
   
   /* Style the active/current link */
   .pagination a.active {

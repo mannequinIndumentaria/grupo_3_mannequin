@@ -8,10 +8,10 @@
   /* Display list items side by side */
   ul.breadcrumb li {
     display: inline;
-    font-size: 18px;
+    font-size: 12px;
   }
   
-  /* Add a slash symbol (/) before/behind each list item */
+  /* Add a slash symbol (>) before/behind each list item */
   ul.breadcrumb li+li:before {
     padding: 8px;
     color: black;
