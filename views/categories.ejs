@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <div class="container-fluid">
+    <%- include('./partials/header.ejs') %>
+    <div class="row">
+      <div class="col-10 pagBar">
+        <%- include('./partials/breadcrumb.ejs') %>
+      </div>
+
+      <div class="col-2 dropdown">
+        <%- include('./partials/dropdown.ejs') %>
+        <script src="/public/javascripts/dropdown.js"></script>
+      </div>
+      <div class="container-fluid mainCategory">
+        <div class="row">
+          <div class="col-2 col-sm-0 nav-categories">
+            <%- include('./partials/navCategories.ejs') %>
+          </div>
+          <div class="col-10 products-wrapper">
+            <%- include('./partials/productsWrapper.ejs') %> 
+            <%- include('./partials/pagination.ejs') %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/scriptBootstrap.ejs') %>
+
+  </div>
+</body>
+
+</html>

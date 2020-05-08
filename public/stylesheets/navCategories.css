@@ -1,0 +1,32 @@
+.nav-categories {
+    margin-top: 30px;
+    inline-size: auto;
+    line-height: 2;
+    
+}
+
+.category-title {
+    font-weight: bold;
+}
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+
+ul {
+    list-style: none;
+    /*margin: 0;
+    padding: 0;*/
+  }
