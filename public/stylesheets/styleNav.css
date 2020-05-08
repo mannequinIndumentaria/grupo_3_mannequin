@@ -1,0 +1,155 @@
+/* BANNER */
+.banner-oferta{
+    background-color: #3A3A3A;
+    color: white;
+    padding: 5px;
+    font-size: 15px;
+  }
+  
+  
+  .texto-oferta{
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  /* LOGO Y BUSQUEDA */
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .row-logo {
+    padding: 0.5% 0;
+  }
+  
+  .busqueda {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 2%;
+  }
+  
+  .row-logo img {
+    width: 50%;
+  }
+  
+  .linkLogo{
+    display: contents;
+  
+  }
+  
+  .form-busqueda button{
+    background-color:white;
+    border: none;
+    font-size: 18px;
+  }
+  
+  .form-busqueda input[type=search]{
+    border: 2px #8AC5C3 solid;
+    border-radius: 5px;
+    padding: 5px;
+    width: ;
+  }
+
+ 
+  /* Nav */
+
+.navbar-toggler {
+  color: white;
+}
+
+.color {
+  background-color: #8AC5C3;
+}
+
+.centrado {
+  margin:Auto;
+}
+
+.nav-link {
+  color:white;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.dropdown-item {
+  color:white;
+  line-height: 30px;
+}
+
+.nav-item {
+padding: 0 30px;
+}
+
+/*
+.nav-item:hover {
+  background-color: #6DAAA7;
+  }
+*/
+
+.nav-link:hover, .nav-link:visited {
+  color:white;
+}
+
+.primerDropdown {
+  background-color: #8AC5C3;
+  border:none;
+
+}
+
+.dropdown-item:hover, .dropdown-item:active, .dropdown-item:visited {
+  background-color: #6DAAA7;
+  color:white
+}
+
+/*
+.dropdown:hover {
+  background-color: #6DAAA7;
+  color:white
+}
+*/
+
+/*ICONS*/
+
+.col-menu-icons > a {
+color:white;
+padding: 0 10px;
+font-size: larger;
+}
+
+/*Mobile*/
+
+@media (max-width: 460px) {
+
+  .busqueda, .row-logo {
+    display:flex;
+    flex-direction: column;
+    margin:10px 0;
+  }
+  
+  .texto-oferta i {
+    font-size:13px;
+  }
+  
+}
+
+@media (max-width: 460px) {
+
+  .busqueda, .row-logo {
+    display:flex;
+    flex-direction: column;
+    margin:10px 0;
+  }
+
+  @media (max-width: 320px) {
+  
+  .banner-oferta{
+    display:none;
+  }
+
+  .row-logo {
+    margin-top:20px;
+  }
+  
+}

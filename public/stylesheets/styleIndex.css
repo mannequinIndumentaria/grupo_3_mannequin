@@ -1,0 +1,17 @@
+/*Index*/
+
+.prueba img{
+    width:100%;
+  }
+  
+  .nombre {
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  .prueba{
+    margin: 30px auto;
+    display:flex;
+    justify-content:center;
+  
+  }

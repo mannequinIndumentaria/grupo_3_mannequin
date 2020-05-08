@@ -1,0 +1,54 @@
+/*GALERIA*/
+
+.centroCarrousel {
+display:flex;
+justify-content: center;
+}
+
+.titulo h5{
+   margin: 40px auto 20px auto;
+}
+
+.col-md-3{
+display: inline-block;
+margin-left:-4px;
+}
+.col-md-3 img{
+ width:100%;
+height:auto;
+}
+body .carousel-indicators li{
+ background-color:black;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+ background-color:black;
+}
+
+body .carousel-control-prev-icon {
+   position: absolute;
+   left: 25px;
+}
+
+body .carousel-control-next-icon{
+   position: absolute;
+   right: 30px;
+   }
+   
+
+body .no-padding{
+padding-left: 0;
+padding-right: 0;
+}
+                                            
+.precioItem {
+color: #3A3A3A;
+font-size: 20px;
+text-align: center;
+}
+                                        
+.descripcionItem {
+font-size: 17px;
+line-height: 0px;
+text-align: center;
+}

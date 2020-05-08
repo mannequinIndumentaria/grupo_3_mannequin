@@ -1,0 +1,194 @@
+ /*FOOTER*/
+
+/*Footer*/
+
+footer .container-fluid {
+  background-color: #3A3A3A;
+  margin: 20px 0 0 0;
+  width: 100%;
+}
+
+/* footer items */
+
+.col-footer, .col-subfooter, .col-legal {
+  display:flex;
+  justify-content: center;
+  margin-top:35px;
+}
+
+.col-footer ul, .col-subfooter ul {
+  list-style: none;
+  padding: 0px;
+  display: inline-block;  
+}
+
+.col-footer ul li{
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+.col-footer ul li a, .col-subfooter ul li a{
+  padding: 30px;
+  height: 100%;
+  color: white; 
+  text-decoration: none;
+}
+
+/*Form suscribe*/
+
+#leyenda {
+  color:white;
+  display: block;
+}
+
+.form-suscribe {
+  margin: 35px 0px 0px 0px;
+}
+
+.form-suscribe button{
+  background-color: #3A3A3A;
+  color:#8AC5C3;
+  border: none;
+  font-size: 25px;
+}
+
+.form-suscribe input[type=email]{
+  border: 0.5px solid white; 
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/*Sub-footer*/
+
+.col-subfooter ul li {
+  display: inline-block; 
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.col-subfooter ul li a{
+  padding: 0px;
+  font-size: 15px;
+}
+
+/*Legal*/ 
+.col-legal {
+  margin: 15px 0 0 0;
+  color:white;
+  font-size: 13px;
+}
+
+.iconos-footer{
+  margin-top: 30px;
+  display: inline-block; 
+}
+
+.redes img {
+  margin-left: 5px;
+  width:3%;
+}
+
+/*Tablet grande*/
+
+@media (max-width: 769px){
+
+.col-footer > ul > li a {
+  font-size: 0.8em;
+}
+
+.col-subfooter > ul > li a {
+  font-size: 0.6em;
+}
+
+.iconos-footer img {
+  width: 20px;
+}
+
+
+}
+
+/*Tablet mini*/
+
+@media (max-width: 460px){
+.parent {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .col-footer {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .col-footer > ul > li {
+    width:30%;
+}
+
+.col-footer > ul > li a {
+  font-size: 0.7em;
+}
+
+  .col-suscribe {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+  }
+
+  .iconos-footer img {
+    width: 25px;
+  }
+
+ }
+
+/*Mobile*/
+
+
+@media (max-width: 460px){
+  .parent {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .col-footer {
+    text-align: center;
+  }
+
+  .col-footer ul {
+    display:flex;
+    flex:nowrap;
+    flex-direction: column;
+    width:100%;
+    margin: 20px 0;
+}
+
+.col-footer > ul > li {
+  width:100%;
+}
+
+.col-footer ul li a {
+  font-size: 0.9em;
+}
+
+  .col-suscribe {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    margin:Auto;
+  }
+
+  .col-suscribe, .col-subfooter ul {
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+  }
+
+  .col-subfooter ul li a {
+    font-size: 0.7em;
+  }
+
+  .iconos-footer img {
+    width: 25px;
+  }
+
+}
