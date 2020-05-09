@@ -3,7 +3,8 @@
     margin: 0px;
     padding: 0px;
     max-width: 100%;
-    
+    width: 100%;
+     
  }
 
  .dropbtn {
@@ -13,7 +14,7 @@
     font-size: 12px;
     border: none;
     cursor: pointer;
-    
+    width: 100%;
   }
   
   /* Dropdown button on hover & focus */
@@ -50,6 +51,8 @@
     min-width: 230px;
     border: 1px solid #ddd;
     z-index: 1;
+    width: 100%;
+    text-align: center;
   }
   
   /* Links inside the dropdown */

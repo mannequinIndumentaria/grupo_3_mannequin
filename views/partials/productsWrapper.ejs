@@ -1,90 +1,56 @@
-<div class="col-12 col-sm-6 col-lg-4">
-    <section class="product-box">
-        <a href="#">
-            <figure class="product-box_image">
-                <img src="/images/conjunto1.jpg " alt="imagen de producto">
-            </figure>
-            <article class="product-box_data">
-                <p>Conjunto Blanco y Negro</p>
-                <p>1000</p>
-                <span>10%</span>
-                <p>Top</p>
-            </article>
-        </a>
-    </section>
-</div>
-<div class="col-12 col-sm-6 col-lg-4">
-    <section class="product-box">
-        <a href="#">
-            <figure class="product-box_image">
-                <img src="/images/conjunto2.jpg " alt="imagen de producto">
-            </figure>
-            <article class="product-box_data">
-                <p>Conjunto Rojo Flores</p>
-                <p>1000</p>
-                <span>10%</span>
-                <p>Top</p>
-            </article>
-        </a>
-    </section>
-</div>
-<div class="col-12 col-sm-6 col-lg-4">
-    <section class="product-box">
-        <a href="#">
-            <figure class="product-box_image">
-                <img src="/images/conjunto3.jpg " alt="imagen de producto">
-            </figure>
-            <article class="product-box_data">
-                <p>Conjunto Rojo Flores</p>
-                <p>1000</p>
-                <span>10%</span>
-                <p>Top</p>
-            </article>
-        </a>
-    </section>
-</div>
-<div class="col-12 col-sm-6 col-lg-4">
-    <section class="product-box">
-        <a href="#">
-            <figure class="product-box_image">
-                <img src="/images/top4.jpg " alt="imagen de producto">
-            </figure>
-            <article class="product-box_data">
-                <p>Conjunto Rojo Flores</p>
-                <p>1000</p>
-                <span>10%</span>
-                <p>Top</p>
-            </article>
-        </a>
-    </section>
-</div>
-<div class="col-12 col-sm-6 col-lg-4">
-    <section class="product-box">
-        <a href="#">
-            <figure class="product-box_image">
-                <img src="/images/top1.jpg " alt="imagen de producto">
-            </figure>
-            <article class="product-box_data">
-                <p>Conjunto Rojo Flores</p>
-                <p>1000</p>
-                <span>10%</span>
-                <p>Top</p>
-            </article>
-        </a>
-    </section>
-</div>
-<div class="col-12 col-sm-6 col-lg-4">
-    <section class="product-box">
-        <a href="#">
-            <figure class="product-box_image">
-                <img src="/images/top2.jpg " alt="imagen de producto">
-            </figure>
-            <article class="product-box_data">
-                <p>Conjunto Rojo Flores</p>
-                <p>1000</p>
-                <span>10%</span>
-                <p>Top</p>
-            </article>
-        </a>
-    </section>
+<script>
+    function seleccionarColor(id, rutaImagen, color) {
+        document.getElementById('foto' + id).src = rutaImagen;
+        document.getElementById('elegido' + id).value = color;
+        document.getElementById('nombreElegido' + id).innerHTML = "Color elegido: " + color;
+    }
+    function favoritos(id) {
+        var objFavorito = document.getElementById('favorito' + id);
+        if (objFavorito.value == 1) {
+            objFavorito.className = "heart-carrito far fa-heart";
+            objFavorito.value = 0;
+        } else {
+            objFavorito.className = "heart-carrito fas fa-heart";
+            objFavorito.value = 1;
+        }
+    }
+
+</script>
+
+<div class="card-group">
+    <% for(let i = 1; i < 9 ; i++){ %>
+    <div class="product-box">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt=""
+                id="foto<%= i %>">
+            <div class="card-body">
+                <h5 class="card-title">Remera Algodón</h5>
+                <span class="precio-item-carrito">$500</span>
+                <div class="barra-iconos-cat">
+                    <div class="selector-color-carrito">
+                        <button class="boton-slector-color" style="background-color: black;"
+                            onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg','negro')"></button>
+                        <button class="boton-slector-color" style="background-color: white;"
+                            onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715637.jpg','blanco')"></button>
+                        <button class="boton-slector-color" style="background-color: red;"
+                            onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715642.jpg','rojo')"></button>
+                        <button class="boton-slector-color" style="background-color: yellow;"
+                            onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715653.jpg','amarillo')"></button>
+                        <button class="boton-slector-color" style="background-color: green;"
+                            onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715641.jpg','verde')"></button>
+                        <button class="boton-slector-color" style="background-color: orangered;"
+                            onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715648.jpg','naranja')"></button>
+                        <input type="hidden" value="" id="elegido<%= i %>">
+                    </div>
+                    <div class="botones-fav-del-carrito">
+                        <div class="boton-favorito-carrito">
+                            <button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= i %>')"
+                                id="favorito<%= i %>"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
 </div>

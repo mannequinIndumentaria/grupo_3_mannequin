@@ -1,5 +1,23 @@
 .products-wrapper{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
 }
+
+
+
+.barra-iconos-cat{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.botones-fav-del-carrito{
+    align-items: baseline;
+    
+}
+
+.boton-favorito-del-carrito{
+    width: 100%;
+}
+

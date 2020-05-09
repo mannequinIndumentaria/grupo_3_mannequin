@@ -1,23 +1,60 @@
-<ul>
-    <li class="category-title">COMPRAR POR CATEGORÍA
-      <ul>
-        <li><a href="#"><a href="#">Mujer</a></li>
-        <li><a href="#">Hombre</a></li>
-        <li><a href="#">Niño</a></li>
-        <li><a href="#">Accesorios</a></li>
+<h4>Filter by Category</h4>
+<ul id="myUL navCategoriesArrow">
+  <li><span class="caret">Woman</span>
+    <ul class="nested">
+      <li>Dresses</li>
+      <li>Trousers</li>
+      <li>Blouses</li>
+      <li>Shirts</li>
+      <li>Shirts</li>
       </ul>
-    </li>
-    <li class="category-title">ESTILO
-      <ul>
-        <li><a href="#">Casual</a></li>
-        <li><a href="#">Moderno</a></li>
+  </li>
+  <li><span class="caret">Men</span>
+    <ul class="nested">
+      <li>Dresses</li>
+      <li>Trousers</li>
+      <li>Blouses</li>
+      <li>Shirts</li>
+      <li>Shirts</li>
       </ul>
-    </li>
-    <li class="category-title">TALLA
-      <ul>
-        <li><a href="#">Large</a></li>
-        <li><a href="#">Medium</a></li>
-        <li><a href="#">Small</a></li>
+  </li>
+  <li><span class="caret">Children</span>
+    <ul class="nested">
+      <li>Dresses</li>
+      <li>Trousers</li>
+      <li>Blouses</li>
+      <li>Shirts</li>
+      <li>Shirts</li>
       </ul>
-    </li>
-</ul>
+  </li>
+  <li><span class="caret">Sports</span>
+    <ul class="nested">
+      <li>Dresses</li>
+      <li>Trousers</li>
+      <li>Blouses</li>
+      <li>Shirts</li>
+      <li>Shirts</li>
+      </ul>
+  </li>
+</ul> 
+
+<h4>Filter by Style</h4>
+<ul id="navCategoriesBox">
+  <li><input type="checkbox" id="casual" name="casual" value="casual">
+    <label for="casual">Casual</label><br></li>
+  <li><input type="checkbox" id="boheme" name="boheme" value="boheme">
+    <label for="boheme">Boheme</label><br></li>
+</ul> 
+
+<script>
+  var toggler = document.getElementsByClassName("caret");
+  var i;
+  
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].addEventListener("click", function() {
+      this.parentElement.querySelector(".nested").classList.toggle("active");
+      this.classList.toggle("caret-down");
+    });
+  }
+
+  </script>

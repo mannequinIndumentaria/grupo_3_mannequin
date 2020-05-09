@@ -1,4 +1,10 @@
  /* Pagination links */
+ .category-bar{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+ }
+ 
  .pagBar{
     margin: 0px;
     padding: 0px;
@@ -26,3 +32,4 @@
   
   /* Add a grey background color on mouse-over */
   .pagination a:hover:not(.active) {background-color: #ddd;} 
+
