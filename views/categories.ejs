@@ -6,27 +6,29 @@
   <div class="container-fluid">
     <%- include('./partials/header.ejs') %>
     <div class="row">
-      <div class="col-10 pagBar">
-        <%- include('./partials/breadcrumb.ejs') %>
-      </div>
+      <div class="category-bar">
+        <div class="col-10 pagBar">
+          <%- include('./partials/breadcrumb.ejs') %>
+        </div>
 
-      <div class="col-2 dropdown">
-        <%- include('./partials/dropdown.ejs') %>
-        <script src="/public/javascripts/dropdown.js"></script>
+        <div class="col-2 dropdown">
+          <%- include('./partials/dropdown.ejs') %>
+        </div>
       </div>
-      <div class="container-fluid mainCategory">
+      <div class="container-fluid main-category">
         <div class="row">
-          <div class="col-2 col-sm-0 nav-categories">
+          <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 nav-categories">
             <%- include('./partials/navCategories.ejs') %>
           </div>
-          <div class="col-10 products-wrapper">
-            <%- include('./partials/productsWrapper.ejs') %> 
+          <div class="container-fluid col-10 products-wrapper">
+            <%- include('./partials/productsWrapper.ejs') %>
+
             <%- include('./partials/pagination.ejs') %>
           </div>
         </div>
       </div>
     </div>
-    
+
     <%- include('./partials/footer.ejs') %>
     <%- include('./partials/scriptBootstrap.ejs') %>
 
