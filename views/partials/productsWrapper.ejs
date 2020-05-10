@@ -21,8 +21,13 @@
     <% for(let i = 1; i < 9 ; i++){ %>
     <div class="product-box">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt=""
-                id="foto<%= i %>">
+            <div class="cardImgContainer">
+                <img class="card-img-top" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt=""
+                    id="foto<%= i %>">
+                <div class="container-bag">
+                    <button class="addBag">Add to basket</button>
+                </div>
+            </div>
             <div class="card-body">
                 <h5 class="card-title">Remera Algodón</h5>
                 <span class="precio-item-carrito">$500</span>

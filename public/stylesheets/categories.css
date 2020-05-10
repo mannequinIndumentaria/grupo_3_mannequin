@@ -1,0 +1,293 @@
+ /*BREADCRUMB*/
+ /* Style the list */
+ ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+  }
+  
+  /* Display list items side by side */
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 12px;
+  }
+  
+  /* Add a slash symbol (>) before/behind each list item */
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: ">\00a0";
+  }
+  
+  /* Add a color to all links inside the list */
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  
+  /* Add a color on mouse-over */
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  } 
+
+/*DROPDOWN*/
+ /* Dropdown Button */
+ .dropdown {
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    width: 100%;
+     
+ }
+
+ .dropbtn {
+    background-color: #eee;
+    color: black;
+    padding: 10px 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #eee;
+  }
+  
+  /* The search field */
+  #myInput {
+    box-sizing: border-box;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* The search field when it gets focus/clicked on */
+  #myInput:focus {outline: 3px solid #ddd;}
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;} 
+
+  /*NAV CATEGORIES*/
+  .nav-categories {
+    margin-top: 5px;
+    inline-size: auto;
+    line-height: 2;
+    
+}
+
+.divCategory{
+  border-bottom: 1px solid blac;
+}
+
+ /* Remove default bullets */
+ ul, #myUL {
+  list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the caret/arrow */
+.caret {
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.caret::before {
+  content: "\003E";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+  transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.nested {
+  display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+  display: block;
+} 
+
+.box {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.box::before {
+  content: "\2610";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.check-box::before {
+  content: "\2611"; 
+  color: dodgerblue;
+}
+
+/*PAGINATION*/
+ /* Pagination links */
+ .category-bar{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+ }
+ 
+ .pagBar{
+    margin: 0px;
+    padding: 0px;
+ }
+ 
+ .pagination {
+    margin: 0px;
+    padding: 0px;
+ }
+ 
+ .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  
+  /* Style the active/current link */
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;} 
+
+/*PRODUCTS WRAPPER*/
+.products-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 5px;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 5px;
+}
+  
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+.cardImgContainer{
+    position: relative;
+}
+
+.card-img-top{
+    padding: 1.25em;
+    position: relative;
+    
+}
+
+.card-img-top:hover {
+    
+    
+}
+
+.barra-iconos-cat{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.botones-fav-del-carrito{
+    align-items: baseline;
+    
+}
+
+.boton-favorito-del-carrito{
+    width: 100%;
+}
+
+
+
+.addBag {
+    position: absolute;
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+    left: 25%;
+    top: 60%;
+    opacity: 0%;
+    
+}
+
+.addBag:hover{
+    opacity: 100%;
+    z-index: 3;
+    
+}
+
