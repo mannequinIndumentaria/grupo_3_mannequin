@@ -1,0 +1,100 @@
+
+.miniVistaDetalleProducto{
+    background-color: green;
+    width: 1%;
+    margin-left: 0px;
+   
+ 
+}
+
+.VistaCentralDetalleProducto{
+    background-color:pink;
+    width: 50%;    
+}
+
+.rightSideDetalleProducto{
+    background-color: indigo;
+    width: 47%;
+    margin-right: 0px;    
+}
+
+.row{
+    width: 100%;
+    margin:0px;
+
+}
+
+.products-wrapperAle{   
+    justify-content: center;
+   
+}
+
+#fotoDetalleProduct{
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    margin: 0px;
+    
+}
+
+
+.miniImgDetalleProduct{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+.ImgDetalleProduct{
+    position: relative;
+    justify-content: center;
+
+}
+
+.selector-color-detalle-producto{
+
+    position: relative;
+}
+
+.detalle-item-prodcuto{
+    position: relative;;
+}
+
+
+.paleta-colores-descripccion{
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+}
+
+.foto-item-detalle-producto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  
+}
+/*@media (max-width: 460px) {
+
+    .detalle{
+      display:flex;
+      width: 33%;
+    }
+  
+    @media (max-width: 320px) {
+    
+        .detalle{
+            display:flex;
+            width: 33%;
+          }
+  
+          @media (max-width: 768px) {
+
+            .detalle{
+              display:flex;
+              width: 33%;
+            }
+        }*/
