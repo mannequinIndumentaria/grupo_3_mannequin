@@ -5,7 +5,7 @@
 @import url("./navCategories.css");
 @import url("./productsWrapper.css");
 @import "/stylesheets/carrito.css";
-
+@import "/stylesheets/cargaArticulo.css";
 
 body .container-fluid, .row {
   margin: 0px;
