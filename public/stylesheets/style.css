@@ -1,11 +1,5 @@
-@import url("./categories.css");
 @import url("./carrito.css");
-@import url("./styleIndex.css");
-@import url("./styleNav.css");
-@import url("./styleGaleria.css");
-@import url("./styleFooter.css");
-@import url("./styleForm.css");
-@import url("./style.css");
+@import url("./categories.css");
 @import url("./cargaArticulo.css");
 @import url("./detalleProducto.css");
 
