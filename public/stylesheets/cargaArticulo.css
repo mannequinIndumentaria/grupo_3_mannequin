@@ -1,0 +1,96 @@
+.cargaArticuloContainer{
+    margin-top: 20px;
+}
+
+.boton-talle{
+    border:1px solid black;
+    background-color: #eee;
+    color: black;
+}
+
+.boton-talle-elegido{
+    border:1px solid black;
+    background-color: #8AC5C3;
+    color: white;
+}
+
+.boton-submit{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#talles{
+    margin-bottom: 18px;
+}
+
+.detalle-titulo{
+    width: 100%;
+}
+
+.miniaturasContainer, .principalContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.miniatura-carga{
+    margin:5px;
+    max-width: 150px;
+    min-width: 100px;
+    min-height: 100px;
+    max-height: 150px;
+    position: relative;
+    background-color: #eee;
+}
+
+.miniatura-carga img{
+   width: 100%;
+   height: 100%;
+    position: absolute; 
+    object-fit: cover;
+}
+
+.principal-carga img{
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    object-fit: cover;
+}
+
+.principal-carga{
+    margin:5px;
+    max-width: 600px;
+    min-width: 150px;
+
+    max-height: 600px;
+    min-height: 150px;
+    position: relative;
+    background-color: #eee;
+}
+
+.upload-button{
+    position: absolute;
+    left: calc(50% - 9px);
+    top: calc(100% - 18px);
+}
+
+.upload-button i{
+    font-size: 18px;
+    color: black;
+}
+
+.no-image{
+    position: absolute;
+    position: absolute;
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+}
+.no-image i{
+    font-size: 40px;
+    color: white;
+}
+
+.imagen-producto{
+    display: none;
+}

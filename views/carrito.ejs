@@ -42,15 +42,15 @@
 
 		<div class="container carrito-contenedor-principal">
          	<div class="row">
-            <div class="col-8"> 
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
 			   <span class="tituloArticulos">Articulos</span>
 				<% for(let i = 1; i < 5 ; i++){ %>
                	<div class="articulo" id="<%= i %>">
                   <div class="row">
-                     <div class="col-4">
+                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                         <img class="foto-item-carrito" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" id="foto<%= i %>">
                      </div>
-                     <div class="col-8 detalle-item-carrito">
+                     <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
 						<span class="precio-item-carrito">$27</span>
 						<span class="titulo-item-carrito">Remera algodon</span>
 						<div class="selector-color-carrito">
@@ -83,7 +83,7 @@
 			   		</div>
 				<% } %>
 			</div>
-          	<div class="col-4">
+          	<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                <div class="orden-de-compra">
 					<label for="code-discount" class="order-titulo">Cupon de descuento</label>
 					<input type="text" name="code-discount" id="code-discount" placeholder="32424249" class="order-discount">
@@ -121,6 +121,7 @@
       	  	</div>
 			</div> 
 		</div>
+		<%- include('./partials/galeriaNuevaTemporada.ejs') %> 
     	<%- include('./partials/footer.ejs') %>
    </div>
 	<%- include('./partials/scriptBootstrap.ejs') %>
