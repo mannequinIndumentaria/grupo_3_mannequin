@@ -270,7 +270,7 @@ ul.breadcrumb li a:hover {
 .card-img-top{
     padding: 1.25em;
     position: relative;
-    
+    cursor: pointer;
 }
 
 .barra-iconos-cat{
