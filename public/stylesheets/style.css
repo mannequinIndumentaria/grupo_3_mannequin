@@ -7,6 +7,7 @@
 @import url("./styleForm.css");
 @import url("./style.css");
 @import url("./cargaArticulo.css");
+@import url("./detalleProducto.css");
 
 body .container-fluid, .row {
   margin: 0px;
