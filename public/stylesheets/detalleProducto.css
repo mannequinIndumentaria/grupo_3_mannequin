@@ -1,6 +1,5 @@
 
 .miniVistaDetalleProducto{
-    background-color: green;
     width: 1%;
     margin-left: 0px;
    
@@ -8,12 +7,11 @@
 }
 
 .VistaCentralDetalleProducto{
-    background-color:pink;
-    width: 50%;    
+    width: 50%;
+    height: 70%;    
 }
 
 .rightSideDetalleProducto{
-    background-color: indigo;
     width: 47%;
     margin-right: 0px;    
 }
@@ -27,7 +25,10 @@
 .products-wrapperAle{   
     justify-content: center;
    
+   
 }
+
+.left-column{}
 
 #fotoDetalleProduct{
     margin-top: 10px;
@@ -42,6 +43,7 @@
     position: relative;
     width: 100%;
     margin-top: 10px;
+    display: flex;
 
 }
 
@@ -77,6 +79,23 @@
     justify-content: center;
   
 }
+
+.talles-detalle-prducto{
+    margin-top: 20px;
+}
+
+.iconos-footer-detalle-producto{
+    width: 500%;
+    display: inline;
+}
+
+.redes-detalle-producto img {
+    margin-left: 5px;
+    width:10%;
+    margin-top: 30px ;
+  }
+  
+
 /*@media (max-width: 460px) {
 
     .detalle{
