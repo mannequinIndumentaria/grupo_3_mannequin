@@ -1,0 +1,20 @@
+<script>
+    function elegirTalle(id){
+        if(document.getElementById(id).className == "boton-talle"){
+            document.getElementById(id).className = "boton-talle-elegido";
+        }else{
+            document.getElementById(id).className = "boton-talle";
+        }
+    }
+</script>
+
+<div id="talles">
+    <div>
+        <button class="boton-talle-elegido" onclick="elegirTalle('xs')" id="xs">XS</button>
+        <button class="boton-talle" onclick="elegirTalle('s')" id="s">S</button>
+        <button class="boton-talle" onclick="elegirTalle('m')" id="m">M</button>
+        <button class="boton-talle" onclick="elegirTalle('l')" id="l">L</button>
+        <button class="boton-talle" onclick="elegirTalle('xl')" id="xl">XL</button>
+        <button class="boton-talle" onclick="elegirTalle('xxl')" id="xxl">XXL</button>
+    </div>
+</div>
