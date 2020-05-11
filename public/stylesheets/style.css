@@ -1,4 +1,3 @@
-
 @import url("./categories.css");
 @import url("./carrito.css");
 @import url("./styleIndex.css");
@@ -7,6 +6,7 @@
 @import url("./styleFooter.css");
 @import url("./styleForm.css");
 @import url("./style.css");
+@import url("./cargaArticulo.css");
 
 body .container-fluid, .row {
   margin: 0px;

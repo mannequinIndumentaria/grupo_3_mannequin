@@ -4,8 +4,7 @@
 
 .columnasEnd{
     display: flex;
-    justify-content: flex-end; 
-        
+    justify-content: flex-end;    
 }
 
 #tituloRegister {
@@ -92,13 +91,26 @@ input[type=email]:focus, input[type=password]:focus {
     border-radius: 6px;
 }
 
-.buttonFacebook:hover {
+.buttonFacebook:hover, ..buttonRegistroForm:hover {
     color:white;
     background-color: black;
 }
 
 .buttonFacebook i {
   margin-right:10px;
+}
+
+.buttonRegistroForm:link,.buttonRegistroForm:visited {
+    background-color: white;
+    color:black;
+    display: inline-block;
+    margin: 5px 0;
+    padding: 18px 0;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    box-shadow: 0px 0px 3px 0px rgba(122,122,122,1);
+    border-radius: 6px;
 }
 
 /*FORMULARIO REGISTRO DETALLES*/
@@ -120,3 +132,13 @@ input[type=email]:focus, input[type=password]:focus {
 }
 
 /* MEDIA */
+
+@media (max-width: 460px){ 
+
+    .columnasEnd{
+        display: flex;
+        margin-bottom: 25px;
+        justify-content: center;   
+         
+    }
+}
