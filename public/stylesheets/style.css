@@ -1,11 +1,12 @@
-
-@import url("./breadcrumb.css");
-@import url("./pagination.css");
-@import url("./dropdown.css");
-@import url("./navCategories.css");
-@import url("./productsWrapper.css");
-@import "/stylesheets/carrito.css";
-@import "/stylesheets/cargaArticulo.css";
+@import url("./categories.css");
+@import url("./carrito.css");
+@import url("./styleIndex.css");
+@import url("./styleNav.css");
+@import url("./styleGaleria.css");
+@import url("./styleFooter.css");
+@import url("./styleForm.css");
+@import url("./style.css");
+@import url("./cargaArticulo.css");
 
 body .container-fluid, .row {
   margin: 0px;
@@ -15,6 +16,9 @@ body .container-fluid, .row {
 
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: Arial, Helvetica, sans-serif
 }
+
+
 
