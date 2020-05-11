@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <div class="container-fluid">
+        <%- include('./partials/header.ejs') %>
+        <script>
+            function addColor(){
+                var objColores = document.getElementById("container-colores");
+                var color = document.createElement('input');
+                color.type = "color";
+                color.className ="color-elegido";
+                objColores.appendChild(color);
+            }
+
+            function borrarColores(){
+                var arrColores = document.getElementsByClassName("color-elegido");
+                for (let index = 0; index <= arrColores.length; index++) {
+                    arrColores[index].remove();
+                    if(index < arrColores.length){
+                        index = index - 1;
+                    }
+                }
+
+            }
+        </script>
+        <div class="container cargaArticuloContainer">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-7">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 miniaturasContainer">
+                            <div class="miniatura-carga">
+                                <div class="no-image">
+                                    <i class="far fa-images"><a href="#"></a></i>
+                                </div>
+                                <div class="imagen-producto">
+                                    <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
+                                </div>
+                                <div class="upload-button">
+                                    <a href="#"><i class="fas fa-file-upload"></i></a>
+                                </div>
+                            </div>
+                            <div class="miniatura-carga">
+                                <div class="no-image">
+                                    <i class="far fa-images"><a href="#"></a></i>
+                                </div>
+                                <div class="imagen-producto">
+                                    <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
+                                </div>
+                                <div class="upload-button">
+                                    <a href="#"><i class="fas fa-file-upload"></i></a>
+                                </div>
+                            </div>
+                            <div class="miniatura-carga">
+                                <div class="no-image">
+                                    <i class="far fa-images"></i>
+                                </div>
+                                <div class="imagen-producto">
+                                    <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
+                                </div>
+                                <div class="upload-button">
+                                    <a href="#"><i class="fas fa-file-upload"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  principalContainer">
+                            <div class="principal-carga">
+                                <div class="no-image">
+                                    <i class="far fa-images"></i>
+                                </div>
+                                <div class="imagen-producto">
+                                    <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
+                                </div>
+                                <div class="upload-button">
+                                    <a href="#"><i class="fas fa-file-upload"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-5">
+                    <h5>Remera blanca</h5>
+                    <h3>$23</h3>
+                    <div id="colores">
+                        <div>
+                            <div id="container-colores">
+                                <input type="color" class="color-elegido" value="#000000">
+                            </div>
+                            <div>
+                                <button onclick="addColor()">+</button>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="trash-carrito fas fa-trash-alt" onclick="borrarColores()"></button>
+                        </div>
+                    </div>
+                    <%- include('./partials/talles.ejs') %>
+                    <div>
+                        <h6>Descripcion</h6>
+                        <textarea name="detalle" id="" cols="23" rows="5"></textarea>
+                        <div class="boton-submit">
+                            <button value="Subir producto">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    </div>
+    <%- include('./partials/scriptBootstrap.ejs') %>
+</body>
+
+</html>

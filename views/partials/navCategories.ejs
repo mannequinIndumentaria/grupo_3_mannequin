@@ -1,60 +1,61 @@
-<h4>Filter by Category</h4>
-<ul id="myUL navCategoriesArrow">
-  <li><span class="caret">Woman</span>
-    <ul class="nested">
-      <li>Dresses</li>
-      <li>Trousers</li>
-      <li>Blouses</li>
-      <li>Shirts</li>
-      <li>Shirts</li>
+<div class="divCategory">
+  <h4>FILTER BY CATEGORY</h4>
+  <ul id="myUL navCategoriesArrow">
+    <li><span class="caret">Woman</span>
+      <ul class="nested">
+        <li><a href="#">Dresses</a></li>
+        <li><a href="#">Trousers</a></li>
+        <li><a href="#">Blouses</a></li>
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Shirts</a></li>
       </ul>
-  </li>
-  <li><span class="caret">Men</span>
-    <ul class="nested">
-      <li>Dresses</li>
-      <li>Trousers</li>
-      <li>Blouses</li>
-      <li>Shirts</li>
-      <li>Shirts</li>
+    </li>
+    <li><span class="caret">Men</span>
+      <ul class="nested">
+        <li><a href="#">Trousers</a></li>
+        <li><a href="#">Shoes</a></li>
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Shirts</a></li>
       </ul>
-  </li>
-  <li><span class="caret">Children</span>
-    <ul class="nested">
-      <li>Dresses</li>
-      <li>Trousers</li>
-      <li>Blouses</li>
-      <li>Shirts</li>
-      <li>Shirts</li>
+    </li>
+    <li><span class="caret">Children</span>
+      <ul class="nested">
+        <li><a href="#">Dresses</a></li>
+        <li><a href="#">Trousers</a></li>
+        <li><a href="#">Blouses</a></li>
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Shirts</a></li>
       </ul>
-  </li>
-  <li><span class="caret">Sports</span>
-    <ul class="nested">
-      <li>Dresses</li>
-      <li>Trousers</li>
-      <li>Blouses</li>
-      <li>Shirts</li>
-      <li>Shirts</li>
+    </li>
+    <li><span class="caret">Sports</span>
+      <ul class="nested">
+        <li><a href="#">Dresses</a></li>
+        <li><a href="#">Trousers</a></li>
+        <li><a href="#">Blouses</a></li>
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Shirts</a></li>
       </ul>
-  </li>
-</ul> 
-
-<h4>Filter by Style</h4>
-<ul id="navCategoriesBox">
-  <li><input type="checkbox" id="casual" name="casual" value="casual">
-    <label for="casual">Casual</label><br></li>
-  <li><input type="checkbox" id="boheme" name="boheme" value="boheme">
-    <label for="boheme">Boheme</label><br></li>
-</ul> 
-
+    </li>
+  </ul>
+</div>
+<div class="divCategory">
+  <h4>FILTER BY STYLE</h4>
+  <ul id="navCategoriesBox">
+    <li><input type="checkbox" id="casual" name="casual" value="casual">
+      <label for="casual">Casual</label><br></li>
+    <li><input type="checkbox" id="boheme" name="boheme" value="boheme">
+      <label for="boheme">Boheme</label><br></li>
+  </ul>
+</div>
 <script>
   var toggler = document.getElementsByClassName("caret");
   var i;
-  
+
   for (i = 0; i < toggler.length; i++) {
-    toggler[i].addEventListener("click", function() {
+    toggler[i].addEventListener("click", function () {
       this.parentElement.querySelector(".nested").classList.toggle("active");
       this.classList.toggle("caret-down");
     });
   }
 
-  </script>
+</script>
