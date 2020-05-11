@@ -8,7 +8,10 @@
         <script>
             function addColor(){
                 var objColores = document.getElementById("container-colores");
-                console.log(objColores.children);
+                var color = document.createElement('input');
+                color.type = "color";
+                color.className ="color-elegido";
+                objColores.appendChild(color);
             }
 
             function borrarColores(){
