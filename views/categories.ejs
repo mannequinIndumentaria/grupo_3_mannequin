@@ -5,25 +5,27 @@
 <body>
   <div class="container-fluid">
     <%- include('./partials/header.ejs') %>
-    <div class="container-fluid">
-      <div class="row category-home">
-        <div class="category-bar">
-          <div class="col-xs-0 col-sm-0 col-md-10 col-lg-10 pagBar">
-            <%- include('./partials/breadcrumb.ejs') %>
-          </div>
-
-          <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 dropdown">
-            <%- include('./partials/dropdown.ejs') %>
-          </div>
-        </div>
-        <div class="container-fluid main-category">
-          <div class="row category-content">
-            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 nav-categories">
-              <%- include('./partials/navCategories.ejs') %>
+    <div class="contenido">
+      <div class="container-fluid">
+        <div class="row category-home">
+          <div class="category-bar">
+            <div class="col-xs-0 col-sm-0 col-md-10 col-lg-10 pagBar">
+              <%- include('./partials/breadcrumb.ejs') %>
             </div>
-            <div class="container-fluid col-xs-12 col-sm-12 col-md-10 col-lg-10 products-wrapper">
-              <%- include('./partials/productsWrapper.ejs') %>
-              <%- include('./partials/pagination.ejs') %>
+  
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 dropdown">
+              <%- include('./partials/dropdown.ejs') %>
+            </div>
+          </div>
+          <div class="container-fluid main-category">
+            <div class="row category-content">
+              <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 nav-categories">
+                <%- include('./partials/navCategories.ejs') %>
+              </div>
+              <div class="container-fluid col-xs-12 col-sm-12 col-md-10 col-lg-10 products-wrapper">
+                <%- include('./partials/productsWrapper.ejs') %>
+                <%- include('./partials/pagination.ejs') %>
+              </div>
             </div>
           </div>
         </div>

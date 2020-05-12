@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <%- include('./partials/headRegister.ejs') %>
+  <%- include('./partials/head.ejs') %>
   <body>
     <div class="container-fluid">
       <%- include('./partials/header.ejs') %>
-
-      <%- include('./partials/registerForm.ejs') %>
+      <div class="contenido">
+       <%- include('./partials/registerForm.ejs') %>
+       <%- include('./partials/footer.ejs') %>
+      </div>
     </div>
-    
-
-      <%- include('./partials/footer.ejs') %>
       <%- include('./partials/scriptBootstrap.ejs') %>
-      
-    </div>
   </body>
 
 </html>
