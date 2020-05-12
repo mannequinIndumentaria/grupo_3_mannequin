@@ -1,3 +1,13 @@
+/*HEADER*/
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  z-index: 9999;
+  background-color: white;
+}
 /* BANNER */
 .banner-oferta{
     background-color: #3A3A3A;
