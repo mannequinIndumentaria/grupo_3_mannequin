@@ -9,9 +9,12 @@
             function addColor(){
                 var objColores = document.getElementById("container-colores");
                 var color = document.createElement('input');
+                var imagen = document.createElement('input');
+                imagen.type = "file";
                 color.type = "color";
                 color.className ="color-elegido";
                 objColores.appendChild(color);
+                objColores.appendChild(imagen);
             }
 
             function borrarColores(){
