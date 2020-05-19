@@ -1,100 +1,3271 @@
-[{"id":1,"name":"data-warehouse","description":"in leo maecenas pulvinar lobortis est phasellus sit amet erat","price":1388,"creation_timestamp":"07/09/2018","discount_timestamp":null,"discount":75,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_1-67.jpg","color":"Blue","size":"L","stock":9},{"image":"product_1-16.jpg","color":"Aquamarine","size":"S","stock":2},{"image":"product_1-27.jpg","color":"Khaki","size":"3XL","stock":12},{"image":"product_1-96.jpg","color":"Crimson","size":"L","stock":20}]},
-{"id":2,"name":"Synergized","description":"vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus","price":777,"creation_timestamp":"29/02/2020","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_2-29.jpg","color":"Red","size":"3XL","stock":5}]},
-{"id":3,"name":"Visionary","description":"at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci","price":4228,"creation_timestamp":"30/09/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_3-14.jpg","color":"Yellow","size":"L","stock":1},{"image":"product_3-56.jpg","color":"Fuscia","size":"L","stock":6}]},
-{"id":4,"name":"standardization","description":"sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh","price":651,"creation_timestamp":"16/07/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_4-96.jpg","color":"Green","size":"XS","stock":16},{"image":"product_4-32.jpg","color":"Orange","size":"XL","stock":15},{"image":"product_4-71.jpg","color":"Red","size":"S","stock":7},{"image":"product_4-38.jpg","color":"Khaki","size":"S","stock":3},{"image":"product_4-28.jpg","color":"Turquoise","size":"L","stock":4}]},
-{"id":5,"name":"encryption","description":"sit amet turpis elementum ligula vehicula consequat morbi a ipsum","price":1046,"creation_timestamp":"29/04/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_5-97.jpg","color":"Yellow","size":"L","stock":3},{"image":"product_5-39.jpg","color":"Crimson","size":"L","stock":8},{"image":"product_5-57.jpg","color":"Turquoise","size":"L","stock":3},{"image":"product_5-91.jpg","color":"Purple","size":"2XL","stock":11}]},
-{"id":6,"name":"zero defect","description":"eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla","price":597,"creation_timestamp":"06/04/2018","discount_timestamp":null,"discount":44,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_6-16.jpg","color":"Purple","size":"L","stock":17},{"image":"product_6-91.jpg","color":"Crimson","size":"XL","stock":8},{"image":"product_6-18.jpg","color":"Red","size":"3XL","stock":18}]},
-{"id":7,"name":"solution-oriented","description":"non lectus aliquam sit amet diam in magna bibendum imperdiet","price":1270,"creation_timestamp":"18/06/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_7-37.jpg","color":"Goldenrod","size":"L","stock":23}]},
-{"id":8,"name":"core","description":"nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at","price":4815,"creation_timestamp":"25/11/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_8-61.jpg","color":"Yellow","size":"S","stock":9}]},
-{"id":9,"name":"encompassing","description":"vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum","price":2711,"creation_timestamp":"21/04/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_9-14.jpg","color":"Crimson","size":"M","stock":9},{"image":"product_9-14.jpg","color":"Orange","size":"M","stock":3},{"image":"product_9-84.jpg","color":"Green","size":"M","stock":3}]},
-{"id":10,"name":"concept","description":"et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis","price":4318,"creation_timestamp":"11/12/2019","discount_timestamp":null,"discount":31,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_10-69.jpg","color":"Fuscia","size":"M","stock":19},{"image":"product_10-94.jpg","color":"Goldenrod","size":"S","stock":18},{"image":"product_10-75.jpg","color":"Crimson","size":"XS","stock":14},{"image":"product_10-89.jpg","color":"Aquamarine","size":"M","stock":22}]},
-{"id":11,"name":"Optional","description":"in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla","price":591,"creation_timestamp":"26/12/2017","discount_timestamp":null,"discount":69,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_11-71.jpg","color":"Mauv","size":"3XL","stock":22},{"image":"product_11-72.jpg","color":"Mauv","size":"XL","stock":15},{"image":"product_11-98.jpg","color":"Violet","size":"XL","stock":13},{"image":"product_11-26.jpg","color":"Purple","size":"L","stock":24},{"image":"product_11-44.jpg","color":"Crimson","size":"3XL","stock":12}]},
-{"id":12,"name":"24/7","description":"pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra","price":3494,"creation_timestamp":"11/06/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_12-68.jpg","color":"Blue","size":"M","stock":11},{"image":"product_12-18.jpg","color":"Goldenrod","size":"XS","stock":9}]},
-{"id":13,"name":"full-range","description":"ac diam cras pellentesque volutpat dui maecenas tristique est et tempus","price":4416,"creation_timestamp":"20/07/2018","discount_timestamp":null,"discount":74,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_13-59.jpg","color":"Aquamarine","size":"M","stock":1},{"image":"product_13-98.jpg","color":"Violet","size":"XL","stock":5},{"image":"product_13-28.jpg","color":"Purple","size":"M","stock":20},{"image":"product_13-11.jpg","color":"Red","size":"XL","stock":2},{"image":"product_13-58.jpg","color":"Blue","size":"L","stock":7}]},
-{"id":14,"name":"national","description":"amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus","price":2825,"creation_timestamp":"10/03/2018","discount_timestamp":null,"discount":49,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_14-55.jpg","color":"Violet","size":"L","stock":7}]},
-{"id":15,"name":"framework","description":"duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer","price":4836,"creation_timestamp":"12/06/2019","discount_timestamp":null,"discount":59,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_15-65.jpg","color":"Khaki","size":"M","stock":11},{"image":"product_15-25.jpg","color":"Orange","size":"XL","stock":23}]},
-{"id":16,"name":"encoding","description":"augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit","price":4563,"creation_timestamp":"13/04/2017","discount_timestamp":null,"discount":43,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_16-15.jpg","color":"Purple","size":"XS","stock":19},{"image":"product_16-38.jpg","color":"Crimson","size":"M","stock":16},{"image":"product_16-12.jpg","color":"Green","size":"L","stock":20}]},
-{"id":17,"name":"approach","description":"vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla","price":3023,"creation_timestamp":"30/11/2017","discount_timestamp":null,"discount":34,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_17-22.jpg","color":"Teal","size":"2XL","stock":18},{"image":"product_17-42.jpg","color":"Aquamarine","size":"3XL","stock":22},{"image":"product_17-59.jpg","color":"Fuscia","size":"XS","stock":6},{"image":"product_17-54.jpg","color":"Crimson","size":"XS","stock":11},{"image":"product_17-82.jpg","color":"Crimson","size":"3XL","stock":17}]},
-{"id":18,"name":"secured line","description":"a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet","price":1963,"creation_timestamp":"16/03/2018","discount_timestamp":null,"discount":7,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_18-41.jpg","color":"Fuscia","size":"2XL","stock":4},{"image":"product_18-75.jpg","color":"Teal","size":"XS","stock":20}]},
-{"id":19,"name":"middleware","description":"ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices","price":1202,"creation_timestamp":"26/01/2017","discount_timestamp":null,"discount":93,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_19-87.jpg","color":"Turquoise","size":"S","stock":1},{"image":"product_19-47.jpg","color":"Mauv","size":"XS","stock":8},{"image":"product_19-23.jpg","color":"Fuscia","size":"3XL","stock":16}]},
-{"id":20,"name":"focus group","description":"etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id","price":1636,"creation_timestamp":"22/02/2019","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_20-53.jpg","color":"Turquoise","size":"2XL","stock":13},{"image":"product_20-75.jpg","color":"Crimson","size":"L","stock":12},{"image":"product_20-96.jpg","color":"Goldenrod","size":"S","stock":2}]},
-{"id":21,"name":"Cross-platform","description":"euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula","price":2836,"creation_timestamp":"08/01/2020","discount_timestamp":null,"discount":86,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_21-13.jpg","color":"Fuscia","size":"XL","stock":19},{"image":"product_21-72.jpg","color":"Maroon","size":"2XL","stock":24},{"image":"product_21-93.jpg","color":"Violet","size":"XS","stock":5},{"image":"product_21-21.jpg","color":"Fuscia","size":"L","stock":8},{"image":"product_21-32.jpg","color":"Khaki","size":"2XL","stock":5}]},
-{"id":22,"name":"service-desk","description":"ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis","price":1183,"creation_timestamp":"31/05/2017","discount_timestamp":null,"discount":25,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_22-39.jpg","color":"Fuscia","size":"M","stock":16},{"image":"product_22-46.jpg","color":"Crimson","size":"3XL","stock":15},{"image":"product_22-33.jpg","color":"Teal","size":"L","stock":25},{"image":"product_22-71.jpg","color":"Purple","size":"XS","stock":2}]},
-{"id":23,"name":"leading edge","description":"non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris","price":3252,"creation_timestamp":"10/06/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_23-46.jpg","color":"Green","size":"3XL","stock":21}]},
-{"id":24,"name":"Optimized","description":"congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede","price":4354,"creation_timestamp":"06/03/2017","discount_timestamp":null,"discount":87,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_24-95.jpg","color":"Green","size":"XL","stock":13},{"image":"product_24-65.jpg","color":"Turquoise","size":"M","stock":2}]},
-{"id":25,"name":"high-level","description":"eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero","price":2533,"creation_timestamp":"23/07/2017","discount_timestamp":null,"discount":23,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_25-97.jpg","color":"Indigo","size":"S","stock":15},{"image":"product_25-77.jpg","color":"Red","size":"3XL","stock":17},{"image":"product_25-65.jpg","color":"Green","size":"2XL","stock":5},{"image":"product_25-75.jpg","color":"Purple","size":"XS","stock":17}]},
-{"id":26,"name":"user-facing","description":"lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia","price":1239,"creation_timestamp":"04/02/2020","discount_timestamp":null,"discount":13,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_26-33.jpg","color":"Turquoise","size":"3XL","stock":21},{"image":"product_26-44.jpg","color":"Goldenrod","size":"3XL","stock":25}]},
-{"id":27,"name":"6th generation","description":"nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh","price":1646,"creation_timestamp":"06/07/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_27-29.jpg","color":"Maroon","size":"3XL","stock":25},{"image":"product_27-69.jpg","color":"Fuscia","size":"2XL","stock":4},{"image":"product_27-78.jpg","color":"Teal","size":"M","stock":7},{"image":"product_27-66.jpg","color":"Pink","size":"L","stock":19},{"image":"product_27-12.jpg","color":"Violet","size":"3XL","stock":8}]},
-{"id":28,"name":"Fundamental","description":"at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut","price":3163,"creation_timestamp":"23/08/2018","discount_timestamp":null,"discount":48,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_28-99.jpg","color":"Mauv","size":"XS","stock":20}]},
-{"id":29,"name":"neutral","description":"vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in","price":2668,"creation_timestamp":"21/08/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_29-93.jpg","color":"Red","size":"XS","stock":8},{"image":"product_29-27.jpg","color":"Aquamarine","size":"3XL","stock":24}]},
-{"id":30,"name":"composite","description":"semper sapien a libero nam dui proin leo odio porttitor id consequat in","price":4335,"creation_timestamp":"04/01/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_30-23.jpg","color":"Blue","size":"XL","stock":24}]},
-{"id":31,"name":"contextually-based","description":"laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue","price":2198,"creation_timestamp":"08/12/2019","discount_timestamp":null,"discount":1,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_31-58.jpg","color":"Purple","size":"M","stock":11},{"image":"product_31-59.jpg","color":"Green","size":"XL","stock":17}]},
-{"id":32,"name":"conglomeration","description":"tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer","price":1507,"creation_timestamp":"26/03/2020","discount_timestamp":"02/09/2017","discount":null,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_32-83.jpg","color":"Purple","size":"3XL","stock":9},{"image":"product_32-67.jpg","color":"Khaki","size":"XS","stock":12},{"image":"product_32-59.jpg","color":"Indigo","size":"M","stock":18},{"image":"product_32-99.jpg","color":"Yellow","size":"L","stock":8}]},
-{"id":33,"name":"firmware","description":"sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus","price":4553,"creation_timestamp":"19/02/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_33-62.jpg","color":"Blue","size":"S","stock":1},{"image":"product_33-85.jpg","color":"Teal","size":"3XL","stock":11}]},
-{"id":34,"name":"info-mediaries","description":"adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non","price":723,"creation_timestamp":"12/08/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_34-83.jpg","color":"Yellow","size":"3XL","stock":6},{"image":"product_34-67.jpg","color":"Aquamarine","size":"M","stock":15},{"image":"product_34-84.jpg","color":"Maroon","size":"XS","stock":3},{"image":"product_34-45.jpg","color":"Red","size":"XS","stock":21}]},
-{"id":35,"name":"transitional","description":"dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis","price":1395,"creation_timestamp":"22/01/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_35-43.jpg","color":"Khaki","size":"3XL","stock":22},{"image":"product_35-12.jpg","color":"Crimson","size":"2XL","stock":25},{"image":"product_35-41.jpg","color":"Violet","size":"3XL","stock":19},{"image":"product_35-66.jpg","color":"Green","size":"M","stock":19}]},
-{"id":36,"name":"Enterprise-wide","description":"potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam","price":1644,"creation_timestamp":"23/07/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_36-13.jpg","color":"Green","size":"S","stock":22},{"image":"product_36-45.jpg","color":"Aquamarine","size":"XS","stock":5},{"image":"product_36-73.jpg","color":"Fuscia","size":"S","stock":11},{"image":"product_36-13.jpg","color":"Aquamarine","size":"XS","stock":23}]},
-{"id":37,"name":"Advanced","description":"gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede","price":1289,"creation_timestamp":"02/01/2020","discount_timestamp":null,"discount":44,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_37-63.jpg","color":"Orange","size":"XS","stock":22},{"image":"product_37-93.jpg","color":"Turquoise","size":"XS","stock":17},{"image":"product_37-56.jpg","color":"Pink","size":"M","stock":22},{"image":"product_37-19.jpg","color":"Orange","size":"2XL","stock":19}]},
-{"id":38,"name":"attitude","description":"ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla","price":3939,"creation_timestamp":"10/11/2018","discount_timestamp":null,"discount":18,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_38-33.jpg","color":"Fuscia","size":"2XL","stock":20}]},
-{"id":39,"name":"Cloned","description":"pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum","price":1476,"creation_timestamp":"19/10/2018","discount_timestamp":null,"discount":10,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_39-41.jpg","color":"Goldenrod","size":"M","stock":7},{"image":"product_39-24.jpg","color":"Khaki","size":"M","stock":1},{"image":"product_39-58.jpg","color":"Yellow","size":"2XL","stock":16},{"image":"product_39-13.jpg","color":"Teal","size":"M","stock":22},{"image":"product_39-53.jpg","color":"Mauv","size":"L","stock":3}]},
-{"id":40,"name":"mobile","description":"nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in","price":1283,"creation_timestamp":"15/06/2017","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_40-69.jpg","color":"Teal","size":"S","stock":10},{"image":"product_40-94.jpg","color":"Blue","size":"2XL","stock":15},{"image":"product_40-98.jpg","color":"Teal","size":"XS","stock":1}]},
-{"id":41,"name":"Robust","description":"volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim","price":4052,"creation_timestamp":"06/08/2019","discount_timestamp":null,"discount":93,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_41-97.jpg","color":"Aquamarine","size":"L","stock":17},{"image":"product_41-81.jpg","color":"Crimson","size":"2XL","stock":3},{"image":"product_41-51.jpg","color":"Teal","size":"L","stock":19},{"image":"product_41-34.jpg","color":"Fuscia","size":"S","stock":19}]},
-{"id":42,"name":"dedicated","description":"sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec","price":4726,"creation_timestamp":"19/03/2017","discount_timestamp":null,"discount":65,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_42-44.jpg","color":"Orange","size":"XL","stock":6}]},
-{"id":43,"name":"solution-oriented","description":"magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque","price":1929,"creation_timestamp":"20/04/2019","discount_timestamp":null,"discount":98,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_43-88.jpg","color":"Yellow","size":"XS","stock":25},{"image":"product_43-99.jpg","color":"Purple","size":"S","stock":19},{"image":"product_43-26.jpg","color":"Blue","size":"2XL","stock":3}]},
-{"id":44,"name":"task-force","description":"vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at","price":4911,"creation_timestamp":"26/03/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_44-47.jpg","color":"Khaki","size":"3XL","stock":23},{"image":"product_44-29.jpg","color":"Fuscia","size":"XS","stock":4},{"image":"product_44-46.jpg","color":"Orange","size":"2XL","stock":10},{"image":"product_44-12.jpg","color":"Purple","size":"S","stock":7},{"image":"product_44-62.jpg","color":"Aquamarine","size":"2XL","stock":9}]},
-{"id":45,"name":"Persistent","description":"sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis","price":4100,"creation_timestamp":"02/11/2019","discount_timestamp":null,"discount":41,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_45-48.jpg","color":"Crimson","size":"XS","stock":4},{"image":"product_45-58.jpg","color":"Khaki","size":"XL","stock":21},{"image":"product_45-16.jpg","color":"Green","size":"3XL","stock":17},{"image":"product_45-67.jpg","color":"Orange","size":"M","stock":25}]},
-{"id":46,"name":"holistic","description":"enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin","price":4641,"creation_timestamp":"10/01/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_46-82.jpg","color":"Aquamarine","size":"2XL","stock":6},{"image":"product_46-92.jpg","color":"Mauv","size":"L","stock":4},{"image":"product_46-49.jpg","color":"Orange","size":"XS","stock":11},{"image":"product_46-84.jpg","color":"Orange","size":"M","stock":23}]},
-{"id":47,"name":"Switchable","description":"praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante","price":433,"creation_timestamp":"19/04/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_47-93.jpg","color":"Red","size":"XL","stock":2},{"image":"product_47-66.jpg","color":"Mauv","size":"S","stock":19},{"image":"product_47-37.jpg","color":"Goldenrod","size":"S","stock":13},{"image":"product_47-34.jpg","color":"Khaki","size":"2XL","stock":19}]},
-{"id":48,"name":"Extended","description":"dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet","price":1180,"creation_timestamp":"13/09/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_48-23.jpg","color":"Maroon","size":"3XL","stock":22},{"image":"product_48-24.jpg","color":"Mauv","size":"L","stock":8}]},
-{"id":49,"name":"explicit","description":"volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna","price":3971,"creation_timestamp":"09/07/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_49-33.jpg","color":"Red","size":"3XL","stock":23}]},
-{"id":50,"name":"Down-sized","description":"sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui","price":231,"creation_timestamp":"01/12/2017","discount_timestamp":null,"discount":51,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_50-84.jpg","color":"Goldenrod","size":"XL","stock":2},{"image":"product_50-87.jpg","color":"Crimson","size":"M","stock":11}]},
-{"id":51,"name":"extranet","description":"eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare","price":2583,"creation_timestamp":"02/03/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_51-52.jpg","color":"Green","size":"XL","stock":21},{"image":"product_51-95.jpg","color":"Indigo","size":"3XL","stock":20},{"image":"product_51-58.jpg","color":"Pink","size":"S","stock":19},{"image":"product_51-21.jpg","color":"Pink","size":"3XL","stock":6}]},
-{"id":52,"name":"Versatile","description":"in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi","price":2453,"creation_timestamp":"12/09/2017","discount_timestamp":null,"discount":74,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_52-12.jpg","color":"Mauv","size":"2XL","stock":14},{"image":"product_52-75.jpg","color":"Violet","size":"L","stock":18},{"image":"product_52-84.jpg","color":"Aquamarine","size":"XL","stock":25}]},
-{"id":53,"name":"human-resource","description":"nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat","price":2612,"creation_timestamp":"09/04/2020","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_53-76.jpg","color":"Teal","size":"M","stock":23},{"image":"product_53-33.jpg","color":"Green","size":"L","stock":5},{"image":"product_53-19.jpg","color":"Goldenrod","size":"2XL","stock":13},{"image":"product_53-98.jpg","color":"Khaki","size":"XL","stock":7},{"image":"product_53-56.jpg","color":"Khaki","size":"L","stock":17}]},
-{"id":54,"name":"homogeneous","description":"erat eros viverra eget congue eget semper rutrum nulla nunc purus","price":3583,"creation_timestamp":"25/09/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_54-41.jpg","color":"Goldenrod","size":"S","stock":22},{"image":"product_54-67.jpg","color":"Fuscia","size":"XS","stock":1},{"image":"product_54-73.jpg","color":"Blue","size":"XL","stock":8},{"image":"product_54-86.jpg","color":"Purple","size":"XL","stock":1},{"image":"product_54-25.jpg","color":"Mauv","size":"S","stock":8}]},
-{"id":55,"name":"Intuitive","description":"quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc","price":4379,"creation_timestamp":"11/12/2018","discount_timestamp":null,"discount":18,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_55-56.jpg","color":"Indigo","size":"3XL","stock":24},{"image":"product_55-85.jpg","color":"Violet","size":"S","stock":22},{"image":"product_55-62.jpg","color":"Purple","size":"XL","stock":6}]},
-{"id":56,"name":"Stand-alone","description":"et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien","price":2912,"creation_timestamp":"13/10/2017","discount_timestamp":null,"discount":48,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_56-31.jpg","color":"Maroon","size":"M","stock":6},{"image":"product_56-21.jpg","color":"Purple","size":"S","stock":3},{"image":"product_56-81.jpg","color":"Turquoise","size":"XS","stock":5},{"image":"product_56-89.jpg","color":"Teal","size":"L","stock":18},{"image":"product_56-27.jpg","color":"Orange","size":"M","stock":24}]},
-{"id":57,"name":"asynchronous","description":"aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate","price":4347,"creation_timestamp":"02/12/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_57-75.jpg","color":"Aquamarine","size":"XS","stock":8},{"image":"product_57-87.jpg","color":"Blue","size":"XL","stock":5},{"image":"product_57-84.jpg","color":"Teal","size":"L","stock":19},{"image":"product_57-91.jpg","color":"Green","size":"XS","stock":19},{"image":"product_57-22.jpg","color":"Aquamarine","size":"2XL","stock":11}]},
-{"id":58,"name":"bi-directional","description":"etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean","price":3576,"creation_timestamp":"30/05/2018","discount_timestamp":null,"discount":71,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_58-79.jpg","color":"Orange","size":"S","stock":16},{"image":"product_58-44.jpg","color":"Blue","size":"L","stock":5}]},
-{"id":59,"name":"Diverse","description":"elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum","price":1802,"creation_timestamp":"12/08/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_59-53.jpg","color":"Pink","size":"S","stock":16},{"image":"product_59-32.jpg","color":"Orange","size":"L","stock":15}]},
-{"id":60,"name":"Synchronised","description":"vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer","price":4903,"creation_timestamp":"13/05/2019","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_60-58.jpg","color":"Teal","size":"L","stock":17},{"image":"product_60-75.jpg","color":"Aquamarine","size":"XL","stock":20}]},
-{"id":61,"name":"Adaptive","description":"nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend","price":127,"creation_timestamp":"26/06/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_61-12.jpg","color":"Aquamarine","size":"XS","stock":19},{"image":"product_61-91.jpg","color":"Mauv","size":"2XL","stock":15},{"image":"product_61-87.jpg","color":"Blue","size":"XL","stock":20},{"image":"product_61-99.jpg","color":"Indigo","size":"2XL","stock":15},{"image":"product_61-34.jpg","color":"Violet","size":"2XL","stock":15}]},
-{"id":62,"name":"Intuitive","description":"tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor","price":1923,"creation_timestamp":"28/08/2018","discount_timestamp":null,"discount":59,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_62-17.jpg","color":"Yellow","size":"S","stock":7},{"image":"product_62-51.jpg","color":"Maroon","size":"3XL","stock":21},{"image":"product_62-77.jpg","color":"Khaki","size":"M","stock":3},{"image":"product_62-33.jpg","color":"Fuscia","size":"XL","stock":4}]},
-{"id":63,"name":"algorithm","description":"ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis","price":4073,"creation_timestamp":"15/01/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_63-71.jpg","color":"Purple","size":"3XL","stock":14},{"image":"product_63-62.jpg","color":"Green","size":"M","stock":19},{"image":"product_63-77.jpg","color":"Blue","size":"S","stock":4},{"image":"product_63-38.jpg","color":"Mauv","size":"2XL","stock":13}]},
-{"id":64,"name":"Team-oriented","description":"scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum","price":151,"creation_timestamp":"14/10/2017","discount_timestamp":null,"discount":20,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_64-77.jpg","color":"Yellow","size":"3XL","stock":15},{"image":"product_64-54.jpg","color":"Goldenrod","size":"XS","stock":16},{"image":"product_64-49.jpg","color":"Turquoise","size":"M","stock":21}]},
-{"id":65,"name":"Multi-layered","description":"pede justo eu massa donec dapibus duis at velit eu est","price":4942,"creation_timestamp":"19/04/2019","discount_timestamp":null,"discount":72,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_65-52.jpg","color":"Turquoise","size":"S","stock":9}]},
-{"id":66,"name":"Universal","description":"ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing","price":1564,"creation_timestamp":"25/08/2017","discount_timestamp":null,"discount":100,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_66-25.jpg","color":"Turquoise","size":"M","stock":18},{"image":"product_66-65.jpg","color":"Blue","size":"L","stock":21},{"image":"product_66-78.jpg","color":"Blue","size":"L","stock":9}]},
-{"id":67,"name":"well-modulated","description":"sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget","price":1258,"creation_timestamp":"13/10/2019","discount_timestamp":null,"discount":67,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_67-91.jpg","color":"Yellow","size":"3XL","stock":25},{"image":"product_67-18.jpg","color":"Aquamarine","size":"L","stock":8}]},
-{"id":68,"name":"bottom-line","description":"sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem","price":705,"creation_timestamp":"24/08/2018","discount_timestamp":null,"discount":100,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_68-98.jpg","color":"Indigo","size":"3XL","stock":22},{"image":"product_68-38.jpg","color":"Goldenrod","size":"M","stock":3},{"image":"product_68-28.jpg","color":"Crimson","size":"L","stock":4}]},
-{"id":69,"name":"asynchronous","description":"posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae","price":1130,"creation_timestamp":"13/04/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_69-18.jpg","color":"Goldenrod","size":"M","stock":5},{"image":"product_69-79.jpg","color":"Crimson","size":"XS","stock":19},{"image":"product_69-53.jpg","color":"Puce","size":"L","stock":16}]},
-{"id":70,"name":"uniform","description":"primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna","price":1346,"creation_timestamp":"05/02/2018","discount_timestamp":null,"discount":25,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_70-77.jpg","color":"Mauv","size":"XS","stock":25},{"image":"product_70-12.jpg","color":"Purple","size":"XL","stock":1},{"image":"product_70-47.jpg","color":"Purple","size":"S","stock":14},{"image":"product_70-25.jpg","color":"Crimson","size":"S","stock":12},{"image":"product_70-53.jpg","color":"Goldenrod","size":"S","stock":10}]},
-{"id":71,"name":"disintermediate","description":"vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed","price":2882,"creation_timestamp":"01/02/2017","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_71-91.jpg","color":"Goldenrod","size":"M","stock":25},{"image":"product_71-24.jpg","color":"Aquamarine","size":"M","stock":12},{"image":"product_71-47.jpg","color":"Green","size":"S","stock":24},{"image":"product_71-67.jpg","color":"Goldenrod","size":"2XL","stock":2},{"image":"product_71-33.jpg","color":"Purple","size":"L","stock":3}]},
-{"id":72,"name":"infrastructure","description":"est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna","price":2454,"creation_timestamp":"22/05/2018","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_72-58.jpg","color":"Mauv","size":"L","stock":24},{"image":"product_72-64.jpg","color":"Indigo","size":"S","stock":7}]},
-{"id":73,"name":"Switchable","description":"auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi","price":3386,"creation_timestamp":"08/10/2019","discount_timestamp":null,"discount":88,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_73-41.jpg","color":"Crimson","size":"3XL","stock":8},{"image":"product_73-39.jpg","color":"Orange","size":"L","stock":4},{"image":"product_73-71.jpg","color":"Purple","size":"3XL","stock":19},{"image":"product_73-77.jpg","color":"Turquoise","size":"S","stock":17},{"image":"product_73-97.jpg","color":"Turquoise","size":"M","stock":6}]},
-{"id":74,"name":"Customizable","description":"pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit","price":875,"creation_timestamp":"05/07/2019","discount_timestamp":null,"discount":2,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_74-55.jpg","color":"Turquoise","size":"L","stock":15},{"image":"product_74-29.jpg","color":"Yellow","size":"XL","stock":22},{"image":"product_74-59.jpg","color":"Indigo","size":"XS","stock":10}]},
-{"id":75,"name":"24/7","description":"amet justo morbi ut odio cras mi pede malesuada in imperdiet","price":4516,"creation_timestamp":"01/01/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_75-54.jpg","color":"Blue","size":"XL","stock":3},{"image":"product_75-99.jpg","color":"Orange","size":"XS","stock":6}]},
-{"id":76,"name":"superstructure","description":"vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa","price":1276,"creation_timestamp":"10/08/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_76-62.jpg","color":"Yellow","size":"3XL","stock":12},{"image":"product_76-62.jpg","color":"Fuscia","size":"S","stock":24},{"image":"product_76-91.jpg","color":"Yellow","size":"XS","stock":10}]},
-{"id":77,"name":"focus group","description":"vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci","price":4455,"creation_timestamp":"21/04/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_77-21.jpg","color":"Fuscia","size":"M","stock":7},{"image":"product_77-31.jpg","color":"Green","size":"S","stock":10}]},
-{"id":78,"name":"next generation","description":"eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in","price":1229,"creation_timestamp":"01/12/2017","discount_timestamp":null,"discount":1,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_78-16.jpg","color":"Purple","size":"3XL","stock":12},{"image":"product_78-98.jpg","color":"Goldenrod","size":"M","stock":3},{"image":"product_78-57.jpg","color":"Turquoise","size":"L","stock":10},{"image":"product_78-96.jpg","color":"Teal","size":"XL","stock":13},{"image":"product_78-45.jpg","color":"Fuscia","size":"3XL","stock":1}]},
-{"id":79,"name":"matrix","description":"habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat","price":3774,"creation_timestamp":"20/08/2017","discount_timestamp":null,"discount":91,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_79-42.jpg","color":"Aquamarine","size":"2XL","stock":14},{"image":"product_79-78.jpg","color":"Fuscia","size":"L","stock":8}]},
-{"id":80,"name":"dedicated","description":"tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec","price":748,"creation_timestamp":"21/05/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_80-45.jpg","color":"Orange","size":"M","stock":10}]},
-{"id":81,"name":"utilisation","description":"sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed","price":3112,"creation_timestamp":"31/01/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_81-26.jpg","color":"Aquamarine","size":"XS","stock":12},{"image":"product_81-33.jpg","color":"Indigo","size":"3XL","stock":13},{"image":"product_81-29.jpg","color":"Red","size":"M","stock":19},{"image":"product_81-39.jpg","color":"Khaki","size":"S","stock":19}]},
-{"id":82,"name":"projection","description":"volutpat convallis morbi odio odio elementum eu interdum eu tincidunt","price":2142,"creation_timestamp":"30/11/2018","discount_timestamp":null,"discount":52,"gender":"M","new_season":false,"sale":true,"property":[{"image":"product_82-69.jpg","color":"Red","size":"2XL","stock":25},{"image":"product_82-79.jpg","color":"Red","size":"L","stock":16},{"image":"product_82-66.jpg","color":"Goldenrod","size":"XS","stock":2},{"image":"product_82-31.jpg","color":"Indigo","size":"S","stock":12},{"image":"product_82-88.jpg","color":"Goldenrod","size":"L","stock":18}]},
-{"id":83,"name":"Profit-focused","description":"mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient","price":2892,"creation_timestamp":"20/12/2017","discount_timestamp":null,"discount":6,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_83-99.jpg","color":"Purple","size":"L","stock":2},{"image":"product_83-86.jpg","color":"Indigo","size":"2XL","stock":1},{"image":"product_83-29.jpg","color":"Purple","size":"S","stock":3}]},
-{"id":84,"name":"dedicated","description":"volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse","price":2033,"creation_timestamp":"17/03/2019","discount_timestamp":null,"discount":6,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_84-55.jpg","color":"Puce","size":"M","stock":21},{"image":"product_84-55.jpg","color":"Turquoise","size":"XL","stock":6},{"image":"product_84-89.jpg","color":"Maroon","size":"M","stock":10},{"image":"product_84-74.jpg","color":"Turquoise","size":"XL","stock":7}]},
-{"id":85,"name":"uniform","description":"mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a","price":2899,"creation_timestamp":"04/10/2018","discount_timestamp":null,"discount":3,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_85-66.jpg","color":"Orange","size":"L","stock":22},{"image":"product_85-89.jpg","color":"Red","size":"L","stock":4},{"image":"product_85-39.jpg","color":"Puce","size":"S","stock":1}]},
-{"id":86,"name":"human-resource","description":"a pede posuere nonummy integer non velit donec diam neque","price":2197,"creation_timestamp":"12/03/2017","discount_timestamp":null,"discount":58,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_86-11.jpg","color":"Fuscia","size":"XS","stock":8},{"image":"product_86-89.jpg","color":"Pink","size":"XS","stock":12}]},
-{"id":87,"name":"structure","description":"rhoncus dui vel sem sed sagittis nam congue risus semper porta","price":3227,"creation_timestamp":"11/12/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_87-31.jpg","color":"Puce","size":"S","stock":4}]},
-{"id":88,"name":"encryption","description":"vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede","price":2557,"creation_timestamp":"11/04/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":true,"property":[{"image":"product_88-75.jpg","color":"Mauv","size":"S","stock":8}]},
-{"id":89,"name":"concept","description":"nulla elit ac nulla sed vel enim sit amet nunc viverra","price":4568,"creation_timestamp":"02/10/2017","discount_timestamp":null,"discount":58,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_89-84.jpg","color":"Violet","size":"M","stock":2},{"image":"product_89-71.jpg","color":"Purple","size":"XS","stock":20},{"image":"product_89-52.jpg","color":"Pink","size":"S","stock":24},{"image":"product_89-68.jpg","color":"Purple","size":"M","stock":1}]},
-{"id":90,"name":"benchmark","description":"habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo","price":4544,"creation_timestamp":"01/04/2017","discount_timestamp":null,"discount":43,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_90-59.jpg","color":"Green","size":"M","stock":21},{"image":"product_90-11.jpg","color":"Pink","size":"M","stock":23},{"image":"product_90-19.jpg","color":"Mauv","size":"3XL","stock":10}]},
-{"id":91,"name":"User-centric","description":"nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris","price":1889,"creation_timestamp":"02/04/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_91-73.jpg","color":"Puce","size":"2XL","stock":1},{"image":"product_91-71.jpg","color":"Fuscia","size":"M","stock":14},{"image":"product_91-94.jpg","color":"Mauv","size":"L","stock":14}]},
-{"id":92,"name":"Reactive","description":"maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque","price":3578,"creation_timestamp":"01/07/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_92-94.jpg","color":"Maroon","size":"XS","stock":6}]},
-{"id":93,"name":"context-sensitive","description":"mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel","price":2051,"creation_timestamp":"02/12/2018","discount_timestamp":null,"discount":46,"gender":"M","new_season":false,"sale":false,"property":[{"image":"product_93-67.jpg","color":"Crimson","size":"XS","stock":24},{"image":"product_93-82.jpg","color":"Turquoise","size":"S","stock":7},{"image":"product_93-17.jpg","color":"Blue","size":"3XL","stock":15}]},
-{"id":94,"name":"6th generation","description":"odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus","price":4306,"creation_timestamp":"19/03/2017","discount_timestamp":null,"discount":20,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_94-95.jpg","color":"Violet","size":"S","stock":5}]},
-{"id":95,"name":"Inverse","description":"viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra","price":4205,"creation_timestamp":"03/11/2019","discount_timestamp":null,"discount":null,"gender":"M","new_season":true,"sale":true,"property":[{"image":"product_95-31.jpg","color":"Orange","size":"3XL","stock":15},{"image":"product_95-61.jpg","color":"Red","size":"2XL","stock":6},{"image":"product_95-47.jpg","color":"Crimson","size":"S","stock":8},{"image":"product_95-62.jpg","color":"Crimson","size":"L","stock":21},{"image":"product_95-26.jpg","color":"Violet","size":"L","stock":25}]},
-{"id":96,"name":"Expanded","description":"augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat","price":2532,"creation_timestamp":"09/09/2017","discount_timestamp":null,"discount":null,"gender":"F","new_season":true,"sale":false,"property":[{"image":"product_96-46.jpg","color":"Khaki","size":"L","stock":3},{"image":"product_96-54.jpg","color":"Goldenrod","size":"XS","stock":25},{"image":"product_96-39.jpg","color":"Blue","size":"XL","stock":6},{"image":"product_96-19.jpg","color":"Violet","size":"3XL","stock":22}]},
-{"id":97,"name":"Switchable","description":"morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate","price":2852,"creation_timestamp":"20/05/2017","discount_timestamp":null,"discount":69,"gender":"M","new_season":true,"sale":false,"property":[{"image":"product_97-42.jpg","color":"Blue","size":"3XL","stock":5},{"image":"product_97-75.jpg","color":"Yellow","size":"M","stock":2},{"image":"product_97-29.jpg","color":"Purple","size":"L","stock":14},{"image":"product_97-53.jpg","color":"Yellow","size":"XL","stock":21},{"image":"product_97-82.jpg","color":"Teal","size":"M","stock":10}]},
-{"id":98,"name":"task-force","description":"ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo","price":172,"creation_timestamp":"01/03/2018","discount_timestamp":null,"discount":null,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_98-89.jpg","color":"Blue","size":"XS","stock":18},{"image":"product_98-16.jpg","color":"Blue","size":"XL","stock":13},{"image":"product_98-34.jpg","color":"Teal","size":"3XL","stock":23},{"image":"product_98-24.jpg","color":"Yellow","size":"L","stock":14}]},
-{"id":99,"name":"background","description":"massa id nisl venenatis lacinia aenean sit amet justo morbi","price":2727,"creation_timestamp":"22/10/2018","discount_timestamp":null,"discount":52,"gender":"F","new_season":false,"sale":false,"property":[{"image":"product_99-26.jpg","color":"Violet","size":"M","stock":8},{"image":"product_99-35.jpg","color":"Red","size":"XL","stock":17},{"image":"product_99-77.jpg","color":"Red","size":"L","stock":24},{"image":"product_99-48.jpg","color":"Puce","size":"S","stock":15},{"image":"product_99-39.jpg","color":"Green","size":"3XL","stock":25}]},
-{"id":100,"name":"monitoring","description":"lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a","price":375,"creation_timestamp":"01/12/2017","discount_timestamp":null,"discount":51,"gender":"F","new_season":false,"sale":true,"property":[{"image":"product_100-31.jpg","color":"Blue","size":"XS","stock":8},{"image":"product_100-67.jpg","color":"Fuscia","size":"L","stock":1}]}]
+[
+ {
+  "id": 1,
+  "name": "data-warehouse",
+  "description": "in leo maecenas pulvinar lobortis est phasellus sit amet erat",
+  "price": 1388,
+  "creation_timestamp": "07/09/2018",
+  "discount_timestamp": null,
+  "discount": 75,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_1-67.jpg",
+    "color": "Blue",
+    "size": "L",
+    "stock": 9
+   },
+   {
+    "image": "product_1-16.jpg",
+    "color": "Aquamarine",
+    "size": "S",
+    "stock": 2
+   },
+   {
+    "image": "product_1-27.jpg",
+    "color": "Khaki",
+    "size": "3XL",
+    "stock": 12
+   },
+   {
+    "image": "product_1-96.jpg",
+    "color": "Crimson",
+    "size": "L",
+    "stock": 20
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "name": "Synergized",
+  "description": "vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus",
+  "price": 777,
+  "creation_timestamp": "29/02/2020",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_2-29.jpg",
+    "color": "Red",
+    "size": "3XL",
+    "stock": 5
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Visionary",
+  "description": "at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci",
+  "price": 4228,
+  "creation_timestamp": "30/09/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_3-14.jpg",
+    "color": "Yellow",
+    "size": "L",
+    "stock": 1
+   },
+   {
+    "image": "product_3-56.jpg",
+    "color": "Fuscia",
+    "size": "L",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "name": "standardization",
+  "description": "sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh",
+  "price": 651,
+  "creation_timestamp": "16/07/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_4-96.jpg",
+    "color": "Green",
+    "size": "XS",
+    "stock": 16
+   },
+   {
+    "image": "product_4-32.jpg",
+    "color": "Orange",
+    "size": "XL",
+    "stock": 15
+   },
+   {
+    "image": "product_4-71.jpg",
+    "color": "Red",
+    "size": "S",
+    "stock": 7
+   },
+   {
+    "image": "product_4-38.jpg",
+    "color": "Khaki",
+    "size": "S",
+    "stock": 3
+   },
+   {
+    "image": "product_4-28.jpg",
+    "color": "Turquoise",
+    "size": "L",
+    "stock": 4
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "name": "encryption",
+  "description": "sit amet turpis elementum ligula vehicula consequat morbi a ipsum",
+  "price": 1046,
+  "creation_timestamp": "29/04/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_5-97.jpg",
+    "color": "Yellow",
+    "size": "L",
+    "stock": 3
+   },
+   {
+    "image": "product_5-39.jpg",
+    "color": "Crimson",
+    "size": "L",
+    "stock": 8
+   },
+   {
+    "image": "product_5-57.jpg",
+    "color": "Turquoise",
+    "size": "L",
+    "stock": 3
+   },
+   {
+    "image": "product_5-91.jpg",
+    "color": "Purple",
+    "size": "2XL",
+    "stock": 11
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "name": "zero defect",
+  "description": "eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla",
+  "price": 597,
+  "creation_timestamp": "06/04/2018",
+  "discount_timestamp": null,
+  "discount": 44,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_6-16.jpg",
+    "color": "Purple",
+    "size": "L",
+    "stock": 17
+   },
+   {
+    "image": "product_6-91.jpg",
+    "color": "Crimson",
+    "size": "XL",
+    "stock": 8
+   },
+   {
+    "image": "product_6-18.jpg",
+    "color": "Red",
+    "size": "3XL",
+    "stock": 18
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "name": "solution-oriented",
+  "description": "non lectus aliquam sit amet diam in magna bibendum imperdiet",
+  "price": 1270,
+  "creation_timestamp": "18/06/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_7-37.jpg",
+    "color": "Goldenrod",
+    "size": "L",
+    "stock": 23
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "name": "core",
+  "description": "nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at",
+  "price": 4815,
+  "creation_timestamp": "25/11/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_8-61.jpg",
+    "color": "Yellow",
+    "size": "S",
+    "stock": 9
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "name": "encompassing",
+  "description": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum",
+  "price": 2711,
+  "creation_timestamp": "21/04/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_9-14.jpg",
+    "color": "Crimson",
+    "size": "M",
+    "stock": 9
+   },
+   {
+    "image": "product_9-14.jpg",
+    "color": "Orange",
+    "size": "M",
+    "stock": 3
+   },
+   {
+    "image": "product_9-84.jpg",
+    "color": "Green",
+    "size": "M",
+    "stock": 3
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "name": "concept",
+  "description": "et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis",
+  "price": 4318,
+  "creation_timestamp": "11/12/2019",
+  "discount_timestamp": null,
+  "discount": 31,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_10-69.jpg",
+    "color": "Fuscia",
+    "size": "M",
+    "stock": 19
+   },
+   {
+    "image": "product_10-94.jpg",
+    "color": "Goldenrod",
+    "size": "S",
+    "stock": 18
+   },
+   {
+    "image": "product_10-75.jpg",
+    "color": "Crimson",
+    "size": "XS",
+    "stock": 14
+   },
+   {
+    "image": "product_10-89.jpg",
+    "color": "Aquamarine",
+    "size": "M",
+    "stock": 22
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "name": "Optional",
+  "description": "in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla",
+  "price": 591,
+  "creation_timestamp": "26/12/2017",
+  "discount_timestamp": null,
+  "discount": 69,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_11-71.jpg",
+    "color": "Mauv",
+    "size": "3XL",
+    "stock": 22
+   },
+   {
+    "image": "product_11-72.jpg",
+    "color": "Mauv",
+    "size": "XL",
+    "stock": 15
+   },
+   {
+    "image": "product_11-98.jpg",
+    "color": "Violet",
+    "size": "XL",
+    "stock": 13
+   },
+   {
+    "image": "product_11-26.jpg",
+    "color": "Purple",
+    "size": "L",
+    "stock": 24
+   },
+   {
+    "image": "product_11-44.jpg",
+    "color": "Crimson",
+    "size": "3XL",
+    "stock": 12
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "name": "24/7",
+  "description": "pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra",
+  "price": 3494,
+  "creation_timestamp": "11/06/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_12-68.jpg",
+    "color": "Blue",
+    "size": "M",
+    "stock": 11
+   },
+   {
+    "image": "product_12-18.jpg",
+    "color": "Goldenrod",
+    "size": "XS",
+    "stock": 9
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "name": "full-range",
+  "description": "ac diam cras pellentesque volutpat dui maecenas tristique est et tempus",
+  "price": 4416,
+  "creation_timestamp": "20/07/2018",
+  "discount_timestamp": null,
+  "discount": 74,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_13-59.jpg",
+    "color": "Aquamarine",
+    "size": "M",
+    "stock": 1
+   },
+   {
+    "image": "product_13-98.jpg",
+    "color": "Violet",
+    "size": "XL",
+    "stock": 5
+   },
+   {
+    "image": "product_13-28.jpg",
+    "color": "Purple",
+    "size": "M",
+    "stock": 20
+   },
+   {
+    "image": "product_13-11.jpg",
+    "color": "Red",
+    "size": "XL",
+    "stock": 2
+   },
+   {
+    "image": "product_13-58.jpg",
+    "color": "Blue",
+    "size": "L",
+    "stock": 7
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "name": "national",
+  "description": "amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus",
+  "price": 2825,
+  "creation_timestamp": "10/03/2018",
+  "discount_timestamp": null,
+  "discount": 49,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_14-55.jpg",
+    "color": "Violet",
+    "size": "L",
+    "stock": 7
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "name": "framework",
+  "description": "duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer",
+  "price": 4836,
+  "creation_timestamp": "12/06/2019",
+  "discount_timestamp": null,
+  "discount": 59,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_15-65.jpg",
+    "color": "Khaki",
+    "size": "M",
+    "stock": 11
+   },
+   {
+    "image": "product_15-25.jpg",
+    "color": "Orange",
+    "size": "XL",
+    "stock": 23
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "name": "encoding",
+  "description": "augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit",
+  "price": 4563,
+  "creation_timestamp": "13/04/2017",
+  "discount_timestamp": null,
+  "discount": 43,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_16-15.jpg",
+    "color": "Purple",
+    "size": "XS",
+    "stock": 19
+   },
+   {
+    "image": "product_16-38.jpg",
+    "color": "Crimson",
+    "size": "M",
+    "stock": 16
+   },
+   {
+    "image": "product_16-12.jpg",
+    "color": "Green",
+    "size": "L",
+    "stock": 20
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "name": "approach",
+  "description": "vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla",
+  "price": 3023,
+  "creation_timestamp": "30/11/2017",
+  "discount_timestamp": null,
+  "discount": 34,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_17-22.jpg",
+    "color": "Teal",
+    "size": "2XL",
+    "stock": 18
+   },
+   {
+    "image": "product_17-42.jpg",
+    "color": "Aquamarine",
+    "size": "3XL",
+    "stock": 22
+   },
+   {
+    "image": "product_17-59.jpg",
+    "color": "Fuscia",
+    "size": "XS",
+    "stock": 6
+   },
+   {
+    "image": "product_17-54.jpg",
+    "color": "Crimson",
+    "size": "XS",
+    "stock": 11
+   },
+   {
+    "image": "product_17-82.jpg",
+    "color": "Crimson",
+    "size": "3XL",
+    "stock": 17
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "name": "secured line",
+  "description": "a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet",
+  "price": 1963,
+  "creation_timestamp": "16/03/2018",
+  "discount_timestamp": null,
+  "discount": 7,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_18-41.jpg",
+    "color": "Fuscia",
+    "size": "2XL",
+    "stock": 4
+   },
+   {
+    "image": "product_18-75.jpg",
+    "color": "Teal",
+    "size": "XS",
+    "stock": 20
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "name": "middleware",
+  "description": "ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices",
+  "price": 1202,
+  "creation_timestamp": "26/01/2017",
+  "discount_timestamp": null,
+  "discount": 93,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_19-87.jpg",
+    "color": "Turquoise",
+    "size": "S",
+    "stock": 1
+   },
+   {
+    "image": "product_19-47.jpg",
+    "color": "Mauv",
+    "size": "XS",
+    "stock": 8
+   },
+   {
+    "image": "product_19-23.jpg",
+    "color": "Fuscia",
+    "size": "3XL",
+    "stock": 16
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "name": "focus group",
+  "description": "etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id",
+  "price": 1636,
+  "creation_timestamp": "22/02/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_20-53.jpg",
+    "color": "Turquoise",
+    "size": "2XL",
+    "stock": 13
+   },
+   {
+    "image": "product_20-75.jpg",
+    "color": "Crimson",
+    "size": "L",
+    "stock": 12
+   },
+   {
+    "image": "product_20-96.jpg",
+    "color": "Goldenrod",
+    "size": "S",
+    "stock": 2
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "name": "Cross-platform",
+  "description": "euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula",
+  "price": 2836,
+  "creation_timestamp": "08/01/2020",
+  "discount_timestamp": null,
+  "discount": 86,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_21-13.jpg",
+    "color": "Fuscia",
+    "size": "XL",
+    "stock": 19
+   },
+   {
+    "image": "product_21-72.jpg",
+    "color": "Maroon",
+    "size": "2XL",
+    "stock": 24
+   },
+   {
+    "image": "product_21-93.jpg",
+    "color": "Violet",
+    "size": "XS",
+    "stock": 5
+   },
+   {
+    "image": "product_21-21.jpg",
+    "color": "Fuscia",
+    "size": "L",
+    "stock": 8
+   },
+   {
+    "image": "product_21-32.jpg",
+    "color": "Khaki",
+    "size": "2XL",
+    "stock": 5
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "name": "service-desk",
+  "description": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis",
+  "price": 1183,
+  "creation_timestamp": "31/05/2017",
+  "discount_timestamp": null,
+  "discount": 25,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_22-39.jpg",
+    "color": "Fuscia",
+    "size": "M",
+    "stock": 16
+   },
+   {
+    "image": "product_22-46.jpg",
+    "color": "Crimson",
+    "size": "3XL",
+    "stock": 15
+   },
+   {
+    "image": "product_22-33.jpg",
+    "color": "Teal",
+    "size": "L",
+    "stock": 25
+   },
+   {
+    "image": "product_22-71.jpg",
+    "color": "Purple",
+    "size": "XS",
+    "stock": 2
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "name": "leading edge",
+  "description": "non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris",
+  "price": 3252,
+  "creation_timestamp": "10/06/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_23-46.jpg",
+    "color": "Green",
+    "size": "3XL",
+    "stock": 21
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "name": "Optimized",
+  "description": "congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede",
+  "price": 4354,
+  "creation_timestamp": "06/03/2017",
+  "discount_timestamp": null,
+  "discount": 87,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_24-95.jpg",
+    "color": "Green",
+    "size": "XL",
+    "stock": 13
+   },
+   {
+    "image": "product_24-65.jpg",
+    "color": "Turquoise",
+    "size": "M",
+    "stock": 2
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "name": "high-level",
+  "description": "eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero",
+  "price": 2533,
+  "creation_timestamp": "23/07/2017",
+  "discount_timestamp": null,
+  "discount": 23,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_25-97.jpg",
+    "color": "Indigo",
+    "size": "S",
+    "stock": 15
+   },
+   {
+    "image": "product_25-77.jpg",
+    "color": "Red",
+    "size": "3XL",
+    "stock": 17
+   },
+   {
+    "image": "product_25-65.jpg",
+    "color": "Green",
+    "size": "2XL",
+    "stock": 5
+   },
+   {
+    "image": "product_25-75.jpg",
+    "color": "Purple",
+    "size": "XS",
+    "stock": 17
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "name": "user-facing",
+  "description": "lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia",
+  "price": 1239,
+  "creation_timestamp": "04/02/2020",
+  "discount_timestamp": null,
+  "discount": 13,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_26-33.jpg",
+    "color": "Turquoise",
+    "size": "3XL",
+    "stock": 21
+   },
+   {
+    "image": "product_26-44.jpg",
+    "color": "Goldenrod",
+    "size": "3XL",
+    "stock": 25
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "name": "6th generation",
+  "description": "nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh",
+  "price": 1646,
+  "creation_timestamp": "06/07/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_27-29.jpg",
+    "color": "Maroon",
+    "size": "3XL",
+    "stock": 25
+   },
+   {
+    "image": "product_27-69.jpg",
+    "color": "Fuscia",
+    "size": "2XL",
+    "stock": 4
+   },
+   {
+    "image": "product_27-78.jpg",
+    "color": "Teal",
+    "size": "M",
+    "stock": 7
+   },
+   {
+    "image": "product_27-66.jpg",
+    "color": "Pink",
+    "size": "L",
+    "stock": 19
+   },
+   {
+    "image": "product_27-12.jpg",
+    "color": "Violet",
+    "size": "3XL",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "name": "Fundamental",
+  "description": "at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut",
+  "price": 3163,
+  "creation_timestamp": "23/08/2018",
+  "discount_timestamp": null,
+  "discount": 48,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_28-99.jpg",
+    "color": "Mauv",
+    "size": "XS",
+    "stock": 20
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "name": "neutral",
+  "description": "vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in",
+  "price": 2668,
+  "creation_timestamp": "21/08/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_29-93.jpg",
+    "color": "Red",
+    "size": "XS",
+    "stock": 8
+   },
+   {
+    "image": "product_29-27.jpg",
+    "color": "Aquamarine",
+    "size": "3XL",
+    "stock": 24
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "name": "composite",
+  "description": "semper sapien a libero nam dui proin leo odio porttitor id consequat in",
+  "price": 4335,
+  "creation_timestamp": "04/01/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_30-23.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 24
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "name": "contextually-based",
+  "description": "laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue",
+  "price": 2198,
+  "creation_timestamp": "08/12/2019",
+  "discount_timestamp": null,
+  "discount": 1,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_31-58.jpg",
+    "color": "Purple",
+    "size": "M",
+    "stock": 11
+   },
+   {
+    "image": "product_31-59.jpg",
+    "color": "Green",
+    "size": "XL",
+    "stock": 17
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "name": "conglomeration",
+  "description": "tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer",
+  "price": 1507,
+  "creation_timestamp": "26/03/2020",
+  "discount_timestamp": "02/09/2017",
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_32-83.jpg",
+    "color": "Purple",
+    "size": "3XL",
+    "stock": 9
+   },
+   {
+    "image": "product_32-67.jpg",
+    "color": "Khaki",
+    "size": "XS",
+    "stock": 12
+   },
+   {
+    "image": "product_32-59.jpg",
+    "color": "Indigo",
+    "size": "M",
+    "stock": 18
+   },
+   {
+    "image": "product_32-99.jpg",
+    "color": "Yellow",
+    "size": "L",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "name": "firmware",
+  "description": "sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus",
+  "price": 4553,
+  "creation_timestamp": "19/02/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_33-62.jpg",
+    "color": "Blue",
+    "size": "S",
+    "stock": 1
+   },
+   {
+    "image": "product_33-85.jpg",
+    "color": "Teal",
+    "size": "3XL",
+    "stock": 11
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "name": "info-mediaries",
+  "description": "adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non",
+  "price": 723,
+  "creation_timestamp": "12/08/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_34-83.jpg",
+    "color": "Yellow",
+    "size": "3XL",
+    "stock": 6
+   },
+   {
+    "image": "product_34-67.jpg",
+    "color": "Aquamarine",
+    "size": "M",
+    "stock": 15
+   },
+   {
+    "image": "product_34-84.jpg",
+    "color": "Maroon",
+    "size": "XS",
+    "stock": 3
+   },
+   {
+    "image": "product_34-45.jpg",
+    "color": "Red",
+    "size": "XS",
+    "stock": 21
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "name": "transitional",
+  "description": "dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis",
+  "price": 1395,
+  "creation_timestamp": "22/01/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_35-43.jpg",
+    "color": "Khaki",
+    "size": "3XL",
+    "stock": 22
+   },
+   {
+    "image": "product_35-12.jpg",
+    "color": "Crimson",
+    "size": "2XL",
+    "stock": 25
+   },
+   {
+    "image": "product_35-41.jpg",
+    "color": "Violet",
+    "size": "3XL",
+    "stock": 19
+   },
+   {
+    "image": "product_35-66.jpg",
+    "color": "Green",
+    "size": "M",
+    "stock": 19
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "name": "Enterprise-wide",
+  "description": "potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam",
+  "price": 1644,
+  "creation_timestamp": "23/07/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_36-13.jpg",
+    "color": "Green",
+    "size": "S",
+    "stock": 22
+   },
+   {
+    "image": "product_36-45.jpg",
+    "color": "Aquamarine",
+    "size": "XS",
+    "stock": 5
+   },
+   {
+    "image": "product_36-73.jpg",
+    "color": "Fuscia",
+    "size": "S",
+    "stock": 11
+   },
+   {
+    "image": "product_36-13.jpg",
+    "color": "Aquamarine",
+    "size": "XS",
+    "stock": 23
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "name": "Advanced",
+  "description": "gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede",
+  "price": 1289,
+  "creation_timestamp": "02/01/2020",
+  "discount_timestamp": null,
+  "discount": 44,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_37-63.jpg",
+    "color": "Orange",
+    "size": "XS",
+    "stock": 22
+   },
+   {
+    "image": "product_37-93.jpg",
+    "color": "Turquoise",
+    "size": "XS",
+    "stock": 17
+   },
+   {
+    "image": "product_37-56.jpg",
+    "color": "Pink",
+    "size": "M",
+    "stock": 22
+   },
+   {
+    "image": "product_37-19.jpg",
+    "color": "Orange",
+    "size": "2XL",
+    "stock": 19
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "name": "attitude",
+  "description": "ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla",
+  "price": 3939,
+  "creation_timestamp": "10/11/2018",
+  "discount_timestamp": null,
+  "discount": 18,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_38-33.jpg",
+    "color": "Fuscia",
+    "size": "2XL",
+    "stock": 20
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "name": "Cloned",
+  "description": "pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum",
+  "price": 1476,
+  "creation_timestamp": "19/10/2018",
+  "discount_timestamp": null,
+  "discount": 10,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_39-41.jpg",
+    "color": "Goldenrod",
+    "size": "M",
+    "stock": 7
+   },
+   {
+    "image": "product_39-24.jpg",
+    "color": "Khaki",
+    "size": "M",
+    "stock": 1
+   },
+   {
+    "image": "product_39-58.jpg",
+    "color": "Yellow",
+    "size": "2XL",
+    "stock": 16
+   },
+   {
+    "image": "product_39-13.jpg",
+    "color": "Teal",
+    "size": "M",
+    "stock": 22
+   },
+   {
+    "image": "product_39-53.jpg",
+    "color": "Mauv",
+    "size": "L",
+    "stock": 3
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "name": "mobile",
+  "description": "nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in",
+  "price": 1283,
+  "creation_timestamp": "15/06/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_40-69.jpg",
+    "color": "Teal",
+    "size": "S",
+    "stock": 10
+   },
+   {
+    "image": "product_40-94.jpg",
+    "color": "Blue",
+    "size": "2XL",
+    "stock": 15
+   },
+   {
+    "image": "product_40-98.jpg",
+    "color": "Teal",
+    "size": "XS",
+    "stock": 1
+   }
+  ]
+ },
+ {
+  "id": 41,
+  "name": "Robust",
+  "description": "volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim",
+  "price": 4052,
+  "creation_timestamp": "06/08/2019",
+  "discount_timestamp": null,
+  "discount": 93,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_41-97.jpg",
+    "color": "Aquamarine",
+    "size": "L",
+    "stock": 17
+   },
+   {
+    "image": "product_41-81.jpg",
+    "color": "Crimson",
+    "size": "2XL",
+    "stock": 3
+   },
+   {
+    "image": "product_41-51.jpg",
+    "color": "Teal",
+    "size": "L",
+    "stock": 19
+   },
+   {
+    "image": "product_41-34.jpg",
+    "color": "Fuscia",
+    "size": "S",
+    "stock": 19
+   }
+  ]
+ },
+ {
+  "id": 42,
+  "name": "dedicated",
+  "description": "sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec",
+  "price": 4726,
+  "creation_timestamp": "19/03/2017",
+  "discount_timestamp": null,
+  "discount": 65,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_42-44.jpg",
+    "color": "Orange",
+    "size": "XL",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 43,
+  "name": "solution-oriented",
+  "description": "magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque",
+  "price": 1929,
+  "creation_timestamp": "20/04/2019",
+  "discount_timestamp": null,
+  "discount": 98,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_43-88.jpg",
+    "color": "Yellow",
+    "size": "XS",
+    "stock": 25
+   },
+   {
+    "image": "product_43-99.jpg",
+    "color": "Purple",
+    "size": "S",
+    "stock": 19
+   },
+   {
+    "image": "product_43-26.jpg",
+    "color": "Blue",
+    "size": "2XL",
+    "stock": 3
+   }
+  ]
+ },
+ {
+  "id": 44,
+  "name": "task-force",
+  "description": "vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at",
+  "price": 4911,
+  "creation_timestamp": "26/03/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_44-47.jpg",
+    "color": "Khaki",
+    "size": "3XL",
+    "stock": 23
+   },
+   {
+    "image": "product_44-29.jpg",
+    "color": "Fuscia",
+    "size": "XS",
+    "stock": 4
+   },
+   {
+    "image": "product_44-46.jpg",
+    "color": "Orange",
+    "size": "2XL",
+    "stock": 10
+   },
+   {
+    "image": "product_44-12.jpg",
+    "color": "Purple",
+    "size": "S",
+    "stock": 7
+   },
+   {
+    "image": "product_44-62.jpg",
+    "color": "Aquamarine",
+    "size": "2XL",
+    "stock": 9
+   }
+  ]
+ },
+ {
+  "id": 45,
+  "name": "Persistent",
+  "description": "sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis",
+  "price": 4100,
+  "creation_timestamp": "02/11/2019",
+  "discount_timestamp": null,
+  "discount": 41,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_45-48.jpg",
+    "color": "Crimson",
+    "size": "XS",
+    "stock": 4
+   },
+   {
+    "image": "product_45-58.jpg",
+    "color": "Khaki",
+    "size": "XL",
+    "stock": 21
+   },
+   {
+    "image": "product_45-16.jpg",
+    "color": "Green",
+    "size": "3XL",
+    "stock": 17
+   },
+   {
+    "image": "product_45-67.jpg",
+    "color": "Orange",
+    "size": "M",
+    "stock": 25
+   }
+  ]
+ },
+ {
+  "id": 46,
+  "name": "holistic",
+  "description": "enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin",
+  "price": 4641,
+  "creation_timestamp": "10/01/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_46-82.jpg",
+    "color": "Aquamarine",
+    "size": "2XL",
+    "stock": 6
+   },
+   {
+    "image": "product_46-92.jpg",
+    "color": "Mauv",
+    "size": "L",
+    "stock": 4
+   },
+   {
+    "image": "product_46-49.jpg",
+    "color": "Orange",
+    "size": "XS",
+    "stock": 11
+   },
+   {
+    "image": "product_46-84.jpg",
+    "color": "Orange",
+    "size": "M",
+    "stock": 23
+   }
+  ]
+ },
+ {
+  "id": 47,
+  "name": "Switchable",
+  "description": "praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante",
+  "price": 433,
+  "creation_timestamp": "19/04/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_47-93.jpg",
+    "color": "Red",
+    "size": "XL",
+    "stock": 2
+   },
+   {
+    "image": "product_47-66.jpg",
+    "color": "Mauv",
+    "size": "S",
+    "stock": 19
+   },
+   {
+    "image": "product_47-37.jpg",
+    "color": "Goldenrod",
+    "size": "S",
+    "stock": 13
+   },
+   {
+    "image": "product_47-34.jpg",
+    "color": "Khaki",
+    "size": "2XL",
+    "stock": 19
+   }
+  ]
+ },
+ {
+  "id": 48,
+  "name": "Extended",
+  "description": "dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet",
+  "price": 1180,
+  "creation_timestamp": "13/09/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_48-23.jpg",
+    "color": "Maroon",
+    "size": "3XL",
+    "stock": 22
+   },
+   {
+    "image": "product_48-24.jpg",
+    "color": "Mauv",
+    "size": "L",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 49,
+  "name": "explicit",
+  "description": "volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna",
+  "price": 3971,
+  "creation_timestamp": "09/07/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_49-33.jpg",
+    "color": "Red",
+    "size": "3XL",
+    "stock": 23
+   }
+  ]
+ },
+ {
+  "id": 50,
+  "name": "Down-sized",
+  "description": "sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui",
+  "price": 231,
+  "creation_timestamp": "01/12/2017",
+  "discount_timestamp": null,
+  "discount": 51,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_50-84.jpg",
+    "color": "Goldenrod",
+    "size": "XL",
+    "stock": 2
+   },
+   {
+    "image": "product_50-87.jpg",
+    "color": "Crimson",
+    "size": "M",
+    "stock": 11
+   }
+  ]
+ },
+ {
+  "id": 51,
+  "name": "extranet",
+  "description": "eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare",
+  "price": 2583,
+  "creation_timestamp": "02/03/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_51-52.jpg",
+    "color": "Green",
+    "size": "XL",
+    "stock": 21
+   },
+   {
+    "image": "product_51-95.jpg",
+    "color": "Indigo",
+    "size": "3XL",
+    "stock": 20
+   },
+   {
+    "image": "product_51-58.jpg",
+    "color": "Pink",
+    "size": "S",
+    "stock": 19
+   },
+   {
+    "image": "product_51-21.jpg",
+    "color": "Pink",
+    "size": "3XL",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 52,
+  "name": "Versatile",
+  "description": "in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi",
+  "price": 2453,
+  "creation_timestamp": "12/09/2017",
+  "discount_timestamp": null,
+  "discount": 74,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_52-12.jpg",
+    "color": "Mauv",
+    "size": "2XL",
+    "stock": 14
+   },
+   {
+    "image": "product_52-75.jpg",
+    "color": "Violet",
+    "size": "L",
+    "stock": 18
+   },
+   {
+    "image": "product_52-84.jpg",
+    "color": "Aquamarine",
+    "size": "XL",
+    "stock": 25
+   }
+  ]
+ },
+ {
+  "id": 53,
+  "name": "human-resource",
+  "description": "nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat",
+  "price": 2612,
+  "creation_timestamp": "09/04/2020",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_53-76.jpg",
+    "color": "Teal",
+    "size": "M",
+    "stock": 23
+   },
+   {
+    "image": "product_53-33.jpg",
+    "color": "Green",
+    "size": "L",
+    "stock": 5
+   },
+   {
+    "image": "product_53-19.jpg",
+    "color": "Goldenrod",
+    "size": "2XL",
+    "stock": 13
+   },
+   {
+    "image": "product_53-98.jpg",
+    "color": "Khaki",
+    "size": "XL",
+    "stock": 7
+   },
+   {
+    "image": "product_53-56.jpg",
+    "color": "Khaki",
+    "size": "L",
+    "stock": 17
+   }
+  ]
+ },
+ {
+  "id": 54,
+  "name": "homogeneous",
+  "description": "erat eros viverra eget congue eget semper rutrum nulla nunc purus",
+  "price": 3583,
+  "creation_timestamp": "25/09/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_54-41.jpg",
+    "color": "Goldenrod",
+    "size": "S",
+    "stock": 22
+   },
+   {
+    "image": "product_54-67.jpg",
+    "color": "Fuscia",
+    "size": "XS",
+    "stock": 1
+   },
+   {
+    "image": "product_54-73.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 8
+   },
+   {
+    "image": "product_54-86.jpg",
+    "color": "Purple",
+    "size": "XL",
+    "stock": 1
+   },
+   {
+    "image": "product_54-25.jpg",
+    "color": "Mauv",
+    "size": "S",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 55,
+  "name": "Intuitive",
+  "description": "quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc",
+  "price": 4379,
+  "creation_timestamp": "11/12/2018",
+  "discount_timestamp": null,
+  "discount": 18,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_55-56.jpg",
+    "color": "Indigo",
+    "size": "3XL",
+    "stock": 24
+   },
+   {
+    "image": "product_55-85.jpg",
+    "color": "Violet",
+    "size": "S",
+    "stock": 22
+   },
+   {
+    "image": "product_55-62.jpg",
+    "color": "Purple",
+    "size": "XL",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 56,
+  "name": "Stand-alone",
+  "description": "et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien",
+  "price": 2912,
+  "creation_timestamp": "13/10/2017",
+  "discount_timestamp": null,
+  "discount": 48,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_56-31.jpg",
+    "color": "Maroon",
+    "size": "M",
+    "stock": 6
+   },
+   {
+    "image": "product_56-21.jpg",
+    "color": "Purple",
+    "size": "S",
+    "stock": 3
+   },
+   {
+    "image": "product_56-81.jpg",
+    "color": "Turquoise",
+    "size": "XS",
+    "stock": 5
+   },
+   {
+    "image": "product_56-89.jpg",
+    "color": "Teal",
+    "size": "L",
+    "stock": 18
+   },
+   {
+    "image": "product_56-27.jpg",
+    "color": "Orange",
+    "size": "M",
+    "stock": 24
+   }
+  ]
+ },
+ {
+  "id": 57,
+  "name": "asynchronous",
+  "description": "aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate",
+  "price": 4347,
+  "creation_timestamp": "02/12/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_57-75.jpg",
+    "color": "Aquamarine",
+    "size": "XS",
+    "stock": 8
+   },
+   {
+    "image": "product_57-87.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 5
+   },
+   {
+    "image": "product_57-84.jpg",
+    "color": "Teal",
+    "size": "L",
+    "stock": 19
+   },
+   {
+    "image": "product_57-91.jpg",
+    "color": "Green",
+    "size": "XS",
+    "stock": 19
+   },
+   {
+    "image": "product_57-22.jpg",
+    "color": "Aquamarine",
+    "size": "2XL",
+    "stock": 11
+   }
+  ]
+ },
+ {
+  "id": 58,
+  "name": "bi-directional",
+  "description": "etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean",
+  "price": 3576,
+  "creation_timestamp": "30/05/2018",
+  "discount_timestamp": null,
+  "discount": 71,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_58-79.jpg",
+    "color": "Orange",
+    "size": "S",
+    "stock": 16
+   },
+   {
+    "image": "product_58-44.jpg",
+    "color": "Blue",
+    "size": "L",
+    "stock": 5
+   }
+  ]
+ },
+ {
+  "id": 59,
+  "name": "Diverse",
+  "description": "elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum",
+  "price": 1802,
+  "creation_timestamp": "12/08/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_59-53.jpg",
+    "color": "Pink",
+    "size": "S",
+    "stock": 16
+   },
+   {
+    "image": "product_59-32.jpg",
+    "color": "Orange",
+    "size": "L",
+    "stock": 15
+   }
+  ]
+ },
+ {
+  "id": 60,
+  "name": "Synchronised",
+  "description": "vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer",
+  "price": 4903,
+  "creation_timestamp": "13/05/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_60-58.jpg",
+    "color": "Teal",
+    "size": "L",
+    "stock": 17
+   },
+   {
+    "image": "product_60-75.jpg",
+    "color": "Aquamarine",
+    "size": "XL",
+    "stock": 20
+   }
+  ]
+ },
+ {
+  "id": 61,
+  "name": "Adaptive",
+  "description": "nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend",
+  "price": 127,
+  "creation_timestamp": "26/06/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_61-12.jpg",
+    "color": "Aquamarine",
+    "size": "XS",
+    "stock": 19
+   },
+   {
+    "image": "product_61-91.jpg",
+    "color": "Mauv",
+    "size": "2XL",
+    "stock": 15
+   },
+   {
+    "image": "product_61-87.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 20
+   },
+   {
+    "image": "product_61-99.jpg",
+    "color": "Indigo",
+    "size": "2XL",
+    "stock": 15
+   },
+   {
+    "image": "product_61-34.jpg",
+    "color": "Violet",
+    "size": "2XL",
+    "stock": 15
+   }
+  ]
+ },
+ {
+  "id": 62,
+  "name": "Intuitive",
+  "description": "tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor",
+  "price": 1923,
+  "creation_timestamp": "28/08/2018",
+  "discount_timestamp": null,
+  "discount": 59,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_62-17.jpg",
+    "color": "Yellow",
+    "size": "S",
+    "stock": 7
+   },
+   {
+    "image": "product_62-51.jpg",
+    "color": "Maroon",
+    "size": "3XL",
+    "stock": 21
+   },
+   {
+    "image": "product_62-77.jpg",
+    "color": "Khaki",
+    "size": "M",
+    "stock": 3
+   },
+   {
+    "image": "product_62-33.jpg",
+    "color": "Fuscia",
+    "size": "XL",
+    "stock": 4
+   }
+  ]
+ },
+ {
+  "id": 63,
+  "name": "algorithm",
+  "description": "ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis",
+  "price": 4073,
+  "creation_timestamp": "15/01/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_63-71.jpg",
+    "color": "Purple",
+    "size": "3XL",
+    "stock": 14
+   },
+   {
+    "image": "product_63-62.jpg",
+    "color": "Green",
+    "size": "M",
+    "stock": 19
+   },
+   {
+    "image": "product_63-77.jpg",
+    "color": "Blue",
+    "size": "S",
+    "stock": 4
+   },
+   {
+    "image": "product_63-38.jpg",
+    "color": "Mauv",
+    "size": "2XL",
+    "stock": 13
+   }
+  ]
+ },
+ {
+  "id": 64,
+  "name": "Team-oriented",
+  "description": "scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum",
+  "price": 151,
+  "creation_timestamp": "14/10/2017",
+  "discount_timestamp": null,
+  "discount": 20,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_64-77.jpg",
+    "color": "Yellow",
+    "size": "3XL",
+    "stock": 15
+   },
+   {
+    "image": "product_64-54.jpg",
+    "color": "Goldenrod",
+    "size": "XS",
+    "stock": 16
+   },
+   {
+    "image": "product_64-49.jpg",
+    "color": "Turquoise",
+    "size": "M",
+    "stock": 21
+   }
+  ]
+ },
+ {
+  "id": 65,
+  "name": "Multi-layered",
+  "description": "pede justo eu massa donec dapibus duis at velit eu est",
+  "price": 4942,
+  "creation_timestamp": "19/04/2019",
+  "discount_timestamp": null,
+  "discount": 72,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_65-52.jpg",
+    "color": "Turquoise",
+    "size": "S",
+    "stock": 9
+   }
+  ]
+ },
+ {
+  "id": 66,
+  "name": "Universal",
+  "description": "ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing",
+  "price": 1564,
+  "creation_timestamp": "25/08/2017",
+  "discount_timestamp": null,
+  "discount": 100,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_66-25.jpg",
+    "color": "Turquoise",
+    "size": "M",
+    "stock": 18
+   },
+   {
+    "image": "product_66-65.jpg",
+    "color": "Blue",
+    "size": "L",
+    "stock": 21
+   },
+   {
+    "image": "product_66-78.jpg",
+    "color": "Blue",
+    "size": "L",
+    "stock": 9
+   }
+  ]
+ },
+ {
+  "id": 67,
+  "name": "well-modulated",
+  "description": "sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget",
+  "price": 1258,
+  "creation_timestamp": "13/10/2019",
+  "discount_timestamp": null,
+  "discount": 67,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_67-91.jpg",
+    "color": "Yellow",
+    "size": "3XL",
+    "stock": 25
+   },
+   {
+    "image": "product_67-18.jpg",
+    "color": "Aquamarine",
+    "size": "L",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 68,
+  "name": "bottom-line",
+  "description": "sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem",
+  "price": 705,
+  "creation_timestamp": "24/08/2018",
+  "discount_timestamp": null,
+  "discount": 100,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_68-98.jpg",
+    "color": "Indigo",
+    "size": "3XL",
+    "stock": 22
+   },
+   {
+    "image": "product_68-38.jpg",
+    "color": "Goldenrod",
+    "size": "M",
+    "stock": 3
+   },
+   {
+    "image": "product_68-28.jpg",
+    "color": "Crimson",
+    "size": "L",
+    "stock": 4
+   }
+  ]
+ },
+ {
+  "id": 69,
+  "name": "asynchronous",
+  "description": "posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae",
+  "price": 1130,
+  "creation_timestamp": "13/04/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_69-18.jpg",
+    "color": "Goldenrod",
+    "size": "M",
+    "stock": 5
+   },
+   {
+    "image": "product_69-79.jpg",
+    "color": "Crimson",
+    "size": "XS",
+    "stock": 19
+   },
+   {
+    "image": "product_69-53.jpg",
+    "color": "Puce",
+    "size": "L",
+    "stock": 16
+   }
+  ]
+ },
+ {
+  "id": 70,
+  "name": "uniform",
+  "description": "primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna",
+  "price": 1346,
+  "creation_timestamp": "05/02/2018",
+  "discount_timestamp": null,
+  "discount": 25,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_70-77.jpg",
+    "color": "Mauv",
+    "size": "XS",
+    "stock": 25
+   },
+   {
+    "image": "product_70-12.jpg",
+    "color": "Purple",
+    "size": "XL",
+    "stock": 1
+   },
+   {
+    "image": "product_70-47.jpg",
+    "color": "Purple",
+    "size": "S",
+    "stock": 14
+   },
+   {
+    "image": "product_70-25.jpg",
+    "color": "Crimson",
+    "size": "S",
+    "stock": 12
+   },
+   {
+    "image": "product_70-53.jpg",
+    "color": "Goldenrod",
+    "size": "S",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 71,
+  "name": "disintermediate",
+  "description": "vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed",
+  "price": 2882,
+  "creation_timestamp": "01/02/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_71-91.jpg",
+    "color": "Goldenrod",
+    "size": "M",
+    "stock": 25
+   },
+   {
+    "image": "product_71-24.jpg",
+    "color": "Aquamarine",
+    "size": "M",
+    "stock": 12
+   },
+   {
+    "image": "product_71-47.jpg",
+    "color": "Green",
+    "size": "S",
+    "stock": 24
+   },
+   {
+    "image": "product_71-67.jpg",
+    "color": "Goldenrod",
+    "size": "2XL",
+    "stock": 2
+   },
+   {
+    "image": "product_71-33.jpg",
+    "color": "Purple",
+    "size": "L",
+    "stock": 3
+   }
+  ]
+ },
+ {
+  "id": 72,
+  "name": "infrastructure",
+  "description": "est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna",
+  "price": 2454,
+  "creation_timestamp": "22/05/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_72-58.jpg",
+    "color": "Mauv",
+    "size": "L",
+    "stock": 24
+   },
+   {
+    "image": "product_72-64.jpg",
+    "color": "Indigo",
+    "size": "S",
+    "stock": 7
+   }
+  ]
+ },
+ {
+  "id": 73,
+  "name": "Switchable",
+  "description": "auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi",
+  "price": 3386,
+  "creation_timestamp": "08/10/2019",
+  "discount_timestamp": null,
+  "discount": 88,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_73-41.jpg",
+    "color": "Crimson",
+    "size": "3XL",
+    "stock": 8
+   },
+   {
+    "image": "product_73-39.jpg",
+    "color": "Orange",
+    "size": "L",
+    "stock": 4
+   },
+   {
+    "image": "product_73-71.jpg",
+    "color": "Purple",
+    "size": "3XL",
+    "stock": 19
+   },
+   {
+    "image": "product_73-77.jpg",
+    "color": "Turquoise",
+    "size": "S",
+    "stock": 17
+   },
+   {
+    "image": "product_73-97.jpg",
+    "color": "Turquoise",
+    "size": "M",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 74,
+  "name": "Customizable",
+  "description": "pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit",
+  "price": 875,
+  "creation_timestamp": "05/07/2019",
+  "discount_timestamp": null,
+  "discount": 2,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_74-55.jpg",
+    "color": "Turquoise",
+    "size": "L",
+    "stock": 15
+   },
+   {
+    "image": "product_74-29.jpg",
+    "color": "Yellow",
+    "size": "XL",
+    "stock": 22
+   },
+   {
+    "image": "product_74-59.jpg",
+    "color": "Indigo",
+    "size": "XS",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 75,
+  "name": "24/7",
+  "description": "amet justo morbi ut odio cras mi pede malesuada in imperdiet",
+  "price": 4516,
+  "creation_timestamp": "01/01/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_75-54.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 3
+   },
+   {
+    "image": "product_75-99.jpg",
+    "color": "Orange",
+    "size": "XS",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 76,
+  "name": "superstructure",
+  "description": "vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa",
+  "price": 1276,
+  "creation_timestamp": "10/08/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_76-62.jpg",
+    "color": "Yellow",
+    "size": "3XL",
+    "stock": 12
+   },
+   {
+    "image": "product_76-62.jpg",
+    "color": "Fuscia",
+    "size": "S",
+    "stock": 24
+   },
+   {
+    "image": "product_76-91.jpg",
+    "color": "Yellow",
+    "size": "XS",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 77,
+  "name": "focus group",
+  "description": "vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci",
+  "price": 4455,
+  "creation_timestamp": "21/04/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_77-21.jpg",
+    "color": "Fuscia",
+    "size": "M",
+    "stock": 7
+   },
+   {
+    "image": "product_77-31.jpg",
+    "color": "Green",
+    "size": "S",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 78,
+  "name": "next generation",
+  "description": "eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in",
+  "price": 1229,
+  "creation_timestamp": "01/12/2017",
+  "discount_timestamp": null,
+  "discount": 1,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_78-16.jpg",
+    "color": "Purple",
+    "size": "3XL",
+    "stock": 12
+   },
+   {
+    "image": "product_78-98.jpg",
+    "color": "Goldenrod",
+    "size": "M",
+    "stock": 3
+   },
+   {
+    "image": "product_78-57.jpg",
+    "color": "Turquoise",
+    "size": "L",
+    "stock": 10
+   },
+   {
+    "image": "product_78-96.jpg",
+    "color": "Teal",
+    "size": "XL",
+    "stock": 13
+   },
+   {
+    "image": "product_78-45.jpg",
+    "color": "Fuscia",
+    "size": "3XL",
+    "stock": 1
+   }
+  ]
+ },
+ {
+  "id": 79,
+  "name": "matrix",
+  "description": "habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat",
+  "price": 3774,
+  "creation_timestamp": "20/08/2017",
+  "discount_timestamp": null,
+  "discount": 91,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_79-42.jpg",
+    "color": "Aquamarine",
+    "size": "2XL",
+    "stock": 14
+   },
+   {
+    "image": "product_79-78.jpg",
+    "color": "Fuscia",
+    "size": "L",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 80,
+  "name": "dedicated",
+  "description": "tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec",
+  "price": 748,
+  "creation_timestamp": "21/05/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_80-45.jpg",
+    "color": "Orange",
+    "size": "M",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 81,
+  "name": "utilisation",
+  "description": "sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed",
+  "price": 3112,
+  "creation_timestamp": "31/01/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_81-26.jpg",
+    "color": "Aquamarine",
+    "size": "XS",
+    "stock": 12
+   },
+   {
+    "image": "product_81-33.jpg",
+    "color": "Indigo",
+    "size": "3XL",
+    "stock": 13
+   },
+   {
+    "image": "product_81-29.jpg",
+    "color": "Red",
+    "size": "M",
+    "stock": 19
+   },
+   {
+    "image": "product_81-39.jpg",
+    "color": "Khaki",
+    "size": "S",
+    "stock": 19
+   }
+  ]
+ },
+ {
+  "id": 82,
+  "name": "projection",
+  "description": "volutpat convallis morbi odio odio elementum eu interdum eu tincidunt",
+  "price": 2142,
+  "creation_timestamp": "30/11/2018",
+  "discount_timestamp": null,
+  "discount": 52,
+  "gender": "M",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_82-69.jpg",
+    "color": "Red",
+    "size": "2XL",
+    "stock": 25
+   },
+   {
+    "image": "product_82-79.jpg",
+    "color": "Red",
+    "size": "L",
+    "stock": 16
+   },
+   {
+    "image": "product_82-66.jpg",
+    "color": "Goldenrod",
+    "size": "XS",
+    "stock": 2
+   },
+   {
+    "image": "product_82-31.jpg",
+    "color": "Indigo",
+    "size": "S",
+    "stock": 12
+   },
+   {
+    "image": "product_82-88.jpg",
+    "color": "Goldenrod",
+    "size": "L",
+    "stock": 18
+   }
+  ]
+ },
+ {
+  "id": 83,
+  "name": "Profit-focused",
+  "description": "mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient",
+  "price": 2892,
+  "creation_timestamp": "20/12/2017",
+  "discount_timestamp": null,
+  "discount": 6,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_83-99.jpg",
+    "color": "Purple",
+    "size": "L",
+    "stock": 2
+   },
+   {
+    "image": "product_83-86.jpg",
+    "color": "Indigo",
+    "size": "2XL",
+    "stock": 1
+   },
+   {
+    "image": "product_83-29.jpg",
+    "color": "Purple",
+    "size": "S",
+    "stock": 3
+   }
+  ]
+ },
+ {
+  "id": 84,
+  "name": "dedicated",
+  "description": "volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse",
+  "price": 2033,
+  "creation_timestamp": "17/03/2019",
+  "discount_timestamp": null,
+  "discount": 6,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_84-55.jpg",
+    "color": "Puce",
+    "size": "M",
+    "stock": 21
+   },
+   {
+    "image": "product_84-55.jpg",
+    "color": "Turquoise",
+    "size": "XL",
+    "stock": 6
+   },
+   {
+    "image": "product_84-89.jpg",
+    "color": "Maroon",
+    "size": "M",
+    "stock": 10
+   },
+   {
+    "image": "product_84-74.jpg",
+    "color": "Turquoise",
+    "size": "XL",
+    "stock": 7
+   }
+  ]
+ },
+ {
+  "id": 85,
+  "name": "uniform",
+  "description": "mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a",
+  "price": 2899,
+  "creation_timestamp": "04/10/2018",
+  "discount_timestamp": null,
+  "discount": 3,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_85-66.jpg",
+    "color": "Orange",
+    "size": "L",
+    "stock": 22
+   },
+   {
+    "image": "product_85-89.jpg",
+    "color": "Red",
+    "size": "L",
+    "stock": 4
+   },
+   {
+    "image": "product_85-39.jpg",
+    "color": "Puce",
+    "size": "S",
+    "stock": 1
+   }
+  ]
+ },
+ {
+  "id": 86,
+  "name": "human-resource",
+  "description": "a pede posuere nonummy integer non velit donec diam neque",
+  "price": 2197,
+  "creation_timestamp": "12/03/2017",
+  "discount_timestamp": null,
+  "discount": 58,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_86-11.jpg",
+    "color": "Fuscia",
+    "size": "XS",
+    "stock": 8
+   },
+   {
+    "image": "product_86-89.jpg",
+    "color": "Pink",
+    "size": "XS",
+    "stock": 12
+   }
+  ]
+ },
+ {
+  "id": 87,
+  "name": "structure",
+  "description": "rhoncus dui vel sem sed sagittis nam congue risus semper porta",
+  "price": 3227,
+  "creation_timestamp": "11/12/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_87-31.jpg",
+    "color": "Puce",
+    "size": "S",
+    "stock": 4
+   }
+  ]
+ },
+ {
+  "id": 88,
+  "name": "encryption",
+  "description": "vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede",
+  "price": 2557,
+  "creation_timestamp": "11/04/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_88-75.jpg",
+    "color": "Mauv",
+    "size": "S",
+    "stock": 8
+   }
+  ]
+ },
+ {
+  "id": 89,
+  "name": "concept",
+  "description": "nulla elit ac nulla sed vel enim sit amet nunc viverra",
+  "price": 4568,
+  "creation_timestamp": "02/10/2017",
+  "discount_timestamp": null,
+  "discount": 58,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_89-84.jpg",
+    "color": "Violet",
+    "size": "M",
+    "stock": 2
+   },
+   {
+    "image": "product_89-71.jpg",
+    "color": "Purple",
+    "size": "XS",
+    "stock": 20
+   },
+   {
+    "image": "product_89-52.jpg",
+    "color": "Pink",
+    "size": "S",
+    "stock": 24
+   },
+   {
+    "image": "product_89-68.jpg",
+    "color": "Purple",
+    "size": "M",
+    "stock": 1
+   }
+  ]
+ },
+ {
+  "id": 90,
+  "name": "benchmark",
+  "description": "habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo",
+  "price": 4544,
+  "creation_timestamp": "01/04/2017",
+  "discount_timestamp": null,
+  "discount": 43,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_90-59.jpg",
+    "color": "Green",
+    "size": "M",
+    "stock": 21
+   },
+   {
+    "image": "product_90-11.jpg",
+    "color": "Pink",
+    "size": "M",
+    "stock": 23
+   },
+   {
+    "image": "product_90-19.jpg",
+    "color": "Mauv",
+    "size": "3XL",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 91,
+  "name": "User-centric",
+  "description": "nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris",
+  "price": 1889,
+  "creation_timestamp": "02/04/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_91-73.jpg",
+    "color": "Puce",
+    "size": "2XL",
+    "stock": 1
+   },
+   {
+    "image": "product_91-71.jpg",
+    "color": "Fuscia",
+    "size": "M",
+    "stock": 14
+   },
+   {
+    "image": "product_91-94.jpg",
+    "color": "Mauv",
+    "size": "L",
+    "stock": 14
+   }
+  ]
+ },
+ {
+  "id": 92,
+  "name": "Reactive",
+  "description": "maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque",
+  "price": 3578,
+  "creation_timestamp": "01/07/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_92-94.jpg",
+    "color": "Maroon",
+    "size": "XS",
+    "stock": 6
+   }
+  ]
+ },
+ {
+  "id": 93,
+  "name": "context-sensitive",
+  "description": "mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel",
+  "price": 2051,
+  "creation_timestamp": "02/12/2018",
+  "discount_timestamp": null,
+  "discount": 46,
+  "gender": "M",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_93-67.jpg",
+    "color": "Crimson",
+    "size": "XS",
+    "stock": 24
+   },
+   {
+    "image": "product_93-82.jpg",
+    "color": "Turquoise",
+    "size": "S",
+    "stock": 7
+   },
+   {
+    "image": "product_93-17.jpg",
+    "color": "Blue",
+    "size": "3XL",
+    "stock": 15
+   }
+  ]
+ },
+ {
+  "id": 94,
+  "name": "6th generation",
+  "description": "odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus",
+  "price": 4306,
+  "creation_timestamp": "19/03/2017",
+  "discount_timestamp": null,
+  "discount": 20,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_94-95.jpg",
+    "color": "Violet",
+    "size": "S",
+    "stock": 5
+   }
+  ]
+ },
+ {
+  "id": 95,
+  "name": "Inverse",
+  "description": "viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra",
+  "price": 4205,
+  "creation_timestamp": "03/11/2019",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "M",
+  "new_season": true,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_95-31.jpg",
+    "color": "Orange",
+    "size": "3XL",
+    "stock": 15
+   },
+   {
+    "image": "product_95-61.jpg",
+    "color": "Red",
+    "size": "2XL",
+    "stock": 6
+   },
+   {
+    "image": "product_95-47.jpg",
+    "color": "Crimson",
+    "size": "S",
+    "stock": 8
+   },
+   {
+    "image": "product_95-62.jpg",
+    "color": "Crimson",
+    "size": "L",
+    "stock": 21
+   },
+   {
+    "image": "product_95-26.jpg",
+    "color": "Violet",
+    "size": "L",
+    "stock": 25
+   }
+  ]
+ },
+ {
+  "id": 96,
+  "name": "Expanded",
+  "description": "augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat",
+  "price": 2532,
+  "creation_timestamp": "09/09/2017",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_96-46.jpg",
+    "color": "Khaki",
+    "size": "L",
+    "stock": 3
+   },
+   {
+    "image": "product_96-54.jpg",
+    "color": "Goldenrod",
+    "size": "XS",
+    "stock": 25
+   },
+   {
+    "image": "product_96-39.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 6
+   },
+   {
+    "image": "product_96-19.jpg",
+    "color": "Violet",
+    "size": "3XL",
+    "stock": 22
+   }
+  ]
+ },
+ {
+  "id": 97,
+  "name": "Switchable",
+  "description": "morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate",
+  "price": 2852,
+  "creation_timestamp": "20/05/2017",
+  "discount_timestamp": null,
+  "discount": 69,
+  "gender": "M",
+  "new_season": true,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_97-42.jpg",
+    "color": "Blue",
+    "size": "3XL",
+    "stock": 5
+   },
+   {
+    "image": "product_97-75.jpg",
+    "color": "Yellow",
+    "size": "M",
+    "stock": 2
+   },
+   {
+    "image": "product_97-29.jpg",
+    "color": "Purple",
+    "size": "L",
+    "stock": 14
+   },
+   {
+    "image": "product_97-53.jpg",
+    "color": "Yellow",
+    "size": "XL",
+    "stock": 21
+   },
+   {
+    "image": "product_97-82.jpg",
+    "color": "Teal",
+    "size": "M",
+    "stock": 10
+   }
+  ]
+ },
+ {
+  "id": 98,
+  "name": "task-force",
+  "description": "ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo",
+  "price": 172,
+  "creation_timestamp": "01/03/2018",
+  "discount_timestamp": null,
+  "discount": null,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_98-89.jpg",
+    "color": "Blue",
+    "size": "XS",
+    "stock": 18
+   },
+   {
+    "image": "product_98-16.jpg",
+    "color": "Blue",
+    "size": "XL",
+    "stock": 13
+   },
+   {
+    "image": "product_98-34.jpg",
+    "color": "Teal",
+    "size": "3XL",
+    "stock": 23
+   },
+   {
+    "image": "product_98-24.jpg",
+    "color": "Yellow",
+    "size": "L",
+    "stock": 14
+   }
+  ]
+ },
+ {
+  "id": 99,
+  "name": "background",
+  "description": "massa id nisl venenatis lacinia aenean sit amet justo morbi",
+  "price": 2727,
+  "creation_timestamp": "22/10/2018",
+  "discount_timestamp": null,
+  "discount": 52,
+  "gender": "F",
+  "new_season": false,
+  "sale": false,
+  "property": [
+   {
+    "image": "product_99-26.jpg",
+    "color": "Violet",
+    "size": "M",
+    "stock": 8
+   },
+   {
+    "image": "product_99-35.jpg",
+    "color": "Red",
+    "size": "XL",
+    "stock": 17
+   },
+   {
+    "image": "product_99-77.jpg",
+    "color": "Red",
+    "size": "L",
+    "stock": 24
+   },
+   {
+    "image": "product_99-48.jpg",
+    "color": "Puce",
+    "size": "S",
+    "stock": 15
+   },
+   {
+    "image": "product_99-39.jpg",
+    "color": "Green",
+    "size": "3XL",
+    "stock": 25
+   }
+  ]
+ },
+ {
+  "id": 100,
+  "name": "monitoring",
+  "description": "lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a",
+  "price": 375,
+  "creation_timestamp": "01/12/2017",
+  "discount_timestamp": null,
+  "discount": 51,
+  "gender": "F",
+  "new_season": false,
+  "sale": true,
+  "property": [
+   {
+    "image": "product_100-31.jpg",
+    "color": "Blue",
+    "size": "XS",
+    "stock": 8
+   },
+   {
+    "image": "product_100-67.jpg",
+    "color": "Fuscia",
+    "size": "L",
+    "stock": 1
+   }
+  ]
+ },
+ {
+  "id": 101
+ }
+]
