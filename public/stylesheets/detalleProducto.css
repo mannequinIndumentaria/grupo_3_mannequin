@@ -8,7 +8,8 @@
 
 .VistaCentralDetalleProducto{
     width: 50%;
-    height: 70%;    
+    height: 70%;   
+    
 }
 
 .rightSideDetalleProducto{
@@ -52,7 +53,7 @@
     position: relative;
 }
 
-.detalle-item-prodcuto{
+.detalle-item-producto{
     position: relative;;
 }
 
@@ -95,39 +96,74 @@
       font-size: 16px;
   }
 
-  .tituloArticulos-detalle-producto{
-    display: inline-flex;
-    flex-wrap: wrap;
-    padding:12px;
-    /* width: 100%; */
-    color: black;
-    font-size: 15px;
-    -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
-    -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
-    box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
-}
 
 .heart{
     display: inline;
 }
 
-.botones-fav-del-detalle{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
 .descripccion{
     border: 1px solid black;
-}
-/*@media (max-width: 460px) {
+    position: relative;
+    margin-left: 0px;
 
-    .detalle{
-      display:flex;
-      width: 33%;
+    
+}
+
+.precio-item-detalle-producto{
+    font-size: 27px;
+}
+
+.titulo-item-detalle-producto{
+    font-size: 20px;
+}
+
+.tituloArticulos-detalle-producto{   
+    display: inline-block;
+    color: black;
+    -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+    margin: 0;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.boton-favorito-detalle-producto{
+    font-size: 22px;
+    float: right;   
+}
+
+.botones-fav-del-detalle{
+    float: left;
+  }
+
+
+
+
+@media (max-width: 640px) {
+
+    .descripccion{
+        border: 1px solid black;
+        position: relative;
+        margin-left: 0px;
+        float: left;
+    }
+
+    .tituloArticulos-detalle-producto{   
+        display: inline-block;
+        color: black;
+        -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+        -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+        box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.03);
+        margin: 0;
+        font-size: 15px;
+        padding-top: 5px;
+    }
+
     }
   
-    @media (max-width: 320px) {
+   /* @media (max-width: 320px) {
     
         .detalle{
             display:flex;
