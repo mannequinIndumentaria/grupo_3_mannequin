@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "name": "Mujeres",
+        "active": 1,
+        "subcategories": [
+            {
+                "scid": 101,
+                "name": "Tops",
+                "active": 1
+            },
+            {
+                "scid": 102,
+                "name": "Vestidos",
+                "active": 1
+            },
+            {
+                "scid": 103,
+                "name": "Bottoms",
+                "active": 1
+            },
+            {
+                "scid": 104,
+                "name": "Tallas Grandes",
+                "active": 1
+            },
+            {
+                "scid": 105,
+                "name": "Ropa Intima",
+                "active": 1
+            },
+            {
+                "scid": 106,
+                "name": "Bañadores",
+                "active": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Hombres",
+        "active": 1,
+        "subcategories": [
+            {
+                "scid": 201,
+                "name": "Tops",
+                "parent": 2,
+                "active": 1
+            },
+            {
+                "scid": 202,
+                "name": "Bottoms",
+                "parent": 2,
+                "active": 1
+            },
+            {
+                "scid": 203,
+                "name": "Bañadores",
+                "parent": 2,
+                "active": 1
+            },
+            {
+                "scid": 204,
+                "name": "Accesorios",
+                "parent": 2,
+                "active": 1
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Niños",
+        "active": 1,
+        "subcategories": [
+            {
+                "scid": 301,
+                "name": "Tops",
+                "active": 1
+            },
+            {
+                "scid": 302,
+                "name": "Vestidos",
+                "active": 1
+            },
+            {
+                "scid": 303,
+                "name": "Bottoms",
+                "active": 1
+            },
+            {
+                "scid": 304,
+                "name": "Bañadores",
+                "active": 1
+            },
+            {
+                "scid": 305,
+                "name": "Accesorios",
+                "active": 1
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Sale",
+        "active": 1,
+        "subcategories": []
+    }
+]
