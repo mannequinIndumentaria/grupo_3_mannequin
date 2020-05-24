@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 
-const usersFilePath = path.join(__dirname, '../data/user.json');
+const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
@@ -17,16 +17,13 @@ const registerController = {
 
     /*Register: Almacenar nuevo usuario*/
     store: (req, res, next) => {
+        console.log(req.body);
         const newUser = {
             id: users[users.length - 1].id + 1,
-            /*
             name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
-            repeatEmail: req.body.repeatEmail,
-            password: bcrypt.hashSync(req.body.password, 10),
-            repeatPassword: bcrypt.hashSync(req.body.repeatPassword, 10),
-            */
+            password: bcrypt.hashSync(req.body.password, 10)
         };
 
         const userToSave = [...users, newUser];
