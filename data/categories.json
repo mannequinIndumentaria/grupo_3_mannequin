@@ -104,5 +104,11 @@
         "name": "Sale",
         "active": 1,
         "subcategories": []
+    },
+    {
+        "id": 5,
+        "name": "New Season",
+        "active": 1,
+        "subcategories": []
     }
 ]
