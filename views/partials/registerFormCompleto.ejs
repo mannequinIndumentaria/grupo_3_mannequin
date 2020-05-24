@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row generalRegistro ">
       
-            <form class="registerDetalle" action="/action_page.php" target="_blank" method="post"> 
+            <form action="/register/registro" method="POST" class="registerDetalle"> 
                 
                 <h2 id="tituloRegister">Registro</h2>
 
@@ -29,23 +29,23 @@
                          <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
                                 <div class="margen">
-                                    <label for="surname">Apellido</label>
-                                    <input class="casilleroTexto" type="text" id="surname" name="surname" required>
+                                    <label for="lastname">Apellido</label>
+                                    <input class="casilleroTexto" type="text" id="lastname" name="lastname" required>
                                 </div> 
                                     
                                 <div class="margen">
                                     <label for="email">Repetir E-mail</label>
-                                    <input class="casilleroEmail" type="email" id="email" name="email" required>
+                                    <input class="casilleroEmail" type="email" id="repeatEmail" name="repeatEmail" required>
                                 </div>     
                                 
                                 <div class="margen">
                                     <label for="password">Repetir Contraseña</label>
-                                    <input class="casilleroPassword" type="password" id="password" name="password"required>
+                                    <input class="casilleroPassword" type="password" id="repeatPassword" name="repeatPassword"required>
                                 </div>   
                                                           
                         </div>
 
-                                <input type="checkbox" id="legal" name="legal" value="legal">
+                                <input type="checkbox" id="legal" value="legal" required>
                                 <label for="legal">Terminos y condiciones</label>
                                 </div>
 
