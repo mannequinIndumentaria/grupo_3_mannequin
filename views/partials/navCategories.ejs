@@ -1,41 +1,15 @@
 <div class="divCategory">
   <h4>FILTER BY CATEGORY</h4>
   <ul id="myUL navCategoriesArrow">
-    <li><span class="caret">Woman</span>
+    <% for (category of categoriesJSON) { %>
+    <li><span class="caret"><%= category.name %></span>
       <ul class="nested">
-        <li><a href="#">Dresses</a></li>
-        <li><a href="#">Trousers</a></li>
-        <li><a href="#">Blouses</a></li>
-        <li><a href="#">T-Shirts</a></li>
-        <li><a href="#">Shirts</a></li>
+        <% for (subcategory of category.subcategories) {%>
+        <li><a href="#"><%= subcategory.name %></a></li>
+        <% } %>
       </ul>
     </li>
-    <li><span class="caret">Men</span>
-      <ul class="nested">
-        <li><a href="#">Trousers</a></li>
-        <li><a href="#">Shoes</a></li>
-        <li><a href="#">T-Shirts</a></li>
-        <li><a href="#">Shirts</a></li>
-      </ul>
-    </li>
-    <li><span class="caret">Children</span>
-      <ul class="nested">
-        <li><a href="#">Dresses</a></li>
-        <li><a href="#">Trousers</a></li>
-        <li><a href="#">Blouses</a></li>
-        <li><a href="#">T-Shirts</a></li>
-        <li><a href="#">Shirts</a></li>
-      </ul>
-    </li>
-    <li><span class="caret">Sports</span>
-      <ul class="nested">
-        <li><a href="#">Dresses</a></li>
-        <li><a href="#">Trousers</a></li>
-        <li><a href="#">Blouses</a></li>
-        <li><a href="#">T-Shirts</a></li>
-        <li><a href="#">Shirts</a></li>
-      </ul>
-    </li>
+    <% } %>
   </ul>
 </div>
 <div class="divCategory">
