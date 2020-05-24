@@ -3,6 +3,7 @@
         "id": 1,
         "name": "Mujeres",
         "active": 1,
+        "hierarchy": 1,
         "subcategories": [
             {
                 "scid": 101,
@@ -40,6 +41,7 @@
         "id": 2,
         "name": "Hombres",
         "active": 1,
+        "hierarchy": 1,
         "subcategories": [
             {
                 "scid": 201,
@@ -71,6 +73,7 @@
         "id": 3,
         "name": "Niños",
         "active": 1,
+        "hierarchy": 1,
         "subcategories": [
             {
                 "scid": 301,
@@ -103,12 +106,14 @@
         "id": 4,
         "name": "Sale",
         "active": 1,
+        "hierarchy": 1,
         "subcategories": []
     },
     {
         "id": 5,
-        "name": "New Season",
+        "name": "New",
         "active": 1,
+        "hierarchy": 1,
         "subcategories": []
     }
 ]
