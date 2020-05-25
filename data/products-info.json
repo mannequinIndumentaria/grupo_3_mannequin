@@ -1,0 +1,162 @@
+[
+    { 
+        "id":1,
+        "product_id":1,
+        "color_id": 1,
+        "images":["bikiniJuliaRoja1.jpg","bikiniJuliaRoja2.jpg","bikiniJuliaRoja3.jpg","bikiniJuliaRoja4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":2,
+        "product_id":2,
+        "color_id":2,
+        "images":["blusaDotAzul1.jpg","blusaDotAzul2.jpg","blusaDotAzul3.jpg","blusaDotAzul4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":3,
+        "product_id":2,
+        "color_id":1,
+        "images":["blusaDotRojo1.jpg","blusaDotRojo2.jpg","blusaDotRojo3.jpg","blusaDotRojo4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":4,
+        "product_id":3,
+        "color_id":3,
+        "images":["blusaStacyVerde1.jpg","blusaStacyVerde2.jpg","blusaStacyVerde3.jpg","blusaStacyVerde4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":5,
+        "product_id":3,
+        "color_id":8,
+        "images":["blusaStacyVioleta1.jpg","blusaStacyVioleta2.jpg","blusaStacyVioleta3.jpg","blusaStacyVioleta4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":6,
+        "product_id":4,
+        "color_id":5,
+        "images":["buzo-hombre-blanco-1.jpg","buzo-hombre-blanco-2.jpg","buzo-hombre-blanco-3.jpg","buzo-hombre-blanco-4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":7,
+        "product_id":4,
+        "color_id":7,
+        "images":["buzo-hombre-gris-1.jpg","buzo-hombre-gris-2.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":8,
+        "product_id":5,
+        "color_id":2,
+        "images":["camisa-hombre-azul.jpg","camisa-hombre-azul-2.jpg","camisa-hombre-azul-3.jpg","camisa-hombre-azul-4.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":9,
+        "product_id":14,
+        "color_id":2,
+        "images":["camisa-hombre-rayas-azul-1.jpg","camisa-hombre-rayas-azul-2.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":10,
+        "product_id":14,
+        "color_id":4,
+        "images":["camisa-hombre-rayas-negra-1.jpg","camisa-hombre-rayas-negra-2.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":11,
+        "product_id":14,
+        "color_id":1,
+        "images":["camisa-hombre-rayas-roja-1.jpg","camisa-hombre-rayas-roja-2.jpg"],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+    },
+    { 
+        "id":12,
+        "product_id":1,
+        "color_id":2,
+        "images":["Mono-femenino1-blanco (1).jpg","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":13,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":14,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":15,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":16,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":17,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":18,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":19,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":20,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    },
+    { 
+        "id":21,
+        "product_id":1,
+        "color_id":2,
+        "images":["","",""],
+        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
+
+    }   
+]
