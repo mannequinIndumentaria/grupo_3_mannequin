@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Red",
+        "hexa": "#FF0000"
+    },
+    {
+        "id": 2,
+        "name": "Blue",
+        "hexa": "#0000FF"
+    },
+    {
+        "id": 3,
+        "name": "Green",
+        "hexa": "#00FF00"
+    },
+    {
+        "id": 4,
+        "name": "Black",
+        "hexa": "#000000"
+    },
+    {
+        "id": 5,
+        "name": "White",
+        "hexa": "#FFFFFF"
+    },
+    {
+        "id": 6,
+        "name": "Yellow",
+        "hexa": "#FFFF00"
+    },
+    {
+        "id": 7,
+        "name": "Gray",
+        "hexa": "#999999"
+    },
+    {
+        "id": 8,
+        "name": "Violet",
+        "hexa": "#FF00FF"
+    },
+    {
+        "id":9,
+        "name": "LightBlue",
+        "hexa": "#ADD8E6"
+    },
+    {
+        "id":10,
+        "name": "Brown",
+        "hexa":"#A52A2A"
+    },
+    {
+        "id":11,
+        "name":"Lilac",
+        "hexa":"#DCD0FF"
+    },
+    {
+        "id":12,
+        "name":"Pink",
+        "hexa": "#FFC0CB"
+    }
+]
