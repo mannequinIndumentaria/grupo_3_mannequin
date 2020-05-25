@@ -12,6 +12,17 @@ const categoriesController = {
             productsJSON
         }
         );
+    },
+    filter: (req, res) => {
+        const categoria = req.params.category;
+        const subcategoria = req.params.subcategory;
+        const desde = req.params.desde;
+        const hasta = (desde+7) ;
+        const articulosFiltrados = productsJSON.filter(articulo =>{
+            return articulo.category == categoria && articulo.subcategory == subcategoria;
+        });
+        const productosEnPagina = articulosFiltrados.slice(desde,hasta);
+        res.render('carrito',{data: productosEnPagina});
     }
 };
 

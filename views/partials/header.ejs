@@ -35,14 +35,14 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 centrado">
                 <% for (category of categoriesJSON) { %>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link" href="<%= category.id %>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <%= category.name %>
                     </a>
 
                     <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink">
                         <% for (subcategory of category.subcategories) { %>
-                        <a class="dropdown-item" href="/categories"><%= subcategory.name %></a>
+                        <a class="dropdown-item" href="/<%= category.id %>/<%= subcategory.scid %>"><%= subcategory.name %></a>
                         <% } %>
                     </div>
                 </li>
