@@ -212,11 +212,17 @@ ul.breadcrumb li a:hover {
   color: dodgerblue;
 }
 
+.card-group {
+
+}
+
 /*PAGINATION*/
  /* Pagination links */
  
 
  .pagination {
+    align-self: flex-end;
+    justify-content: center;
     margin: 0px;
     padding: 0px;
  }

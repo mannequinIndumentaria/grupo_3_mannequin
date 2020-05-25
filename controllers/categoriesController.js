@@ -4,6 +4,7 @@ const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const productsJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const imagesFilePath = path.join(__dirname, '../public/images/');
 
 const categoriesController = {
     categories: (req, res) => {
@@ -16,20 +17,27 @@ const categoriesController = {
     filter: (req, res) => {
 
         let productsFiltered = [];
-        const category = req.params.category;
-        const subcategory = req.params.subcategory;
-        const from = req.params.desde;
+        let imagesFiltered = [];
+        const category = parseInt(req.params.category);
+        const subcategory = parseInt(req.params.subcategory);
+        const from = parseInt(req.params.desde);
         const to = (from + 7);
-        productsFiltered = productsJSON.filter(article => {
-            article.category == category && article.subcategory == subcategory;
+        productsFilteredCat = productsJSON.filter(article => {
+            return category == article.category;
+
         });
-        const productsOnSite = productsFiltered.slice(from, to);
+        productsFilteredSub = productsFilteredCat.filter(subcat => {
+            return subcat.subcategory == subcategory
+        });
+        const productsOnSite = productsFilteredSub.slice(from, to);
+
+        const imagesOnSite = []
         res.render('categories',
             {
                 categoriesJSON,
-                data: productsOnSite
+                productsOnSite: productsOnSite
             });
-        console.log(productsJSON);
+
     }
 };
 
