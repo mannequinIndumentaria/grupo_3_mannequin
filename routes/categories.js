@@ -4,6 +4,6 @@ const categoriesController = require('../controllers/categoriesController')
 
 /* GET home page. */
 router.get('/', categoriesController.categories);
-router.get('/:category/:subcategory', categoriesController.filter);
+router.get('/filter/:category/:subcategory/:desde', categoriesController.filter);
 
 module.exports = router;

@@ -9,20 +9,27 @@ const categoriesController = {
     categories: (req, res) => {
         res.render('categories', {
             categoriesJSON,
-            productsJSON
+            productsOnSite: productsJSON
         }
         );
     },
     filter: (req, res) => {
-        const categoria = req.params.category;
-        const subcategoria = req.params.subcategory;
-        const desde = req.params.desde;
-        const hasta = (desde+7) ;
-        const articulosFiltrados = productsJSON.filter(articulo =>{
-            return articulo.category == categoria && articulo.subcategory == subcategoria;
+
+        let productsFiltered = [];
+        const category = req.params.category;
+        const subcategory = req.params.subcategory;
+        const from = req.params.desde;
+        const to = (from + 7);
+        productsFiltered = productsJSON.filter(article => {
+            article.category == category && article.subcategory == subcategory;
         });
-        const productosEnPagina = articulosFiltrados.slice(desde,hasta);
-        res.render('carrito',{data: productosEnPagina});
+        const productsOnSite = productsFiltered.slice(from, to);
+        res.render('categories',
+            {
+                categoriesJSON,
+                data: productsOnSite
+            });
+        console.log(productsJSON);
     }
 };
 
