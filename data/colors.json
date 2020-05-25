@@ -38,5 +38,25 @@
         "id": 8,
         "name": "Violet",
         "hexa": "#FF00FF"
+    },
+    {
+        "id":9,
+        "name": "LightBlue",
+        "hexa": "#ADD8E6"
+    },
+    {
+        "id":10,
+        "name": "Brown",
+        "hexa":"#A52A2A"
+    },
+    {
+        "id":11,
+        "name":"Lilac",
+        "hexa":"#DCD0FF"
+    },
+    {
+        "id":12,
+        "name":"Pink",
+        "hexa": "#FFC0CB"
     }
 ]
