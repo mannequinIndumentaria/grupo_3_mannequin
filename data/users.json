@@ -1,9 +1,9 @@
 [
-    {
-     "id": 1,
-     "name": "Jorge",
-     "lastname": "Santos",
-     "email": "prueba@hotmail.com",
-     "password": "123456"
-    }
+ {
+  "id": 1,
+  "name": "Maria Clara",
+  "lastname": "Visconti",
+  "email": "claravisconti@hotmail.com",
+  "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+ }
 ]

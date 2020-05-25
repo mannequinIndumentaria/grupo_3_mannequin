@@ -4,6 +4,7 @@ const registerController = require('../controllers/registerController')
 
 /* Register y log-in. */
 router.get('/', registerController.register);
+router.post('/', registerController.login);
 
 /*Register*/
 router.get('/registro', registerController.registro);
