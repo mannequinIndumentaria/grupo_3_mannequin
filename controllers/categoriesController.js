@@ -18,8 +18,6 @@ const categoriesController = {
     },
     filter: (req, res) => {
 
-        let productsFiltered = [];
-        let imagesFiltered = [];
         const category = parseInt(req.params.category);
         const subcategory = parseInt(req.params.subcategory);
         const from = parseInt(req.params.desde);
@@ -33,25 +31,23 @@ const categoriesController = {
         });
         const productsOnSite = productsFilteredSub.slice(from, to);
 
-        const imagesOnSite = (productsFilteredSub,productsInfoJSON) => {
-            arrayImgColor = [];
-            productImgColor = {};
-            for (product of productsFilteredSub) {
-                for (prodInfo of productsInfoJSON)
-                if (productsFilteredSub.id == productsInfoJSON.product_id){
-                    productImgColor = {
-                        id: productsInfoJSON.product_id,
-                        color: productsInfoJSON.color_id,
-                        fimage: productsInfoJSON.images[0]
+        productsTest = productsFilteredSub
+
+        let imagesOnSite = (productsTest, productsInfoJSON) => {
+            for (product of productsTest) {
+                for (prodInfo of productsInfoJSON) {
+                    console.log(prodInfo);
+                    if (productsTest.id == productsInfoJSON.product_id) {
+                        imagesOnSite.color = productsInfoJSON.color_id,
+                            imagesOnSite.image = productsInfoJSON.images[0]
                     }
-                    arrayImgColor.push(productImgColor) 
                 }
             }
-            console.log(arrayImgColor);
-            return arrayImgColor;
-            
-        }
 
+            return imagesOnSite;
+
+        }
+        console.log(imagesOnSite);
         res.render('categories',
             {
                 categoriesJSON,
