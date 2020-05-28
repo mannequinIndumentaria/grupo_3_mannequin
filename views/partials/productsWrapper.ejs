@@ -22,10 +22,10 @@
     <div class="product-box">
         <div class="card" style="width: 18rem;">
             <div class="cardImgContainer">
-                <img class="card-img-top" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt=""
-                    id="foto<%= 1 %>" onclick="window.location.href='/detalleProducto'">
+                <img class="card-img-top" src="/images/articulos/<%= product.image[0] %>" alt=""
+                    id="foto<%= product.id %>" onclick="window.location.href='/detalleProducto'">
                 <div class="container-bag">
-                    <button class="addBag"  onclick="window.location.href='/carrito'">Add to basket</button>
+                    <button class="addBag" onclick="window.location.href='/carrito'">Add to basket</button>
                 </div>
             </div>
             <div class="card-body">
@@ -33,24 +33,18 @@
                 <span class="precio-item-carrito">$ <%= product.price %></span>
                 <div class="barra-iconos-cat">
                     <div class="selector-color-carrito">
-                        <button class="boton-slector-color" style="background-color: black;"
-                            onmouseover="seleccionarColor('<%= productsOnSite.id %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg','negro')"></button>
-                        <button class="boton-slector-color" style="background-color: white;"
-                            onmouseover="seleccionarColor('<%=productsOnSite.id%>','http://www.alx-camisetas.com/s/cc_images/cache_2451715637.jpg','blanco')"></button>
-                        <button class="boton-slector-color" style="background-color: red;"
-                            onmouseover="seleccionarColor('<%=productsOnSite.id%>','http://www.alx-camisetas.com/s/cc_images/cache_2451715642.jpg','rojo')"></button>
-                        <button class="boton-slector-color" style="background-color: yellow;"
-                            onmouseover="seleccionarColor('<%=productsOnSite.id%>','http://www.alx-camisetas.com/s/cc_images/cache_2451715653.jpg','amarillo')"></button>
-                        <button class="boton-slector-color" style="background-color: green;"
-                            onmouseover="seleccionarColor('<%=productsOnSite.id%>','http://www.alx-camisetas.com/s/cc_images/cache_2451715641.jpg','verde')"></button>
-                        <button class="boton-slector-color" style="background-color: orangered;"
-                            onmouseover="seleccionarColor('<%=productsOnSite.id%>','http://www.alx-camisetas.com/s/cc_images/cache_2451715648.jpg','naranja')"></button>
-                        <input type="hidden" value="" id="elegido<%=productsOnSite.id%>">
+                        <% for(let i=0; i<product.colors.length; i++) { %>
+                        
+                        <button class="boton-slector-color" style="background-color: <%=product.colors[i][0].hexa %>;"
+                            onclick="seleccionarColor('<%= product.id %>','/images/articulos/<%= product.image[i] %>','<%=product.colors[i][0].name %>')"></button>
+                        <% } %>
+                        <input type="hidden" value="" id="elegido<%=product.id%>">
                     </div>
                     <div class="botones-fav-del-carrito">
                         <div class="boton-favorito-carrito">
-                            <button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%=productsOnSite.id%>')"
-                                id="favorito<%=productsOnSite.id%>"></button>
+                            <button class="heart-carrito far fa-heart" value="0"
+                                onclick="favoritos('<%=product.id%>')"
+                                id="favorito<%=product.id%>"></button>
                         </div>
                     </div>
                 </div>
