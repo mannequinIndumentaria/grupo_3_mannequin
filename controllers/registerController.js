@@ -11,16 +11,11 @@ const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 
 const registerController = {
-    /*Render-get login/main-register*/
-    register: (req,res) => {
-        res.render('register', {
+    /*Render-get register-form*/
+    registro: (req, res) => {
+        res.render('registerFormCompleto', {
             categoriesJSON
         });
-    },
-
-    /*Render-get register-form*/
-    registro: (req,res) => {
-        res.render('registerFormCompleto');
     },
 
     /*Register: Almacenar nuevo usuario*/
@@ -40,7 +35,7 @@ const registerController = {
     },
 
     /*Login: Almacenar nuevo usuario*/
-    login: (req,res,next) => {
+    login: (req, res, next) => {
         const email = req.body.email;
         const password = req.body.password;
 
@@ -50,12 +45,14 @@ const registerController = {
 
         if (!usuario) {
             res.render('register', {
-                error: 'Usuario no encontrado!'
+                error: 'Usuario y/o contraseña incorrecto',
+                categoriesJSON
             });
-        }  
-        if(!bcrypt.compareSync(password, usuario.password)) {
+        }
+        if (!bcrypt.compareSync(password, usuario.password)) {
             res.render('register', {
-                error: 'Password incorrecto!'
+                error: 'Usuario y/o contraseña incorrecto',
+                categoriesJSON
             });
         }
 

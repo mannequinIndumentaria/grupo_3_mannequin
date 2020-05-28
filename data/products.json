@@ -8,7 +8,7 @@
         "discontinued_timestamp":null,
         "discount":10,
         "new_season":false,
-        "sale":false,
+        "sale":true,
         "category":1,
         "subcategory":106
     },
@@ -21,7 +21,7 @@
         "discount_timestamp":null,
         "discount":null,
         "new_season":false,
-        "sale":false,
+        "sale":true,
         "category":1,
         "subcategory":101
     },
@@ -46,7 +46,7 @@
         "creation_timestamp":"24/05/2020",
         "discount_timestamp":null,
         "discount":null,
-        "new_season":true,
+        "new_season":false,
         "sale":true,
         "category":2,
         "subcategory":201
@@ -59,8 +59,8 @@
         "creation_timestamp":"24/05/2020",
         "discount_timestamp":null,
         "discount":null,
-        "new_season":true,
-        "sale":true,
+        "new_season":false,
+        "sale":false,
         "category":2,
         "subcategory":201
     },
