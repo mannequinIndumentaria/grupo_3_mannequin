@@ -20,14 +20,14 @@
                 <h2 id="tituloRegister">Ingresar</h2>
 
                 <div class="margen">
-                    <%if(error) { %>                  
+                                     
                     <label for="email">E-mail</label>
                     <input class="casilleroEmail" type="email" id="email" name="email" required>
                 </div>
-
                 <div class="margen">
                     <label for="password">Contraseña</label>
                     <input class="casilleroPassword" type="password" id="password" name="password" required>
+                    <% if(typeof error != 'undefined') {%>
                     <%=error%>
                     <% } %>
                     <a href="#">Recuperar contraseña</a>

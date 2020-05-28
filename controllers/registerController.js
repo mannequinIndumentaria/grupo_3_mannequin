@@ -13,7 +13,7 @@ const registerController = {
     /*Vista de login y primer form de registro*/
     index: (req, res) => {
         res.render('register', {
-            error: [],
+            //error:null,
             categoriesJSON
         });
     },
