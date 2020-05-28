@@ -22,7 +22,7 @@ const indexController = {
 
         /*Creo array vacio para nuevo array*/
         const productosNS = [];
-        
+
         /*Recorro los productos filtrados: internamente filtro el json de productos-info*/
         for (const item of productosNewSeason) {
             const imgItem = productsInfoJSON.filter(element => element.product_id == item.id)
@@ -32,8 +32,8 @@ const indexController = {
                 price: item.price,
                 img: imgItem[0].images[0]
             }
-        
-        /*Push con la nueva info al array vacio*/
+
+            /*Push con la nueva info al array vacio*/
             productosNS.push(productosNewArray);
         };
 
@@ -62,8 +62,16 @@ const indexController = {
             productosSale: productosS
 
         });
+    },
+    /*Search*/
+    search: (req, res) => {
+        let userSearch = req.query.keywords;
+        let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
+        res.render('categories', {
+            productsOnSite: finalSearch,
+            userSearch: userSearch
+        });
     }
-
 };
 
 module.exports = indexController;
