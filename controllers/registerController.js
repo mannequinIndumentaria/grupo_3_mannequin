@@ -10,13 +10,14 @@ const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 const registerController = {
 
-    /*Vista de login*/
+    /*Vista de login y primer form de registro*/
     index: (req, res) => {
         res.render('register', {
+            error: [],
             categoriesJSON
         });
     },
-    /*vista de registro*/
+    /*vista de registro completo*/
     registro: (req, res) => {
         res.render('registerFormCompleto', {
             categoriesJSON
@@ -41,10 +42,13 @@ const registerController = {
     login: (req, res, next) => {
         const email = req.body.email
         const password = req.body.password;
+        //console.log(email);
+        ///console.log(password);
 
         const usuario = users.find((user) => {
             return user.email == email;
         });
+        //console.log(usuario);
 
         if (!usuario) {
             res.render('register', {
@@ -59,6 +63,7 @@ const registerController = {
             });
         }
 
+       // res.send(usuario);
         res.redirect('/');
     }
 };
