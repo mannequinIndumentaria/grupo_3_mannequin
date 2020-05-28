@@ -3,39 +3,42 @@
     <div class="row general">
 
         <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 columnasEnd">
-            <form class="register" action="/action_page.php" target="_blank" method="post"> 
+            <form class="register" action="/action_page.php" target="_blank" method="post">
                 <h2 id="tituloRegister">Registrarse</h2>
                 <div class="margen">
-                    <p>Regístrese en pocos segundos y continue con su compra. Podrás acceder a beneficios exclusivos.</p>
+                    <p>Regístrese en pocos segundos y continue con su compra. Podrás acceder a beneficios exclusivos.
+                    </p>
                 </div>
-                <a href="/register/registro" class="buttonRegistroForm">Registrarse</a>   
-                <a href="#" class="buttonFacebook"><i class="fab fa-facebook-square"></i>Registrarse con Facebook</a>                                        
+                <a href="/register/registro" class="buttonRegistroForm">Registrarse</a>
+                <a href="#" class="buttonFacebook"><i class="fab fa-facebook-square"></i>Registrarse con Facebook</a>
             </form>
         </div>
 
         <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 ">
             <form class="register" action="register" method="POST">
-    
+
                 <h2 id="tituloRegister">Ingresar</h2>
-              
+
                 <div class="margen">
-                   
-                    <label for="email">E-mail</label> 
-                    <input class="casilleroEmail" type="email" id="email" name="email" required> 
-                </div> 
-                 
+
+                    <% if(error) { %>                                           
+                    <label for="email">E-mail</label>
+                    <input class="casilleroEmail" type="email" id="email" name="email" required>
+                </div>
+
                 <div class="margen">
                     <label for="password">Contraseña</label>
-                    <input class="casilleroPassword" type="password" id="password" name="password" required> 
-                
-                    <a href="#"><p>Recuperar contraseña</p></a> 
-                    
+                    <input class="casilleroPassword" type="password" id="password" name="password" required>
+                    <p><%= error %></p> 
+                    <% } %>
+                    <a href="#">Recuperar contraseña</a>
+
                 </div>
-                
+
                 <div class="botonera">
                     <input class="sub" type="submit" value="Ingresar">
-                </div>   
-                <a href="#" class="buttonFacebook"><i class="fab fa-facebook-square"></i>Ingresar con Facebook</a>                                          
+                </div>
+                <a href="#" class="buttonFacebook"><i class="fab fa-facebook-square"></i>Ingresar con Facebook</a>
             </form>
         </div>
 
