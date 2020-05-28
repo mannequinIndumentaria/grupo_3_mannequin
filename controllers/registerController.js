@@ -5,11 +5,17 @@ const bcrypt = require('bcrypt');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
+const categoriesFilePath = path.join(__dirname, '../data/categories.json');
+const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+
+
 
 const registerController = {
     /*Render-get login/main-register*/
     register: (req,res) => {
-        res.render('register');
+        res.render('register', {
+            categoriesJSON
+        });
     },
 
     /*Render-get register-form*/
