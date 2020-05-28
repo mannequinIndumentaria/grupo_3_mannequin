@@ -8,10 +8,15 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
-
-
 const registerController = {
-    /*Render-get register-form*/
+
+    /*Vista de login*/
+    index: (req, res) => {
+        res.render('register', {
+            categoriesJSON
+        });
+    },
+    /*vista de registro*/
     registro: (req, res) => {
         res.render('registerFormCompleto', {
             categoriesJSON
@@ -20,7 +25,6 @@ const registerController = {
 
     /*Register: Almacenar nuevo usuario*/
     store: (req, res, next) => {
-        //console.log(req.body);
         const newUser = {
             id: users[users.length - 1].id + 1,
             name: req.body.name,
@@ -33,10 +37,9 @@ const registerController = {
         fs.writeFileSync(usersFilePath, JSON.stringify(userToSave, null, ' '));
         res.redirect('/');
     },
-
-    /*Login: Almacenar nuevo usuario*/
+    /*Log-in*/
     login: (req, res, next) => {
-        const email = req.body.email;
+        const email = req.body.email
         const password = req.body.password;
 
         const usuario = users.find((user) => {
