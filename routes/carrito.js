@@ -9,5 +9,5 @@ const carritoController = require('../controllers/carritoController')
 
 /* GET home page. */
 router.get('/', carritoController.carrito);
-
+router.post('/', carritoController.pagar);
 module.exports = router;

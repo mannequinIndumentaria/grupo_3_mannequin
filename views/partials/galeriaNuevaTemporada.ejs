@@ -1,17 +1,17 @@
 <div class="container-fluid">
 
-        <div class="row titulo">
-          <h5>Nueva Temporada</h5>
-        </div>
+  <div class="row titulo">
+    <h5>Nueva Temporada</h5>
+  </div>
 
 </div>
 
-<div class="container-fluid centroCarrousel">       
+<div class="container-fluid centroCarrousel">
 
-      <div class="row">
-                    <div id="galeriaNuevaTemp" class="carousel slide" data-ride="carousel"> 
+  <div class="row">
+    <div id="galeriaNuevaTemp" class="carousel slide" data-ride="carousel">
 
-                    <!-- Indicators 
+      <!-- Indicators 
 
                       <ul class="carousel-indicators">
                       <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -21,86 +21,38 @@
 
                       -->
 
-                    <!-- The slideshow -->
-                    <div class="container carousel-inner no-padding">
-                      <div class="carousel-item active">
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                        <a href="#"> <img src="/images/articulos/camisa01.jpg"> </a>
-                        <p class="precioItem">$1000</p>
-                          <p class="descripcionItem">Camisa Belle</p>   
-                      </div> 
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa02.jpg"> </a>
-                          <p class="precioItem">$1600</p>
-                          <p class="descripcionItem">Camisa Anne</p>
-                        </div>   
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa03.jpg"> </a>
-                          <p class="precioItem">$1200</p>
-                          <p class="descripcionItem">Camisa Lolly</p>
-                        </div>   
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                        <a href="#">  <img src="/images/articulos/camisa04.jpg"> </a>
-                        <p class="precioItem">$1600</p>
-                        <p class="descripcionItem">Camisa Mora</p>
-                        </div>   
+      <!-- The slideshow -->
 
-                      </div>
-                      <div class="carousel-item">
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa05.jpg"> </a>
-                          <p class="precioItem">$1500</p>
-                          <p class="descripcionItem">Camisa Daisy</p>
-                        </div>    
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa06.jpg"> </a>
-                          <p class="precioItem">$800</p>
-                          <p class="descripcionItem">Camisa Lolly</p>
-                        </div>   
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa01.jpg"> </a>
-                          <p class="precioItem">$1050</p>
-                          <p class="descripcionItem">Camisa Belle</p>
-                        </div>   
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa02.jpg"> </a>
-                          <p class="precioItem">$3250</p>
-                          <p class="descripcionItem">Camisa Lolly</p>
-                        </div>  
-                      </div>
-                      <div class="carousel-item">
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa03.jpg"> </a>
-                          <p class="precioItem">$2500</p>
-                          <p class="descripcionItem">Camisa Belle</p>
-                        </div>    
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa04.jpg"> </a>
-                          <p class="precioItem">$2600</p>
-                          <p class="descripcionItem">Camisa Lolly</p>
-                        </div>   
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa05.jpg"> </a>
-                          <p class="precioItem">$2200</p>
-                          <p class="descripcionItem">Camisa Belle</p>
-                        </div>   
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                          <a href="#"> <img src="/images/articulos/camisa06.jpg"> </a>
-                          <p class="precioItem">$2560</p>
-                          <p class="descripcionItem">Camisa Lolly</p>
-                        </div>  
-                      </div>
-                    </div>
-                    
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#galeriaNuevaTemp" data-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#galeriaNuevaTemp" data-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                    </a>
+      <div class="container carousel-inner no-padding">
+        <div class="carousel-item active">
+          <% for (let i=0; i < 4; i++) { %>
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <a href="#"> <img src="/images/articulos/<%= productosNewSeason[i].img%>"></a>
+            <p class="precioItem"><%= productosNewSeason[i].price%></p>
+            <p class="descripcionItem"><%= productosNewSeason[i].name%></p>
+          </div>
+          <% } %>
+        </div>
 
-                  </div>
-          
-    </div>
+        <div class="carousel-item">
+          <% for (let i=4; i < 8; i++) { %>
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <a href="#"> <img src="/images/articulos/<%= productosNewSeason[i].img%>"> </a>
+            <p class="precioItem"><%= productosNewSeason[i].price%></p>
+            <p class="descripcionItem"><%= productosNewSeason[i].name%></p>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#galeriaNuevaTemp" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#galeriaNuevaTemp" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+
+     </div>
+
+</div>
 </div>

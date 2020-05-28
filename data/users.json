@@ -1,9 +1,30 @@
 [
-    {
-     "id": 1,
-     "name": "Jorge",
-     "lastname": "Santos",
-     "email": "prueba@hotmail.com",
-     "password": "123456"
-    }
+ {
+  "id": 1,
+  "name": "Maria Clara",
+  "lastname": "Visconti",
+  "email": "claravisconti@hotmail.com",
+  "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+ },
+ {
+    "id": 2,
+    "name": "Emmanuel",
+    "lastname": "Arca",
+    "email": "earca@hotmail.com",
+    "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+   },
+   {
+    "id": 3,
+    "name": "Nicolas",
+    "lastname": "Nicolas",
+    "email": "nico@hotmail.com",
+    "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+   },
+   {
+    "id": 4,
+    "name": "Alexandra",
+    "lastname": "Alexandra",
+    "email": "alexandra@hotmail.com",
+    "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+   }
 ]

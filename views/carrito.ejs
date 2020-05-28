@@ -12,15 +12,22 @@
 				document.getElementById('nombreElegido'+id).innerHTML="Color elegido: "+color;
 			}
 
-			function cantidad(id,operacion){
+			function cantidad(id,operacion,maxStock){
 				var objCantidad = document.getElementById('cantidadElegido'+id);
 				if(operacion ==='sumar'){
-					objCantidad.value++;
+					if(objCantidad.value < maxStock){
+						objCantidad.value++;
+						document.getElementById('stockMax'+id).innerHTML = "";
+					}else{
+						document.getElementById('stockMax'+id).innerHTML = "stock maximo";
+					}
 				}else{
 					if(objCantidad.value>1){
+						document.getElementById('stockMax'+id).innerHTML = "";
 						objCantidad.value--;
 					}
 				}
+				this.total();
 			}
 
 			function favoritos(id){
@@ -38,44 +45,63 @@
 				var objArticulo = document.getElementById(id);
 				objArticulo.remove();
 			}
+
+			function total(){
+				var precios = document.getElementsByClassName("precio-item-carrito");
+				var cantidades = document.getElementsByClassName("cantidadCarrito");
+				var total = 0;
+				var subtotal = 0;
+				// console.log(precios[0].innerHTML);
+				for(var i = 0; i< precios.length;i++){
+					subtotal = Number(precios[i].innerHTML) * Number(cantidades[i].value);
+					// alert(cantidades[i].value); 
+					total += subtotal;
+				}
+				//TODO
+				var descuento = 0;
+				var subtotal = total;
+				document.getElementById('descuento').innerHTML = "$"+descuento;
+				document.getElementById('subtotal').innerHTML = "$"+subtotal;
+				document.getElementById('total').innerHTML = "$"+(descuento + subtotal);
+			}
 		</script>
 		<div class="contenido">
 			<div class="container carrito-contenedor-principal">
+				<form action="/carrito" method="POST">
 				 <div class="row">
 				<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
-				   <span class="tituloArticulos">Articulos</span>
-					<% for(let i = 1; i < 5 ; i++){ %>
-					   <div class="articulo" id="<%= i %>">
+				   <span class="tituloArticulos">Articulos<%= data.length %></span>
+					<% for(articulo of data){ %>
+					   <div class="articulo" id="<%= articulo.id %>" name="idArticulo">
 					  <div class="row">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-							<img class="foto-item-carrito" src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" id="foto<%= i %>">
+							<img class="foto-item-carrito" src="images/articulos/<%= articulo.foto %>" alt="" id="foto<%= articulo.id %>">
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
-							<span class="precio-item-carrito">$27</span>
-							<span class="titulo-item-carrito">Remera algodon</span>
+							<span class="precio-item-carrito"><%= articulo.precio %></span>
+							<span class="titulo-item-carrito"><%= articulo.nombre %></span>
 							<div class="selector-color-carrito">
-								<p id="nombreElegido<%= i %>" class="color-elegido">Color elegido:</p>
-								<button class="boton-slector-color" style="background-color: black;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg','negro')"></button>
-								<button class="boton-slector-color" style="background-color: white;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715637.jpg','blanco')"></button>
-								<button class="boton-slector-color" style="background-color: red;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715642.jpg','rojo')"></button>
-								<button class="boton-slector-color" style="background-color: yellow;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715653.jpg','amarillo')"></button>
-								<button class="boton-slector-color" style="background-color: green;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715641.jpg','verde')"></button>
-								<button class="boton-slector-color" style="background-color: orangered;" onmouseover="seleccionarColor('<%= i %>','http://www.alx-camisetas.com/s/cc_images/cache_2451715648.jpg','naranja')"></button>
-								<input type="hidden" value="" id="elegido<%= i %>">
+								<p id="nombreElegido<%= articulo.id %>" class="color-elegido" name="color">Color elegido:<%= articulo.color %></p>
+								<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
 							</div>
 							<div class="botones-detalle-carrito">
 								<div class="botones-fav-del-carrito">
 									<div class="boton-favorito-carrito">
-										<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= i %>')" id="favorito<%= i %>"></button>
+										<% if(articulo.favorito == 0){ %>
+											<button class="heart-carrito fas fa-heart" value="1" onclick="favoritos('<%= articulo.id %>')" id="favorito<%= articulo.id %>" name="favorito"></button>
+										<% }else{ %>
+											<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.id %>')" id="favorito<%= articulo.id %>" name="favorito"></button>
+										<% } %>	
 									</div>
 									<div class="boton-borrar-carrito">
-										<button class="trash-carrito fas fa-trash-alt" onclick="borrar('<%= i %>')"></button>
+										<button class="trash-carrito fas fa-trash-alt" onclick="borrar('<%= articulo.id %>')" name="borrar"></button>
 									</div>
 								</div>
 								<div class="selector-cantidad-carrito">
-									<button onclick="cantidad('<%= i %>','restar')" class="botones-cantidad">-</button>
-									<input type="text" value="1" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= i %>"/>
-									<button onclick="cantidad('<%= i %>','sumar')" class="botones-cantidad">+</button>
+									<button onclick="cantidad('<%= articulo.id %>','restar',<%= articulo.stock %>)" class="botones-cantidad">-</button>
+									<input type="text" value="<%= articulo.cantidad %>" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= articulo.id %>" name="cantidad"/>
+									<button onclick="cantidad('<%= articulo.id %>','sumar', <%= articulo.stock %>) " class="botones-cantidad">+</button>
+									<div id="stockMax<%= articulo.id%>"></div>
 								</div>
 							</div>
 						 </div>
@@ -102,12 +128,12 @@
 							   <span>Total</span>
 						   </div>
 						   <div class="col-6  order-amounts">
-								<span>$125.00</span>
-								<span>$0.00</span>
-								<span>$125.00</span>
+								<span id="subtotal">$0.00</span>
+								<span id="descuento">$0.00</span>
+								<span id="total" name="total">$0.00</span>
 							</div>
 						</div>
-						<button class="order-send">PAGAR</button>
+						<button class="order-send" type="submit">PAGAR</button>
 						<label class ="order-titulo">Aceptamos</label>
 						<div class="medios-de-pago">
 							<img src="/images/Mediosdepago/visa.png" alt="Visa">
@@ -119,8 +145,9 @@
 						  </div>
 					  </div>
 					</div>
-				</div> 
+				</div>
 			</div>
+		</form> 
 			<%- include('./partials/galeriaNuevaTemporada.ejs') %> 
 			<%- include('./partials/footer.ejs') %>
 		</div>
