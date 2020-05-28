@@ -68,6 +68,7 @@ const indexController = {
         let userSearch = req.query.keywords;
         let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
         res.render('categories', {
+            categoriesJSON,
             productsOnSite: finalSearch,
             userSearch: userSearch
         });

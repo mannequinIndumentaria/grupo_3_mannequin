@@ -12,9 +12,11 @@
                     <img src="/images/header/logoMannequin.png" alt="logoMannequin">
                 </a>
             </div>
+
+            <!--Search-->
             <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4 busqueda">
-                <form class="form-busqueda">
-                    <input type="search" placeholder="Buscar..." aria-label="Search">
+                <form class="form-busqueda" action="/search" method='GET'>
+                    <input type="search" placeholder="Buscar..." aria-label="Search" name="keywords">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
