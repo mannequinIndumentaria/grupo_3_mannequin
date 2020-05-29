@@ -36,19 +36,19 @@
             <div class="row products-wrapperAle">  
                 <div class="col col-lg-2 left-column">      
                 <div class="row">
-                    <img class="miniImgDetalleProduct" id="imgPeque1" src="/images/articulos/camisa01.jpg" onmouseover="rollover('imgPeque1')"  alt="">
+                    <img class="miniImgDetalleProduct" id="imgPeque1" src="images/articulos/bikiniJuliaRoja2.jpg" onmouseover="rollover('imgPeque1')"  alt="">
                 </div>         
                 
                 <div class="row">
-                    <img class="miniImgDetalleProduct" id="imgPeque2" src="/images/articulos/camisa02.jpg" onmouseover="rollover('imgPeque2')"  alt="">
+                    <img class="miniImgDetalleProduct" id="imgPeque2" src="images/articulos/bikiniJuliaRoja3.jpg" onmouseover="rollover('imgPeque2')"  alt="">
                 </div>
 
                 <div class="row">
-                    <img class="miniImgDetalleProduct" id="imgPeque3" src="/images/articulos/camisa03.jpg" onmouseover="rollover('imgPeque3')" alt="">
+                    <img class="miniImgDetalleProduct" id="imgPeque3" src="images/articulos/bikiniJuliaRoja4.jpg" onmouseover="rollover('imgPeque3')" alt="">
                 </div>
                 </div>
                 <div class="col-4 VistaCentralDetalleProducto">
-                    <img class="miniImgDetalleProduct" id= "imagenPrincipal" src= "/images/articulos/camisa01.jpg" alt="">
+                    <img class="miniImgDetalleProduct" id= "imagenPrincipal" src= "images/articulos/bikiniJuliaRoja1.jpg" alt="">
                 </div>
                 <div class="rightSideDetalleProducto col col-lg-3 ">
                     <script>
@@ -75,7 +75,7 @@
                     </script>
                     <div class="container carrito-contenedor-principal">
                         <div class="row">
-                        <span class="tituloArticulos-detalle-producto"><h4>Nombre del Producto</h4></span>
+                        <span class="tituloArticulos-detalle-producto"><h4><%= productsOnSite.name %></h4></span>
                         <% for(let i = 1; i <2 ; i++){ %>
                             <div class="botones-detalle-carrito">
                                 <div class="botones-fav-del-detalle">
@@ -85,9 +85,9 @@
                                 </div>                  
                                 <div class="paleta-colores-descripccion" id="<%= i %>">
                                     <div class="row"> 
-                                        <div class="col-12 detalle-item-prodcuto">
-                                            <span class="precio-item-carrito">$27</span>
-                                            <span class="titulo-item-carrito">Remera algodon</span>
+                                        <div class="col-12 detalle-item-producto">
+                                            <span class="precio-item-carrito">$<%= productsOnSite.price %></span>
+                                            <span class="titulo-item-carrito"><%= productsOnSite.name %></span>
                                             <div class="selector-color-detalle-producto">
                                                 <p id="nombreElegido<%= i %>" class="color-elegido">Color elegido:</p>
                                                 <button class="boton-slector-color" id="colorPaleta" style="background-color: black;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa01.jpg','negro')"; onclick="rollover2('/images/articulos/camisaAzul0.jpg','/images/articulos/camisaAzul1.jpg','/images/articulos/camisaAzul2.jpg','/images/articulos/camisaAzul3.jpg')"></button>
@@ -128,7 +128,7 @@
                 </div>
             </div>
 
-            <%- include('./partials/galeriaNuevaTemporada.ejs') %> 
+            <%- include('./partials/galeriaNuevaTemporada.ejs') %>
 
             <%- include('./partials/galeriaSale.ejs') %>
             
