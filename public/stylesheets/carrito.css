@@ -2,9 +2,12 @@
 .carrito-contenedor-principal{
     padding-top:20px;
 }
-
-.foto-item-carrito{
+.prueba {
     width: 100%;
+}
+.foto-item-carrito{
+    max-width: 150px;
+    max-height: 200px;
     display: flex;
     flex-wrap: wrap;
 }
