@@ -30,7 +30,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title"><%= product.name %></h5>
-                <span class="precio-item-carrito">$ <%= product.price %></span>
+                <span class="precio-item-carrito">$ <%= thousandGenerator(product.price) %></span>
                 <div class="barra-iconos-cat">
                     <div class="selector-color-carrito">
                         <% for(let i=0; i<product.colors.length; i++) { %>

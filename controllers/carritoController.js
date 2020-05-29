@@ -28,6 +28,9 @@ const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 const productoNS = require('../services/carrouselNS');
 const productoS = require('../services/carrouselS');
 
+/*Importo conversor*/
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 const carritoController = {
     carrito: (req,res) => {
         const articulosParaLaVista = [];
@@ -81,7 +84,8 @@ const carritoController = {
             data: articulosParaLaVista,
             productosNewSeason: productoNS,
             productosSale: productoS,
-            categoriesJSON
+            categoriesJSON,
+            thousandGenerator: toThousand
         });
     },
     pagar: (req,res)=>{
