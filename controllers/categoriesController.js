@@ -58,8 +58,6 @@ const categoriesController = {
             productsFinal.push(producto);
         }
         console.log(productsFinal)
-
-
         res.render('categories',
             {
                 categoriesJSON,

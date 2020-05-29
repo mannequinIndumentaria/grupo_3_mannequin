@@ -1,140 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
+<%- include('./partials/head.ejs') %>
+
 <body>
     <%- include('./partials/header.ejs') %>
     <script type="text/javascript">
-        function rollover2(imgPrincipal, imgP1, imgP2, imgP3)
-                {
-                console.log(imgPrincipal);
-                console.log(imgP1);
-                console.log(imgP2);
-                console.log(imgP3); 
-                var objPrincipal = document.getElementById('imagenPrincipal');
-                var objImgPeque1 = document.getElementById('imgPeque1');
-                var objImgPeque2 = document.getElementById('imgPeque2');
-                var objImgPeque3 = document.getElementById('imgPeque3');
-                
-                    objPrincipal.src = imgPrincipal;
-                    objImgPeque1.src = imgP1;
-                    objImgPeque2.src= imgP2;
-                    objImgPeque3.src= imgP3;
-                        
-                }
-                
-                function rollover(id)
-                {
-            
-                var objPrincipal = document.getElementById('imagenPrincipal');
-                var objImgPeque = document.getElementById(id).src;                        
-                objPrincipal.src = objImgPeque;
-            
-                }
-    </script>  
-    <div class="contenido">
-    <div class="container-fluid">
-            <div class="row products-wrapperAle">  
-                <div class="col col-lg-2 left-column">      
-                <div class="row">
-                    <img class="miniImgDetalleProduct" id="imgPeque1" src="images/articulos/bikiniJuliaRoja2.jpg" onmouseover="rollover('imgPeque1')"  alt="">
-                </div>         
-                
-                <div class="row">
-                    <img class="miniImgDetalleProduct" id="imgPeque2" src="images/articulos/bikiniJuliaRoja3.jpg" onmouseover="rollover('imgPeque2')"  alt="">
-                </div>
+        function rollover2(imgPrincipal, imgP1, imgP2, imgP3) {
+            console.log(imgPrincipal);
+            console.log(imgP1);
+            console.log(imgP2);
+            console.log(imgP3);
+            var objPrincipal = document.getElementById('imagenPrincipal');
+            var objImgPeque1 = document.getElementById('imgPeque1');
+            var objImgPeque2 = document.getElementById('imgPeque2');
+            var objImgPeque3 = document.getElementById('imgPeque3');
 
-                <div class="row">
-                    <img class="miniImgDetalleProduct" id="imgPeque3" src="images/articulos/bikiniJuliaRoja4.jpg" onmouseover="rollover('imgPeque3')" alt="">
-                </div>
+            objPrincipal.src = imgPrincipal;
+            objImgPeque1.src = imgP1;
+            objImgPeque2.src = imgP2;
+            objImgPeque3.src = imgP3;
+
+        }
+
+        function rollover(id) {
+
+            var objPrincipal = document.getElementById('imagenPrincipal');
+            var objImgPeque = document.getElementById(id).src;
+            objPrincipal.src = objImgPeque;
+
+        }
+    </script>
+    <div class="contenido">
+        <div class="container-fluid">
+            <div class="row products-wrapperAle">
+                <div class="col col-lg-2 left-column">
+                    <% for (let j = 0 ; j < productsOnSite[0].image[0].length; j++) { %>
+                    <div class="row">
+
+                        <img class="miniImgDetalleProduct" id="imgPeque<%= j+1 %>"
+                            src="/images/articulos/<%= productsOnSite[0].image[0][j]%>" onmouseover="rollover('imgPeque<%= j+1 %>')"
+                            alt="">
+                    </div>
+                    <% } %>
+                    
                 </div>
                 <div class="col-4 VistaCentralDetalleProducto">
-                    <img class="miniImgDetalleProduct" id= "imagenPrincipal" src= "images/articulos/bikiniJuliaRoja1.jpg" alt="">
+                    <img class="miniImgDetalleProduct" id="imagenPrincipal"
+                        src="/images/articulos/<%= productsOnSite[0].image[0][0] %>" alt="">
                 </div>
                 <div class="rightSideDetalleProducto col col-lg-3 ">
                     <script>
-                        function seleccionarColor(id,rutaImagen,color){
-                            document.getElementById('foto'+id).src=rutaImagen;
-                            document.getElementById('elegido'+id).value=color;
-                            document.getElementById('nombreElegido'+id).innerHTML="Color elegido: "+color;
+                        function seleccionarColor(id, rutaImagen, color) {
+                            document.getElementById('foto' + id).src = rutaImagen;
+                            document.getElementById('elegido' + id).value = color;
+                            document.getElementById('nombreElegido' + id).innerHTML = "Color elegido: " + color;
                         }
-                    
-                        function favoritos(id){
-                            var objFavorito = document.getElementById('favorito'+id);
-                            if(objFavorito.value == 1){
-                                objFavorito.className ="heart-carrito far fa-heart";
+
+                        function favoritos(id) {
+                            var objFavorito = document.getElementById('favorito' + id);
+                            if (objFavorito.value == 1) {
+                                objFavorito.className = "heart-carrito far fa-heart";
                                 objFavorito.value = 0;
-                            }else{
-                                objFavorito.className ="heart-carrito fas fa-heart";
+                            } else {
+                                objFavorito.className = "heart-carrito fas fa-heart";
                                 objFavorito.value = 1;
                             }
                         }
-                        function borrar(id){
+                        function borrar(id) {
                             var objArticulo = document.getElementById(id);
                             objArticulo.remove();
                         }
                     </script>
                     <div class="container carrito-contenedor-principal">
                         <div class="row">
-                        <span class="tituloArticulos-detalle-producto"><h4><%= productsOnSite.name %></h4></span>
-                        <% for(let i = 1; i <2 ; i++){ %>
+                            <span class="tituloArticulos-detalle-producto">
+                                <h4><%= productsOnSite[0].name %></h4>
+                            </span>
+                            <% for(let i = 1; i <2 ; i++){ %>
                             <div class="botones-detalle-carrito">
                                 <div class="botones-fav-del-detalle">
                                     <div class="boton-favorito-carrito">
-                                        <button class="heart far fa-heart" value="0" onclick="favoritos('<%= i %>')" id="favorito<%= i %>"></button>
-                                    </div>                       
-                                </div>                  
+                                        <button class="heart far fa-heart" value="0" onclick="favoritos('<%= i %>')"
+                                            id="favorito<%= i %>"></button>
+                                    </div>
+                                </div>
                                 <div class="paleta-colores-descripccion" id="<%= i %>">
-                                    <div class="row"> 
+                                    <div class="row">
                                         <div class="col-12 detalle-item-producto">
-                                            <span class="precio-item-carrito">$<%= productsOnSite.price %></span>
-                                            <span class="titulo-item-carrito"><%= productsOnSite.name %></span>
+                                            <span class="precio-item-carrito">$<%= productsOnSite[0].price %></span>
+                                            <span class="titulo-item-carrito"><%= productsOnSite[0].name %></span>
                                             <div class="selector-color-detalle-producto">
                                                 <p id="nombreElegido<%= i %>" class="color-elegido">Color elegido:</p>
-                                                <button class="boton-slector-color" id="colorPaleta" style="background-color: black;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa01.jpg','negro')"; onclick="rollover2('/images/articulos/camisaAzul0.jpg','/images/articulos/camisaAzul1.jpg','/images/articulos/camisaAzul2.jpg','/images/articulos/camisaAzul3.jpg')"></button>
-                                                <button class="boton-slector-color" id="colorPaleta" style="background-color: white;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa02.jpg','blanco')" ; onclick="rollover2('/images/articulos/camisaBlanca0.jpg','/images/articulos/camisaBlanca1.jpg','/images/articulos/camisaBlanca2.jpg','/images/articulos/camisaBlanca3.jpg')"></button>
-                                                <button class="boton-slector-color" id="colorPaleta" style="background-color: red;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa03.jpg','rojo')" ; onclick="rollover2('/images/articulos/camisaRoja0.jpg','/images/articulos/camisaRoja1.jpg','/images/articulos/camisaRoja2.jpg','/images/articulos/camisaRoja3.jpg')" ></button>
-                                                <button class="boton-slector-color" id="colorPaleta" style="background-color: yellow;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa04.jpg','amarillo')" ; onclick="rollover2('/images/articulos/camisaAmarilla0.jpg','/images/articulos/camisaAmarilla1.jpg','/images/articulos/camisaAmarilla2.jpg','/images/articulos/camisaAmarilla3.jpg')"></button>
-                                                <button class="boton-slector-color" id="colorPaleta" style="background-color: green;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa05.jpg','verde')"; onclick="rollover2('/images/articulos/camisaVerde0.jpg','/images/articulos/camisaVerde1.jpg','/images/articulos/camisaVerde2.jpg','/images/articulos/camisaVerde3.jpg')"></button>
-                                                <button class="boton-slector-color" id="colorPaleta" style="background-color: orangered;" onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa06.jpg','naranja')" ; onclick="rollover2('/images/articulos/camisaNaranja0.jpg','/images/articulos/camisaNaranja1.jpg','/images/articulos/camisaNaranja2.jpg','/images/articulos/camisaNaranja3.jpg')"></button>
+                                                <button class="boton-slector-color" id="colorPaleta"
+                                                    style="background-color: black;"
+                                                    onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa01.jpg','negro')"
+                                                    ;
+                                                    onclick="rollover2('/images/articulos/camisaAzul0.jpg','/images/articulos/camisaAzul1.jpg','/images/articulos/camisaAzul2.jpg','/images/articulos/camisaAzul3.jpg')"></button>
+                                                <button class="boton-slector-color" id="colorPaleta"
+                                                    style="background-color: white;"
+                                                    onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa02.jpg','blanco')"
+                                                    ;
+                                                    onclick="rollover2('/images/articulos/camisaBlanca0.jpg','/images/articulos/camisaBlanca1.jpg','/images/articulos/camisaBlanca2.jpg','/images/articulos/camisaBlanca3.jpg')"></button>
+                                                <button class="boton-slector-color" id="colorPaleta"
+                                                    style="background-color: red;"
+                                                    onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa03.jpg','rojo')"
+                                                    ;
+                                                    onclick="rollover2('/images/articulos/camisaRoja0.jpg','/images/articulos/camisaRoja1.jpg','/images/articulos/camisaRoja2.jpg','/images/articulos/camisaRoja3.jpg')"></button>
+                                                <button class="boton-slector-color" id="colorPaleta"
+                                                    style="background-color: yellow;"
+                                                    onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa04.jpg','amarillo')"
+                                                    ;
+                                                    onclick="rollover2('/images/articulos/camisaAmarilla0.jpg','/images/articulos/camisaAmarilla1.jpg','/images/articulos/camisaAmarilla2.jpg','/images/articulos/camisaAmarilla3.jpg')"></button>
+                                                <button class="boton-slector-color" id="colorPaleta"
+                                                    style="background-color: green;"
+                                                    onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa05.jpg','verde')"
+                                                    ;
+                                                    onclick="rollover2('/images/articulos/camisaVerde0.jpg','/images/articulos/camisaVerde1.jpg','/images/articulos/camisaVerde2.jpg','/images/articulos/camisaVerde3.jpg')"></button>
+                                                <button class="boton-slector-color" id="colorPaleta"
+                                                    style="background-color: orangered;"
+                                                    onmouseover="seleccionarColor('<%= i %>','/images/articulos/camisa06.jpg','naranja')"
+                                                    ;
+                                                    onclick="rollover2('/images/articulos/camisaNaranja0.jpg','/images/articulos/camisaNaranja1.jpg','/images/articulos/camisaNaranja2.jpg','/images/articulos/camisaNaranja3.jpg')"></button>
                                                 <input type="hidden" value="" id="elegido<%= i %>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="div-tallas">
-                                            <%- include('./partials/talles.ejs') %> 
+                                            <%- include('./partials/talles.ejs') %>
                                         </div>
-                                        <a href="https://www.sizeguide.net/womens-clothing-sizes-international-conversion-chart.html" class="size-guide"> <p>SIZE GUIDE (modal) </p> </a>
+                                        <a href="https://www.sizeguide.net/womens-clothing-sizes-international-conversion-chart.html"
+                                            class="size-guide">
+                                            <p>SIZE GUIDE (modal) </p>
+                                        </a>
                                         <div class="row iconos-footer-detalle-producto">
-                                            <a href="#" class="redes-detalle-producto"><img src="/images/redes/instagram.png"></a>
-                                            <a href="#" class="redes-detalle-producto"><img src="/images/redes/facebook.png"></a>
-                                            <a href="#" class="redes-detalle-producto"><img src="/images/redes/twitter.png"></a>
-                                            <a href="#" class="redes-detalle-producto"><img src="/images/redes/whatsapp.png"></a>
-                                            <a href="#" class="redes-detalle-producto"><img src="/images/redes/youtube.png"></a>
-                                            <a href="#" class="redes-detalle-producto"><img src="/images/redes/shareIcon.jpg"></a>
+                                            <a href="#" class="redes-detalle-producto"><img
+                                                    src="/images/redes/instagram.png"></a>
+                                            <a href="#" class="redes-detalle-producto"><img
+                                                    src="/images/redes/facebook.png"></a>
+                                            <a href="#" class="redes-detalle-producto"><img
+                                                    src="/images/redes/twitter.png"></a>
+                                            <a href="#" class="redes-detalle-producto"><img
+                                                    src="/images/redes/whatsapp.png"></a>
+                                            <a href="#" class="redes-detalle-producto"><img
+                                                    src="/images/redes/youtube.png"></a>
+                                            <a href="#" class="redes-detalle-producto"><img
+                                                    src="/images/redes/shareIcon.jpg"></a>
                                         </div>
                                         <h6>PRODUCT INFORMATION</h6>
-                                        <div class="descripccion"> 
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur voluptates doloribus libero laboriosam autem ab dolor vitae saepe eos? At, laudantium numquam cum aliquid provident suscipit vitae exercitationem aperiam iure.
-                                            Itaque nobis reprehenderit, doloribus reiciendis non, quod magni corrupti, rem ab repellendus expedita minus libero. At, incidunt amet cum ipsum corporis culpa! Excepturi eligendi iure minus voluptates quaerat rem tempora.
+                                        <div class="descripccion">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur
+                                                voluptates doloribus libero laboriosam autem ab dolor vitae saepe eos?
+                                                At, laudantium numquam cum aliquid provident suscipit vitae
+                                                exercitationem aperiam iure.
+                                                Itaque nobis reprehenderit, doloribus reiciendis non, quod magni
+                                                corrupti, rem ab repellendus expedita minus libero. At, incidunt amet
+                                                cum ipsum corporis culpa! Excepturi eligendi iure minus voluptates
+                                                quaerat rem tempora.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <% } %>
+                            <% } %>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
             <%- include('./partials/galeriaNuevaTemporada.ejs') %>
 
             <%- include('./partials/galeriaSale.ejs') %>
-            
+
             <%- include('./partials/footer.ejs') %>
         </div>
     </div>
-      <%- include('./partials/scriptBootstrap.ejs') %>
+    <%- include('./partials/scriptBootstrap.ejs') %>
 </body>
+
 </html>
