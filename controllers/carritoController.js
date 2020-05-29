@@ -20,6 +20,14 @@ const pathColor = path.join("data","colors.json");
 const fileColor = fs.readFileSync(pathColor,null,'');
 const colores = JSON.parse(fileColor);
 
+/*Requerir modulos categories*/
+const categoriesFilePath = path.join(__dirname, '../data/categories.json');
+const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+
+/*Requerir modulos carrousel*/
+const productoNS = require('../services/carrouselNS');
+const productoS = require('../services/carrouselS');
+
 const carritoController = {
     carrito: (req,res) => {
         const articulosParaLaVista = [];
@@ -69,7 +77,12 @@ const carritoController = {
             articulosParaLaVista.push(itemFinal);
         }
         // console.log(articulosParaLaVista);
-        res.render('carrito',{data: articulosParaLaVista});
+        res.render('carrito',{
+            data: articulosParaLaVista,
+            productosNewSeason: productoNS,
+            productosSale: productoS,
+            categoriesJSON
+        });
     },
     pagar: (req,res)=>{
         console.log(req.body);
