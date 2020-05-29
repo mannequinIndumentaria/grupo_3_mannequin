@@ -4,6 +4,6 @@ const detalleProductoController = require('../controllers/detalleProductoControl
 
 /* GET home page. */
 router.get('/', detalleProductoController.detalleProducto);
-router.get('/?:id', detalleProductoController.detalleProducto);
+router.get('/:id', detalleProductoController.detalleProducto);
 
 module.exports = router;
