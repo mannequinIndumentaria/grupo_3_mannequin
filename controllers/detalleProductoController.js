@@ -10,6 +10,7 @@ const productsColorPath = path.join(__dirname, '../data/colors.json');
 const productsColorJSON = JSON.parse(fs.readFileSync(productsColorPath, 'utf-8'));
 const productoNS = require('../services/carrouselNS');
 const productoS = require('../services/carrouselS');
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const detalleProductoController = {
     detalleProducto: (req, res) => {
@@ -49,7 +50,8 @@ const detalleProductoController = {
             categoriesJSON,
             productsOnSite: productsFinal,
             productosNewSeason: productoNS,
-            productosSale: productoS
+            productosSale: productoS,
+            thousandGenerator: toThousand
         });
     }
 };

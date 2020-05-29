@@ -18,6 +18,8 @@ const subscribersJSON = JSON.parse(fs.readFileSync(subscribersPath, 'utf-8'));
 /*Importo galerias de carpeta services*/
 const productoNS = require('../services/carrouselNS');
 const productoS = require('../services/carrouselS');
+/*Importo conversor*/
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const indexController = {
     index: (req, res) => {
@@ -26,8 +28,8 @@ const indexController = {
         res.render('index', {
             categoriesJSON,
             productosNewSeason: productoNS,
-            productosSale: productoS
-
+            productosSale: productoS,
+            thousandGenerator: toThousand
         });
     },
     /*Search*/
@@ -64,7 +66,8 @@ const indexController = {
         res.render('categories', {
             categoriesJSON,
             productsOnSite: productsFinal,
-            userSearch: userSearch
+            userSearch: userSearch,
+            thousandGenerator: toThousand
         });
 
     },

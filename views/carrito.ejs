@@ -78,7 +78,7 @@
 							<img class="foto-item-carrito" src="images/articulos/<%= articulo.foto %>" alt="" id="foto<%= articulo.id %>">
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
-							<span class="precio-item-carrito"><%= articulo.precio %></span>
+							<span class="precio-item-carrito"><%= thousandGenerator(articulo.precio) %></span>
 							<span class="titulo-item-carrito"><%= articulo.nombre %></span>
 							<div class="selector-color-carrito">
 								<p id="nombreElegido<%= articulo.id %>" class="color-elegido" name="color">Color elegido:<%= articulo.color %></p>

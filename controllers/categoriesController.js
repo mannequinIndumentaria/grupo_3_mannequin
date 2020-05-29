@@ -8,13 +8,14 @@ const productsInfoFilePath = path.join(__dirname, '../data/products-info.json');
 const productsInfoJSON = JSON.parse(fs.readFileSync(productsInfoFilePath, 'utf-8'));
 const productsColorPath = path.join(__dirname, '../data/colors.json');
 const productsColorJSON = JSON.parse(fs.readFileSync(productsColorPath, 'utf-8'));
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const categoriesController = {
     categories: (req, res) => {
         res.render('categories', {
             categoriesJSON,
-            productsOnSite: productsJSON
+            productsOnSite: productsJSON,
+            thousandGenerator: toThousand
         }
         );
     },
@@ -61,7 +62,8 @@ const categoriesController = {
         res.render('categories',
             {
                 categoriesJSON,
-                productsOnSite: productsFinal
+                productsOnSite: productsFinal,
+                thousandGenerator: toThousand
             });
 
     }
