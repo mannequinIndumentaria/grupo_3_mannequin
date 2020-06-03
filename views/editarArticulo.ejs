@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <div class="container-fluid">
+        <%- include('./partials/headerCRUD.ejs') %>
+      <div class="contenido">
+            <div class="container-fluid">
+            <form method="POST" action="/crudIndex/edit/<%= articulo[0].id %>/?_method=PUT" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="id">Codigo</label><br>
+                        <input type="text" value="<%= articulo[0].id %>" disabled id="id"><br><br>
+                        
+                        <label for="name">Nombre</label><br>
+                        <input type="text" name="name" id="name" value="<%= articulo[0].name %>"><br><br>
+
+                        <label for="description">Descripcion</label><br>
+                        <textarea name="description" cols="50" rows="5" id="description"><%= articulo[0].description %></textarea><br><br>
+                    </div>
+                    <div class="col-4">
+                        <label for="price">Precio</label><br>
+                        <input type="number" name="price" id="price" value="<%= articulo[0].price %>"><br><br>
+
+                        <label for="discount">Descuento</label><br>
+                        <input type="number" name="discount" id="discount" value="<%= articulo[0].discount %>"><br><br>
+
+                        <label for="discontinued_timestamp">Discontinuado</label><br>
+                        <input type="checkbox" name="discontinued_timestamp" id="discount_timestamp" <%= articulo[0].discontinued_timestamp ? "checked" : "" %> ><br><br>
+
+                        <label for="new_season">Nueva temporada</label><br>
+                        <input type="checkbox" name="new_season" id="new_season" <%= articulo[0].new_season ? "checked" : "" %>><br><br>
+
+                        <label for="sale">Oferta</label><br>
+                        <input type="checkbox" name="sale" id="sale" value="<%= articulo[0].sale %>" <%= articulo[0].new_season ? "checked" : "" %>><br><br>
+
+                        <label for="category">Categoria</label><br>
+                        <select name="category" id="category">
+                            <% for(categoria of categorias){%>
+                                <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                            <% }%>
+                        </select><br><br>
+
+                        <label for="subcategory">Subcategoria</label><br>
+                        <select name="subcategory" id="subcategory">
+                            <% for(categoria of categorias){
+                                for(subcategoria of categoria.subcategories){%>
+                                <option value="<%= subcategoria.scid %>"><%= categoria.name+" "+subcategoria.name %></option>
+                            <% }
+                        
+                            }%>
+                        </select><br><br>
+                        <input type="submit" value="Guardar">
+                    </div>
+                    <div class="col-4">
+                        <script>
+                            var contador = 0;
+                            function agregarContenedor(){
+                                var objContenedor = document.getElementById("contenedor-imagenes");
+                                var nuevoContenedor = document.createElement('div');
+                                var nuevoColor = document.createElement('input');
+                                var nuevoInput = document.createElement('input');
+                                var nombreColor = document.createElement('input');
+                                nombreColor.type = 'text';
+                                nuevoColor.type = 'color';
+                                nuevoContenedor.className = "contenedor-color";
+                                nuevoContenedor.name= "grupoDeImagenes";
+                                nuevoColor.id = "colorNuevo"+(this.contador+1);
+                                nombreColor.id = "colorNuevo"+(this.contador+1);
+                                nuevoColor.name = "colorNuevo"+(this.contador+1);
+                                nombreColor.name = "colorNuevo"+(this.contador+1);
+                                nuevoInput.type = "file";
+                                nuevoInput.name="imagenNueva"+(this.contador+1);
+                                nuevoInput.id = "imagenNueva"+(this.contador+1);
+                                this.contador ++;
+                                nuevoInput.multiple = true;
+                                nuevoInput.addEventListener("change",function(){
+                                    // Elimino las imagenes viejas
+                                    var imagenesPrevias = '';
+                                    imagenesPrevias = nuevoContenedor.getElementsByTagName('img');
+                                    console.log("imagenesPrevias",imagenesPrevias);
+                                    console.log("imagenesPrevias.length",imagenesPrevias.length);
+                                    if(imagenesPrevias.length > 0){
+                                        for(let i = 0; i <= imagenesPrevias.length ; i++){
+                                            console.log("valor de i:",i);
+                                            console.log("se borro el articulo",imagenesPrevias[i].name);
+                                            imagenesPrevias[i].remove();
+                                            if(i < imagenesPrevias.length){
+                                              i = i - 1;
+                                            }
+                                        }
+                                    }
+                                    // Creo las nuevas imagenes
+                                    for (var i = 0; i < nuevoInput.files.length; i++){
+                                        var img = document.createElement("img");
+                                        img.width = "65";
+                                        img.height = "90";
+                                        img.className = "img-thumbnail";
+                                        img.name= nuevoInput.files[i].name;
+                                        img.id = nuevoInput.name+i;
+                                        img.addEventListener("click",function(){
+                                            eliminarme(this.id,false);
+                                        });
+                                        var imagenUrl = URL.createObjectURL(nuevoInput.files[i]);
+                                        img.src = imagenUrl;
+                                        nuevoContenedor.appendChild(img);
+                                    }
+                                })
+                                nuevoContenedor.appendChild(nombreColor);
+                                nuevoContenedor.appendChild(nuevoColor);
+                                nuevoContenedor.appendChild(nuevoInput);
+                                var br = document.createElement("br");
+                                nuevoContenedor.appendChild(br);
+                                nuevoContenedor.appendChild(br);
+                                objContenedor.appendChild(nuevoContenedor);
+                            }
+
+                            // Elimina la imagen de la vista y crea un input para despues
+                            // borrarla desde el form
+                            function eliminarme(id,existente){
+                                if(existente){
+                                    var imagen = document.getElementById(id);
+                                    var contenedor = imagen.parentElement;
+                                    var nuevoInputHidden = document.createElement("input");
+                                    nuevoInputHidden.type = "hidden";
+                                    nuevoInputHidden.value = JSON.stringify({
+                                        id: contenedor.id, 
+                                        imgName: imagen.src,
+                                    });
+                                    nuevoInputHidden.name = "imagenEliminada";
+                                    contenedor.appendChild(nuevoInputHidden);
+                                    imagen.remove();
+                                }else{
+                                    // no se puede remover solo una imagen
+                                    
+                                }
+                            }
+                        </script>
+                        <div id="contenedor-imagenes">
+                        <% for(item of infoextra){%>
+                            <div class="contenedor-color" id="<%= item.id %>">
+                                <select name="" id="">
+                                    <option value="">Rojo</option>
+                                    <option value="">Verde</option>
+                                </select>
+                                <input type="color">
+                                <input type="file" name="colorExistente" multiple><br>
+                            <% for(let i = 0; i < item.images.length; i++){ %> 
+                                <img src="/images/articulos/<%= item.images[i] %>" id="<%= item.id+'-'+i %>" alt="..." class="img-thumbnail" width="65px" height="90px" onclick="eliminarme(this.id,true)">
+                            <% } %>
+                            </div>
+                        <% }%>
+                        </div>
+                        <div>
+                            
+                            <a href="#" onclick="agregarContenedor()">Agregar grupo de imagenes</a>
+                        </div>
+                        <!-- <div class="accordion" id="accordionExample">
+                            <% for(item of infoextra){%>
+                                <div class="card">
+                                <div class="card-header" id="heading<%= item.id %>">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= item.id %>" aria-expanded="true" aria-controls="collapseOne">
+                                        Imagenes del color <%= item.color_id %>
+                                    </button>
+                                    </h2>
+                                </div>
+                        
+                                <div id="collapse<%= item.id %>" class="collapse" aria-labelledby="heading<%= item.id %>" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <% for(imagen of item.images){ %> 
+                                            <img src="/images/articulos/<%= imagen %>" alt="..." class="img-thumbnail" width="65px" height="90px">
+                                            <input type="file" name="imagen" id=""><br>
+                                        <% } %>
+                                    </div>
+                                </div>
+                                </div>
+                            <% }%>
+                        </div> -->
+                        
+                            <!-- <select name="colorImg"><option value="<%= item.color_id %>" selected><%= item.color_id %></option></select>
+
+                            <select name="sizesImg">
+                                <option value="" selected></option>
+                            </select> -->
+
+                            
+                            
+                        
+                    </div>
+                </div>
+          
+                
+            </form>
+        </div>
+        <%- include('./partials/scriptBootstrap.ejs') %>
+      </div>
+    </div>
+  </body>
+
+</html>
