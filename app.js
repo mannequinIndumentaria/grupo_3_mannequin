@@ -12,9 +12,14 @@ var registerRouter = require('./routes/register');
 var carritoRouter = require('./routes/carrito');
 var detalleProductoRouter = require('./routes/detalleProducto');
 // var ejemploRouter = require('./routes/ejemplo');
+var crudIndexRouter = require('./routes/crudIndex');
 var cargaArticuloRouter = require('./routes/cargaArticulo');
 
 var app = express();
+
+// Implementacion de PUT y DELETE
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +38,7 @@ app.use('/register', registerRouter);
 app.use('/carrito', carritoRouter);
 app.use('/detalleProducto', detalleProductoRouter);
 // app.use('/ejemplo', ejemploRouter);
+app.use('/crudIndex', crudIndexRouter);
 app.use('/cargaArticulo', cargaArticuloRouter);
 
 // catch 404 and forward to error handler

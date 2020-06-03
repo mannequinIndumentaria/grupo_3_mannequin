@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <div class="container-fluid">
+        <%- include('./partials/headerCRUD.ejs') %>
+      <div class="contenido">
+        <div class="row">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for( producto of productos){ %>
+                  <tr>
+                    <th scope="row"><%= producto.id %></th>
+                    <td><%= producto.name %></td>
+                    <td>
+                        <form method="GET" action="/crudIndex/edit/<%= producto.id %>">
+                            <button><i class="fas fa-pen-square"></i></button>
+                        </form>
+                        <form method="POST" action="/crudIndex/delete/<%= producto.id %>?_method=DELETE">
+                            <button>
+                                <i class="fas fa-minus-square"></i>
+                            </button>
+                        </form>
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+        </div>
+        <%- include('./partials/scriptBootstrap.ejs') %>
+      </div>
+    </div>
+  </body>
+
+</html>
