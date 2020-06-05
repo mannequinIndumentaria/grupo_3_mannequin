@@ -14,6 +14,7 @@ router.post('/', registerController.login);
 /*Register*/
 router.get('/registro', registerController.registro);
 router.post('/registro', [
+ midd
   //name 
   check('name')
     .isLength({ min: 1, max: 40 }),
@@ -36,6 +37,6 @@ router.post('/registro', [
     .isAlphanumeric().withMessage('La contraseña debe contener letras y numeros')
     .isLength({ min: 8, max: 20 }).withMessage('La contraseña tener al menos de 8 caracteres'),
 ],
-  registerController.store);
+  registerController.store); 
 
 module.exports = router;
