@@ -20,21 +20,24 @@ const categoriesController = {
         );
     },
     filter: (req, res) => {
-
+        let productsFinal = [];
         const category = parseInt(req.params.category);
         const subcategory = parseInt(req.params.subcategory);
-        const from = parseInt(req.params.desde);
-        const to = (from + 7);
+        const pagination = {
+            page_number: parseInt(req.params.desde),
+            page_size: 4,
+            pages: 0,
+            category: req.params.category,
+            subcategory: req.params.subcategory
+        }
         productsFilteredCat = productsJSON.filter(article => {
             return category == article.category;
         });
         productsFilteredSub = productsFilteredCat.filter(subcat => {
             return subcat.subcategory == subcategory
         });
-        const productsOnSite = productsFilteredSub.slice(from, to);
-
-        const productsFinal = [];
-        for (product of productsOnSite) {
+        const productsColorFoto = [];
+        for (product of productsFilteredSub) {
             let productImgColor = productsInfoJSON.filter(element => {
                 return element.product_id == product.id
             })
@@ -56,13 +59,19 @@ const categoriesController = {
                 colors: colorArray,
                 image: imageArray
             }
-            productsFinal.push(producto);
+            productsColorFoto.push(producto);
+            pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
+            
+            productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
+
         }
-        console.log(productsFinal)
+        console.log(productsFinal);
+        console.log(pagination);
         res.render('categories',
             {
                 categoriesJSON,
                 productsOnSite: productsFinal,
+                pagination: pagination,
                 thousandGenerator: toThousand
             });
 

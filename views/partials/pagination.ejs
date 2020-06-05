@@ -1,10 +1,8 @@
 <div class="col-12 pagination">
   <a href="#">&laquo;</a>
-  <a class="active" href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
+  <% for (var k=1; k<=pagination.pages; k++) { %>
+  <a <% if (pagination.page_number == k) {%> class="active"<%} else {""} %> href="/categories/filter/<%= pagination.category %>/<%= pagination.subcategory %>/<%=k%>"> <%= k %></a>
+  <% } %>
   <a href="#">&raquo;</a>
 </div>
+
