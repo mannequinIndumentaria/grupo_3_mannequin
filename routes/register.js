@@ -18,10 +18,10 @@ router.post('/registro', [
     .isLength({ min: 1, max:40 }),
     //email
     check('email').isEmail().withMessage('Ingrese un correo valido'),
-    // password 
+    //password 
     check('password')
     .isAlphanumeric().withMessage('La contraseña debe contener letras y numeros')
-    .isLength({ min: 8, max:20 }).withMessage('La contraseña tener al menos de 8 caracteres'),
+    .isLength({ min: 8, max:20 }).withMessage('La contraseña debe tener al menos de 8 caracteres'),
   ],
   registerController.store); 
 
