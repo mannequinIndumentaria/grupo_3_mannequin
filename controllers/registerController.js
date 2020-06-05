@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 
+const { check, validationResult, body } = require('express-validator');
+
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
@@ -13,30 +15,43 @@ const registerController = {
     /*Vista de login y primer form de registro*/
     index: (req, res) => {
         res.render('register', {
-            //error:null,
             categoriesJSON
         });
     },
     /*vista de registro completo*/
     registro: (req, res) => {
         res.render('registerFormCompleto', {
+            //errors:errors.errors,
             categoriesJSON
         });
     },
 
     /*Register: Almacenar nuevo usuario*/
     store: (req, res, next) => {
-        const newUser = {
-            id: users[users.length - 1].id + 1,
-            name: req.body.name,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10)
-        };
 
-        const userToSave = [...users, newUser];
-        fs.writeFileSync(usersFilePath, JSON.stringify(userToSave, null, ' '));
-        res.redirect('/');
+        const errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+
+            const newUser = {
+                id: users[users.length - 1].id + 1,
+                name: req.body.name,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10)
+            };
+
+            const userToSave = [...users, newUser];
+            fs.writeFileSync(usersFilePath, JSON.stringify(userToSave, null, ' '));
+            res.redirect('/');
+
+        } else {
+            return res.render('registerFormCompleto', {
+                errors:errors.errors,
+                categoriesJSON
+            });
+        }
+
     },
     /*Log-in*/
     login: (req, res, next) => {
@@ -63,7 +78,7 @@ const registerController = {
             });
         }
 
-       // res.send(usuario);
+        // res.send(usuario);
         res.redirect('/');
     }
 };

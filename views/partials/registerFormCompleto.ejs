@@ -1,62 +1,71 @@
 <div class="container-fluid">
     <div class="row generalRegistro ">
-      
-            <form action="/register/registro" method="POST" class="registerDetalle"> 
-                
-                <h2 id="tituloRegister">Registro</h2>
 
-                    <div class="row">
-                
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <form action="/register/registro" method="POST" class="registerDetalle">
 
-                                <div class="margen">
-                                    <label for="name">Nombre</label>
-                                    <input class="casilleroTexto" type="text" id="name" name="name" required>
-                                </div> 
+            <h2 id="tituloRegister">Registro</h2>
 
-                                <div class="margen">
-                                    <label for="email">E-mail</label>
-                                    <input class="casilleroEmail" type="email" id="email" name="email" required>
-                                </div>  
+            <div class="row">
 
-                                <div class="margen">
-                                    <label for="password">Contraseña</label>
-                                    <input class="casilleroPassword" type="password" id="password" name="password"required>
-                                </div>
-                                        
-                         </div>
+            <!--Mensaje de error de validaciones desde el server-->
 
-                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <% if (typeof errors !="undefined") { %>
+                <% for (let i=0; i<errors.length; i++) { %>
+                <p style='color:red;'><%=errors[i].msg%></p>
+                <% } %>
+                <% } %>
 
-                                <div class="margen">
-                                    <label for="lastname">Apellido</label>
-                                    <input class="casilleroTexto" type="text" id="lastname" name="lastname" required>
-                                </div> 
-                                    
-                                <div class="margen">
-                                    <label for="email">Repetir E-mail</label>
-                                    <input class="casilleroEmail" type="email" id="repeatEmail" name="repeatEmail" required>
-                                </div>     
-                                
-                                <div class="margen">
-                                    <label for="password">Repetir Contraseña</label>
-                                    <input class="casilleroPassword" type="password" id="repeatPassword" name="repeatPassword"required>
-                                </div>   
-                                                          
-                        </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
-                                <input type="checkbox" id="legal" value="legal" required>
-                                <label for="legal">Terminos y condiciones</label>
-                                </div>
-
-                                <div class="botonera">
-                                <input class="sub" type="submit" value="Registrarme">
-                                </div>
-
+                    <div class="margen">
+                        <label for="name">Nombre</label>
+                        <input class="casilleroTexto" type="text" id="name" name="name" required>
                     </div>
-                                
-            </form> 
+
+                    <div class="margen">
+                        <label for="email">E-mail</label>
+                        <input class="casilleroEmail" type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="margen">
+                        <label for="password">Contraseña</label>
+                        <input class="casilleroPassword" type="password" id="password" name="password" required>
+                    </div>
+
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+
+                    <div class="margen">
+                        <label for="lastname">Apellido</label>
+                        <input class="casilleroTexto" type="text" id="lastname" name="lastname" required>
+                    </div>
+
+                    <div class="margen">
+                        <label for="email">Repetir E-mail</label>
+                        <input class="casilleroEmail" type="email" id="repeatEmail" name="repeatEmail" required>
+                    </div>
+
+                    <div class="margen">
+                        <label for="password">Repetir Contraseña</label>
+                        <input class="casilleroPassword" type="password" id="repeatPassword" name="repeatPassword"
+                            required>
+                    </div>
+
+                </div>
+
+                <input type="checkbox" id="legal" value="legal" required>
+                <label for="legal">Terminos y condiciones</label>
+            </div>
+
+            <div class="botonera">
+                <input class="sub" type="submit" value="Registrarme">
+            </div>
 
     </div>
+
+    </form>
+
+</div>
 
 </div>
