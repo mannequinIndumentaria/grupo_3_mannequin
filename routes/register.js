@@ -14,8 +14,7 @@ router.post('/', registerController.login);
 /*Register*/
 router.get('/registro', registerController.registro);
 router.post('/registro', [
- midd
-  //name 
+   //name 
   check('name')
     .isLength({ min: 1, max: 40 }),
   //lastname 
