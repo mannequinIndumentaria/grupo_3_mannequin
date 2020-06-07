@@ -5,16 +5,16 @@
 
             <h2 id="tituloRegister">Registro</h2>
 
-            <div class="row">
-
-            <!--Mensaje de error de validaciones desde el server-->
+            <div>
+                <!--Mensaje de error de validaciones desde el server-->
 
                 <% if (typeof errors !="undefined") { %>
                 <% for (let i=0; i<errors.length; i++) { %>
                 <p style='color:red;'><%=errors[i].msg%></p>
                 <% } %>
                 <% } %>
-
+            </div>
+            <div class="row">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
                     <div class="margen">
