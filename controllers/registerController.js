@@ -47,7 +47,7 @@ const registerController = {
 
         } else {
             return res.render('registerFormCompleto', {
-                errors:errors.errors,
+                errors: errors.errors,
                 categoriesJSON
             });
         }
@@ -57,30 +57,44 @@ const registerController = {
     login: (req, res, next) => {
         const email = req.body.email
         const password = req.body.password;
-        //console.log(email);
-        ///console.log(password);
 
         const usuario = users.find((user) => {
             return user.email == email;
         });
-        //console.log(usuario);
 
-        if (!usuario) {
+        if (usuario != undefined) {
+            if (bcrypt.compareSync(password, usuario.password)) {
+                req.session.user = usuario;
+                //Cookie
+                if (req.body.recordarSesion) {
+                    res.cookie('user', usuario.id, { maxAge: 100000000 })
+                }
+                res.redirect('/'); //deberia redireccionarse a profile
+            } else {
+                res.render('register', {
+                    error: 'Usuario y/o contraseña incorrecto',
+                    categoriesJSON
+                })
+            }
+        } else {
             res.render('register', {
                 error: 'Usuario y/o contraseña incorrecto',
                 categoriesJSON
-            });
+            })
         }
-        if (!bcrypt.compareSync(password, usuario.password)) {
-            res.render('register', {
-                error: 'Usuario y/o contraseña incorrecto',
-                categoriesJSON
-            });
-        }
-
-        // res.send(usuario);
-        res.redirect('/');
     }
+
+    /* profile: (req, res, next) => {
+        if (req.session.user == undefined) {
+            return res.redirect('/register', {
+                name: req.session.user.name,
+                email: req.session.user.email
+            });
+        }
+        res.render('profile');
+    }
+     */
 };
+
 
 module.exports = registerController;
