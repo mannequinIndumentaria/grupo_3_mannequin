@@ -8,6 +8,10 @@ const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 const pathProductsInfo = path.join("data","products-info.json");
 const fileProductsInfo = fs.readFileSync(pathProductsInfo,null,'');
 const productsInfo = JSON.parse(fileProductsInfo);
+const pathColors = path.join("data","colors.json");
+const fileColors = fs.readFileSync(pathColors,null,'');
+const colors = JSON.parse(fileColors);
+
 
 const crudIndexController = {
     index: (req,res) => {
@@ -23,6 +27,7 @@ const crudIndexController = {
         const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
         res.render('editarArticulo',{
             articulo: producto,
+            colores: colors,
             infoextra: productInfo,
             categorias: categoriesJSON
         });

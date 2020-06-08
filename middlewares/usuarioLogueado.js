@@ -9,7 +9,7 @@ function usuarioLogueado(req, res, next) {
             const usuario = users.find((user) => {
                 return user.id == req.cookies.user;
             });
-            req.session.user == usuario;
+            req.session.user = usuario;
             next();
         } else {
             return res.redirect('/register');
