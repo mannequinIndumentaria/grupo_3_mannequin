@@ -64,9 +64,12 @@ const registerController = {
 
         if (usuario != undefined) {
             if (bcrypt.compareSync(password, usuario.password)) {
+                console.log("USUARIO LOGIN :",usuario);
                 req.session.user = usuario;
+                console.log("USUARIO SESSION LOGIN :",req.session.user);
                 //Cookie
-                if (req.body.recordarSesion) {
+                console.log("RECORDAR SESION?:",req.body.recordarSesion);
+                if (req.body.recordarSesion != undefined) {
                     res.cookie('user', usuario.id, { maxAge: 100000000 })
                 }
                 res.redirect('/'); //deberia redireccionarse a profile
