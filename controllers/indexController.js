@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const session = require('express-session');
 /*Importo json categories*/
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
@@ -36,7 +37,14 @@ const indexController = {
     search: (req, res) => {
         let userSearch = req.query.keywords;
         let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
-        const productsFinal = [];
+        const pagination = {
+            page_number: 1,
+            page_size: 4,
+            pages: 0,
+
+        };
+        let productsFinal = [];
+        let productsColorFoto = [];
         for (product of finalSearch) {
             let productImgColor = productsInfoJSON.filter(element => {
                 return element.product_id == product.id
@@ -48,7 +56,6 @@ const indexController = {
                     return element.id == colors.color_id
                 })
                 colorArray.push(color);
-
                 imageArray.push(colors.images[0]);
             }
 
@@ -59,14 +66,18 @@ const indexController = {
                 colors: colorArray,
                 image: imageArray
             }
-            productsFinal.push(producto);
+            productsColorFoto.push(producto);
+            pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
+            productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
+
         }
-        console.log(productsFinal)
+
 
         res.render('categories', {
             categoriesJSON,
             productsOnSite: productsFinal,
             userSearch: userSearch,
+            pagination: pagination,
             thousandGenerator: toThousand
         });
 
@@ -76,7 +87,6 @@ const indexController = {
             id: subscribersJSON[subscribersJSON.length - 1].id + 1,
             email: req.body.email,
         };
-        console.log(newSubscriber);
         const subscriberToSave = [...subscribersJSON, newSubscriber];
         fs.writeFileSync(subscribersPath, JSON.stringify(subscriberToSave, null, ' '));
         res.redirect('/');

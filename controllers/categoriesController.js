@@ -36,7 +36,7 @@ const categoriesController = {
         productsFilteredSub = productsFilteredCat.filter(subcat => {
             return subcat.subcategory == subcategory
         });
-        const productsColorFoto = [];
+        let productsColorFoto = [];
         for (product of productsFilteredSub) {
             let productImgColor = productsInfoJSON.filter(element => {
                 return element.product_id == product.id
@@ -65,8 +65,6 @@ const categoriesController = {
             productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
 
         }
-        console.log(productsFinal);
-        console.log(pagination);
         res.render('categories',
             {
                 categoriesJSON,
