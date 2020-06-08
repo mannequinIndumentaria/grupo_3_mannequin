@@ -51,6 +51,18 @@
             </ul>
             
             <div class="col-menu-icons">
+                <% if(typeof user != 'undefined'){ %>
+                    <ul style="margin:0px; padding:0px; float:left;">
+                        <li class="dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                            <a class="dropdown-item" href="#">hola! <%= user.name %></a>
+                            <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mi perfil</a>
+                                <a class="dropdown-item" href="#">Cerrar sesion</a>
+                            </div>
+                        </li>
+                    </ul>
+                <% } %>
                 <a href="/register"><i class="fa fa-user"></i></a>
                 <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
                 <a href="#"><i class="fa fa-heart"></i></a>

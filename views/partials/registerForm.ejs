@@ -14,23 +14,34 @@
             </form>
         </div>
 
+
         <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 ">
+
             <form class="register" action="/register" method="POST">
 
                 <h2 id="tituloRegister">Ingresar</h2>
 
+                <div>
+                    <% if(typeof error != 'undefined') {%>
+                    <p style='color:red;'><%=error%></p>
+                    <% } %>
+                </div>
+
                 <div class="margen">
-                                     
+
                     <label for="email">E-mail</label>
                     <input class="casilleroEmail" type="email" id="email" name="email" required>
                 </div>
                 <div class="margen">
                     <label for="password">Contraseña</label>
                     <input class="casilleroPassword" type="password" id="password" name="password" required>
-                    <% if(typeof error != 'undefined') {%>
-                    <%=error%>
-                    <% } %>
-                    <a href="#">Recuperar contraseña</a>
+                    <div>
+                        <input type="checkbox" name="recordarSesion" id="recordarSesion" value="recordarSesion">
+                        <label for="recordarSesion">Recordar sesión</label>
+                    </div>
+                    <div>
+                        <a href="#">Recuperar contraseña</a>
+                    </div>
 
                 </div>
 
