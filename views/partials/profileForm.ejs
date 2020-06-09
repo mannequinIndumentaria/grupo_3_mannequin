@@ -1,11 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <!--Breadcrum-->
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 ">
+            <!--Menu-->
+
+            <ul class="">
+                <li class="listaProfile">
+                    <a class="linkMenuProfile" href="#">Mi cuenta</a>
+                </li>
+                <li class="listaProfile">
+                    <a class="linkMenuProfile" href="#">Mis compras</a>
+                </li>
+                <li class="listarofile">
+                    <a class="linkMenuProfile" href="#">Billetera</a>
+                </li>
+                <li class="listaProfile">
+                    <a class="linkMenuProfile" href="#">Cerrar Sesión</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+
+            <div class="container-fluid">
+                <!--Form+profile container-->
+
+                <div class="row">
+
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <!--Foto-->
+                        <div class="fotoProfileContainer">
+                            <img class="imgFotoProfile" src="/images/margot.jpg">
+                        </div>
+                        <form>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <!--Form-->
+
+                        <form>
+
+                            <div class="margen">
+                                <label for="name">Nombre</label>
+                                <input class="casilleroTexto" type="text" id="name" name="name" value="Margot" required>
+                            </div>
+
+                            <div class="margen">
+                                <label for="lastname">Apellido</label>
+                                <input class="casilleroTexto" type="text" id="lastname" name="lastname" value="Robbie" required>
+                            </div>
+
+                            <div class="margen">
+                                <label for="email">E-mail</label>
+                                <input class="casilleroEmail" type="email" id="email" name="email" value="margot.robbie@gmail.com" required disabled>
+                            </div>
+
+                            <div>
+                                <label class="" for="">Fecha de nacimiento</label>
+                                <select class="custom-select" id="">
+                                    <option selected>Dia...</option>
+                                    <% for (let i=1; i<=31; i++) { %>
+                                    <option value="<%=i%>"><%= i %></option>
+                                    <% } %>
+                                </select>
+
+                                <select class="custom-select" id="">
+                                    <option selected>Mes...</option>
+                                    <% for (let i=0; i<meses.length; i++) { %>
+                                    <option value="<%=i+1%>"><%=meses[i]%></option>
+                                    <% } %>
+                                </select>
+
+                                <select class="custom-select" id="">
+                                    <option selected>Año...</option>
+                                    <% for (let i=2020; i>=1930; i--) { %>
+                                    <option value="<%=i%>"><%=i%></option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="" for="">Sexo</label>
+                                <select class="custom-select" id="">
+                                    <option selected></option>
+                                    <option value="1">Femenino</option>
+                                    <option value="2">Masculino</option>
+                                    <option value="3">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="margen">
+                                <label for="name">Dirección</label>
+                                <input class="casilleroTexto" type="text" id="street" name="street" placeholder="Calle">
+                                <input class="casilleroTexto" type="text" id="stretNumber" name="stretNumber" placeholder="Altura">
+                                <input class="casilleroTexto" type="text" id="city" name="city" placeholder="Ciudad">
+                                <select class="custom-select" id="">
+                                    <option selected>Pais...</option>
+                                    <% for (let i=0; i<paises.length; i++) { %>
+                                    <option value="<%=i%>"><%=paises[i]%></option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="margen">
+                                <label for="password">Contraseña</label>
+                                <input class="casilleroPassword" type="password" id="password" name="password" required>
+                            </div>
+
+                            <div class="botonera">
+                                <input class="sub" type="submit" value="Actualizar">
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
