@@ -15,6 +15,7 @@ var detalleProductoRouter = require('./routes/detalleProducto');
 // var ejemploRouter = require('./routes/ejemplo');
 var crudIndexRouter = require('./routes/crudIndex');
 var cargaArticuloRouter = require('./routes/cargaArticulo');
+var profileRouter = require('./routes/profile')
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use('/detalleProducto', detalleProductoRouter);
 // app.use('/ejemplo', ejemploRouter);
 app.use('/crudIndex', crudIndexRouter);
 app.use('/cargaArticulo', cargaArticuloRouter);
+app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
