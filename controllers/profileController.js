@@ -5,23 +5,21 @@ const session = require('express-session');
 /*Importo json categories*/
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
-/*Importo json products*/
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const productsJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-/*Importo json products-info*/
-const productsInfoFilePath = path.join(__dirname, '../data/products-info.json');
-const productsInfoJSON = JSON.parse(fs.readFileSync(productsInfoFilePath, 'utf-8'));
-/*Importo json colors*/
-const productsColorPath = path.join(__dirname, '../data/colors.json');
-const productsColorJSON = JSON.parse(fs.readFileSync(productsColorPath, 'utf-8'));
-/*Importo json subscribers*/
-const subscribersPath = path.join(__dirname, '../data/subscribers.json');
-const subscribersJSON = JSON.parse(fs.readFileSync(subscribersPath, 'utf-8'));
-/*Importo galerias de carpeta services*/
-const productoNS = require('../services/carrouselNS');
-const productoS = require('../services/carrouselS');
+
 /*Importo conversor*/
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+/*Importo meses*/
+const mesesFilePath = path.join(__dirname, '../data/meses.json');
+const meses = JSON.parse(fs.readFileSync(mesesFilePath, 'utf-8'));
+
+/*Importo paises*/
+const paisesFilePath = path.join(__dirname, '../data/paises.json');
+const paises = JSON.parse(fs.readFileSync(paisesFilePath, 'utf-8'));
+
+/*Importo users*/
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const profileController = {
     index: (req, res) => {
@@ -29,6 +27,9 @@ const profileController = {
         /*Info del controlador a vista*/
         res.render('profile', {
             categoriesJSON,
+            meses,
+            paises,
+            users,
             //productosNewSeason: productoNS,
             //productosSale: productoS,
             thousandGenerator: toThousand

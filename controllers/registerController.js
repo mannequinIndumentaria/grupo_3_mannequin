@@ -72,7 +72,7 @@ const registerController = {
                 if (req.body.recordarSesion != undefined) {
                     res.cookie('user', usuario.id, { maxAge: 100000000 })
                 }
-                res.redirect('/'); //deberia redireccionarse a profile
+                res.redirect('/profile'); 
             } else {
                 res.render('register', {
                     error: 'Usuario y/o contraseña incorrecto',
@@ -85,9 +85,8 @@ const registerController = {
                 categoriesJSON
             })
         }
-    }
-
-    /* profile: (req, res, next) => {
+    },
+     profile: (req, res, next) => {
         if (req.session.user == undefined) {
             return res.redirect('/register', {
                 name: req.session.user.name,
@@ -96,7 +95,7 @@ const registerController = {
         }
         res.render('profile');
     }
-     */
+     
 };
 
 
