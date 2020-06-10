@@ -1,0 +1,97 @@
+.generalProfile {
+    margin: 15% 0 15% 0;
+}
+
+.menuContainerProfile, .listaProfile {
+    padding: 15% 0 0 0;
+}
+
+.linkMenuProfile:link, .linkMenuProfile:hover,  .linkMenuProfile:active, .linkMenuProfile:visited {
+color: black;
+text-decoration:none;
+font-size: 1em;
+font-weight: 200;
+}
+
+.linkMenuProfile:hover {
+    color: grey;
+}
+
+.menuContainerProfile {
+    padding: 3% 0 0 0;
+}
+
+.profileContenedorDerecho {
+    padding: 3% 0 0 0;
+}
+
+.profileSubContainerIzquierdo {
+    max-width: 350px;
+}
+
+.fotoProfilContainer {
+    max-width: 350px;
+    padding-bottom: 5%;
+}
+
+.imgFotoProfile {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* Casilleros */ 
+.casilleroTextoProfile {
+    margin: 5px 0;
+    width:100%;
+    height:30px;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(122,122,122,1);
+  }
+
+  /* Mini Casilleros */ 
+.miniTexto {
+    margin: 5px 0;
+    width:22%;
+    height:30px;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(122,122,122,1);
+  }
+
+/*Boton*/ 
+
+.botoneraProfile input[type=submit] {
+    width:100%;
+    font-display:inline-block;
+    margin:10px 0;
+    padding: 16px 0;
+    text-decoration: none;
+    border:none;
+    box-shadow: 0px 0px 3px 0px rgba(122,122,122,1);
+    border-radius: 6px;
+    background-color: #6DAAA7;
+    color:white;
+        
+}
+
+
+input[type=submit]:hover {
+    background-color: black;
+    color:white;        
+}
+
+.botonera{
+    text-align:center;
+    border: none;
+}
+
+input[type=email]:focus, input[type=password]:focus {
+    background-color: grey;
+}
+
+.listaProfile i {
+    color: grey;
+    margin-right: 15px;
+    font-size: 1em;
+}
