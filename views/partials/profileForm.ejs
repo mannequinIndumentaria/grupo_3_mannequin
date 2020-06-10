@@ -59,13 +59,12 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6r">
                     <!--Form-->
 
-                    <form class="FormProfileContainer" action="/profile" method="POST">
+                    <form class="FormProfileContainer" action="/profile/<%= profileToEdit.id %>?_method=PUT" method="POST">
                         <!--put-->
 
                         <div class="margen">
                             <label for="name">Nombre</label>
-                            <input class="casilleroTextoProfile" type="text" id="name" name="name" value="Margot"
-                                required>
+                            <input class="casilleroTextoProfile" type="text" id="name" name="name" value="" required>
                         </div>
 
                         <div class="margen">
@@ -75,9 +74,9 @@
                         </div>
 
                         <div class="margen">
-                            <label for="lastname">Correo electronico</label>
+                            <label for="email">Correo electronico</label>
                             <input class="casilleroTextoProfile" type="email" id="email" name="email"
-                                value="margot.robbie@gmail.com" required disabled>
+                                value="<%= profileToEdit.email %>" required disabled>
                         </div>
 
                         <div class="margen">
@@ -85,9 +84,14 @@
                             <input class="casilleroTextoProfile" type="password" id="password" name="password" required>
                         </div>
 
+                        <div class="margen">
+                        <label for="date">Fecha de nacimiento</label>
+                        <input class="casilleroTextoProfile" type="date" id="date" name="date" min="1930-01-01" max="2020-12-31">
+                        </div>
+
                         <div>
                             <label for="gender">Género</label>
-                            <select class="casilleroTextoProfile">
+                            <select name="gender" class="casilleroTextoProfile">
                                 <option selected>Seleccione</option>
                                 <option value="1">Femenino</option>
                                 <option value="2">Masculino</option>
@@ -100,7 +104,7 @@
                             <input class="casilleroTextoProfile" type="text" id="street" name="street"
                                 placeholder="Calle">
                             <div class="d-flex justify-content-between">
-                                <input class="miniTexto" type="text" id="stretNumber" name="stretNumber"
+                                <input class="miniTexto" type="text" id="streetNumber" name="streetNumber"
                                     placeholder="Altura">
                                 <input class="miniTexto" type="text" id="floor" name="floor" placeholder="Piso">
                                 <input class="miniTexto" type="text" id="apartment" name="apartment" placeholder="Dpto">
@@ -108,7 +112,7 @@
                                     placeholder="Codigo Postal">
                             </div>
                             <input class="casilleroTextoProfile" type="text" id="city" name="city" placeholder="Ciudad">
-                            <select class="casilleroTextoProfile" id="" placeholder="Pais">
+                            <select class="casilleroTextoProfile" name="country" placeholder="Pais">
                                 <option selected>País</option>
                                 <% for (let i=0; i<paises.length; i++) { %>
                                 <option value="<%=i%>"><%=paises[i]%></option>
