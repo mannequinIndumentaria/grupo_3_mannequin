@@ -43,7 +43,7 @@ const registerController = {
 
             const userToSave = [...users, newUser];
             fs.writeFileSync(usersFilePath, JSON.stringify(userToSave, null, ' '));
-            res.redirect('/');
+            res.redirect('/register');
 
         } else {
             return res.render('registerFormCompleto', {
@@ -64,15 +64,15 @@ const registerController = {
 
         if (usuario != undefined) {
             if (bcrypt.compareSync(password, usuario.password)) {
-                console.log("USUARIO LOGIN :",usuario);
+                console.log("USUARIO LOGIN :", usuario);
                 req.session.user = usuario;
-                console.log("USUARIO SESSION LOGIN :",req.session.user);
+                console.log("USUARIO SESSION LOGIN :", req.session.user);
                 //Cookie
-                console.log("RECORDAR SESION?:",req.body.recordarSesion);
+                console.log("RECORDAR SESION?:", req.body.recordarSesion);
                 if (req.body.recordarSesion != undefined) {
                     res.cookie('user', usuario.id, { maxAge: 100000000 })
                 }
-                res.redirect('/profile'); 
+                res.redirect('/profile/' + usuario.id);
             } else {
                 res.render('register', {
                     error: 'Usuario y/o contraseña incorrecto',
@@ -86,7 +86,12 @@ const registerController = {
             })
         }
     },
-     profile: (req, res, next) => {
+    logout: (req, res, next) => {
+        res.cookie('user', req.session.user.id, { maxAge: -1 })
+        req.session.destroy();
+        res.redirect('/')
+    },
+    profile: (req, res, next) => {
         if (req.session.user == undefined) {
             return res.redirect('/register', {
                 name: req.session.user.name,
@@ -95,7 +100,7 @@ const registerController = {
         }
         res.render('profile');
     }
-     
+
 };
 
 
