@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`cart` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_cart_users1_idx` ON `mannequin_db`.`cart` (`users_idusers` ASC) VISIBLE;
+CREATE INDEX `fk_cart_users1_idx` ON `mannequin_db`.`cart` (`users_idusers` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -76,13 +76,13 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`cart_has_products` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_cart_has_products_products1_idx` ON `mannequin_db`.`cart_has_products` (`products_idproducts` ASC) VISIBLE;
+CREATE INDEX `fk_cart_has_products_products1_idx` ON `mannequin_db`.`cart_has_products` (`products_idproducts` ASC) ;
 
-CREATE INDEX `fk_cart_has_products_cart1_idx` ON `mannequin_db`.`cart_has_products` (`cart_idcart` ASC, `cart_users_idusers` ASC, `cart_sizes_idsizes` ASC, `cart_colors_idcolors` ASC) VISIBLE;
+CREATE INDEX `fk_cart_has_products_cart1_idx` ON `mannequin_db`.`cart_has_products` (`cart_idcart` ASC, `cart_users_idusers` ASC, `cart_sizes_idsizes` ASC, `cart_colors_idcolors` ASC) ;
 
-CREATE INDEX `fk_cart_has_products_sizes1_idx` ON `mannequin_db`.`cart_has_products` (`sizes_idsizes` ASC) VISIBLE;
+CREATE INDEX `fk_cart_has_products_sizes1_idx` ON `mannequin_db`.`cart_has_products` (`sizes_idsizes` ASC) ;
 
-CREATE INDEX `fk_cart_has_products_colors1_idx` ON `mannequin_db`.`cart_has_products` (`colors_idcolors` ASC) VISIBLE;
+CREATE INDEX `fk_cart_has_products_colors1_idx` ON `mannequin_db`.`cart_has_products` (`colors_idcolors` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -132,9 +132,9 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`favorites` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_favorites_products1_idx` ON `mannequin_db`.`favorites` (`products_idproducts` ASC) VISIBLE;
+CREATE INDEX `fk_favorites_products1_idx` ON `mannequin_db`.`favorites` (`products_idproducts` ASC) ;
 
-CREATE INDEX `fk_favorites_users1_idx` ON `mannequin_db`.`favorites` (`users_idusers` ASC) VISIBLE;
+CREATE INDEX `fk_favorites_users1_idx` ON `mannequin_db`.`favorites` (`users_idusers` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`images` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_images_products_has_colors1_idx` ON `mannequin_db`.`images` (`products_has_colors_products_idproducts` ASC, `products_has_colors_colors_idcolors` ASC) VISIBLE;
+CREATE INDEX `fk_images_products_has_colors1_idx` ON `mannequin_db`.`images` (`products_has_colors_products_idproducts` ASC, `products_has_colors_colors_idcolors` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`product_subcategories` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_product_subcategories_product_categories1_idx` ON `mannequin_db`.`product_subcategories` (`product_categories_id` ASC) VISIBLE;
+CREATE INDEX `fk_product_subcategories_product_categories1_idx` ON `mannequin_db`.`product_subcategories` (`product_categories_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`products` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_products_product_categories1_idx` ON `mannequin_db`.`products` (`product_categories_id` ASC) VISIBLE;
+CREATE INDEX `fk_products_product_categories1_idx` ON `mannequin_db`.`products` (`product_categories_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -238,9 +238,9 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`products_has_colors` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_products_has_colors_colors1_idx` ON `mannequin_db`.`products_has_colors` (`colors_idcolors` ASC) VISIBLE;
+CREATE INDEX `fk_products_has_colors_colors1_idx` ON `mannequin_db`.`products_has_colors` (`colors_idcolors` ASC) ;
 
-CREATE INDEX `fk_products_has_colors_products1_idx` ON `mannequin_db`.`products_has_colors` (`products_idproducts` ASC) VISIBLE;
+CREATE INDEX `fk_products_has_colors_products1_idx` ON `mannequin_db`.`products_has_colors` (`products_idproducts` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -264,9 +264,9 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`products_has_sizes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_products_has_sizes_sizes1_idx` ON `mannequin_db`.`products_has_sizes` (`sizes_idsizes` ASC) VISIBLE;
+CREATE INDEX `fk_products_has_sizes_sizes1_idx` ON `mannequin_db`.`products_has_sizes` (`sizes_idsizes` ASC) ;
 
-CREATE INDEX `fk_products_has_sizes_products1_idx` ON `mannequin_db`.`products_has_sizes` (`products_idproducts` ASC) VISIBLE;
+CREATE INDEX `fk_products_has_sizes_products1_idx` ON `mannequin_db`.`products_has_sizes` (`products_idproducts` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -311,11 +311,11 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`stock` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_products_info_sizes1_idx` ON `mannequin_db`.`stock` (`sizes_idsizes` ASC) VISIBLE;
+CREATE INDEX `fk_products_info_sizes1_idx` ON `mannequin_db`.`stock` (`sizes_idsizes` ASC) ;
 
-CREATE INDEX `fk_products_info_colors1_idx` ON `mannequin_db`.`stock` (`colors_idcolors` ASC) VISIBLE;
+CREATE INDEX `fk_products_info_colors1_idx` ON `mannequin_db`.`stock` (`colors_idcolors` ASC) ;
 
-CREATE INDEX `fk_products_info_products1_idx` ON `mannequin_db`.`stock` (`products_idproducts` ASC) VISIBLE;
+CREATE INDEX `fk_products_info_products1_idx` ON `mannequin_db`.`stock` (`products_idproducts` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -357,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`users` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_users_countries1_idx` ON `mannequin_db`.`users` (`countries_idcountries` ASC) VISIBLE;
+CREATE INDEX `fk_users_countries1_idx` ON `mannequin_db`.`users` (`countries_idcountries` ASC) ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
