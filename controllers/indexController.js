@@ -27,6 +27,7 @@ const indexController = {
 
         /*Info del controlador a vista*/
         res.render('index', {
+            user: req.session.user,
             categoriesJSON,
             productosNewSeason: productoNS,
             productosSale: productoS,

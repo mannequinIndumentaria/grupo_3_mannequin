@@ -3,8 +3,16 @@
   "id": 1,
   "name": "Maria Clara",
   "lastname": "Visconti",
-  "email": "claravisconti@hotmail.com",
-  "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+  "password": "$2b$10$FeKn2T/9MB7.m.nqNflSM.sjaRMZBGGF0XdDy8a1qNwdtRmvAVQRS",
+  "date": "1989-08-23",
+  "gender": "1",
+  "street": "Las Heras",
+  "streetNumber": "1989",
+  "floor": "",
+  "apartment": "",
+  "postalCode": "",
+  "city": "CABA",
+  "country": "Argentina"
  },
  {
   "id": 2,
@@ -26,5 +34,12 @@
   "lastname": "Alexandra",
   "email": "alexandra@hotmail.com",
   "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
+ },
+ {
+  "id": 5,
+  "name": "prueba",
+  "lastname": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2b$10$XMcRVjqcaroWYE9gN4tvU.yU2v52oM0Vbwf.O3RH8/z2Wxje34yZG"
  }
 ]

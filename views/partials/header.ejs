@@ -55,10 +55,10 @@
                     <ul style="margin:0px; padding:0px; float:left;">
                         <li class="dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                            <a class="dropdown-item" href="#">hola! <%= user.name %></a>
+                            <a class="dropdown-item" href=""><%= user.name %></a>
                             <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Mi perfil</a>
-                                <a class="dropdown-item" href="#">Cerrar sesion</a>
+                                <a class="dropdown-item" href="/profile/<%= user.id %>">Mi perfil</a>
+                                <a class="dropdown-item" href="/register/logout">Cerrar sesion</a>
                             </div>
                         </li>
                     </ul>
