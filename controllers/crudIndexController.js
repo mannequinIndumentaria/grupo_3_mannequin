@@ -11,13 +11,16 @@ const productsInfo = JSON.parse(fileProductsInfo);
 const pathColors = path.join("data","colors.json");
 const fileColors = fs.readFileSync(pathColors,null,'');
 const colors = JSON.parse(fileColors);
-
+const db = require('../database/models');
 
 const crudIndexController = {
-    index: (req,res) => {
+    index: async (req, res) => {
+        const products = await db.Product.findAll();
+        console.log(products);
         res.render('crudIndex',{
             productos: products
         });
+        
     },
     editar:(req,res) =>{
         const idArticulo = req.params.idArticulo;
