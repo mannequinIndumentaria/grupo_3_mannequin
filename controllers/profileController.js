@@ -28,6 +28,7 @@ const profileController = {
             categoriesJSON,
             paises,
             users,
+            user: profileToEdit,
             thousandGenerator: toThousand,
             profileToEdit
         });
