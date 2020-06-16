@@ -15,13 +15,6 @@
   "country": "Argentina"
  },
  {
-  "id": 2,
-  "name": "Emmanuel",
-  "lastname": "Arca",
-  "email": "earca@hotmail.com",
-  "password": "$2b$10$docXt0LyD3OPZWXpPcJVg.WikEGASWBVdJaBBQiXXlnYaOPl4KvEi"
- },
- {
   "id": 3,
   "name": "Nicolas",
   "lastname": "Tommasian",
@@ -41,5 +34,22 @@
   "lastname": "prueba",
   "email": "prueba@gmail.com",
   "password": "$2b$10$XMcRVjqcaroWYE9gN4tvU.yU2v52oM0Vbwf.O3RH8/z2Wxje34yZG"
+ },
+ {
+  "id": 6,
+  "avatar": "avatar-1592285589576.png",
+  "name": "emma",
+  "lastname": "arca",
+  "email": "emma@mannequin.com",
+  "password": "$2b$10$Sch1ikTmfwjujc7uQ1Z2NuLUpTYI10YB8WZEUh4jNmGP2RSQT9rRG",
+  "date": "1988-06-10",
+  "gender": "2",
+  "street": "Saraza",
+  "streetNumber": "5632",
+  "floor": "0",
+  "apartment": "0",
+  "postalCode": "1234",
+  "city": "VILLA LUGANO",
+  "country": "Argentina"
  }
 ]

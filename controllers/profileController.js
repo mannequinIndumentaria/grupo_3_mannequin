@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcrypt');
 const session = require('express-session');
 
 /*Importo json categories*/
@@ -36,29 +37,35 @@ const profileController = {
 
     /*Actualizar el perfil */
     update: (req, res) => {
-        
+        console.log("ESTO MANDO EL FORMMM",req.body);
         let userID = req.params.userId;
         let profileToEdit = users.find(item => item.id == userID)
 
-        req.body.name = req.body.name;
-        req.body.lastname = req.body.lastname;
-        req.body.email = req.body.email;
-        req.body.password = req.body.password;
-        req.body.date = req.body.date;
-        req.body.gender = req.body.gender;
-        req.body.street = req.body.street;
-        req.body.streetNumber = req.body.streetNumber;
-        req.body.floor = req.body.floor;
-        req.body.apartment = req.body.apartment;
-        req.body.postalCode = req.body.postalCode;
-        req.body.city = req.body.city;
-        req.body.country = req.body.country;
-       
-        profileToEdit = {
-            id: profileToEdit.id,
-            ...req.body,
-            //image: productToEdit.image,
-        };
+        // profileToEdit.name = req.body.name;
+        // profileToEdit.lastname = req.body.lastname;
+        // profileToEdit.email = req.body.email;
+        // profileToEdit.password = bcrypt.hashSync(req.body.password, 10);
+        // profileToEdit.date = req.body.date;
+        // profileToEdit.gender = req.body.gender;
+        // profileToEdit.street = req.body.street;
+        // profileToEdit.streetNumber = req.body.streetNumber;
+        // profileToEdit.floor = req.body.floor;
+        // profileToEdit.apartment = req.body.apartment;
+        // profileToEdit.postalCode = req.body.postalCode;
+        // profileToEdit.city = req.body.city;
+        // profileToEdit.country = req.body.country;
+       if(profileToEdit){
+           // Completo el resto de los campos con lo que obtengo en el body.
+            profileToEdit = {
+                id: profileToEdit.id,
+                avatar: req.files[0].filename,
+                ...req.body,
+                //image: productToEdit.image,
+            };
+
+            // Actualizo el password encriptado
+            profileToEdit.password = bcrypt.hashSync(req.body.password, 10);
+        }
 
         let newProfile = users.map(item => {
             if (item.id == profileToEdit.id) {
