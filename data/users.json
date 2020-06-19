@@ -51,5 +51,13 @@
   "postalCode": "1234",
   "city": "VILLA LUGANO",
   "country": "Argentina"
+ },
+ {
+  "id": 7,
+  "name": "admin",
+  "lastname": "admin",
+  "email": "admin@mannequin.com",
+  "password": "$2b$10$CkEWlO74RXoYwGWLOIESGOlRnVb22NBrGTBTw262grGm//kIeO1ey",
+  "admin": true
  }
 ]

@@ -1,120 +1,161 @@
 <!DOCTYPE html>
 <html>
-<%- include('./partials/head.ejs') %>
-
-<body>
+  <%- include('./partials/head.ejs') %>
+  <body>
     <div class="container-fluid">
-        <%- include('./partials/header.ejs') %>
-        <script>
-            function addColor(){
-                var objColores = document.getElementById("container-colores");
-                var color = document.createElement('input');
-                var imagen = document.createElement('input');
-                imagen.type = "file";
-                color.type = "color";
-                color.className ="color-elegido";
-                objColores.appendChild(color);
-                objColores.appendChild(imagen);
-            }
-
-            function borrarColores(){
-                var arrColores = document.getElementsByClassName("color-elegido");
-                for (let index = 0; index <= arrColores.length; index++) {
-                    arrColores[index].remove();
-                    if(index < arrColores.length){
-                        index = index - 1;
-                    }
-                }
-
-            }
-        </script>
-        <div class="contenido">
-            <div class="container cargaArticuloContainer">
+        <%- include('./partials/headerCRUD.ejs') %>
+      <div class="contenido">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-7">
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 miniaturasContainer">
-                                <div class="miniatura-carga">
-                                    <div class="no-image">
-                                        <i class="far fa-images"><a href="#"></a></i>
-                                    </div>
-                                    <div class="imagen-producto">
-                                        <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
-                                    </div>
-                                    <div class="upload-button">
-                                        <a href="#"><i class="fas fa-file-upload"></i></a>
-                                    </div>
-                                </div>
-                                <div class="miniatura-carga">
-                                    <div class="no-image">
-                                        <i class="far fa-images"><a href="#"></a></i>
-                                    </div>
-                                    <div class="imagen-producto">
-                                        <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
-                                    </div>
-                                    <div class="upload-button">
-                                        <a href="#"><i class="fas fa-file-upload"></i></a>
-                                    </div>
-                                </div>
-                                <div class="miniatura-carga">
-                                    <div class="no-image">
-                                        <i class="far fa-images"></i>
-                                    </div>
-                                    <div class="imagen-producto">
-                                        <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
-                                    </div>
-                                    <div class="upload-button">
-                                        <a href="#"><i class="fas fa-file-upload"></i></a>
-                                    </div>
-                                </div>
+                    <div class="col-3"></div>
+                    <div class="col-6">
+
+                        <div id="accordion">
+                            <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <button class="btn" aria-expanded="true">
+                                    Nuevo producto (Codigo: <%= articuloId %>)
+                                    </button>
+                                </h5>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  principalContainer">
-                                <div class="principal-carga">
-                                    <div class="no-image">
-                                        <i class="far fa-images"></i>
-                                    </div>
-                                    <div class="imagen-producto">
-                                        <img src="http://www.alx-camisetas.com/s/cc_images/cache_2451715654.jpg" alt="" >
-                                    </div>
-                                    <div class="upload-button">
-                                        <a href="#"><i class="fas fa-file-upload"></i></a>
-                                    </div>
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Informacion del producto  
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <form method="POST" action="/crudIndex/new">
+                                        <div class="form-row">
+                                            <input type="hidden" value="<%= articuloId %>" name="idArticulo">
+                                            <div class="form-group col-md-6">
+                                              <label for="inputNombre4">Nombre</label>
+                                              <input type="text" class="form-control" id="inputNombre4" placeholder="Nombre" name="name" value="">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPrecio4">Precio</label>
+                                                <label class="sr-only" for="inputPrecio4">Precio</label>
+                                                <div class="input-group mb-2">
+                                                  <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                  </div>
+                                                  <input type="text" class="form-control" id="inputPrecio4" placeholder="000000.00" name="price" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                              <label for="inputState">Categoria</label>
+                                              <select id="inputState" class="form-control" name="category">
+                                                  <option selected>Seleccionar...</option>
+                                                <% for(categoria of categorias){%>
+                                                    <option value="<%= categoria.name %>"><%= categoria.name %></option>
+                                                <% }%>
+                                              </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputDescuento4">Descuento</label>
+                                                <label class="sr-only" for="inputDescuento4">Descuento</label>
+                                                <div class="input-group mb-2">
+                                                  <div class="input-group-prepend">
+                                                    <div class="input-group-text">%</div>
+                                                  </div>
+                                                  <input type="number" min="0" max="100" class="form-control" id="inputDescuento4" placeholder="0" name ="discount" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                              <label for="inputState">Subcategoria</label>
+                                              <select id="inputState" class="form-control" name="subcategory">
+                                                <option selected>Seleccionar...</option>
+                                                <% for(categoria of categorias){
+                                                    for(subcategoria of categoria.subcategories){%>
+                                                    <option value="<%= subcategoria.scid %>" ><%= subcategoria.name %></option>
+                                                <% }
+                                            
+                                                }%>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleFormControlTextarea1">Descripcion</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" name="sale" id="enOferta">
+                                                    <label class="custom-control-label" for="enOferta">En oferta</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" name="new_season" id="nuevaTemporada" >
+                                                    <label class="custom-control-label" for="nuevaTemporada">De nueva temporada</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" name="discontinued_timestamp" id="discontinuar" >
+                                                    <label class="custom-control-label" for="discontinuar">Discontinuado</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <button type="submit" class="btn btn-primary">Guardar informacion del producto</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
+                              </div>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-5">
-                        <h5>Remera blanca</h5>
-                        <h3>$23</h3>
-                        <div id="colores">
-                            <div>
-                                <div id="container-colores">
-                                    <input type="color" class="color-elegido" value="#000000">
-                                </div>
-                                <div>
-                                    <button onclick="addColor()">+</button>
-                                </div>
-                            </div>
-                            <div>
-                                <button class="trash-carrito fas fa-trash-alt" onclick="borrarColores()"></button>
-                            </div>
+                    
+                    </div>
+
                         </div>
-                        <%- include('./partials/talles.ejs') %>
-                        <div>
-                            <h6>Descripcion</h6>
-                            <textarea name="detalle" id="" cols="23" rows="5"></textarea>
-                            <div class="boton-submit">
-                                <button value="Subir producto">Guardar</button>
-                            </div>
-                        </div>
+                        
+                    </div>
+                    <div class="col-3">
+
                     </div>
                 </div>
-            </div>
         </div>
-        <%- include('./partials/footer.ejs') %>
+        <%- include('./partials/scriptBootstrap.ejs') %>
       </div>
     </div>
-    <%- include('./partials/scriptBootstrap.ejs') %>
-</body>
+    <script>
+        function truncate(n, len) {
+            var ext = n.substring(n.lastIndexOf(".") + 1, n.length).toLowerCase();
+            var filename = n.replace('.' + ext,'');
+            if(filename.length <= len) {
+                return n;
+            }
+            filename = filename.substr(0, len) + (n.length > len ? '[...]' : '');
+            return filename + '.' + ext;
+        };
+    </script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+          var filesNames = "";
+          for(let f = 0; f < $(this)[0].files.length; f++){
+            filesNames += truncate($(this)[0].files[f].name,10) + ";";
+          }
+          $(this).siblings(".custom-file-label").addClass("selected").html(filesNames);
+        });
+    </script>
+  </body>
 
 </html>

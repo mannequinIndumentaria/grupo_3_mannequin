@@ -1,236 +1,799 @@
 [
-    { 
-        "id":1,
-        "product_id":1,
-        "color_id": 1,
-        "images":["bikiniJuliaRoja1.jpg","bikiniJuliaRoja2.jpg","bikiniJuliaRoja3.jpg","bikiniJuliaRoja4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":2,
-        "product_id":2,
-        "color_id":2,
-        "images":["blusaDotAzul1.jpg","blusaDotAzul2.jpg","blusaDotAzul3.jpg","blusaDotAzul4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":3,
-        "product_id":2,
-        "color_id":1,
-        "images":["blusaDotRojo1.jpg","blusaDotRojo2.jpg","blusaDotRojo3.jpg","blusaDotRojo4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":4,
-        "product_id":3,
-        "color_id":3,
-        "images":["blusaStacyVerde1.jpg","blusaStacyVerde2.jpg","blusaStacyVerde3.jpg","blusaStacyVerde4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":5,
-        "product_id":3,
-        "color_id":8,
-        "images":["blusaStacyVioleta1.jpg","blusaStacyVioleta2.jpg","blusaStacyVioleta3.jpg","blusaStacyVioleta4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":6,
-        "product_id":4,
-        "color_id":5,
-        "images":["buzo-hombre-blanco-1.jpg","buzo-hombre-blanco-2.jpg","buzo-hombre-blanco-3.jpg","buzo-hombre-blanco-4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":7,
-        "product_id":4,
-        "color_id":7,
-        "images":["buzo-hombre-gris-1.jpg","buzo-hombre-gris-2.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":8,
-        "product_id":5,
-        "color_id":2,
-        "images":["camisa-hombre-azul.jpg","camisa-hombre-azul-2.jpg","camisa-hombre-azul-3.jpg","camisa-hombre-azul-4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":9,
-        "product_id":14,
-        "color_id":2,
-        "images":["camisa-hombre-rayas-azul-1.jpg","camisa-hombre-rayas-azul-2.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":10,
-        "product_id":14,
-        "color_id":4,
-        "images":["camisa-hombre-rayas-negra-1.jpg","camisa-hombre-rayas-negra-2.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":11,
-        "product_id":14,
-        "color_id":1,
-        "images":["camisa-hombre-rayas-roja-1.jpg","camisa-hombre-rayas-roja-2.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":12,
-        "product_id":6,
-        "color_id":5,
-        "images":["Mono-femenino1-blanco(1).jpg","Mono-femenino1-blanco(2).jpg","Mono-femenino1-blanco(3).jpg","Mono-femenino1-blanco(4).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":13,
-        "product_id":6,
-        "color_id":9,
-        "images":["Mono-Femenino1-Celeste(1).jpg","Mono-Femenino1-Celeste(2).jpg","Mono-Femenino1-Celeste(3).jpg","Mono-Femenino1-Celeste(4).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":14,
-        "product_id":6,
-        "color_id":10,
-        "images":["Mono-Femenino1-marron(1).jpg","Mono-Femenino1-marron(2).jpg","Mono-Femenino1-marron(3).jpg","Mono-Femenino1-marron(4).jpg","Mono-Femenino1-marron(5).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":15,
-        "product_id":6,
-        "color_id":4,
-        "images":["Mono-Femenino1-negro(1).jpg","Mono-Femenino1-negro(2).jpg","Mono-Femenino1-negro(3).jpg","Mono-Femenino1-negro(4).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":16,
-        "product_id":7,
-        "color_id":7,
-        "images":["Mono-Femenino2-gris(1).jpg","Mono-Femenino2-gris(2).jpg","Mono-Femenino2-gris(3).jpg","Mono-Femenino2-gris(4).jpg","Mono-Femenino2-gris(5).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":17,
-        "product_id":7,
-        "color_id":4,
-        "images":["Mono-Femenino2-negro(1).jpg","Mono-Femenino2-negro(2).jpg","Mono-Femenino2-negro(3).jpg","Mono-Femenino2-negro(4).jpg","Mono-Femenino2-negro(5).jpg","Mono-Femenino2-negro(6).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":18,
-        "product_id":8,
-        "color_id":9,
-        "images":["Mono-Femenino3-Celeste(1).jpg","Mono-Femenino3-Celeste(2).jpg","Mono-Femenino3-Celeste(3).jpg","Mono-Femenino3-Celeste(4).jpg","Mono-Femenino3-Celeste(5).jpg","Mono-Femenino3-Celeste(6).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":19,
-        "product_id":8,
-        "color_id":3,
-        "images":["Mono-femenino3-verde(1).jpg","Mono-femenino3-verde(2).jpg","Mono-femenino3-verde(3).jpg","Mono-femenino3-verde(4).jpg","Mono-femenino3-verde(5).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":20,
-        "product_id":9,
-        "color_id":11,
-        "images":["Mono-femenino4-lila(1).jpg","Mono-femenino4-lila(2).jpg","Mono-femenino4-lila(3).jpg","Mono-femenino4-lila(4).jpg","Mono-femenino4-lila(5).jpg","Mono-femenino4-lila(6).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":21,
-        "product_id":9,
-        "color_id":4,
-        "images":["Mono-femenino4-negro(1).jpg","Mono-femenino4-negro(2).jpg","Mono-femenino4-negro(3).jpg","Mono-femenino4-negro(4).jpg","Mono-femenino4-negro(5).jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":22,
-        "product_id":10,
-        "color_id":3,
-        "images":["monoSummerVerde1.jpg","monoSummerVerde2.jpg","monoSummerVerde3.jpg","monoSummerVerde4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":23,
-        "product_id":11,
-        "color_id":6,
-        "images":["polleraClaraAmarillo1.jpg","polleraClaraAmarillo2.jpg","polleraClaraAmarillo3.jpg","polleraClaraAmarillo4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":24,
-        "product_id":11,
-        "color_id":2,
-        "images":["polleraClaraAzul1.jpg","polleraClaraAzul2.jpg","polleraClaraAzul3.jpg","polleraClaraAzul4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":25,
-        "product_id":11,
-        "color_id":4,
-        "images":["polleraClaraNegro1.jpg","polleraClaraNegro2.jpg","polleraClaraNegro3.jpg","polleraClaraNegro4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-
-    },
-    { 
-        "id":26,
-        "product_id":11,
-        "color_id":3,
-        "images":["polleraClaraVerde1.jpg","polleraClaraVerde2.jpg","polleraClaraVerde3.jpg","polleraClaraVerde4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":27,
-        "product_id":12,
-        "color_id":5,
-        "images":["shortStripesBlanco1.jpg","shortStripesBlanco1.jpg","shortStripesBlanco1.jpg","shortStripesBlanco1.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":28,
-        "product_id":12,
-        "color_id":4,
-        "images":["shortStripesNegro1.jpg","shortStripesNegro1.jpg","shortStripesNegro1.jpg","shortStripesNegro1.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":29,
-        "product_id":13,
-        "color_id":6,
-        "images":["vestidoLolaAmarillo1.jpg","vestidoLolaAmarillo2.jpg","vestidoLolaAmarillo3.jpg","vestidoLolaAmarillo4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":30,
-        "product_id":13,
-        "color_id":2,
-        "images":["vestidoLolaAzul1.jpg","vestidoLolaAzul2.jpg","vestidoLolaAzul3.jpg","vestidoLolaAzul4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":31,
-        "product_id":13,
-        "color_id":12,
-        "images":["vestidoLolaRosa1.jpg","vestidoLolaRosa2.jpg","vestidoLolaRosa3.jpg","vestidoLolaRosa4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    },
-    { 
-        "id":32,
-        "product_id":13,
-        "color_id":3,
-        "images":["vestidoLolaVerde1.jpg","vestidoLolaVerde2.jpg","vestidoLolaVerde3.jpg","vestidoLolaVerde4.jpg"],
-        "sizes": [{"stock":45,"size_id":1},{"stock":4,"size_id":2},{"stock":45,"size_id":3},{"stock":4,"size_id":4},{"stock":45,"size_id":5}]
-    }  
+ {
+  "id": 1,
+  "product_id": 1,
+  "color_id": 1,
+  "images": [
+   "bikiniJuliaRoja1.jpg",
+   "bikiniJuliaRoja2.jpg",
+   "bikiniJuliaRoja3.jpg",
+   "bikiniJuliaRoja4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "product_id": 2,
+  "color_id": 2,
+  "images": [
+   "blusaDotAzul1.jpg",
+   "blusaDotAzul2.jpg",
+   "blusaDotAzul3.jpg",
+   "blusaDotAzul4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "product_id": 2,
+  "color_id": 1,
+  "images": [
+   "blusaDotRojo1.jpg",
+   "blusaDotRojo2.jpg",
+   "blusaDotRojo3.jpg",
+   "blusaDotRojo4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "product_id": 4,
+  "color_id": 5,
+  "images": [
+   "buzo-hombre-blanco-1.jpg",
+   "buzo-hombre-blanco-2.jpg",
+   "buzo-hombre-blanco-3.jpg",
+   "buzo-hombre-blanco-4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "product_id": 4,
+  "color_id": 7,
+  "images": [
+   "buzo-hombre-gris-1.jpg",
+   "buzo-hombre-gris-2.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "product_id": 5,
+  "color_id": 2,
+  "images": [
+   "camisa-hombre-azul.jpg",
+   "camisa-hombre-azul-2.jpg",
+   "camisa-hombre-azul-3.jpg",
+   "camisa-hombre-azul-4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "product_id": 6,
+  "color_id": 5,
+  "images": [
+   "Mono-femenino1-blanco(1).jpg",
+   "Mono-femenino1-blanco(2).jpg",
+   "Mono-femenino1-blanco(3).jpg",
+   "Mono-femenino1-blanco(4).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "product_id": 6,
+  "color_id": 9,
+  "images": [
+   "Mono-Femenino1-Celeste(1).jpg",
+   "Mono-Femenino1-Celeste(2).jpg",
+   "Mono-Femenino1-Celeste(3).jpg",
+   "Mono-Femenino1-Celeste(4).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "product_id": 6,
+  "color_id": 10,
+  "images": [
+   "Mono-Femenino1-marron(1).jpg",
+   "Mono-Femenino1-marron(2).jpg",
+   "Mono-Femenino1-marron(3).jpg",
+   "Mono-Femenino1-marron(4).jpg",
+   "Mono-Femenino1-marron(5).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "product_id": 6,
+  "color_id": 4,
+  "images": [
+   "Mono-Femenino1-negro(1).jpg",
+   "Mono-Femenino1-negro(2).jpg",
+   "Mono-Femenino1-negro(3).jpg",
+   "Mono-Femenino1-negro(4).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "product_id": 7,
+  "color_id": 7,
+  "images": [
+   "Mono-Femenino2-gris(1).jpg",
+   "Mono-Femenino2-gris(2).jpg",
+   "Mono-Femenino2-gris(3).jpg",
+   "Mono-Femenino2-gris(4).jpg",
+   "Mono-Femenino2-gris(5).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "product_id": 7,
+  "color_id": 4,
+  "images": [
+   "Mono-Femenino2-negro(1).jpg",
+   "Mono-Femenino2-negro(2).jpg",
+   "Mono-Femenino2-negro(3).jpg",
+   "Mono-Femenino2-negro(4).jpg",
+   "Mono-Femenino2-negro(5).jpg",
+   "Mono-Femenino2-negro(6).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "product_id": 8,
+  "color_id": 9,
+  "images": [
+   "Mono-Femenino3-Celeste(1).jpg",
+   "Mono-Femenino3-Celeste(2).jpg",
+   "Mono-Femenino3-Celeste(3).jpg",
+   "Mono-Femenino3-Celeste(4).jpg",
+   "Mono-Femenino3-Celeste(5).jpg",
+   "Mono-Femenino3-Celeste(6).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "product_id": 8,
+  "color_id": 3,
+  "images": [
+   "Mono-femenino3-verde(1).jpg",
+   "Mono-femenino3-verde(2).jpg",
+   "Mono-femenino3-verde(3).jpg",
+   "Mono-femenino3-verde(4).jpg",
+   "Mono-femenino3-verde(5).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "product_id": 9,
+  "color_id": 11,
+  "images": [
+   "Mono-femenino4-lila(1).jpg",
+   "Mono-femenino4-lila(2).jpg",
+   "Mono-femenino4-lila(3).jpg",
+   "Mono-femenino4-lila(4).jpg",
+   "Mono-femenino4-lila(5).jpg",
+   "Mono-femenino4-lila(6).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "product_id": 9,
+  "color_id": 4,
+  "images": [
+   "Mono-femenino4-negro(1).jpg",
+   "Mono-femenino4-negro(2).jpg",
+   "Mono-femenino4-negro(3).jpg",
+   "Mono-femenino4-negro(4).jpg",
+   "Mono-femenino4-negro(5).jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "product_id": 10,
+  "color_id": 3,
+  "images": [
+   "monoSummerVerde1.jpg",
+   "monoSummerVerde2.jpg",
+   "monoSummerVerde3.jpg",
+   "monoSummerVerde4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "product_id": 11,
+  "color_id": 6,
+  "images": [
+   "polleraClaraAmarillo1.jpg",
+   "polleraClaraAmarillo2.jpg",
+   "polleraClaraAmarillo3.jpg",
+   "polleraClaraAmarillo4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "product_id": 11,
+  "color_id": 2,
+  "images": [
+   "polleraClaraAzul1.jpg",
+   "polleraClaraAzul2.jpg",
+   "polleraClaraAzul3.jpg",
+   "polleraClaraAzul4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "product_id": 11,
+  "color_id": 4,
+  "images": [
+   "polleraClaraNegro1.jpg",
+   "polleraClaraNegro2.jpg",
+   "polleraClaraNegro3.jpg",
+   "polleraClaraNegro4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "product_id": 11,
+  "color_id": 3,
+  "images": [
+   "polleraClaraVerde1.jpg",
+   "polleraClaraVerde2.jpg",
+   "polleraClaraVerde3.jpg",
+   "polleraClaraVerde4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "product_id": 12,
+  "color_id": 5,
+  "images": [
+   "shortStripesBlanco1.jpg",
+   "shortStripesBlanco1.jpg",
+   "shortStripesBlanco1.jpg",
+   "shortStripesBlanco1.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "product_id": 12,
+  "color_id": 4,
+  "images": [
+   "shortStripesNegro1.jpg",
+   "shortStripesNegro1.jpg",
+   "shortStripesNegro1.jpg",
+   "shortStripesNegro1.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "product_id": 3,
+  "color_id": 4,
+  "images": [
+   "nuevaImagen-1592524500540.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 0,
+    "size_id": 3
+   },
+   {
+    "stock": 0,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ }
 ]

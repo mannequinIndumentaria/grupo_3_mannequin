@@ -58,6 +58,7 @@ const profileController = {
            // Completo el resto de los campos con lo que obtengo en el body.
             profileToEdit = {
                 id: profileToEdit.id,
+                admin:false,
                 avatar: req.files[0].filename,
                 ...req.body,
                 //image: productToEdit.image,

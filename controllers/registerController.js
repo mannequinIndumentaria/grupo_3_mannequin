@@ -72,7 +72,11 @@ const registerController = {
                 if (req.body.recordarSesion != undefined) {
                     res.cookie('user', usuario.id, { maxAge: 100000000 })
                 }
-                res.redirect('/profile/' + usuario.id);
+                if(usuario.admin){
+                    res.redirect('/crudIndex/');
+                }else{
+                    res.redirect('/profile/' + usuario.id);
+                }
             } else {
                 res.render('register', {
                     error: 'Usuario y/o contraseña incorrecto',
