@@ -13,6 +13,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const categoriesController = {
     categories: (req, res) => {
         res.render('categories', {
+            user: req.session.user,
             categoriesJSON,
             productsOnSite: productsJSON,
             thousandGenerator: toThousand
@@ -67,6 +68,7 @@ const categoriesController = {
         }
         res.render('categories',
             {
+                user: req.session.user,
                 categoriesJSON,
                 productsOnSite: productsFinal,
                 pagination: pagination,
