@@ -75,6 +75,7 @@ const indexController = {
 
 
         res.render('categories', {
+            user: req.session.user,
             categoriesJSON,
             productsOnSite: productsFinal,
             userSearch: userSearch,
