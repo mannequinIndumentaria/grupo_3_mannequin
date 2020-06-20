@@ -59,5 +59,12 @@
   "email": "admin@mannequin.com",
   "password": "$2b$10$CkEWlO74RXoYwGWLOIESGOlRnVb22NBrGTBTw262grGm//kIeO1ey",
   "admin": true
+ },
+ {
+  "id": 8,
+  "name": "Nico",
+  "lastname": "Tomassian",
+  "email": "ntomassian@gmail.com",
+  "password": "$2b$10$HjxyoSKFmP7TMg4nvb7N0O/tONxUyeCICVuBwc2j9nRLpaRbthNH6"
  }
 ]
