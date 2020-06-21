@@ -24,7 +24,7 @@ USE `mannequin_db` ;
 DROP TABLE IF EXISTS `mannequin_db`.`genders` ;
 
 CREATE TABLE IF NOT EXISTS `mannequin_db`.`genders` (
-  `idgenders` INT(1) NOT NULL,
+  `idgenders` INT(1) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idgenders`))
 ENGINE = InnoDB
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`users` (
   `name` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `birth_date` DATE NULL DEFAULT NULL,
   `document` VARCHAR(45) NULL DEFAULT NULL,
   `avatar` VARCHAR(150) NULL DEFAULT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`products` (
   `description` VARCHAR(100) NOT NULL,
   `price` DECIMAL(10,2) UNSIGNED NOT NULL,
   `creation_timestamp` DATETIME NOT NULL,
-  `discontinued_timpestamp` DATETIME NOT NULL,
+  `discontinued_timpestamp` DATETIME DEFAULT NULL,
   `active` INT(1) NOT NULL DEFAULT 1,
   `group` INT(11) NULL DEFAULT NULL,
   `color` VARCHAR(45) NULL DEFAULT NULL,
@@ -182,7 +182,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `mannequin_db`.`images` ;
 
 CREATE TABLE IF NOT EXISTS `mannequin_db`.`images` (
-  `idimage` INT(11) NOT NULL,
+  `idimage` INT(11) NOT NULL auto_increment,
   `file_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idimage`))
 ENGINE = InnoDB
@@ -220,7 +220,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `mannequin_db`.`sizes` ;
 
 CREATE TABLE IF NOT EXISTS `mannequin_db`.`sizes` (
-  `idsizes` INT(11) NOT NULL,
+  `idsizes` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idsizes`))
 ENGINE = InnoDB
