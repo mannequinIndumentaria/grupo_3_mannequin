@@ -1,0 +1,47 @@
+module.exports = function(sequelize, DataTypes) {
+  const cols = {
+    cart_idcart: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'cart',
+        key: 'idcart'
+      }
+    },
+    products_idproducts: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'products',
+        key: 'idproducts'
+      }
+    },
+    sizes_idsizes: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'sizes',
+        key: 'idsizes'
+      }
+    },
+    purchase_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    purchase_time: {
+      type: DataTypes.TIME,
+      allowNull: true
+    }
+  };
+  const config = {
+    tableName: 'cart_has_products'
+  };
+
+  const Cart_has_product = sequelize.define('Cart_has_product', cols, config);
+
+  // Cart_has_product.associate = function(model){}
+
+};
