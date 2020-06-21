@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const cols = {
     idproducts: {
       type: DataTypes.INTEGER(11),
@@ -63,10 +63,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   };
-  
+
   const config = {
     tableName: 'products'
   };
 
-  const Product =  sequelize.define('Product',cols, config);
+  const Product = sequelize.define('Product', cols, config);
 };
