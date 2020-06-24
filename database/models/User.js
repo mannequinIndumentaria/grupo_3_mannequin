@@ -114,8 +114,17 @@ module.exports = function (sequelize, DataTypes) {
       as: "favorites",
       foreingKey: "users_idusers"
     })
+
+    Usuario.belongsToMany(models.Product, {
+      as: "product",
+      through: "favorites",
+      foreignKey: "users_idusers",
+      otherKey: "products_idproducts",
+      timestamps: false
+    })
   }
 
 
 
+  return Usuario;
 };

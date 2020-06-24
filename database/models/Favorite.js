@@ -34,5 +34,5 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   return Favorite;
-  // Favorite.associate = function(model){}
+  // ¿Tiene que tener modelo ya que parece ser tabla intermedia?
 };

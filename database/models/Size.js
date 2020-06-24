@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const cols = {
     idsizes: {
       type: DataTypes.INTEGER(11),
@@ -13,6 +13,20 @@ module.exports = function(sequelize, DataTypes) {
   const config = {
     tableName: 'sizes'
   };
-  
-  const Size = sequelize.define('Size',cols, config);
+
+  const Size = sequelize.define('Size', cols, config);
+
+  Size.associate = function (models) {
+    Size.hasMany(models.Product_has_size, {
+      as: "products",
+      foreignKey: "sizes_idsizes"
+    })
+    Size.hasMany(models.Cart_has_product, {
+      as: "cart_has_products",
+      foreignKey: "cart_idcart"
+    })
+  }
+
+
+  return Size
 };
