@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const cols = {
     idcountries: {
       type: DataTypes.INTEGER(11),
@@ -17,5 +17,13 @@ module.exports = function(sequelize, DataTypes) {
 
   const Country = sequelize.define('Country', cols, config);
 
-  // Country.associate = function(model){}
+  Country.associate = function (models) {
+    Country.hasMany(models.User, {
+      as: "users",
+      foreingKey: "countries_idcountries"
+    })
+  }
+
+  return Country;
+
 };

@@ -24,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   const Cart = sequelize.define('Cart', cols, config);
+  
   Cart.associate = function(models){
     Cart.hasOne(models.User,{
       as:"users",

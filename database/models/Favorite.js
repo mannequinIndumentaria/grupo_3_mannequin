@@ -26,5 +26,13 @@ module.exports = function(sequelize, DataTypes) {
 
   const Favorite = sequelize.define('Favorite',cols, config);
 
+  Cart.associate = function(models){
+    Cart.hasOne(models.User,{
+      as:"users",
+      foreingKey: "users_idusers"
+    })
+  };
+
+  return Favorite;
   // Favorite.associate = function(model){}
 };
