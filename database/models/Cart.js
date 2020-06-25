@@ -35,4 +35,6 @@ module.exports = function (sequelize, DataTypes) {
       foreingKey: "cart_idcart"
     })
   }
+
+  return Cart;
 };

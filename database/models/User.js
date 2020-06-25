@@ -95,36 +95,31 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: false
   };
 
-  const Usuario = sequelize.define('User', cols, config);
+  const User = sequelize.define('User', cols, config);
 
-  Usuario.associate = function (models) {
-    Usuario.hasOne(models.Cart, {
+  User.associate = function (models) {
+    User.hasMany(models.Cart, {
       as: "carts",
       foreingKey: "users_idusers"
     })
-    Usuario.belongsTo(models.Gender, {
+    User.belongsTo(models.Gender, {
       as: "genders",
       foreingKey: "genders_idgenders"
     })
-    Usuario.belongsTo(models.Country, {
+    User.belongsTo(models.Country, {
       as: "countries",
       foreingKey: "countries_idcountries"
     })
-    Usuario.hasOne(models.Favorite, {
-      as: "favorites",
-      foreingKey: "users_idusers"
-    })
 
-    Usuario.belongsToMany(models.Product, {
+    User.belongsToMany(models.Product, {
       as: "product",
       through: "favorites",
       foreignKey: "users_idusers",
       otherKey: "products_idproducts",
       timestamps: false
     })
+    
   }
 
-
-
-  return Usuario;
+  return User;
 };

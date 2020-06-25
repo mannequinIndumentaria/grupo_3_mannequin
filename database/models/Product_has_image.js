@@ -24,4 +24,6 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   const Product_has_image = sequelize.define('Product_has_image', cols, config); 
+
+  return Product_has_image
 };

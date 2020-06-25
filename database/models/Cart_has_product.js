@@ -1,5 +1,3 @@
-const Cart = require("./Cart");
-
 module.exports = function(sequelize, DataTypes) {
   const cols = {
     cart_idcart: {
@@ -51,15 +49,13 @@ module.exports = function(sequelize, DataTypes) {
       as: "cart",
       foreignKey: "cart_idcart"
     })
-  }
-  Cart_has_product.associate = function(models) {
+   
     Cart_has_product.belongsTo(models.Size, {
       as: "size",
       foreignKey: "sizes_idsizes"
     })
-  }
-  Cart_has_product.associate = function(models) {
-    Cart_has_product.belongsTo(models.Product, {
+  
+      Cart_has_product.belongsTo(models.Product, {
       as: "product",
       foreignKey: "products_idproducts"
     })

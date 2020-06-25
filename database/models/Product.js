@@ -65,7 +65,8 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   const config = {
-    tableName: 'products'
+    tableName: 'products',
+    timestamps: false
   };
 
   const Product = sequelize.define('Product', cols, config);
@@ -74,7 +75,7 @@ module.exports = function (sequelize, DataTypes) {
     Product.belongsToMany(models.Image, {
       as: "images",
       through: "product_has_images",
-      foreignKey: "iproducts_idproducts",
+      foreignKey: "products_idproducts",
       otherKey: "images_idimage",
       timestamps: false
     })
@@ -98,6 +99,13 @@ module.exports = function (sequelize, DataTypes) {
     Product.hasMany(models.Cart_has_product, {
       as: "cart_has_products",
       foreignKey: "products_idproducts"
+    })
+    Product.belongsToMany(models.Favorite, {
+      as: "favorite",
+      through: "favorites",
+      foreignKey: "products_idproducts",
+      otherKey: "users_idusers",
+      timestamps: false
     })
   }
 
