@@ -44,4 +44,22 @@ module.exports = function(sequelize, DataTypes) {
 
   // Cart_has_product.associate = function(model){}
 
+  Cart_has_product.associate = function(models) {
+    Cart_has_product.belongsTo(models.Cart, {
+      as: "cart",
+      foreignKey: "cart_idcart"
+    })
+   
+    Cart_has_product.belongsTo(models.Size, {
+      as: "size",
+      foreignKey: "sizes_idsizes"
+    })
+  
+      Cart_has_product.belongsTo(models.Product, {
+      as: "product",
+      foreignKey: "products_idproducts"
+    })
+  }
+
+  return Cart_has_product;
 };

@@ -1,5 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
-  const cols =  {
+module.exports = function (sequelize, DataTypes) {
+  const cols = {
     idgenders: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
@@ -14,5 +14,18 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'genders'
   };
 
-  const Gender = sequelize.define('Gender',cols, config);
+  const Gender = sequelize.define('Gender', cols, config);
+
+  Gender.associate = function (models) {
+
+    //Asosiacion 1:M
+    Gender.hasMany(models.User, {  //Pelicula es el alias
+      as: "users",  //Asociacion entre peliculas y genero
+      foreignKey: "genders_idgenders"
+    })
+
+  }
+
+  return Gender;
+
 };

@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const cols = {
     idcart: {
       type: DataTypes.INTEGER(11),
@@ -24,10 +24,17 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   const Cart = sequelize.define('Cart', cols, config);
-  Cart.associate = function(models){
-    Cart.hasOne(models.User,{
-      as:"users",
+
+  Cart.associate = function (models) {
+    Cart.hasOne(models.User, {
+      as: "users",
       foreingKey: "users_idusers"
     })
+    Cart.hasMany(models.Cart, {
+      as: "cart_has_products",
+      foreingKey: "cart_idcart"
+    })
   }
+
+  return Cart;
 };

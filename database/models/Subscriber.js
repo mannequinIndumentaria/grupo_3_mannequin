@@ -18,4 +18,6 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'subscribers'
   };
   const Subscriber = sequelize.define('Subscriber', cols,config);
+
+  return Subscriber
 };

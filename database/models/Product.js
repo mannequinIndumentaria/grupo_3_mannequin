@@ -65,8 +65,49 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   const config = {
-    tableName: 'products'
+    tableName: 'products',
+    timestamps: false
   };
 
   const Product = sequelize.define('Product', cols, config);
+
+  Product.assocciate = function (models) {
+    Product.belongsToMany(models.Image, {
+      as: "images",
+      through: "product_has_images",
+      foreignKey: "products_idproducts",
+      otherKey: "images_idimage",
+      timestamps: false
+    })
+
+    Product.hasMany(models.Product_has_size, {
+      as: "sizes",
+      foreignKey: "products_idproducts"
+    })
+
+    Product.belongsToMany(models.User, {
+      as: "users",
+      through: "favorites",
+      foreignKey: "products_idproducts",
+      otherKey: "users_idusers",
+      timestamps: false
+    })
+    Product.belongsTo(models.Product_category,{
+      as: "product_category",
+      foreignKey: "product_categories_idproduct_categories"
+    })
+    Product.hasMany(models.Cart_has_product, {
+      as: "cart_has_products",
+      foreignKey: "products_idproducts"
+    })
+    Product.belongsToMany(models.Favorite, {
+      as: "favorite",
+      through: "favorites",
+      foreignKey: "products_idproducts",
+      otherKey: "users_idusers",
+      timestamps: false
+    })
+  }
+
+  return Product;
 };

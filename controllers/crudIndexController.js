@@ -14,7 +14,7 @@ const sizes = JSON.parse(fileSizes);
 const pathColors = path.join("data","colors.json");
 const fileColors = fs.readFileSync(pathColors,null,'');
 const colors = JSON.parse(fileColors);
-/*const db = require('../database/models');*/
+const db = require('../database/models');
 
 const crudIndexController = {
     index: async (req, res) => {

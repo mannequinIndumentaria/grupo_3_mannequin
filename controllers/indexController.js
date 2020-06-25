@@ -21,13 +21,35 @@ const productoNS = require('../services/carrouselNS');
 const productoS = require('../services/carrouselS');
 /*Importo conversor*/
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+/*Importo componentes para DB*/
+let db = require('../database/models');
+const { Op } = require("sequelize");
 
 const indexController = {
-    index: (req, res) => {
+    index: async (req, res) => {
+        const categoriesDB = await db.Product_category.findAll({
+            where: {
+                parent: {
+                    [Op.is]: null
+                }
+            }
+        })
+        const subcategoriesDB = await db.Product_category.findAll({
+            where: {
+                parent: {
+                    [Op.ne]: null
+                }
+            }
+        })
+
+
+
 
         /*Info del controlador a vista*/
         res.render('index', {
             user: req.session.user,
+            categoriesDB,
+            subcategoriesDB,
             categoriesJSON,
             productosNewSeason: productoNS,
             productosSale: productoS,
@@ -35,13 +57,30 @@ const indexController = {
         });
     },
     /*Search*/
-    search: (req, res) => {
+    search: async (req, res) => {
+        const categoriesDB = await db.Product_category.findAll({
+            where: {
+                parent: {
+                    [Op.is]: null
+                }
+            }
+        })
+        const subcategoriesDB = await db.Product_category.findAll({
+            where: {
+                parent: {
+                    [Op.ne]: null
+                }
+            }
+        })
+
+
         let userSearch = req.query.keywords;
         let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
         const pagination = {
             page_number: 1,
             page_size: 4,
             pages: 0,
+            filtered: 0
 
         };
         let productsFinal = [];
@@ -76,6 +115,8 @@ const indexController = {
 
         res.render('categories', {
             user: req.session.user,
+            categoriesDB,
+            subcategoriesDB,
             categoriesJSON,
             productsOnSite: productsFinal,
             userSearch: userSearch,
