@@ -42,9 +42,25 @@ const indexController = {
             }
         })
 
+        const productsNewSeason = await db.Product.findAll({
+            where: {
+                new_season: 1 
+            }
+        })
 
+        const productsSale = await db.Product.findAll({
+            where: {
+                sale: 1 
+            }
+        })
 
-
+        // const productosConFoto = await db.query(
+        //     select p.*, i.file_name as foto from products p
+        //     inner join products_has_images phm ON phm.products_idproducts = p.idproducts
+        //     inner join images i ON i.idimage = phm.images_idimage
+        //     group by p.group
+        // )
+        
         /*Info del controlador a vista*/
         res.render('index', {
             user: req.session.user,
@@ -52,7 +68,9 @@ const indexController = {
             subcategoriesDB,
             categoriesJSON,
             productosNewSeason: productoNS,
+            productosNewSeasonDB: productsNewSeason,
             productosSale: productoS,
+            productosSale: productsSale,
             thousandGenerator: toThousand
         });
     },

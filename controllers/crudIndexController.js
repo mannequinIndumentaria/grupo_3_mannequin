@@ -18,68 +18,91 @@ const db = require('../database/models');
 
 const crudIndexController = {
     index: async (req, res) => {
-        // const products = await db.Product.findAll();
-        // console.log(products);
+        const products = await db.Product.findAll();
         res.render('crudIndex',{
             productos: products
         });
         
     },
-    editar:(req,res) =>{
+    edit: async (req,res) =>{
         const idArticulo = req.params.idArticulo;
-        const producto = products.filter(elemento => {
-         return elemento.id == idArticulo
-        });
-        const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
+        // const producto = products.filter(elemento => {
+        //  return elemento.id == idArticulo
+        // });
+        const producto = await db.Product.findByPk(idArticulo, 
+            {
+            include: [
+                {association: "images"},{association: "sizes"}
+            ]
+        }
+        );
+
+        const sizes = await db.Size.findAll();
+
+       
+        // const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
         res.render('editarArticulo',{
             articulo: producto,
-            colores: colors,
-            infoextra: productInfo,
+            // infoextra: productInfo,
             sizes: sizes,
             categorias: categoriesJSON
         });
     },
-    store: (req,res)=>{
+    update: async (req,res)=>{
         const idArticulo = req.params.idArticulo;
         const producto = products.filter(elemento => {
          return elemento.id == idArticulo
         });
         if(req.body.talles){
             // Actualiza talles
-            const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
+            const sizesOfProducts = await db.Product_has_size.findAll({where: {products_idproducts: idArticulo}});
+            const sizes = await db.Size.findAll();
+            // const productInfo = sizesOfProducts.filter(element => element.product_id == idArticulo);
             const arraySizes = [];
+
+            // Busco y creo los talles que el producto no tenia
             for(size of req.body.talles){
-                const talle = productInfo[0].sizes.find(element => element.size_id == size);
-                if(talle !== undefined){
-                    arraySizes.push(talle);
-                }else{
-                    arraySizes.push({stock:0,size_id: Number(size)});
+                // busco el talle seleccionado entre los del producto
+                await db.Product_has_size.findOrCreate({
+                    where: {
+                        products_idproducts:    idArticulo,
+                        sizes_idsizes:      size
+                    },
+                });
+            }
+            
+            // Elimino los talles que no selecciono
+            console.log("ELIMINANDO TALLES");
+            for(size of sizes){
+                const talle = req.body.talles.find(element => element == size.idsizes);
+                if(talle == undefined){
+                    await db.Product_has_size.destroy({
+                        where: {
+                            products_idproducts:    idArticulo,
+                            sizes_idsizes:      size.idsizes
+                        }
+                    })
                 }
             }
-            productInfo[0].sizes = arraySizes;
-            newProductInfo = productsInfo.filter(element => element.product_id != idArticulo);
-            newProductInfo.push(productInfo[0]);
-            fs.writeFileSync(pathProductsInfo,JSON.stringify(newProductInfo,null,' '));
             
         }
         else if(req.body.name){
-            // Actualiza info del producto
-            producto[0].name = req.body.name;
-            producto[0].price = Number(req.body.price);
-            producto[0].category = Number(req.body.category);
-            producto[0].discount = Number(req.body.discount);
-            producto[0].subcategory = Number(req.body.subcategory);
-            producto[0].description = req.body.description;
-            producto[0].sale= req.body.sale !== undefined ? true : false;
-            producto[0].new_season= req.body.new_season !== undefined ? true : false;
-            producto[0].discontinued_timestamp= req.body.discontinued_timestamp !== undefined ? new Date() : false;
-            
-            const productos = products.filter(elemento => {
-                return elemento.id !== idArticulo
-            });
+            let articulo = {
+                name : req.body.name,
+                description : req.body.description,
+                price : Number(req.body.price),
+                creation_timestamp: new Date(),
+                discontinued_timestamp: req.body.discontinued_timestamp !== undefined ? new Date() : null,
+                sale : req.body.sale !== undefined ? true : false,
+                new_season: req.body.new_season !== undefined ? true : false,
+                discount : Number(req.body.discount),
+                product_categories_idproduct_categories : 1
+             }
 
-            productos.push(producto[0]);
-            fs.writeFileSync(pathProducts,JSON.stringify(productos,null,' '));
+             await db.Product.update(articulo,{
+                 where: {idproducts: idArticulo}
+             })
+            
         }
         else{
             const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
@@ -123,52 +146,63 @@ const crudIndexController = {
         // const obj = JSON.parse(req.body.imagenEliminada[0]);
         // console.log("ddd",obj.id);
     },
-    nuevo:(req,res) =>{
-        const idArticulo = req.params.idArticulo;
+    new:async (req,res) =>{
+        const newId = await db.Product.max('idproducts');
+
         res.render('cargaArticulo',{
-            articuloId: products[products.length - 1].id + 1,
-            colores: colors,
+            articuloId: newId+1,
             sizes: sizes,
             categorias: categoriesJSON
         });
     },
-    nuevoStore:(req,res)=>{
+    create:(req,res)=>{
         let articulo = {
-           id : Number(req.body.idArticulo),
            name : req.body.name,
-           price : Number(req.body.price),
-           category : Number(req.body.category),
-           discount : Number(req.body.discount),
-           subcategory : Number(req.body.subcategory),
            description : req.body.description,
+           price : Number(req.body.price),
+           creation_timestamp: new Date(),
+           discontinued_timestamp: req.body.discontinued_timestamp !== undefined ? new Date() : null,
+           active : 1,
+           color: "#FFFFFF",
            sale : req.body.sale !== undefined ? true : false,
            new_season: req.body.new_season !== undefined ? true : false,
-           discontinued_timestamp: req.body.discontinued_timestamp !== undefined ? new Date() : false
+           discount : Number(req.body.discount),
+           product_categories_idproduct_categories : 1
         }
-        products.push(articulo);
-        fs.writeFileSync(pathProducts,JSON.stringify(products,null,' '));
 
 
-        let articuloInfo =  {
-            id: productsInfo[productsInfo.length - 1].id + 1,
-            product_id:  Number(req.body.idArticulo),
-            color_id: 4,
-            images: [],
-            sizes: []
-        };
-        productsInfo.push(articuloInfo);
-        fs.writeFileSync(pathProductsInfo,JSON.stringify(productsInfo,null,' '));
+        const product = db.Product.create(articulo);
+        // products.push(articulo);
+        // fs.writeFileSync(pathProducts,JSON.stringify(products,null,' '));
+
+
+        // let articuloInfo =  {
+        //     id: productsInfo[productsInfo.length - 1].id + 1,
+        //     product_id:  Number(req.body.idArticulo),
+        //     color_id: 4,
+        //     images: [],
+        //     sizes: []
+        // };
+        // productsInfo.push(articuloInfo);
+        // fs.writeFileSync(pathProductsInfo,JSON.stringify(productsInfo,null,' '));
         
         res.redirect('/crudIndex/edit/'+req.body.idArticulo);
     },
-    borrar:(req,res) =>{
+    delete:async (req,res) =>{
         const idArticulo = req.params.idArticulo;
 
-        const articulos = products.filter(element => element.id != idArticulo);
-        fs.writeFileSync(pathProducts,JSON.stringify(articulos,null, ''));
+        // const articulos = products.filter(element => element.id != idArticulo);
+        // fs.writeFileSync(pathProducts,JSON.stringify(articulos,null, ''));
 
-        const articulosInfo =  productsInfo.filter(element => element.product_id != idArticulo);
-        fs.writeFileSync(pathProductsInfo,JSON.stringify(articulosInfo,null,' '));
+        // const articulosInfo =  productsInfo.filter(element => element.product_id != idArticulo);
+        // fs.writeFileSync(pathProductsInfo,JSON.stringify(articulosInfo,null,' '));
+
+        await db.Product.update(
+            {active: 0},
+            {where: {
+                idproducts: idArticulo
+            }
+        });
 
         res.redirect('/crudIndex');
     },

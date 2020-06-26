@@ -11,7 +11,8 @@ module.exports = function (sequelize, DataTypes) {
     }
   };
   const config = {
-    tableName: 'sizes'
+    tableName: 'sizes',
+    timestamps: false
   };
 
   const Size = sequelize.define('Size', cols, config);
@@ -19,11 +20,13 @@ module.exports = function (sequelize, DataTypes) {
   Size.associate = function (models) {
     Size.hasMany(models.Product_has_size, {
       as: "products",
-      foreignKey: "sizes_idsizes"
+      foreignKey: "sizes_idsizes",
+      timestamps: false
     })
     Size.hasMany(models.Cart_has_product, {
       as: "cart_has_products",
-      foreignKey: "cart_idcart"
+      foreignKey: "cart_idcart",
+      timestamps: false
     })
   }
 

@@ -29,13 +29,13 @@
                 <tbody>
                     <% for( producto of productos){ %>
                   <tr>
-                    <th scope="row"><%= producto.id %></th>
+                    <th scope="row"><%= producto.idproducts %></th>
                     <td><%= producto.name %></td>
                     <td>
-                        <form method="GET" action="/crudIndex/edit/<%= producto.id %>">
+                        <form method="GET" action="/crudIndex/edit/<%= producto.idproducts %>">
                             <button><i class="fas fa-pen-square"></i></button>
                         </form>
-                        <form method="POST" action="/crudIndex/delete/<%= producto.id %>?_method=DELETE">
+                        <form method="POST" action="/crudIndex/delete/<%= producto.idproducts %>?_method=DELETE">
                             <button>
                                 <i class="fas fa-minus-square"></i>
                             </button>

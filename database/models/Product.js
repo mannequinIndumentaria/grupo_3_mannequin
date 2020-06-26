@@ -23,8 +23,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     discontinued_timpestamp: {
-      type: DataTypes.DATE,
-      allowNull: false
+      type: DataTypes.DATE
     },
     active: {
       type: DataTypes.INTEGER(1),
@@ -71,10 +70,10 @@ module.exports = function (sequelize, DataTypes) {
 
   const Product = sequelize.define('Product', cols, config);
 
-  Product.assocciate = function (models) {
+  Product.associate = function (models) {
     Product.belongsToMany(models.Image, {
       as: "images",
-      through: "product_has_images",
+      through: "products_has_images",
       foreignKey: "products_idproducts",
       otherKey: "images_idimage",
       timestamps: false
@@ -82,7 +81,8 @@ module.exports = function (sequelize, DataTypes) {
 
     Product.hasMany(models.Product_has_size, {
       as: "sizes",
-      foreignKey: "products_idproducts"
+      foreignKey: "products_idproducts",
+      timestamps: false
     })
 
     Product.belongsToMany(models.User, {
@@ -94,19 +94,21 @@ module.exports = function (sequelize, DataTypes) {
     })
     Product.belongsTo(models.Product_category,{
       as: "product_category",
-      foreignKey: "product_categories_idproduct_categories"
+      foreignKey: "product_categories_idproduct_categories",
+      timestamps: false
     })
     Product.hasMany(models.Cart_has_product, {
       as: "cart_has_products",
-      foreignKey: "products_idproducts"
-    })
-    Product.belongsToMany(models.Favorite, {
-      as: "favorite",
-      through: "favorites",
       foreignKey: "products_idproducts",
-      otherKey: "users_idusers",
       timestamps: false
     })
+    // Product.belongsToMany(models.Favorite, {
+    //   as: "favorite",
+    //   through: "favorites",
+    //   foreignKey: "products_idproducts",
+    //   otherKey: "users_idusers",
+    //   timestamps: false
+    // })
   }
 
   return Product;
