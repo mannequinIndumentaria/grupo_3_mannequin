@@ -22,11 +22,11 @@
                           
                               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <form method="POST" action="/crudIndex/edit/<%= articulo[0].id %>/?_method=PUT">
+                                    <form method="POST" action="/crudIndex/edit/<%= articulo.idproducts %>/?_method=PUT">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                               <label for="inputNombre4">Nombre</label>
-                                              <input type="text" class="form-control" id="inputNombre4" placeholder="Nombre" name="name" value="<%= articulo[0].name %>">
+                                              <input type="text" class="form-control" id="inputNombre4" placeholder="Nombre" name="name" value="<%= articulo.name %>">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputPrecio4">Precio</label>
@@ -35,7 +35,7 @@
                                                   <div class="input-group-prepend">
                                                     <div class="input-group-text">$</div>
                                                   </div>
-                                                  <input type="text" class="form-control" id="inputPrecio4" placeholder="000000.00" name="price" value="<%= articulo[0].price %>">
+                                                  <input type="text" class="form-control" id="inputPrecio4" placeholder="000000.00" name="price" value="<%= articulo.price %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                                               <select id="inputState" class="form-control" name="category">
                                                   <option selected>Seleccionar...</option>
                                                 <% for(categoria of categorias){%>
-                                                    <option value="<%= categoria.id %>" <%= categoria.id == articulo[0].category ? "selected" : "" %>><%= categoria.name %></option>
+                                                    <option value="<%= categoria.id %>" <%= categoria.id == articulo.category ? "selected" : "" %>><%= categoria.name %></option>
                                                 <% }%>
                                               </select>
                                             </div>
@@ -56,7 +56,7 @@
                                                   <div class="input-group-prepend">
                                                     <div class="input-group-text">%</div>
                                                   </div>
-                                                  <input type="number" min="0" max="100" class="form-control" id="inputDescuento4" placeholder="0" name ="discount" value="<%= articulo[0].discount %>">
+                                                  <input type="number" min="0" max="100" class="form-control" id="inputDescuento4" placeholder="0" name ="discount" value="<%= articulo.discount %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                                 <option selected>Seleccionar...</option>
                                                 <% for(categoria of categorias){
                                                     for(subcategoria of categoria.subcategories){%>
-                                                    <option value="<%= subcategoria.scid %>" <%= subcategoria.scid == articulo[0].subcategory ? "selected" : "" %>><%= subcategoria.name %></option>
+                                                    <option value="<%= subcategoria.scid %>" <%= subcategoria.scid == articulo.category ? "selected" : "" %>><%= subcategoria.name %></option>
                                                 <% }
                                             
                                                 }%>
@@ -77,25 +77,25 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="exampleFormControlTextarea1">Descripcion</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"><%= articulo[0].description %></textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"><%= articulo.description %></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" name="sale" id="enOferta" <%= articulo[0].sale ? "checked" : "" %>>
+                                                    <input type="checkbox" class="custom-control-input" name="sale" id="enOferta" <%= articulo.sale ? "checked" : "" %>>
                                                     <label class="custom-control-label" for="enOferta">En oferta</label>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" name="new_season" id="nuevaTemporada" <%= articulo[0].new_season ? "checked" : "" %>>
+                                                    <input type="checkbox" class="custom-control-input" name="new_season" id="nuevaTemporada" <%= articulo.new_season ? "checked" : "" %>>
                                                     <label class="custom-control-label" for="nuevaTemporada">De nueva temporada</label>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" name="discontinued_timestamp" id="discontinuar" <%= articulo[0].discontinued_timestamp ? "checked" : "" %>>
+                                                    <input type="checkbox" class="custom-control-input" name="discontinued_timestamp" id="discontinuar" <%= articulo.discontinued_timestamp ? "checked" : "" %>>
                                                     <label class="custom-control-label" for="discontinuar">Discontinuado</label>
                                                 </div>
                                             </div>
@@ -122,25 +122,22 @@
                               </div>
                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
-                                    <form method="POST" action="/crudIndex/edit/<%= articulo[0].id %>/?_method=PUT" enctype="multipart/form-data">
+                                    <form method="POST" action="/crudIndex/edit/<%= articulo.idproducts %>/?_method=PUT" enctype="multipart/form-data">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="color">Color</label>
-                                                <% for(color of colores){ %>
-                                                    <% if(color.id == infoextra[0].color_id){%>
-                                                            <input type="color" id="color" name="color" value="<%= color.id == infoextra[0].color_id ? color.hexa : ''%>">
-                                                <% }} %>
-                                            </div>
-                                            <% for(let i = 0; i < infoextra[0].images.length; i++){%>
-                                            <div class="form-group col">
-                                                <img src="/images/articulos/<%= infoextra[0].images[i] %>" alt="..." class="img-thumbnail">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" name="borrarImagen" id="imagen<%= i %>" value="<%= infoextra[0].images[i] %>">
-                                                    <label class="custom-control-label" for="imagen<%= i %>">Quitar foto</label>
+                                                <input type="color" id="color" name="color" value="articulo.color">
+                                            </div> 
+                                                <% for(let i = 0; i < articulo.images.length; i++){%>
+                                                <div class="form-group col">
+                                                    <img src="/images/articulos/<%= articulo.images[i].file_name %>" alt="..." class="img-thumbnail">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" name="borrarImagen" id="<%= articulo.images[i].idimage %>" value="<%= articulo.images[i].idimage %>">
+                                                        <label class="custom-control-label" for="<%= articulo.images[i].idimage %>">Quitar foto</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <% } %>
-                                            <div class="form-group col-md-12">
+                                                <% } %>                                            
+                                                <div class="form-group col-md-12">
                                                 <label>Subir mas imagenes</label>
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" name="nuevaImagen" id="customFileLang" lang="es" multiple>
@@ -170,18 +167,20 @@
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                     <div class="card-body">
-                                        <form method="POST" action="/crudIndex/edit/<%= articulo[0].id %>/?_method=PUT">
+                                        <form method="POST" action="/crudIndex/edit/<%= articulo.idproducts %>/?_method=PUT">
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <% for(size of sizes){ %>
                                                         <% let si=0; %>
-                                                        <% for(sizeProduct of infoextra[0].sizes){%>
-                                                            <% if(size.id == sizeProduct.size_id){%>
+                                                        <% for(let i = 0; i < articulo.sizes.length; i++){%>
+                                                            <% if(size.idsizes == articulo.sizes[i].sizes_idsizes){%>
                                                                 <% si = 1;%>
                                                             <% } %>
                                                         <% } %>
+                                                            <a href="">
+                                                            </a>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" name="talles" value="<%= size.id %>" id="<%= size.name %>" <%= si == 1 ? "checked" : "" %>>
+                                                            <input type="checkbox" class="custom-control-input" name="talles" value="<%= size.idsizes %>" id="<%= size.name %>" <%= si == 1 ? "checked" : "" %>>
                                                             <label class="custom-control-label" for="<%= size.name %>"><%= size.name %></label>
                                                         </div>
                                                         <% si = 0 %>

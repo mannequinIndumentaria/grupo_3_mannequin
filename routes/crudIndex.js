@@ -17,12 +17,12 @@ const upload = multer({storage: storage});
 
 /* GET home page. */
 router.get('/', crudIndexController.index);
-router.delete('/delete/:idArticulo', crudIndexController.borrar);
+router.delete('/delete/:idArticulo', crudIndexController.delete);
 
-router.get('/edit/:idArticulo', crudIndexController.editar);
-router.put('/edit/:idArticulo/', upload.any(), crudIndexController.store);
+router.get('/edit/:idArticulo', crudIndexController.edit);
+router.put('/edit/:idArticulo/', upload.any(), crudIndexController.update);
 
-router.get('/new', crudIndexController.nuevo);
-router.post('/new', crudIndexController.nuevoStore);
+router.get('/new', crudIndexController.new);
+router.post('/new', crudIndexController.create);
 
 module.exports = router;
