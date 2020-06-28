@@ -30,6 +30,7 @@ const productoS = require('../services/carrouselS');
 
 /*Importo conversor*/
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+let menu = require('../services/menu');
 
 const carritoController = {
     carrito: (req,res) => {
@@ -82,6 +83,7 @@ const carritoController = {
         // console.log(articulosParaLaVista);
         res.render('carrito',{
             data: articulosParaLaVista,
+            menu: menu,
             productosNewSeason: productoNS,
             productosSale: productoS,
             categoriesJSON,

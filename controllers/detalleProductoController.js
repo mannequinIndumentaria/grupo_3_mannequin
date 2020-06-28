@@ -11,6 +11,7 @@ const productsColorJSON = JSON.parse(fs.readFileSync(productsColorPath, 'utf-8')
 const productoNS = require('../services/carrouselNS');
 const productoS = require('../services/carrouselS');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+let menu = require('../services/menu');
 
 const detalleProductoController = {
     detalleProducto: (req, res) => {
@@ -47,7 +48,7 @@ const detalleProductoController = {
         console.log(productsFinal)
 
         res.render('detalleProducto', {
-            categoriesJSON,
+            menu: menu, 
             productsOnSite: productsFinal,
             productosNewSeason: productoNS,
             productosSale: productoS,

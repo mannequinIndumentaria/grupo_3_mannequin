@@ -18,33 +18,34 @@
 </script>
 
 <div class="card-group">
-    <% for(product of productsOnSite) { %>
+    <% for(let i = 0; i<products.length; i++) { %>
     <div class="product-box">
         <div class="card" style="width: 18rem;">
             <div class="cardImgContainer">
-                <img class="card-img-top" src="/images/articulos/<%= product.image[0] %>" alt=""
-                    id="foto<%= product.id %>" onclick="window.location.href='/detalleProducto'">
+
+                <% if(typeof products[i].images[0] != 'undefined') { %>
+                <img class="card-img-top" src="/images/articulos/<%= products[i].images[0].file_name %>" alt=""
+                    id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto'">
+                    <% } %>
                 <div class="container-bag">
                     <button class="addBag" onclick="window.location.href='/carrito'">Add to basket</button>
                 </div>
             </div>
             <div class="card-body">
-                <h5 class="card-title"><%= product.name %></h5>
-                <span class="precio-item-carrito">$ <%= thousandGenerator(product.price) %></span>
+                <h5 class="card-title"><%= products[i].name %></h5>
+                <span class="precio-item-carrito">$ <%= thousandGenerator(products[i].price) %></span>
                 <div class="barra-iconos-cat">
                     <div class="selector-color-carrito">
-                        <% for(let i=0; i<product.colors.length; i++) { %>
-                        
-                        <button class="boton-slector-color" style="background-color: <%=product.colors[i][0].hexa %>;"
-                            onclick="seleccionarColor('<%= product.id %>','/images/articulos/<%= product.image[i] %>','<%=product.colors[i][0].name %>')"></button>
-                        <% } %>
-                        <input type="hidden" value="" id="elegido<%=product.id%>">
+                        <button class="boton-slector-color" style="background-color: <%=products[i].color%>"
+                            onclick=""></button>
+
+                        <input type="hidden" value="" id="elegido<%=products[i].idproducts%>">
                     </div>
                     <div class="botones-fav-del-carrito">
                         <div class="boton-favorito-carrito">
                             <button class="heart-carrito far fa-heart" value="0"
-                                onclick="favoritos('<%=product.id%>')"
-                                id="favorito<%=product.id%>"></button>
+                                onclick="favoritos('<%=products[i].idproducts%>')"
+                                id="favorito<%=products[i].idproducts%>"></button>
                         </div>
                     </div>
                 </div>

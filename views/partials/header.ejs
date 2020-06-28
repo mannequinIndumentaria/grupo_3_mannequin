@@ -34,16 +34,16 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 centrado">
-                <% for (category of categoriesJSON) { %>
+                <% for (item of menu) { %>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="<%= category.id %>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link" href="<%= item.category.idproduct_categories%>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <%= category.name %>
+                        <%= item.category.name %>
                     </a>
 
                     <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink">
-                        <% for (subcategory of category.subcategories) { %>
-                        <a class="dropdown-item" href="/categories/filter/<%= category.id %>/<%= subcategory.scid %>/1"><%= subcategory.name %></a>
+                        <% for (subcategory of item.subcategories) { %>
+                        <a class="dropdown-item" href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/1"><%= subcategory.name %></a>
                         <% } %>
                     </div>
                 </li>
