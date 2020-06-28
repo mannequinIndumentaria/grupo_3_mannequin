@@ -7,22 +7,21 @@ const { check, validationResult, body } = require('express-validator');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
-const categoriesFilePath = path.join(__dirname, '../data/categories.json');
-const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+let menu = require('../services/menu');
 
 const registerController = {
 
     /*Vista de login y primer form de registro*/
     index: (req, res) => {
         res.render('register', {
-            categoriesJSON
+            menu: menu
         });
     },
     /*vista de registro completo*/
     registro: (req, res) => {
         res.render('registerFormCompleto', {
             //errors:errors.errors,
-            categoriesJSON
+            menu: menu
         });
     },
 
@@ -48,7 +47,7 @@ const registerController = {
         } else {
             return res.render('registerFormCompleto', {
                 errors: errors.errors,
-                categoriesJSON
+                menu: menu
             });
         }
 
@@ -80,13 +79,13 @@ const registerController = {
             } else {
                 res.render('register', {
                     error: 'Usuario y/o contraseña incorrecto',
-                    categoriesJSON
+                    menu: menu
                 })
             }
         } else {
             res.render('register', {
                 error: 'Usuario y/o contraseña incorrecto',
-                categoriesJSON
+                menu: menu
             })
         }
     },

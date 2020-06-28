@@ -17,6 +17,7 @@ const paises = JSON.parse(fs.readFileSync(paisesFilePath, 'utf-8'));
 /*Importo users*/
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+let menu = require('../services/menu');
 
 const profileController = {
     index: (req, res) => {
@@ -26,7 +27,7 @@ const profileController = {
         let profileToEdit = users.find(item => item.id == userID)
 
         res.render('profile', {
-            categoriesJSON,
+            menu: menu,
             paises,
             users,
             user: profileToEdit,

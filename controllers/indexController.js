@@ -24,33 +24,18 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 /*Importo componentes para DB*/
 let db = require('../database/models');
 const { Op } = require("sequelize");
+let menu = require('../services/menu');
 
 const indexController = {
     index: async (req, res) => {
-        const categoriesDB = await db.Product_category.findAll({
-            where: {
-                parent: {
-                    [Op.is]: null
-                }
-            }
-        })
-        const subcategoriesDB = await db.Product_category.findAll({
-            where: {
-                parent: {
-                    [Op.ne]: null
-                }
-            }
-        })
-
         const productsNewSeason = await db.Product.findAll({
             where: {
-                new_season: 1 
+                new_season: 1
             }
         })
-
         const productsSale = await db.Product.findAll({
             where: {
-                sale: 1 
+                sale: 1
             }
         })
 
@@ -60,20 +45,20 @@ const indexController = {
         //     inner join images i ON i.idimage = phm.images_idimage
         //     group by p.group
         // )
+
         
         /*Info del controlador a vista*/
         res.render('index', {
             user: req.session.user,
-            categoriesDB,
-            subcategoriesDB,
-            categoriesJSON,
+            menu: menu,
             productosNewSeason: productoNS,
             productosNewSeasonDB: productsNewSeason,
             productosSale: productoS,
             productosSale: productsSale,
             thousandGenerator: toThousand
-        });
-    },
+        })
+    }
+    ,
     /*Search*/
     search: async (req, res) => {
         const categoriesDB = await db.Product_category.findAll({

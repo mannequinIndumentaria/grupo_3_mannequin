@@ -18,17 +18,21 @@ module.exports = function (sequelize, DataTypes) {
   const Size = sequelize.define('Size', cols, config);
 
   Size.associate = function (models) {
-    Size.hasMany(models.Product_has_size, {
+    Size.belongsToMany(models.Product, {
       as: "products",
+      through: "products_has_sizes",
       foreignKey: "sizes_idsizes",
+      otherKey: "products_idproducts",
       timestamps: false
     })
+
     Size.hasMany(models.Cart_has_product, {
       as: "cart_has_products",
       foreignKey: "cart_idcart",
       timestamps: false
     })
   }
+
 
 
   return Size;

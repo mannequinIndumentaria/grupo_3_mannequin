@@ -1,18 +1,18 @@
 <div class="divCategory">
   <h4>FILTER BY CATEGORY</h4>
   <ul id="myUL navCategoriesArrow">
-    <% for (category of categoriesJSON) { %>
-    <li><span class="caret"><%= category.name %></span>
+    <% for (item of menu) { %>
+    <li><span class="caret"><%= item.category.name %></span>
       <ul class="nested">
-        <% for (subcategory of category.subcategories) {%>
-        <li><a href="/categories/filter/<%=category.id %>/<%=subcategory.scid %>/1"><%= subcategory.name %></a></li>
+        <% for (subcategory of item.subcategories) {%>
+        <li><a href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/1"><%= subcategory.name %></a></li>
         <% } %>
       </ul>
     </li>
     <% } %>
   </ul>
 </div>
-<div class="divCategory">
+<!-- <div class="divCategory">
   <h4>FILTER BY STYLE</h4>
   <ul id="navCategoriesBox">
     <li><input type="checkbox" id="casual" name="casual" value="casual">
@@ -20,7 +20,7 @@
     <li><input type="checkbox" id="boheme" name="boheme" value="boheme">
       <label for="boheme">Boheme</label><br></li>
   </ul>
-</div>
+</div> -->
 <script>
   var toggler = document.getElementsByClassName("caret");
   var i;
