@@ -15,52 +15,81 @@ let menu = require('../services/menu');
 
 const categoriesController = {
     categories: async (req, res) => {
+        let productsFinal = [];
+        //const paramCategory = parseInt(req.params.category);
         const pagination = {
             page_number: parseInt(req.params.desde),
             page_size: 4,
             pages: 0,
-            category: req.params.category,
-            subcategory: req.params.subcategory,
-            filtered: 0
+            category: 0,
+            subcategory: 0,
+            filtered: 1
         }
 
-        //console.log(productsDB);
-        let productsColorFoto = [];
-        for (product of productsJSON) {
-            let productImgColor = productsInfoJSON.filter(element => {
-                return element.product_id == product.id
-            })
-            imageArray = [];
-            colorArray = [];
-            for (const colors of productImgColor) {
-                let color = productsColorJSON.filter(element => {
-                    return element.id == colors.color_id
-                })
-                colorArray.push(color);
-
-                imageArray.push(colors.images[0]);
-            }
-
-            const producto = {
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                colors: colorArray,
-                image: imageArray
-            }
-            productsColorFoto.push(producto);
-            pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
-
-            productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
+        const products = await db.Product.findAll({
+            include: [
+                { association: "images" }, { association: "sizes" }
+            ],
         }
-        res.render('categories', {
+
+        );
+        // const pagination = {
+        //     page_number: parseInt(req.params.desde),
+        //     page_size: 4,
+        //     pages: 0,
+        //     category: req.params.category,
+        //     subcategory: req.params.subcategory,
+        //     filtered: 0
+        // }
+
+        // //console.log(productsDB);
+        // let productsColorFoto = [];
+        // for (product of productsJSON) {
+        //     let productImgColor = productsInfoJSON.filter(element => {
+        //         return element.product_id == product.id
+        //     })
+        //     imageArray = [];
+        //     colorArray = [];
+        //     for (const colors of productImgColor) {
+        //         let color = productsColorJSON.filter(element => {
+        //             return element.id == colors.color_id
+        //         })
+        //         colorArray.push(color);
+
+        //         imageArray.push(colors.images[0]);
+        //     }
+
+        //     const producto = {
+        //         id: product.id,
+        //         name: product.name,
+        //         price: product.price,
+        //         colors: colorArray,
+        //         image: imageArray
+        //     }
+        //     productsColorFoto.push(producto);
+        //     pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
+
+        //     productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
+        // }
+
+        res.render('categories',
+        {
             user: req.session.user,
             menu: menu,
-            categoriesJSON: categoriesJSON,
+            products: products,
             productsOnSite: productsFinal,
             pagination: pagination,
-            thousandGenerator: toThousand,
+            thousandGenerator: toThousand
         });
+
+        // res.render('categories', {
+        //     user: req.session.user,
+        //     menu: menu,
+        //     categoriesJSON: categoriesJSON,
+        //     productsOnSite: productsFinal,
+        //     pagination: pagination,
+        //     thousandGenerator: toThousand,
+        // });
 
     },
     filter: async (req, res) => {

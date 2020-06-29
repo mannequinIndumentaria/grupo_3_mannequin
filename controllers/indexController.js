@@ -66,21 +66,18 @@ const indexController = {
     /*Search*/
     search: async (req, res) => {
 
-        let userSearch = req.query.keywords;
-
         const finalSearch = await db.Product.findAll({
             where: {
                 name: {
-                    [db.Sequelize.Op.like]: '%' + req.body.keywords + '%'
-                },
-                include: [
-                    { association: "images" }, { association: "sizes" }
-                ]
-            }
+                    [db.Sequelize.Op.like]: '%' + req.query.keywords + '%'
+                }
+            },
+            include: [
+                { association: "images" }, { association: "sizes" }
+            ]
 
         });
 
-        console.log('finalSearch', finalSearch);
         /*let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
         
         let productsFinal = [];
@@ -116,7 +113,6 @@ const indexController = {
             menu: menu,
             user: req.session.user,
             products: finalSearch,
-            userSearch: userSearch,
             thousandGenerator: toThousand
         });
 
