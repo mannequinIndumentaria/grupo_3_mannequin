@@ -24,5 +24,12 @@ router.put('/edit/:idArticulo/', upload.any(), crudIndexController.update);
 
 router.get('/new', crudIndexController.new);
 router.post('/new', crudIndexController.create);
+
 router.get('/users', crudIndexController.userIndex);
+router.get('/users/edit/:userId', crudIndexController.userEdit);
+router.put('/users/edit/:userId', crudIndexController.userUpdate);
+router.delete('/users/delete/:userId', crudIndexController.userDelete);
+router.get('/users/new', crudIndexController.userNew);
+router.post('/users/new', crudIndexController.userCreate);
+
 module.exports = router;
