@@ -156,9 +156,6 @@ const categoriesController = {
             productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
            
         }*/
-        
-
-        console.log("Cualquier cosa",products[2].images[0].file_name)
 
         res.render('categories',
             {

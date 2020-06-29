@@ -1,38 +1,5 @@
 [
  {
-  "id": 1,
-  "product_id": 1,
-  "color_id": 1,
-  "images": [
-   "bikiniJuliaRoja1.jpg",
-   "bikiniJuliaRoja2.jpg",
-   "bikiniJuliaRoja3.jpg",
-   "bikiniJuliaRoja4.jpg"
-  ],
-  "sizes": [
-   {
-    "stock": 45,
-    "size_id": 1
-   },
-   {
-    "stock": 4,
-    "size_id": 2
-   },
-   {
-    "stock": 45,
-    "size_id": 3
-   },
-   {
-    "stock": 4,
-    "size_id": 4
-   },
-   {
-    "stock": 45,
-    "size_id": 5
-   }
-  ]
- },
- {
   "id": 2,
   "product_id": 2,
   "color_id": 2,
@@ -788,6 +755,40 @@
    },
    {
     "stock": 0,
+    "size_id": 4
+   },
+   {
+    "stock": 45,
+    "size_id": 5
+   }
+  ]
+ },
+ {
+  "id": 1,
+  "product_id": 1,
+  "color_id": 4,
+  "images": [
+   "nuevaImagen-1593465637630.jpg",
+   "bikiniJuliaRoja1.jpg",
+   "bikiniJuliaRoja2.jpg",
+   "bikiniJuliaRoja3.jpg",
+   "bikiniJuliaRoja4.jpg"
+  ],
+  "sizes": [
+   {
+    "stock": 45,
+    "size_id": 1
+   },
+   {
+    "stock": 4,
+    "size_id": 2
+   },
+   {
+    "stock": 45,
+    "size_id": 3
+   },
+   {
+    "stock": 4,
     "size_id": 4
    },
    {
