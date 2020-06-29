@@ -50,27 +50,27 @@ const profileController = {
         let userID = req.params.userId;
 
         const user = {
-            name: req.body.,
-            lastname: req.body.,
-            email: req.body.,
-            password: req.body.,
-            birth_date: req.body.,
-            document: req.body.,
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: req.body.password,
+            birth_date: req.body.birth_date,
+            document: req.body.document,
             avatar: req.files[0].filename,
-            address_street: req.body.,
-            address_number: req.body.,
-            address_floor: req.body.,
-            address_dept: req.body.,
-            address_post_code: req.body.,
-            city: req.body.,
-            telephone: req.body.,
+            address_street: req.body.address_street,
+            address_number: req.body.address_number,
+            address_floor: req.body.address_floor,
+            address_dept: req.body.address_dept,
+            address_post_code: req.body.address_post_code,
+            city: req.body.city,
+            telephone: req.body.telephone,
             admin: false,
-            genders_idgenders: req.body.,
-            countries_idcountries: req.body.,
+            genders_idgenders: req.body.genders_idgenders,
+            countries_idcountries: req.body.countries_idcountries
         }
 
-        db.User.update({
-            where: { idusers: userID}
+        await db.User.update({
+            where: { idusers: userID }
         });
 
         // let profileToEdit = users.find(item => item.id == userID)
