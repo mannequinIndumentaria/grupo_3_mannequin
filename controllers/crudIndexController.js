@@ -206,7 +206,17 @@ const crudIndexController = {
 
         res.redirect('/crudIndex');
     },
-
+    userIndex: async (req,res) =>{
+        const usuario = await db.User.findAll({
+            include: [
+                { association: "genders" }
+            ],
+        });
+        res.render('crudUsers',
+        {
+            usuarios: usuario
+        });
+    }
 };
 
 module.exports = crudIndexController;

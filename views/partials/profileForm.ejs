@@ -59,7 +59,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6r">
                     <!--Form-->
 
-                    <form class="FormProfileContainer" action="/profile/<%= profileToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form class="FormProfileContainer" action="/profile/<%= profileToEdit.idusers %>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <!--put-->
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="validatedCustomFile" name="avatar">
@@ -89,7 +89,7 @@
 
                         <div class="margen">
                         <label for="date">Fecha de nacimiento</label>
-                        <input class="casilleroTextoProfile" type="date" id="date" name="date" min="1930-01-01" max="2020-12-31" value="<%= profileToEdit.date %>">
+                        <input class="casilleroTextoProfile" type="date" id="date" name="date" min="1930-01-01" max="2020-12-31" value="<%= profileToEdit.birth_date %>">
                         </div>
 
                         <div>
@@ -105,20 +105,20 @@
                         <div class="margen">
                             <label for="name">Dirección</label>
                             <input class="casilleroTextoProfile" type="text" id="street" name="street"
-                                placeholder="Calle" value="<%= profileToEdit.street %>">
+                                placeholder="Calle" value="<%= profileToEdit.address_street %>">
                             <div class="d-flex justify-content-between">
                                 <input class="miniTexto" type="text" id="streetNumber" name="streetNumber"
-                                    placeholder="Altura" value="<%= profileToEdit.streetNumber %>">
-                                <input class="miniTexto" type="text" id="floor" name="floor" placeholder="Piso" value="<%= profileToEdit.floor %>">
-                                <input class="miniTexto" type="text" id="apartment" name="apartment" placeholder="Dpto"  value="<%= profileToEdit.apartment %>">
+                                    placeholder="Altura" value="<%= profileToEdit.address_number %>">
+                                <input class="miniTexto" type="text" id="floor" name="floor" placeholder="Piso" value="<%= profileToEdit.address_floor %>">
+                                <input class="miniTexto" type="text" id="apartment" name="apartment" placeholder="Dpto"  value="<%= profileToEdit.address_dept %>">
                                 <input class="miniTexto" type="text" id="postalCode" name="postalCode"
-                                    placeholder="Codigo Postal"  value="<%= profileToEdit.postalCode %>">
+                                    placeholder="Codigo Postal"  value="<%= profileToEdit.address_post_code %>">
                             </div>
                             <input class="casilleroTextoProfile" type="text" id="city" name="city" placeholder="Ciudad" value="<%= profileToEdit.city %>">
                             <select class="casilleroTextoProfile" name="country" placeholder="Pais">
                                 <option disabled>País</option>
                                 <% for (let i=0; i<paises.length; i++) { %>
-                                <option value="<%=paises[i]%>" <%= profileToEdit.country == paises[i] ? "selected" : "" %>><%=paises[i]%></option>
+                                <option value="<%=paises[i].idcountries%>" <%= profileToEdit.countries_idcountries == paises[i].idcountries ? "selected" : "" %>><%=paises[i].name%></option>
                                 <% } %>
                             </select>
                         </div>

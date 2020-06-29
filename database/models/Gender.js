@@ -11,7 +11,8 @@ module.exports = function (sequelize, DataTypes) {
     }
   }
   const config = {
-    tableName: 'genders'
+    tableName: 'genders',
+    timestamps: false
   };
 
   const Gender = sequelize.define('Gender', cols, config);

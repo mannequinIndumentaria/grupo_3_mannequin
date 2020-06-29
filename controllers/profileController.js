@@ -18,29 +18,62 @@ const paises = JSON.parse(fs.readFileSync(paisesFilePath, 'utf-8'));
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 let menu = require('../services/menu');
+const db = require('../database/models');
 
 const profileController = {
-    index: (req, res) => {
+    index: async (req, res) => {
 
         /*Editar el perfil*/
         let userID = req.params.userId;
-        let profileToEdit = users.find(item => item.id == userID)
+        const paises = await db.Country.findAll();
+
+        const profileToEdit = await db.User.findByPk(userID,
+            {
+                include: [
+                    { association: "genders" }, { association: "countries" }
+                ]
+            }
+        );
 
         res.render('profile', {
             menu: menu,
-            paises,
-            users,
-            user: profileToEdit,
+            paises: paises,
+            // users,
+            profileToEdit: profileToEdit,
             thousandGenerator: toThousand,
-            profileToEdit
         });
     },
 
     /*Actualizar el perfil */
-    update: (req, res) => {
+    update:async (req, res) => {
         console.log("ESTO MANDO EL FORMMM",req.body);
         let userID = req.params.userId;
-        let profileToEdit = users.find(item => item.id == userID)
+
+        const user = {
+            name: req.body.,
+            lastname: req.body.,
+            email: req.body.,
+            password: req.body.,
+            birth_date: req.body.,
+            document: req.body.,
+            avatar: req.files[0].filename,
+            address_street: req.body.,
+            address_number: req.body.,
+            address_floor: req.body.,
+            address_dept: req.body.,
+            address_post_code: req.body.,
+            city: req.body.,
+            telephone: req.body.,
+            admin: false,
+            genders_idgenders: req.body.,
+            countries_idcountries: req.body.,
+        }
+
+        db.User.update({
+            where: { idusers: userID}
+        });
+
+        // let profileToEdit = users.find(item => item.id == userID)
 
         // profileToEdit.name = req.body.name;
         // profileToEdit.lastname = req.body.lastname;
@@ -55,28 +88,28 @@ const profileController = {
         // profileToEdit.postalCode = req.body.postalCode;
         // profileToEdit.city = req.body.city;
         // profileToEdit.country = req.body.country;
-       if(profileToEdit){
-           // Completo el resto de los campos con lo que obtengo en el body.
-            profileToEdit = {
-                id: profileToEdit.id,
-                admin:false,
-                avatar: req.files[0].filename,
-                ...req.body,
-                //image: productToEdit.image,
-            };
+    //    if(profileToEdit){
+    //        // Completo el resto de los campos con lo que obtengo en el body.
+    //         profileToEdit = {
+    //             id: profileToEdit.id,
+    //             admin:false,
+    //             avatar: req.files[0].filename,
+    //             ...req.body,
+    //             //image: productToEdit.image,
+    //         };
 
-            // Actualizo el password encriptado
-            profileToEdit.password = bcrypt.hashSync(req.body.password, 10);
-        }
+    //         // Actualizo el password encriptado
+    //         profileToEdit.password = bcrypt.hashSync(req.body.password, 10);
+    //     }
 
-        let newProfile = users.map(item => {
-            if (item.id == profileToEdit.id) {
-                return item = { ...profileToEdit };
-            }
-            return item;
-        })
+    //     let newProfile = users.map(item => {
+    //         if (item.id == profileToEdit.id) {
+    //             return item = { ...profileToEdit };
+    //         }
+    //         return item;
+    //     })
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(newProfile, null, ' '));
+    //     fs.writeFileSync(usersFilePath, JSON.stringify(newProfile, null, ' '));
         res.redirect('/');
     }
 

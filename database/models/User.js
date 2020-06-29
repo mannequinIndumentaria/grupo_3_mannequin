@@ -70,6 +70,7 @@ module.exports = function (sequelize, DataTypes) {
     genders_idgenders: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
+      defaultValue: 1,
       references: {
         model: 'genders',
         key: 'idgenders'
@@ -78,6 +79,7 @@ module.exports = function (sequelize, DataTypes) {
     countries_idcountries: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
+      defaultValue: 9,
       references: {
         model: 'countries',
         key: 'idcountries'
@@ -98,17 +100,17 @@ module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define('User', cols, config);
 
   User.associate = function (models) {
-    User.hasMany(models.Cart, {
+    User.hasOne(models.Cart, {
       as: "carts",
-      foreingKey: "users_idusers"
+      foreignKey: "users_idusers"
     })
     User.belongsTo(models.Gender, {
       as: "genders",
-      foreingKey: "genders_idgenders"
+      foreignKey: "genders_idgenders"
     })
     User.belongsTo(models.Country, {
       as: "countries",
-      foreingKey: "countries_idcountries"
+      foreignKey: "countries_idcountries"
     })
 
     User.belongsToMany(models.Product, {

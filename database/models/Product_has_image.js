@@ -20,7 +20,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   };
   const config = {
-    tableName: 'products_has_images'
+    tableName: 'products_has_images',
+    timestamps: false
   };
 
   const Product_has_image = sequelize.define('Product_has_image', cols, config); 

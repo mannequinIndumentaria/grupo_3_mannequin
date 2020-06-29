@@ -8,6 +8,7 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 let menu = require('../services/menu');
+const db = require('../database/models');
 
 const registerController = {
 
@@ -26,22 +27,23 @@ const registerController = {
     },
 
     /*Register: Almacenar nuevo usuario*/
-    store: (req, res, next) => {
+    store: async (req, res, next) => {
 
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
 
+            const newUserId = await db.User.max('idusers');
             const newUser = {
-                id: users[users.length - 1].id + 1,
+                id: newUserId+1,
                 name: req.body.name,
                 lastname: req.body.lastname,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10)
             };
-
-            const userToSave = [...users, newUser];
-            fs.writeFileSync(usersFilePath, JSON.stringify(userToSave, null, ' '));
+            db.User.create(newUser)
+            // const userToSave = [...users, newUser];
+            // fs.writeFileSync(usersFilePath, JSON.stringify(userToSave, null, ' '));
             res.redirect('/register');
 
         } else {
@@ -53,13 +55,24 @@ const registerController = {
 
     },
     /*Log-in*/
-    login: (req, res, next) => {
+    login: async (req, res, next) => {
         const email = req.body.email
         const password = req.body.password;
 
-        const usuario = users.find((user) => {
-            return user.email == email;
-        });
+        // const usuario = users.find((user) => {
+        //     return user.email == email;
+        // });
+
+        const usuario = await db.User.findOne(
+            {
+                include: [
+                    { association: "genders" }, { association: "countries" }
+                ],
+                where: {
+                    email: req.body.email
+                }
+            }
+        );
 
         if (usuario != undefined) {
             if (bcrypt.compareSync(password, usuario.password)) {
@@ -69,12 +82,12 @@ const registerController = {
                 //Cookie
                 console.log("RECORDAR SESION?:", req.body.recordarSesion);
                 if (req.body.recordarSesion != undefined) {
-                    res.cookie('user', usuario.id, { maxAge: 100000000 })
+                    res.cookie('user', usuario.idusers, { maxAge: 100000000 })
                 }
                 if(usuario.admin){
                     res.redirect('/crudIndex/');
                 }else{
-                    res.redirect('/profile/' + usuario.id);
+                    res.redirect('/profile/' + usuario.idusers);
                 }
             } else {
                 res.render('register', {
@@ -90,7 +103,7 @@ const registerController = {
         }
     },
     logout: (req, res, next) => {
-        res.cookie('user', req.session.user.id, { maxAge: -1 })
+        res.cookie('user', req.session.user.idusers, { maxAge: -1 })
         req.session.destroy();
         res.redirect('/')
     },
