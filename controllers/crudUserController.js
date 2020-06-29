@@ -121,6 +121,38 @@ const crudUserController = {
         
         await db.User.create(user);
         res.redirect('/crudIndex/users');
+    },
+    search: async (req, res) => {
+
+
+        const finalSearch = await db.User.findAll({
+            where: {
+                discontinued: 0,
+                [db.Sequelize.Op.or]: [
+                    {
+                        name: {
+                        [db.Sequelize.Op.like]: '%' + req.query.keywords + '%'
+                        }
+                    },{
+                        lastname: {
+                            [db.Sequelize.Op.like]: '%' + req.query.keywords + '%'
+                        }
+                    },{
+                        email: {
+                            [db.Sequelize.Op.like]: '%' + req.query.keywords + '%'
+                        }
+                    }
+                ]
+            },
+            include: [
+                { association: "genders" }
+            ],
+        });
+
+        res.render('crudUsers', {
+            usuarios: finalSearch
+        });
+
     }
 
 };
