@@ -37,7 +37,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   };
   const config = {
-    tableName: 'cart_has_products'
+    tableName: 'cart_has_products',
+    timestamps: false
   };
 
   const Cart_has_product = sequelize.define('Cart_has_product', cols, config);

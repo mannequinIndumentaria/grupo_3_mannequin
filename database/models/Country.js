@@ -12,7 +12,8 @@ module.exports = function (sequelize, DataTypes) {
     }
   };
   const config = {
-    tableName: 'countries'
+    tableName: 'countries',
+    timestamps: false
   };
 
   const Country = sequelize.define('Country', cols, config);
@@ -20,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
   Country.associate = function (models) {
     Country.hasMany(models.User, {
       as: "users",
-      foreingKey: "countries_idcountries"
+      foreignKey: "countries_idcountries"
     })
   }
 

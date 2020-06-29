@@ -36,11 +36,11 @@ module.exports = function(sequelize, DataTypes) {
   // Product_has_size.associate = function(models){
   //   Product_has_size.belongsTo(models.Product,{
   //     as:"product",
-  //     foreingKey: "products_idproducts"
+  //     foreignKey: "products_idproducts"
   //   })
   //   Product_has_size.belongsTo(models.Size,{
   //     as:"size",
-  //     foreingKey: "sizes_idsizes"
+  //     foreignKey: "sizes_idsizes"
   //   })
 
   // };

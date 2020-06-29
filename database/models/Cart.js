@@ -20,19 +20,20 @@ module.exports = function (sequelize, DataTypes) {
     }
   };
   const config = {
-    tableName: 'carts'
+    tableName: 'carts',
+    timestamps: false
   };
 
   const Cart = sequelize.define('Cart', cols, config);
 
   Cart.associate = function (models) {
-    Cart.hasOne(models.User, {
+    Cart.belongsTo(models.User, {
       as: "users",
-      foreingKey: "users_idusers"
+      foreignKey: "users_idusers"
     })
-    Cart.hasMany(models.Cart, {
+    Cart.hasMany(models.Cart_has_product, {
       as: "cart_has_products",
-      foreingKey: "cart_idcart"
+      foreignKey: "cart_idcart"
     })
   }
 

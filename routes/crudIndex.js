@@ -24,5 +24,5 @@ router.put('/edit/:idArticulo/', upload.any(), crudIndexController.update);
 
 router.get('/new', crudIndexController.new);
 router.post('/new', crudIndexController.create);
-
+router.get('/users', crudIndexController.userIndex);
 module.exports = router;
