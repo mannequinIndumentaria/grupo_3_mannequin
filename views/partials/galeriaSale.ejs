@@ -1,17 +1,17 @@
 <div class="container-fluid">
 
-        <div class="row titulo">
-          <h5>Sale</h5>
-        </div>
+  <div class="row titulo">
+    <h5>Sale</h5>
+  </div>
 
 </div>
 
-<div class="container-fluid centroCarrousel">       
+<div class="container-fluid centroCarrousel">
 
-      <div class="row">
-                    <div id="galeriaSale" class="carousel slide" data-ride="carousel"> 
+  <div class="row">
+    <div id="galeriaSale" class="carousel slide" data-ride="carousel">
 
-                    <!-- Indicators 
+      <!-- Indicators 
 
                       <ul class="carousel-indicators">
                       <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -21,13 +21,15 @@
 
                       -->
 
-                  <!-- The slideshow -->
+      <!-- The slideshow -->
 
       <div class="container carousel-inner no-padding">
         <div class="carousel-item active">
           <% for (let i=0; i < 4; i++) { %>
           <div class="col-xs-3 col-sm-3 col-md-3">
-            <a href="#"> <img src="/images/articulos/<%= productosSale[i].img%>"></a>
+            <% if(typeof productosSale[i].images[0] != 'undefined') { %>
+            <a href="#"> <img src="/images/articulos/<%= productosSale[i].images[0].file_name%>"></a>
+            <% } %>
             <p class="descripcionItem"><%= productosSale[i].name%></p>
             <p class="precioItem"><%= thousandGenerator(productosSale[i].price)%></p>
           </div>
@@ -37,23 +39,25 @@
         <div class="carousel-item">
           <% for (let i=4; i < 8; i++) { %>
           <div class="col-xs-3 col-sm-3 col-md-3">
-            <a href="#"> <img src="/images/articulos/<%= productosSale[i].img%>"> </a>
+            <% if(typeof productosSale[i].images[0] != 'undefined') { %>
+            <a href="#"> <img src="/images/articulos/<%= productosSale[i].images[0].file_name%>"> </a>
+            <% } %>
             <p class="descripcionItem"><%= productosSale[i].name%></p>
             <p class="precioItem"><%= thousandGenerator(productosSale[i].price)%></p>
           </div>
           <% } %>
         </div>
       </div>
-                    
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#galeriaSale" data-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#galeriaSale" data-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                    </a>
 
-                  </div>
-          
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#galeriaSale" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#galeriaSale" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+
     </div>
+
+  </div>
 </div>

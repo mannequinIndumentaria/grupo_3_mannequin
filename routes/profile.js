@@ -6,6 +6,7 @@ const profileController = require('../controllers/profileController');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { check, validationResult, body } = require('express-validator');
+const auth = require('../middlewares/usuarioLogueado');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
@@ -19,7 +20,7 @@ cb(null,'public/images/users')
 const upload = multer({storage: storage});
 
 /* Vista profile */
-router.get('/:userId', profileController.index);
+router.get('/:userId', auth,profileController.index);
 /*Modificar formulario*/
 router.put('/:userId', upload.any(), profileController.update);
 

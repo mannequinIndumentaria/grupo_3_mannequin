@@ -36,6 +36,7 @@ const profileController = {
         );
 
         res.render('profile', {
+            user: req.session.user,
             menu: menu,
             paises: paises,
             // users,

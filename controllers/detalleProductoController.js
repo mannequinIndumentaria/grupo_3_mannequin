@@ -48,6 +48,7 @@ const detalleProductoController = {
         console.log(productsFinal)
 
         res.render('detalleProducto', {
+            user: req.session.user,
             menu: menu, 
             productsOnSite: productsFinal,
             productosNewSeason: productoNS,

@@ -9,13 +9,13 @@ justify-content: center;
    margin: 40px auto 20px auto;
 }
 
-.col-md-3{
+.col-md-3, .col-xs-3, .col-sm-3{
 display: inline-block;
 margin-left:-4px;
 }
-.col-md-3 img{
+.col-md-3 img, .col-xs-3 img, .col-sm-3 img{
  width:100%;
-height:auto;
+ height:auto; 
 }
 body .carousel-indicators li{
  background-color:black;
@@ -35,7 +35,6 @@ body .carousel-control-next-icon{
    right: 30px;
    }
    
-
 body .no-padding{
 padding-left: 0;
 padding-right: 0;

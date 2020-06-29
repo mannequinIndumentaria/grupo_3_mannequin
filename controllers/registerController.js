@@ -15,13 +15,14 @@ const registerController = {
     /*Vista de login y primer form de registro*/
     index: (req, res) => {
         res.render('register', {
-            menu: menu
+            menu: menu,
+            user: req.session.user
         });
     },
     /*vista de registro completo*/
     registro: (req, res) => {
         res.render('registerFormCompleto', {
-            //errors:errors.errors,
+            user: req.session.user,
             menu: menu
         });
     },

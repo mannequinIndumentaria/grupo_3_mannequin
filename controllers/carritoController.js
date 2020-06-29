@@ -82,6 +82,7 @@ const carritoController = {
         }
         // console.log(articulosParaLaVista);
         res.render('carrito',{
+            user: req.session.user,
             data: articulosParaLaVista,
             menu: menu,
             productosNewSeason: productoNS,
