@@ -207,6 +207,21 @@ const crudProductController = {
 
         res.redirect('/crudIndex/product');
     },
+    search: async (req, res) => {
+
+        const finalSearch = await db.Product.findAll({
+            where: {
+                name: {
+                    [db.Sequelize.Op.like]: '%' + req.query.keywords + '%'
+                }
+            }
+        });
+
+        res.render('crudProduct', {
+            productos: finalSearch
+        });
+
+    }
 
 };
 

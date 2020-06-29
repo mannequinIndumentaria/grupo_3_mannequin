@@ -25,6 +25,7 @@ router.get('/product/edit/:idArticulo', crudProductController.edit);
 router.put('/product/edit/:idArticulo/', upload.any(), crudProductController.update);
 router.get('/product/new', crudProductController.new);
 router.post('/product/new', crudProductController.create);
+router.get('/product/search', crudProductController.search);
 
 router.get('/users', crudUserController.userIndex);
 router.get('/users/edit/:userId', crudUserController.userEdit);
@@ -32,5 +33,6 @@ router.put('/users/edit/:userId', crudUserController.userUpdate);
 router.delete('/users/delete/:userId', crudUserController.userDelete);
 router.get('/users/new', crudUserController.userNew);
 router.post('/users/new', crudUserController.userCreate);
+router.get('/users/search', crudUserController.search);
 
 module.exports = router;
