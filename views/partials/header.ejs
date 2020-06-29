@@ -54,18 +54,18 @@
                 <% if(typeof user != 'undefined'){ %>
                     <ul style="margin:0px; padding:0px; float:left;">
                         <li class="nav-item dropdown">
-                            <a class="nav-link" style="font-size: 12px;" href="<%= user.id %>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            <a class="nav-link" style="font-size: 12px;" href="<%= user.idusers%>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 hola! <%= user.name %>
                             </a>
                             
                             <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink"> 
-                                <a class="dropdown-item" href="/profile/<%= user.id %>">Perfil</a>
+                                <a class="dropdown-item" href="/profile/<%= user.idusers%>">Perfil</a>
                                 <a class="dropdown-item" href="/register/logout">Salir</a>
                             </div>
                         </li>
                     </ul>
-                    <a href="/profile/<%= user.id %>"><i class="fa fa-heart"></i></a>
+                    <a href="/profile/<%= user.idusers%>"><i class="fa fa-heart"></i></a>
                     <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
                 <% }else{ %>
                     <a href="/register"><i class="fa fa-user"></i></a>

@@ -17,8 +17,8 @@ const productsColorJSON = JSON.parse(fs.readFileSync(productsColorPath, 'utf-8')
 const subscribersPath = path.join(__dirname, '../data/subscribers.json');
 const subscribersJSON = JSON.parse(fs.readFileSync(subscribersPath, 'utf-8'));
 /*Importo galerias de carpeta services*/
-const productoNS = require('../services/carrouselNS');
-const productoS = require('../services/carrouselS');
+//const productoNS = require('../services/carrouselNS');
+//const productoS = require('../services/carrouselS');
 /*Importo conversor*/
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 /*Importo componentes para DB*/
@@ -31,12 +31,19 @@ const indexController = {
         const productsNewSeason = await db.Product.findAll({
             where: {
                 new_season: 1
-            }
+            },
+            include: [
+                { association: "images" }
+            ]
         })
+
         const productsSale = await db.Product.findAll({
             where: {
                 sale: 1
-            }
+            },
+            include: [
+                { association: "images" }
+            ]
         })
 
         // const productosConFoto = await db.query(
@@ -46,46 +53,36 @@ const indexController = {
         //     group by p.group
         // )
 
-        
+
         /*Info del controlador a vista*/
         res.render('index', {
             user: req.session.user,
             menu: menu,
-            productosNewSeason: productoNS,
-            productosNewSeasonDB: productsNewSeason,
-            productosSale: productoS,
+            productosNewSeason: productsNewSeason,
             productosSale: productsSale,
             thousandGenerator: toThousand
         })
-    }
-    ,
+    },
     /*Search*/
     search: async (req, res) => {
-        const categoriesDB = await db.Product_category.findAll({
-            where: {
-                parent: {
-                    [Op.is]: null
-                }
-            }
-        })
-        const subcategoriesDB = await db.Product_category.findAll({
-            where: {
-                parent: {
-                    [Op.ne]: null
-                }
-            }
-        })
-
 
         let userSearch = req.query.keywords;
-        let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
-        const pagination = {
-            page_number: 1,
-            page_size: 4,
-            pages: 0,
-            filtered: 0
 
-        };
+        const finalSearch = await db.Product.findAll({
+            where: {
+                name: {
+                    [db.Sequelize.Op.like]: '%' + req.body.keywords + '%'
+                },
+                include: [
+                    { association: "images" }, { association: "sizes" }
+                ]
+            }
+
+        });
+
+        console.log('finalSearch', finalSearch);
+        /*let finalSearch = productsJSON.filter(prod => prod.name.toLowerCase().includes(userSearch.toLowerCase()) ? prod : null);
+        
         let productsFinal = [];
         let productsColorFoto = [];
         for (product of finalSearch) {
@@ -112,30 +109,40 @@ const indexController = {
             productsColorFoto.push(producto);
             pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
             productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
-
-        }
-
+*/
 
         res.render('categories', {
             user: req.session.user,
-            categoriesDB,
-            subcategoriesDB,
-            categoriesJSON,
-            productsOnSite: productsFinal,
+            menu: menu,
+            user: req.session.user,
+            products: finalSearch,
             userSearch: userSearch,
-            pagination: pagination,
             thousandGenerator: toThousand
         });
 
     },
-    subscribe: (req, res, next) => {
+    subscribe: async (req, res, next) => {
+
+        const newSubscriberId = await db.Subscriber.max('idsubscribers');
+
         const newSubscriber = {
-            id: subscribersJSON[subscribersJSON.length - 1].id + 1,
+            id: newSubscriberId+1,
             email: req.body.email,
+            active: 1
         };
-        const subscriberToSave = [...subscribersJSON, newSubscriber];
-        fs.writeFileSync(subscribersPath, JSON.stringify(subscriberToSave, null, ' '));
+
+        db.Subscriber.create(newSubscriber);
+        console.log(newSubscriber);
+
         res.redirect('/');
+
+        /* const newSubscriber = {
+             id: subscribersJSON[subscribersJSON.length - 1].id + 1,
+             email: req.body.email,
+         };
+         const subscriberToSave = [...subscribersJSON, newSubscriber];
+         fs.writeFileSync(subscribersPath, JSON.stringify(subscriberToSave, null, ' '));
+        res.redirect('/');*/
     }
 };
 
