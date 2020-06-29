@@ -45,15 +45,16 @@ const profileController = {
     },
 
     /*Actualizar el perfil */
-    update:async (req, res) => {
-        console.log("ESTO MANDO EL FORMMM",req.body);
+    update: async (req, res) => {
+        console.log("ESTO MANDO EL FORMMM", req.body);
+
         let userID = req.params.userId;
 
-        const user = {
+        const user = await db.User.update({
             name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             birth_date: req.body.birth_date,
             document: req.body.document,
             avatar: req.files[0].filename,
@@ -67,27 +68,16 @@ const profileController = {
             admin: false,
             genders_idgenders: req.body.genders_idgenders,
             countries_idcountries: req.body.countries_idcountries
-        }
-
-        await db.User.update({
-            where: { idusers: userID }
+        }, {
+            where: {
+                idusers: userID
+            }
         });
+        res.redirect('/');
+    }
 
-        // let profileToEdit = users.find(item => item.id == userID)
+    // let profileToEdit = users.find(item => item.id == userID)
 
-        // profileToEdit.name = req.body.name;
-        // profileToEdit.lastname = req.body.lastname;
-        // profileToEdit.email = req.body.email;
-        // profileToEdit.password = bcrypt.hashSync(req.body.password, 10);
-        // profileToEdit.date = req.body.date;
-        // profileToEdit.gender = req.body.gender;
-        // profileToEdit.street = req.body.street;
-        // profileToEdit.streetNumber = req.body.streetNumber;
-        // profileToEdit.floor = req.body.floor;
-        // profileToEdit.apartment = req.body.apartment;
-        // profileToEdit.postalCode = req.body.postalCode;
-        // profileToEdit.city = req.body.city;
-        // profileToEdit.country = req.body.country;
     //    if(profileToEdit){
     //        // Completo el resto de los campos con lo que obtengo en el body.
     //         profileToEdit = {
@@ -110,8 +100,8 @@ const profileController = {
     //     })
 
     //     fs.writeFileSync(usersFilePath, JSON.stringify(newProfile, null, ' '));
-        res.redirect('/');
-    }
+    // res.redirect('/');
+    //}
 
 };
 
