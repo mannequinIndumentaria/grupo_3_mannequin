@@ -22,7 +22,7 @@
                           
                               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <form method="POST" action="/crudIndex/users/<%= usuario.idusers %>?_method=PUT">
+                                    <form method="POST" action="/crudIndex/users/edit/<%= usuario.idusers %>?_method=PUT" enctype="multipart/form-data">
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <img src="/images/users/<%= usuario.avatar %>" alt="" width="100%">
