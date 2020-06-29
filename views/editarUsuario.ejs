@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <div class="container-fluid">
+        <%- include('./partials/headerCRUD.ejs') %>
+      <div class="contenido">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+
+                        <div id="accordion">
+                            <div class="card">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Informacion del usuario
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <form method="POST" action="/crudIndex/users/<%= usuario.idusers %>?_method=PUT">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <img src="/images/users/<%= usuario.avatar %>" alt="" width="100%">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" name="avatar" id="customFileLang" lang="es" multiple>
+                                                        <label class="custom-file-label" for="customFileLang">Seleccionar foto</label>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group col-md-8">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputNombre4">Nombre</label>
+                                                        <input type="text" class="form-control" id="inputNombre4" placeholder="Nombre" name="name" value="<%= usuario.name %>">
+                                                      </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputApellido">Apellido</label>
+                                                        <input type="text" class="form-control" id="inputApellido4" placeholder="Apellido" name="lastname" value="<%= usuario.lastname %>">  
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputEmail">Correo electronico</label>
+                                                        <input type="text" class="form-control" id="inputEmail4" placeholder="Email" name="email" value="<%= usuario.email %>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">                                            
+                                                    <div class="form-group col-md-6">
+                                                        <label for="exampleFormControlTextarea1">Fecha de nacimiento</label>
+                                                        <input class="casilleroTextoProfile" type="date" id="date" name="birth_date" min="1930-01-01" max="2020-12-31" value="<%= usuario.birth_date %>">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="gender">Género</label>
+                                                        <select name="genders_idgenders" class="form-control">
+                                                            <option disabled>Seleccione</option>
+                                                            <option value="1" <%= usuario.gender == "1" ? "selected" : "" %>>Femenino</option>
+                                                            <option value="2" <%= usuario.gender == "2" ? "selected" : "" %>>Masculino</option>
+                                                            <option value="3" <%= usuario.gender == "3" ? "selected" : "" %>>Otro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputState">Pais</label>
+                                                      <select id="inputState" class="form-control" name="countries_idcountries">
+                                                          <option selected>Seleccionar...</option>
+                                                        <% for(pais of paises){%>
+                                                            <option value="<%=pais.idcountries%>" <%= usuario.countries_idcountries == pais.idcountries ? "selected" : "" %>><%=pais.name%></option>                                                        <% }%>
+                                                      </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputCiudad">Ciudad</label>
+                                                        <input type="text" class="form-control" id="inputCiudad" placeholder="Ciudad" name="city" value="<%= usuario.city %>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                            <label for="inputDireccion">Direccion</label>
+                                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Direccion" name="address_street" value="<%= usuario.address_street %>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3">
+                                                            <input type="text" class="form-control" id="inputAltura" placeholder="Altura" name="address_number" value="<%= usuario.address_number %>">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <input type="text" class="form-control" id="inputPiso" placeholder="Piso" name="address_floor" value="<%= usuario.address_floor %>">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <input type="text" class="form-control" id="inputDpto" placeholder="Dpto" name="address_dept" value="<%= usuario.address_dept %>">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <input type="text" class="form-control" id="inputPostal" placeholder="C.P" name="address_post_code" value="<%= usuario.address_post_code %>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-row">
+                                            <div class="form-group col-md-10">
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-3">
+
+                    </div>
+                </div>
+        </div>
+        <%- include('./partials/scriptBootstrap.ejs') %>
+      </div>
+    </div>
+    <script>
+        function truncate(n, len) {
+            var ext = n.substring(n.lastIndexOf(".") + 1, n.length).toLowerCase();
+            var filename = n.replace('.' + ext,'');
+            if(filename.length <= len) {
+                return n;
+            }
+            filename = filename.substr(0, len) + (n.length > len ? '[...]' : '');
+            return filename + '.' + ext;
+        };
+    </script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+          var filesNames = "";
+          for(let f = 0; f < $(this)[0].files.length; f++){
+            filesNames += truncate($(this)[0].files[f].name,10) + ";";
+          }
+          $(this).siblings(".custom-file-label").addClass("selected").html(filesNames);
+        });
+    </script>
+  </body>
+
+</html>
