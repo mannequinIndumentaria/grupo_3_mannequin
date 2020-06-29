@@ -88,8 +88,8 @@
                         </div>
 
                         <div class="margen">
-                        <label for="date">Fecha de nacimiento</label>
-                        <input class="casilleroTextoProfile" type="date" id="date" name="date" min="1930-01-01" max="2020-12-31" value="<%= profileToEdit.birth_date %>">
+                        <label for="birth_date">Fecha de nacimiento</label>
+                        <input class="casilleroTextoProfile" type="date" id="birth_date" name="birth_date" min="1930-01-01" max="2020-12-31" value="<%= profileToEdit.birth_date %>">
                         </div>
 
                         <div>
@@ -103,15 +103,15 @@
                         </div>
 
                         <div class="margen">
-                            <label for="name">Dirección</label>
-                            <input class="casilleroTextoProfile" type="text" id="street" name="street"
+                            <label for="address_street">Dirección</label>
+                            <input class="casilleroTextoProfile" type="text" id="address_street" name="address_street"
                                 placeholder="Calle" value="<%= profileToEdit.address_street %>">
                             <div class="d-flex justify-content-between">
-                                <input class="miniTexto" type="text" id="streetNumber" name="streetNumber"
+                                <input class="miniTexto" type="text" id="address_number" name="address_number"
                                     placeholder="Altura" value="<%= profileToEdit.address_number %>">
-                                <input class="miniTexto" type="text" id="floor" name="floor" placeholder="Piso" value="<%= profileToEdit.address_floor %>">
-                                <input class="miniTexto" type="text" id="apartment" name="apartment" placeholder="Dpto"  value="<%= profileToEdit.address_dept %>">
-                                <input class="miniTexto" type="text" id="postalCode" name="postalCode"
+                                <input class="miniTexto" type="text" id="address_floor" name="address_floor" placeholder="Piso" value="<%= profileToEdit.address_floor %>">
+                                <input class="miniTexto" type="text" id="address_dept" name="address_dept" placeholder="Dpto"  value="<%= profileToEdit.address_dept %>">
+                                <input class="miniTexto" type="text" id="address_post_code" name="address_post_code"
                                     placeholder="Codigo Postal"  value="<%= profileToEdit.address_post_code %>">
                             </div>
                             <input class="casilleroTextoProfile" type="text" id="city" name="city" placeholder="Ciudad" value="<%= profileToEdit.city %>">
