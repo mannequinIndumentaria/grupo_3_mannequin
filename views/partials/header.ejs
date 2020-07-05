@@ -43,7 +43,7 @@
 
                     <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink">
                         <% for (subcategory of item.subcategories) { %>
-                        <a class="dropdown-item" href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/1"><%= subcategory.name %></a>
+                        <a class="dropdown-item" href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/?page=<%=1%>&size=<%=8%>"><%= subcategory.name %></a>
                         <% } %>
                     </div>
                 </li>

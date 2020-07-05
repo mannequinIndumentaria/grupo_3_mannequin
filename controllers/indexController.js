@@ -66,7 +66,7 @@ const indexController = {
     /*Search*/
     search: async (req, res) => {
 
-        const finalSearch = await db.Product.findAll({
+        const finalSearch = await db.Product.findAndCountAll({
             where: {
                 name: {
                     [db.Sequelize.Op.like]: '%' + req.query.keywords + '%'
@@ -74,7 +74,8 @@ const indexController = {
             },
             include: [
                 { association: "images" }, { association: "sizes" }
-            ]
+            ],
+            distinct: true
 
         });
 
@@ -107,12 +108,22 @@ const indexController = {
             pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
             productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
 */
+        const pagination = {
+            page_number: 0,
+            page_size: 5,
+            total_products: finalSearch.count,
+            filtered: 2
+
+        };
+
+
 
         res.render('categories', {
             user: req.session.user,
             menu: menu,
             user: req.session.user,
-            products: finalSearch,
+            products: finalSearch.rows,
+            pagination: pagination,
             thousandGenerator: toThousand
         });
 
@@ -122,7 +133,7 @@ const indexController = {
         const newSubscriberId = await db.Subscriber.max('idsubscribers');
 
         const newSubscriber = {
-            id: newSubscriberId+1,
+            id: newSubscriberId + 1,
             email: req.body.email,
             active: 1
         };
