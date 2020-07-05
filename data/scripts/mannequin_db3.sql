@@ -233,7 +233,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `mannequin_db`.`subscribers` ;
 
 CREATE TABLE IF NOT EXISTS `mannequin_db`.`subscribers` (
-  `idsubscribers` INT(11) NOT NULL,
+  `idsubscribers` INT(11) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `active` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idsubscribers`))
