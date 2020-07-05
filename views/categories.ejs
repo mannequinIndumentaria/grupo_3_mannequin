@@ -12,19 +12,23 @@
             <div class="col-xs-0 col-sm-0 col-md-10 col-lg-10 pagBar">
               <%- include('./partials/breadcrumb.ejs') %>
             </div>
-  
+
             <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 dropdown">
               <%- include('./partials/dropdown.ejs') %>
             </div>
           </div>
           <div class="container-fluid main-category">
-            <div class="col-12 row category-content" >
+            <div class="col-12 row category-content">
               <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2 nav-categories">
                 <%- include('./partials/navCategories.ejs') %>
               </div>
               <div class="container-fluid col-xs-12 col-sm-12 col-md-10 col-lg-10 products-wrapper">
                 <%- include('./partials/productsWrapper.ejs') %>
-                <!-- include('./partials/pagination.ejs') -->
+                <% if (pagination.filtered == 0) {%>
+                  <%- include('./partials/pagination.ejs') %>
+                <% }else{ %>
+                  <%- include('./partials/paginationFiltered.ejs') %>
+                <% }%>
               </div>
             </div>
           </div>

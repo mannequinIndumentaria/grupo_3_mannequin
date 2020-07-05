@@ -1,0 +1,31 @@
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Show by ▼</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/5">5</a>
+    <a href="/10">10</a>
+    <a href="/25">15</a>
+    <a href="/50">50</a>
+  </div>
+</div> 
+
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+  </script>
