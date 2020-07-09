@@ -1,18 +1,27 @@
 module.exports = function (sequelize, DataTypes) {
   const cols = {
-    idcart: {
+    products_idproducts: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      references: {
+        model: 'products',
+        key: 'idproducts'
+      }
     },
-    amount: {
-      type: DataTypes.DECIMAL,
-      allowNull: true
+    sizes_idsizes: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'sizes',
+        key: 'idsizes'
+      }
     },
     users_idusers: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'users',
         key: 'idusers'
@@ -26,16 +35,16 @@ module.exports = function (sequelize, DataTypes) {
 
   const Cart = sequelize.define('Cart', cols, config);
 
-  Cart.associate = function (models) {
-    Cart.belongsTo(models.User, {
-      as: "users",
-      foreignKey: "users_idusers"
-    })
-    Cart.hasMany(models.Cart_has_product, {
-      as: "cart_has_products",
-      foreignKey: "cart_idcart"
-    })
-  }
+  // Cart.associate = function (models) {
+  //   Cart.belongsTo(models.User, {
+  //     as: "users",
+  //     foreignKey: "users_idusers"
+  //   })
+  //   Cart.hasMany(models.Cart_has_product, {
+  //     as: "cart_has_products",
+  //     foreignKey: "cart_idcart"
+  //   })
+  // }
 
   return Cart;
 };

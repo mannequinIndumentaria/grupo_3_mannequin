@@ -100,10 +100,6 @@ module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define('User', cols, config);
 
   User.associate = function (models) {
-    User.hasOne(models.Cart, {
-      as: "carts",
-      foreignKey: "users_idusers"
-    })
     User.belongsTo(models.Gender, {
       as: "genders",
       foreignKey: "genders_idgenders"
@@ -114,10 +110,26 @@ module.exports = function (sequelize, DataTypes) {
     })
 
     User.belongsToMany(models.Product, {
-      as: "product",
+      as: "product_favorites",
       through: "favorites",
       foreignKey: "users_idusers",
       otherKey: "products_idproducts",
+      timestamps: false
+    })
+
+    User.belongsToMany(models.Product, {
+      as: "product_carrito",
+      through: "carts",
+      foreignKey: "users_idusers",
+      otherKey: "products_idproducts",
+      timestamps: false
+    })
+
+    User.belongsToMany(models.Size, {
+      as: "sizes_carrito",
+      through: "carts",
+      foreignKey: "users_idusers",
+      otherKey: "sizes_idsizes",
       timestamps: false
     })
     

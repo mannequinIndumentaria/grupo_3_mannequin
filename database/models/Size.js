@@ -19,18 +19,34 @@ module.exports = function (sequelize, DataTypes) {
 
   Size.associate = function (models) {
     Size.belongsToMany(models.Product, {
-      as: "products",
+      as: "products_sizes",
       through: "products_has_sizes",
       foreignKey: "sizes_idsizes",
       otherKey: "products_idproducts",
       timestamps: false
     })
 
-    Size.hasMany(models.Cart_has_product, {
-      as: "cart_has_products",
-      foreignKey: "cart_idcart",
+    Size.belongsToMany(models.Product, {
+      as: "products_carrito",
+      through: "carts",
+      foreignKey: "sizes_idsizes",
+      otherKey: "products_idproducts",
       timestamps: false
     })
+
+    Size.belongsToMany(models.Product, {
+      as: "users_carrito",
+      through: "carts",
+      foreignKey: "sizes_idsizes",
+      otherKey: "users_idusers",
+      timestamps: false
+    })
+
+    // Size.hasMany(models.Cart_has_product, {
+    //   as: "cart_has_products",
+    //   foreignKey: "cart_idcart",
+    //   timestamps: false
+    // })
   }
 
 

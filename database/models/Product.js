@@ -99,11 +99,27 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: "product_categories_idproduct_categories",
       timestamps: false
     })
-    Product.hasMany(models.Cart_has_product, {
-      as: "cart_has_products",
+
+    Product.belongsToMany(models.User, {
+      as: "users_carrito",
+      through: "carts",
       foreignKey: "products_idproducts",
+      otherKey: "users_idusers",
       timestamps: false
     })
+
+    Product.belongsToMany(models.Size, {
+      as: "sizes_carrito",
+      through: "carts",
+      foreignKey: "products_idproducts",
+      otherKey: "sizes_idsizes",
+      timestamps: false
+    })
+    // Product.hasMany(models.Cart_has_product, {
+    //   as: "cart_has_products",
+    //   foreignKey: "products_idproducts",
+    //   timestamps: false
+    // })
     // Product.belongsToMany(models.Favorite, {
     //   as: "favorite",
     //   through: "favorites",
