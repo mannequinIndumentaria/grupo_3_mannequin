@@ -563,16 +563,6 @@ VALUES
 (31,117),
 (31,118);
 
-INSERT INTO `mannequin_db`.`cart`
-(`idcart`,
-`amount`,
-`users_idusers`)
-VALUES
-(1,0,1),
-(2,0,2),
-(3,0,3),
-(4,0,4),
-(5,0,5);
 
 INSERT INTO `mannequin_db`.`products_has_sizes`
 (`products_idproducts`,`sizes_idsizes`,`stock`)

@@ -72,36 +72,41 @@
 				<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
 				   <!-- <span class="tituloArticulos">Articulos<%= data.length %></span> -->
 					<% for(articulo of data){ %>
-					   <div class="articulo" id="<%= articulo.id %>" name="idArticulo">
+					   <div class="articulo" id="<%= articulo.idproduct %>" name="idArticulo">
 					  <div class="row prueba">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-							<img class="foto-item-carrito" src="images/articulos/<%= articulo.foto %>" alt="" id="foto<%= articulo.id %>">
+							<% if(typeof articulo.products[0].images[0] != 'undefined') { %>
+								<img class="foto-item-carrito" src="images/articulos/<%= articulo.products[0].images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
+							<% }else{ %>
+								<img class="foto-item-carrito" src="/images/articulos/no_img.png" alt="" id="foto<%= articulo.idproduct %>">
+							<% }%>
+							<img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
-							<span class="precio-item-carrito"><%= thousandGenerator(articulo.precio) %></span>
-							<span class="titulo-item-carrito"><%= articulo.nombre %></span>
+							<span class="precio-item-carrito"><%= articulo.price %></span>
+							<span class="titulo-item-carrito"><%= articulo.name %></span>
 							<div class="selector-color-carrito">
-								<p id="nombreElegido<%= articulo.id %>" class="color-elegido" name="color">Color elegido:<%= articulo.color %></p>
+								<p id="nombreElegido<%= articulo.idproduct %>" class="color-elegido" name="color">Color elegido:<%= articulo.color %></p>
 								<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
 							</div>
 							<div class="botones-detalle-carrito">
 								<div class="botones-fav-del-carrito">
 									<div class="boton-favorito-carrito">
 										<% if(articulo.favorito == 0){ %>
-											<button class="heart-carrito fas fa-heart" value="1" onclick="favoritos('<%= articulo.id %>')" id="favorito<%= articulo.id %>" name="favorito"></button>
+											<button class="heart-carrito fas fa-heart" value="1" onclick="favoritos('<%= articulo.idproduct %>')" id="favorito<%= articulo.idproduct %>" name="favorito"></button>
 										<% }else{ %>
-											<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.id %>')" id="favorito<%= articulo.id %>" name="favorito"></button>
+											<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.idproduct %>')" id="favorito<%= articulo.idproduct %>" name="favorito"></button>
 										<% } %>	
 									</div>
 									<div class="boton-borrar-carrito">
-										<button class="trash-carrito fas fa-trash-alt" onclick="borrar('<%= articulo.id %>')" name="borrar"></button>
+										<button class="trash-carrito fas fa-trash-alt" onclick="borrar('<%= articulo.idproduct %>')" name="borrar"></button>
 									</div>
 								</div>
 								<div class="selector-cantidad-carrito">
-									<button onclick="cantidad('<%= articulo.id %>','restar',<%= articulo.stock %>)" class="botones-cantidad">-</button>
-									<input type="text" value="<%= articulo.cantidad %>" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= articulo.id %>" name="cantidad"/>
-									<button onclick="cantidad('<%= articulo.id %>','sumar', <%= articulo.stock %>) " class="botones-cantidad">+</button>
-									<div id="stockMax<%= articulo.id%>"></div>
+									<button onclick="cantidad('<%= articulo.idproduct %>','restar',<%= articulo.stock %>)" class="botones-cantidad">-</button>
+									<input type="text" value="<%= articulo.cantidad %>" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= articulo.idproduct %>" name="cantidad"/>
+									<button onclick="cantidad('<%= articulo.idproduct %>','sumar', <%= articulo.stock %>) " class="botones-cantidad">+</button>
+									<div id="stockMax<%= articulo.idproduct%>"></div>
 								</div>
 							</div>
 						 </div>
@@ -148,7 +153,7 @@
 				</div>
 			</div>
 		</form> 
-			<%- include('./partials/galeriaNuevaTemporada.ejs') %> 
+			
 			<%- include('./partials/footer.ejs') %>
 		</div>
    </div>
