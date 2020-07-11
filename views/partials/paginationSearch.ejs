@@ -1,9 +1,9 @@
 <div class="col-12 pagination">
   <a
-    href="/categories/filter/<%=pagination.category%>/<%=pagination.subcategory%>/?page=<%= pagination.page_number === 0 ? 1 : pagination.page_number%>&size=<%= pagination.page_size %>">&laquo;</a>
+    href="/categories/search?keywords=<%=pagination.keyword%>&page=<%= pagination.page_number === 0 ? 1 : pagination.page_number%>&size=<%= pagination.page_size %>">&laquo;</a>
   <% for (var k=1; k<=pagination.pages; k++) { %>
-  <a <% if (pagination.page_number == k - 1) {%> class="active" <%} else {""} %> href="/categories/filter/<%=pagination.category%>/<%=pagination.subcategory%>/?page=<%= k %>&size=<%= pagination.page_size %>"> <%=k%> </a>
+  <a <% if (pagination.page_number == k - 1) {%> class="active" <%} else {""} %> href="/categories/search?keywords=<%=pagination.keyword%>&page=<%= k %>&size=<%= pagination.page_size %>"> <%=k%> </a>
   <% } %>
   <a
-    href="/categories/filter/<%=pagination.category%>/<%=pagination.subcategory%>/?page=<%= pagination.page_number === pagination.pages -1 ? pagination.pages : pagination.page_number+2 %>&size=<%= pagination.page_size %>">&raquo;</a>
+    href="/categories/search?keywords=<%=pagination.keyword%>&page=<%= pagination.page_number === pagination.pages -1 ? pagination.pages : pagination.page_number+2 %>&size=<%= pagination.page_size %>">&raquo;</a>
 </div>

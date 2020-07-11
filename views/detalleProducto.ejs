@@ -34,11 +34,12 @@
         <div class="container-fluid">
             <div class="row products-wrapperAle">
                 <div class="col col-lg-2 left-column">
-                    <% for (let j = 0 ; j < productsOnSite[0].image[0].length; j++) { %>
+                    <% if(products.length > 0){ %>
+                        <% for(let i = 0; i<products.length; i++) { %>
                     <div class="row">
 
-                        <img class="miniImgDetalleProduct" id="imgPeque<%= j+1 %>"
-                            src="/images/articulos/<%= productsOnSite[0].image[0][j]%>" onmouseover="rollover('imgPeque<%= j+1 %>')"
+                        <img class="miniImgDetalleProduct" id="foto<%= products[i].idproducts%>"
+                            src="/images/articulos/<%= products[i].images[0].file_name %>" onmouseover="rollover('imgPeque<%= j+1 %>')"
                             alt="">
                     </div>
                     <% } %>

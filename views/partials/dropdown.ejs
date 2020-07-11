@@ -1,18 +1,17 @@
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Order by ▼</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#Price">Price</a>
-    <a href="#Size">Size</a>
-    <a href="#Gender">Gender</a>
-    <a href="#Discount">Discount</a>
+    <a href="?page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=name">Name</a>
+    <a href="?page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=price">Price</a>
+    <a href="?page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=color">Color</a>
   </div>
-</div> 
+</div>
 
 <script>
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-  
+
   function filterFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
@@ -28,4 +27,4 @@
       }
     }
   }
-  </script>
+</script>

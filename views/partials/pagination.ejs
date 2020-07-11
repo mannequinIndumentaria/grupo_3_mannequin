@@ -1,11 +1,11 @@
 <div class="col-12 pagination">
   <a
-    href="/categories/?page=<%= pagination.page_number === 0 ? 1 : pagination.page_number%>&size=<%= pagination.page_size %>">&laquo;</a>
+    href="/categories/?page=<%= pagination.page_number === 0 ? 1 : pagination.page_number%>&size=<%= pagination.page_size %>&order=<%=pagination.order%>">&laquo;</a>
   <% for (var k=1; k<=pagination.pages; k++) { %>
-  <a <% if (pagination.page_number == k-1) {%> class="active" <%} else {""} %> href="/categories/?page=<%= k %>&size=<%= pagination.page_size %>
+  <a <% if (pagination.page_number == k-1) {%> class="active" <%} else {""} %> href="/categories/?page=<%= k %>&size=<%= pagination.page_size %>&order=<%=pagination.order%>
     
       "> <%=k%> </a>
   <% } %>
   <a
-    href="/categories/?page=<%= pagination.page_number === pagination.pages -1 ? pagination.pages : pagination.page_number+2 %>&size=<%= pagination.page_size %>">&raquo;</a>
+    href="/categories/?page=<%= pagination.page_number === pagination.pages -1 ? pagination.pages : pagination.page_number+2 %>&size=<%= pagination.page_size %>&order=<%=pagination.order%>">&raquo;</a>
 </div>

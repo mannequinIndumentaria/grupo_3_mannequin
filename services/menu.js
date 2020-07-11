@@ -31,6 +31,6 @@ async function formaMenu() {
     }
 
 }
-formaMenu();
 
+formaMenu();
 module.exports = menu;
