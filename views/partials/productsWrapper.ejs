@@ -25,10 +25,10 @@
             <div class="cardImgContainer">
                 <% if(typeof products[i].images[0] != 'undefined') { %>
                     <img class="card-img-top" src="/images/articulos/<%= products[i].images[0].file_name %>" alt=""
-                    id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto'">
+                    id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'">
                 <% }else{ %>
                     <img class="card-img-top" src="/images/articulos/no_img.png" alt=""
-                        id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto'" width="220" height="292"> 
+                        id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'" width="220" height="292"> 
                 <% }%>
                 <div class="container-bag">
                     <button class="addBag" onclick="window.location.href='/carrito'">Add to basket</button>
