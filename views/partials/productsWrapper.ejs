@@ -28,10 +28,10 @@
                         <div class="cardImgContainer">
                             <% if(typeof products[i].images[0] != 'undefined') { %>
                                 <img class="card-img-top" src="/images/articulos/<%= products[i].images[0].file_name %>" alt=""
-                                id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto'">
+                                id="foto<%= products[i].idproducts%>" onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'" >
                             <% }else{ %>
                                 <img class="card-img-top" src="/images/articulos/no_img.png" alt=""
-                                    id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto'" width="220" height="292"> 
+                                    id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'" width="220" height="292"> 
                             <% }%>
                             <div class="container-bag">
                                 <button class="addBag" onclick="window.location.href='/carrito'">Add to basket</button>
@@ -45,32 +45,6 @@
                                     <script>
                                         var articuloPrincipal = document.getElementById(<%=products[i].idproducts%>)
                                         var coloresPrincipal = articuloPrincipal.querySelector(".selector-color-carrito")
-
-/*    
-<% for(let i = 0; i<products.length; i++) { %>
-    <div class="product-box">
-        <div class="card" style="width: 18rem;">
-            <div class="cardImgContainer">
-                <% if(typeof products[i].images[0] != 'undefined') { %>
-                    <img class="card-img-top" src="/images/articulos/<%= products[i].images[0].file_name %>" alt=""
-                    id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'">
-                <% }else{ %>
-                    <img class="card-img-top" src="/images/articulos/no_img.png" alt=""
-                        id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'" width="220" height="292"> 
-                <% }%>
-                <div class="container-bag">
-                    <button class="addBag" onclick="window.location.href='/carrito'">Add to basket</button>
-                </div>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"><%= products[i].name %></h5>
-                <span class="precio-item-carrito">$ <%= thousandGenerator(products[i].price) %></span>
-                <div class="barra-iconos-cat">
-                    <div class="selector-color-carrito">
-                        <button class="boton-slector-color" style="background-color: <%=products[i].color%>"
-                            onclick=""></button>
-*/
-
                                         var botonColor = document.createElement("button");
                                         botonColor.className = "boton-slector-color";
                                         botonColor.style.backgroundColor = "<%=products[i].color%>"
@@ -78,7 +52,9 @@
                                         botonColor.addEventListener("click",function(){
                                             /* Actualizar imagen */
                                             <% if(typeof products[i].images[0] != 'undefined') { %>
-                                                document.getElementById("foto<%= products[i].idproducts%>").src = "/images/articulos/<%= products[i].images[0].file_name %>"
+                                                var imagenProducto = document.getElementById("foto<%= products[i].idproducts%>");
+                                                imagenProducto.src = "/images/articulos/<%= products[i].images[0].file_name %>"
+                                                imagenProducto.onclick = function(){ return window.location.assign('/detalleProducto/<%= products[i].idproducts%>')}
                                                 <% }else{ %>
                                                     document.getElementById("foto<%= products[i].idproducts%>").src = "/images/articulos/no_img.png"           
                                                 <% }%>
@@ -118,17 +94,21 @@
                     botonColor.addEventListener("click",function(){
                         /* Actualizar imagen */
                         <% if(typeof products[i].images[0] != 'undefined') { %>
-                            document.getElementById("foto<%= articuloCombinado%>").src = "/images/articulos/<%= products[i].images[0].file_name %>"
+                                var imagenProducto = document.getElementById("foto<%= articuloCombinado%>");
+                                imagenProducto.src = "/images/articulos/<%= products[i].images[0].file_name %>";
+                                imagenProducto.onclick = function(){window.location.assign('/detalleProducto/<%= products[i].idproducts%>')};
                             <% }else{ %>
-                                document.getElementById("foto<%= articuloCombinado%>").src = "/images/articulos/no_img.png"           
+                                var imagenProducto =document.getElementById("foto<%= articuloCombinado%>");
+                                imagenProducto.src = "/images/articulos/no_img.png";
+                                imagenProducto.onclick = function(){window.location.assign('/detalleProducto/<%= products[i].idproducts%>')};      
                             <% }%>
                         /* Actualizar nombre */
                         var nombre = document.getElementById("productname<%=articuloCombinado %>");
-                        nombre.innerHTML = "<%= products[i].name %>"
+                        nombre.innerHTML = "<%= products[i].name %>";
                         
                         /* Actualizar precio */
                         var precio = document.getElementById("productprice<%=articuloCombinado %>");
-                        precio.innerHTML = "$ <%= thousandGenerator(products[i].price) %>"
+                        precio.innerHTML = "$ <%= thousandGenerator(products[i].price) %>";
                     })
                     colores.appendChild(botonColor);
                 </script>
