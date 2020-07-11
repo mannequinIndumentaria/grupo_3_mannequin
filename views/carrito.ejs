@@ -71,16 +71,16 @@
 				 <div class="row">
 				<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
 				   <!-- <span class="tituloArticulos">Articulos<%= data.length %></span> -->
-					<% for(articulo of data){ %>
+					<% for(articulo of data.product_carrito){ %>
 					   <div class="articulo" id="<%= articulo.idproduct %>" name="idArticulo">
 					  <div class="row prueba">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-							<% if(typeof articulo.products[0].images[0] != 'undefined') { %>
-								<img class="foto-item-carrito" src="images/articulos/<%= articulo.products[0].images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
+							<% if(typeof articulo.images[0] != 'undefined') { %>
+								<img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
 							<% }else{ %>
 								<img class="foto-item-carrito" src="/images/articulos/no_img.png" alt="" id="foto<%= articulo.idproduct %>">
 							<% }%>
-							<img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
+							<!-- <img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>"> -->
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
 							<span class="precio-item-carrito"><%= articulo.price %></span>
