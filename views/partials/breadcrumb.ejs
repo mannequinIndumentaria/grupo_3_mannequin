@@ -1,19 +1,22 @@
 <ul class="breadcrumb">
     <% if (pagination.filtered == 0) {%>
-    <li><a href="/categories/?">Home</a></li>
+    <li><a href="/categories/?">Todos los productos</a></li>
 
     <% }else if (pagination.filtered == 1){ %>
 
-    <li><a href="/categories/?">Home</a></li>
+    <li><a href="/categories/?">Todos los productos</a></li>
+
+    <% /* %>
     <li><a
             href="/categories/filter/<%=menu[pagination.category-1].category.idproduct_categories%>"><%=menu[pagination.category-1].category.name%></a>
     </li>
-    <!--<li><a
+    <li><a
             href="/categories/filter/<%=menu[pagination.category-1].category.idproduct_categories%>/<%=menu[pagination.category-1].subcategories[pagination.subcategory/2].idproduct_categories%>/"><%=menu[pagination.category-1].subcategories[(pagination.subcategory)/2].name%></a>
-        </li>-->
+    </li>
+    <% */ %>
 
     <% }else{ %>
-    <li><a href="/categories/?">Search</a></li>
+    <li><a href="/categories/?">Todos los productos</a></li>
 
     <% }%>
 
