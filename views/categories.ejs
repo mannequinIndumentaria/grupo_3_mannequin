@@ -24,10 +24,13 @@
               </div>
               <div class="container-fluid col-xs-12 col-sm-12 col-md-10 col-lg-10 products-wrapper">
                 <%- include('./partials/productsWrapper.ejs') %>
+
                 <% if (pagination.filtered == 0) {%>
                   <%- include('./partials/pagination.ejs') %>
-                <% }else{ %>
+                <% }else if (pagination.filtered == 1){ %>
                   <%- include('./partials/paginationFiltered.ejs') %>
+                <% }else{ %>
+                  <%- include('./partials/paginationSearch.ejs') %>
                 <% }%>
               </div>
             </div>

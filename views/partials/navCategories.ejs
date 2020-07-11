@@ -5,7 +5,7 @@
     <li><span class="caret"><%= item.category.name %></span>
       <ul class="nested">
         <% for (subcategory of item.subcategories) {%>
-        <li><a href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/?page=<%=1%>&size=<%=8%>"><%= subcategory.name %></a></li>
+        <li><a href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/?page=<%=1%>&size=<%=8%>&order=name"><%= subcategory.name %></a></li>
         <% } %>
       </ul>
     </li>
