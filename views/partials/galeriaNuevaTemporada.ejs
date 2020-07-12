@@ -29,9 +29,11 @@
           <div class="col-xs-3 col-sm-3 col-md-3">
             <% if(typeof productosNewSeason[i].images[0] != 'undefined') { %>
             <a href="#"> <img src="/images/articulos/<%= productosNewSeason[i].images[0].file_name%>"></a>
+            <% } else { %>
+            <a href="#"> <img src="/images/articulos/no_img.png"></a>
             <% } %>
             <p class="descripcionItem"><%= productosNewSeason[i].name%></p>
-            <p class="precioItem"><%= thousandGenerator(productosNewSeason[i].price)%></p>
+            <p class="precioItem">$<%= thousandGenerator(productosNewSeason[i].price)%></p>
           </div>
           <% } %>
         </div>
@@ -41,9 +43,11 @@
           <div class="col-xs-3 col-sm-3 col-md-3">
             <% if(typeof productosNewSeason[i].images[0] != 'undefined') { %>
             <a href="#"> <img src="/images/articulos/<%= productosNewSeason[i].images[0].file_name%>"> </a>
+            <% } else { %>
+            <a href="#"> <img src="/images/articulos/no_img.png"></a>
             <% } %>
             <p class="descripcionItem"><%= productosNewSeason[i].name%></p>
-            <p class="precioItem"><%= thousandGenerator(productosNewSeason[i].price)%></p>
+            <p class="precioItem">$<%= thousandGenerator(productosNewSeason[i].price)%></p>
           </div>
           <% } %>
         </div>
