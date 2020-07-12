@@ -1,38 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const session = require('express-session');
-/*Importo json categories*/
-const categoriesFilePath = path.join(__dirname, '../data/categories.json');
-const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
-/*Importo json products*/
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const productsJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-/*Importo json products-info*/
-const productsInfoFilePath = path.join(__dirname, '../data/products-info.json');
-const productsInfoJSON = JSON.parse(fs.readFileSync(productsInfoFilePath, 'utf-8'));
-/*Importo json colors*/
-const productsColorPath = path.join(__dirname, '../data/colors.json');
-const productsColorJSON = JSON.parse(fs.readFileSync(productsColorPath, 'utf-8'));
-/*Importo json subscribers*/
-const subscribersPath = path.join(__dirname, '../data/subscribers.json');
-const subscribersJSON = JSON.parse(fs.readFileSync(subscribersPath, 'utf-8'));
-/*Importo galerias de carpeta services*/
-//const productoNS = require('../services/carrouselNS');
-//const productoS = require('../services/carrouselS');
 /*Importo conversor*/
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 /*Importo componentes para DB*/
 let db = require('../database/models');
 const { Op } = require("sequelize");
+/*Importo modulo menu*/
 let menu = require('../services/menu');
 
 const indexController = {
+
+    /*Carrousel*/
+
     index: async (req, res) => {
         const productsNewSeason = await db.Product.findAll({
             where: {
                 new_season: 1
             },
-            include: [
+            //group: 'group',
+              include: [
                 { association: "images" }
             ]
         })
@@ -41,20 +25,12 @@ const indexController = {
             where: {
                 sale: 1
             },
+            //group: 'group',
             include: [
                 { association: "images" }
             ]
         })
 
-        // const productosConFoto = await db.query(
-        //     select p.*, i.file_name as foto from products p
-        //     inner join products_has_images phm ON phm.products_idproducts = p.idproducts
-        //     inner join images i ON i.idimage = phm.images_idimage
-        //     group by p.group
-        // )
-
-
-        /*Info del controlador a vista*/
         res.render('index', {
             user: req.session.user,
             menu: menu,
@@ -63,6 +39,7 @@ const indexController = {
             thousandGenerator: toThousand
         })
     },
+
     /*Search*/
     search: async (req, res) => {
         let order = {
@@ -164,9 +141,6 @@ const indexController = {
             pagination.pages = Math.ceil(productsColorFoto.length / pagination.page_size);
             productsFinal = productsColorFoto.slice((pagination.page_number - 1) * pagination.page_size, pagination.page_number * pagination.page_size);
 */
-
-
-
 
         res.render('categories', {
             user: req.session.user,

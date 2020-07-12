@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <%- include('./partials/head.ejs') %>
-  <body>
-    <div class="container-fluid">
-      <%- include('./partials/header.ejs') %>
-      <div class="contenido">
-        <%- include('./partials/banner.ejs') %> 
+<%- include('./partials/head.ejs') %>
 
-        <%- include('./partials/galeriaNuevaTemporada.ejs') %> 
+<body>
+  <div class="container-fluid">
+    <%- include('./partials/header.ejs') %>
+    <div class="contenido">
+      <%- include('./partials/banner.ejs') %>
 
-        <div class="container nombre">
-          <div class="row prueba">
-            <img src="/images/banner/bannDos.jpg">
-          </div>
+      <%- include('./partials/galeriaNuevaTemporada.ejs') %>
+
+      <div class="container nombre">
+        <div class="row prueba">
+          <img src="/images/banner/bannDos.jpg">
         </div>
-
-        <%- include('./partials/galeriaSale.ejs') %> 
-        
-        <%- include('./partials/footer.ejs') %>
-
-        <%- include('./partials/scriptBootstrap.ejs') %>
       </div>
+
+      <%- include('./partials/galeriaSale.ejs') %>
+
+      <%- include('./partials/footer.ejs') %>
+
+      <%- include('./partials/scriptBootstrap.ejs') %>
     </div>
-  </body>
+  </div>
+</body>
 
 </html>
