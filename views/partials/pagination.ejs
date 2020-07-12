@@ -1,4 +1,4 @@
-<div class="col-12 pagination">
+<div class="col-12 pagination" id="pagination">
   <a
     href="/categories/?page=<%= pagination.page_number === 0 ? 1 : pagination.page_number%>&size=<%= pagination.page_size %>&order=<%=pagination.order%>">&laquo;</a>
   <% for (var k=1; k<=pagination.pages; k++) { %>
@@ -9,3 +9,11 @@
   <a
     href="/categories/?page=<%= pagination.page_number === pagination.pages -1 ? pagination.pages : pagination.page_number+2 %>&size=<%= pagination.page_size %>&order=<%=pagination.order%>">&raquo;</a>
 </div>
+<% if(products.length == 0){ %>
+<script>
+  var pagination = document.querySelector("#pagination")
+  console.log(pagination)
+  pagination.style.display = "none";
+
+</script>
+<% } %>

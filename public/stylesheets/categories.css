@@ -18,6 +18,11 @@
     border-radius: 0px;
 }
 
+.breadcrumb:hover, .breadcrumb:focus{
+  background-color: white
+}
+
+
 /* Style the list */
 ul.breadcrumb {
     padding: 10px 16px;
@@ -48,8 +53,14 @@ ul.breadcrumb li a {
 /* Add a color on mouse-over */
 ul.breadcrumb li a:hover {
     color: #01447e;
-    text-decoration: underline;
+    
 } 
+
+/*BLANK*/
+
+.blank{
+  background-color: #eee;
+}
 
 /*DROPDOWN*/
  /* Dropdown Button */
@@ -153,14 +164,17 @@ ul.breadcrumb li a:hover {
 }
 
 /* Remove default bullets */
-    ul, #myUL {
+#myUL, ul{
     list-style-type: none;
+    padding-inline-start: 20px
 }
 
 /* Remove margins and padding from the parent ul */
 #myUL {
+  list-style-type: none;
   margin: 0;
   padding: 0;
+  
 }
 
 /* Style the caret/arrow */
@@ -210,10 +224,6 @@ ul.breadcrumb li a:hover {
 .check-box::before {
   content: "\2611"; 
   color: dodgerblue;
-}
-
-.card-group {
-
 }
 
 /*PAGINATION*/
@@ -274,18 +284,42 @@ ul.breadcrumb li a:hover {
 }
 
 .card-img-top{
-    padding: 1.25em;
+    padding: 1.25em 1.25em 0.5em 1.25em;
     position: relative;
     cursor: pointer;
+}
+
+.card-body {
+  padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+  text-align: left;
+}
+
+.card-title {
+  color: grey;
+  padding: 0;
+  margin: 0
+}
+
+.precio-item-carrito{
+  font-size: medium;
+  font-weight: bold;
 }
 
 .barra-iconos-cat{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
 }
 
+.selector-color-carrito{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
 .botones-fav-del-carrito{
-    align-items: baseline;
+    align-items: center;
     
 }
 
@@ -293,7 +327,9 @@ ul.breadcrumb li a:hover {
     width: 100%;
 }
 
-
+.boton-slector-color {
+  margin-right: 5px;
+}
 
 .addBag {
     position: absolute;
@@ -317,4 +353,10 @@ ul.breadcrumb li a:hover {
     z-index: 3;
     
 }
+
+.product-box {
+  text-align: center;
+  border: 10px;
+}
+
 

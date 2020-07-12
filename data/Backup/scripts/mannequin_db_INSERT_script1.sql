@@ -42,38 +42,37 @@ INSERT INTO `mannequin_db`.`products`
 `discount`,
 `product_categories_idproduct_categories`)
 VALUES 
-('Bikini Julia ROJA','Bikini Julia ROJA',1120,NOW(),null,1,1,'#FF0000',1,0,11,6),
-('Blusa Dot AZUL','Blusa Dot AZUL',1120,NOW(),null,1,2,'#0000FF',1,0,10,6),
-('Blusa Dot ROJA','Blusa Dot ROJA',1120,NOW(),null,1,2,'#FF0000',1,0,10,6),
-('Blusa Stacy VIOLETA','Blusa Stacy VIOLETA',1150,NOW(),null,1,3,'#FF00FF',1,1,0,6),
-('Blusa Stacy VERDE','Blusa Stacy VERDE',1150,NOW(),null,1,3,'#00FF00',1,1,0,6),
-('Buzo Rober BLANCO','Buzo Rober BLANCO',1170,NOW(),null,1,4,'#FFFFFF',1,0,0,13),
-('Buzo Rober GRIS','Buzo Rober GRIS',1170,NOW(),null,1,4,'#999999',1,0,0,13),
-('Camisa Petter AZUL','Camisa Petter AZUL',1130,NOW(),null,1,5,'#0000FF',0,0,0,13),
-('Mono Sofia BLANCO','Mono Sofia BLANCO',1230,NOW(),null,1,6,'#FFFFFF',1,1,20,7),
-('Mono Sofia CELESTE','Mono Sofia CELESTE',1230,NOW(),null,1,6,'#ADD8E6',1,1,0,7),
-('Mono Sofia ROJO','Mono Sofia ROJO',1230,NOW(),null,1,6,'#A52A2A',1,1,0,7),
-('Mono Sofia NEGRO','Mono Sofia NEGRO',1250,NOW(),null,1,6,'#000000',1,1,0,7),
+('Bikini Julia ROJA','Bikini Julia ROJA',1120,NOW(),null,1,11,'#FF0000',1,0,10,6),
+('Blusa Dot AZUL','Blusa Dot AZUL',1120,NOW(),null,1,6,'#0000FF',1,0,10,6),
+('Blusa Dot ROJA','Blusa Dot ROJA',1120,NOW(),null,1,6,'#FF0000',1,0,10,6),
+('Blusa Stacy VIOLETA','Blusa Stacy VIOLETA',1150,NOW(),null,1,6,'#FF00FF',1,1,0,6),
+('Blusa Stacy VERDE','Blusa Stacy VERDE',1150,NOW(),null,1,6,'#00FF00',1,1,0,6),
+('Buzo Rober BLANCO','Buzo Rober BLANCO',1170,NOW(),null,1,13,'#FFFFFF',1,0,0,13),
+('Buzo Rober GRIS','Buzo Rober GRIS',1170,NOW(),null,1,13,'#999999',1,0,0,13),
+('Camisa Petter AZUL','Camisa Petter AZUL',1130,NOW(),null,1,13,'#0000FF',0,0,0,13),
+('Mono Sofia BLANCO','Mono Sofia BLANCO',1230,NOW(),null,1,7,'#FFFFFF',1,1,20,7),
+('Mono Sofia CELESTE','Mono Sofia CELESTE',1230,NOW(),null,1,7,'#ADD8E6',1,1,0,7),
+('Mono Sofia ROJO','Mono Sofia ROJO',1230,NOW(),null,1,7,'#A52A2A',1,1,0,7),
+('Mono Sofia NEGRO','Mono Sofia NEGRO',1250,NOW(),null,1,7,'#000000',1,1,0,7),
 ('Mono Juana GRIS','Mono Juana GRIS',1250,NOW(),null,1,7,'#999999',1,1,0,7),
 ('Mono Juana NEGRO','Mono Juana NEGRO',1320,NOW(),null,1,7,'#ADD8E6',1,1,0,7),
-('Mono Kimberly CELESTE','Mono Kimberly CELESTE',1320,NOW(),null,1,8,'#00FF00',1,1,0,7),
-('Mono Kimberly VERDE','Mono Kimberly VERDE',1430,NOW(),null,1,8,'#FFFFFF',1,1,0,7),
-('Mono Andressa NEGRO','Mono Andressa NEGRO',1430,NOW(),null,1,9,'#000000',1,1,0,7),
-('Mono Andressa VIOLETA','Mono Andressa VIOLETA',1430,NOW(),null,1,9,'#DCD0FF',1,1,0,7),
-('Mono Summer VERDE','Mono Summer VERDE',1520,NOW(),null,1,10,'#00FF00',1,1,40,7),
-('Pollera Clara AMARILLA','Pollera Clara AMARILLA',1320,NOW(),null,1,11,'#FFFF00',1,1,0,8),
-('Pollera Clara AZUL','Pollera Clara AZUL',1320,NOW(),null,1,11,'#0000FF',1,1,0,8),
-('Pollera Clara NEGRA','Pollera Clara NEGRA',1320,NOW(),null,1,11,'#000000',1,1,0,8),
-('Pollera Clara VERDE','Pollera Clara VERDE',1320,NOW(),null,1,11,'#00FF00',1,1,0,8),
-('Short Stripes BLANCO','Short Stripes BLANCO',1430,NOW(),null,1,12,'#FFFFFF',1,1,0,8),
-('Short Stripes NEGRO','Short Stripes NEGRO',1430,NOW(),null,1,12,'#000000',1,1,0,8),
-('Vestido Lola VERDE','Vestido Lola VERDE',1520,NOW(),null,1,13,'#00FF00',1,1,40,8),
-('Vestido Lola ROSA','Vestido Lola ROSA',1520,NOW(),null,1,13,'#FFC0CB',1,1,40,8),
-('Vestido Lola AZUL','Vestido Lola AZUL',1520,NOW(),null,1,13,'#0000FF',1,1,40,8),
-('Camisa Paul rayada BLANCA','Camisa Paul rayada BLANCA',1130,NOW(),null,1,14,'#FFFFFF',1,1,0,6),
-('Camisa Paul rayada AZUL','Camisa Paul rayada AZUL',1130,NOW(),null,1,14,'#0000FF',1,1,0,6),
-('Camisa Paul rayada ROJO','Camisa Paul rayada ROJO',1130,NOW(),null,1,14,'#FF0000',1,1,0,6);
-
+('Mono Kimberly CELESTE','Mono Kimberly CELESTE',1320,NOW(),null,1,7,'#00FF00',1,1,0,7),
+('Mono Kimberly VERDE','Mono Kimberly VERDE',1430,NOW(),null,1,7,'#FFFFFF',1,1,0,7),
+('Mono Andressa NEGRO','Mono Andressa NEGRO',1430,NOW(),null,1,7,'#000000',1,1,0,7),
+('Mono Andressa VIOLETA','Mono Andressa VIOLETA',1430,NOW(),null,1,7,'#DCD0FF',1,1,0,7),
+('Mono Summer VERDE','Mono Summer VERDE',1520,NOW(),null,1,7,'#00FF00',1,1,40,7),
+('Pollera Clara AMARILLA','Pollera Clara AMARILLA',1320,NOW(),null,1,8,'#FFFF00',1,1,0,8),
+('Pollera Clara AZUL','Pollera Clara AZUL',1320,NOW(),null,1,8,'#0000FF',1,1,0,8),
+('Pollera Clara NEGRA','Pollera Clara NEGRA',1320,NOW(),null,1,8,'#000000',1,1,0,8),
+('Pollera Clara VERDE','Pollera Clara VERDE',1320,NOW(),null,1,8,'#00FF00',1,1,0,8),
+('Short Stripes BLANCO','Short Stripes BLANCO',1430,NOW(),null,1,8,'#FFFFFF',1,1,0,8),
+('Short Stripes NEGRO','Short Stripes NEGRO',1430,NOW(),null,1,8,'#000000',1,1,0,8),
+('Vestido Lola VERDE','Vestido Lola VERDE',1520,NOW(),null,1,7,'#00FF00',1,1,40,8),
+('Vestido Lola ROSA','Vestido Lola ROSA',1520,NOW(),null,1,7,'#FFC0CB',1,1,40,8),
+('Vestido Lola AZUL','Vestido Lola AZUL',1520,NOW(),null,1,7,'#0000FF',1,1,40,8),
+('Camisa Paul rayada BLANCA','Camisa Paul rayada BLANCA',1130,NOW(),null,1,13,'#FFFFFF',1,1,0,6),
+('Camisa Paul rayada AZUL','Camisa Paul rayada AZUL',1130,NOW(),null,1,13,'#0000FF',1,1,0,6),
+('Camisa Paul rayada ROJO','Camisa Paul rayada ROJO',1130,NOW(),null,1,13,'#FF0000',1,1,0,6);
 
 INSERT INTO countries (name)
 VALUES
@@ -438,15 +437,7 @@ VALUES
 ("camisa-hombre-rayas-negra-1.jpg"),
 ("camisa-hombre-rayas-negra-2.jpg"),
 ("camisa-hombre-rayas-roja-1.jpg"),
-("camisa-hombre-rayas-roja-2.jpg"),
-("blusaStacyVerde1.jpg"),
-("blusaStacyVerde2.jpg"),
-("blusaStacyVerde3.jpg"),
-("blusaStacyVerde4.jpg"),
-("blusaStacyVioleta1.jpg"),
-("blusaStacyVioleta2.jpg"),
-("blusaStacyVioleta3.jpg"),
-("blusaStacyVioleta4.jpg");
+("camisa-hombre-rayas-roja-2.jpg");
 
 
 INSERT INTO `mannequin_db`.`products_has_images`
@@ -570,15 +561,7 @@ VALUES
 (29,115),
 (29,116),
 (31,117),
-(31,118),
-(5,119),
-(5,120),
-(5,121),
-(5,122),
-(4,123),
-(4,124),
-(4,125),
-(4,126);
+(31,118);
 
 
 INSERT INTO `mannequin_db`.`products_has_sizes`
