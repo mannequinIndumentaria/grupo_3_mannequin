@@ -98,12 +98,12 @@
 
                         <div>
                             <label for="gender">Género</label>
-                            <select name="gender" class="casilleroTextoProfile">
+                            <select name="genders_idgenders" class="casilleroTextoProfile">
                                 <option disabled>Seleccione</option>
-                                <option value="1" <%= profileToEdit.gender == "1" ? "selected" : "" %>>Femenino</option>
-                                <option value="2" <%= profileToEdit.gender == "2" ? "selected" : "" %>>Masculino
+                                <option value="1" <%= profileToEdit.genders_idgenders == "1" ? "selected" : "" %>>Femenino</option>
+                                <option value="2" <%= profileToEdit.genders_idgenders == "2" ? "selected" : "" %>>Masculino
                                 </option>
-                                <option value="3" <%= profileToEdit.gender == "3" ? "selected" : "" %>>Otro</option>
+                                <option value="3" <%= profileToEdit.genders_idgenders == "3" ? "selected" : "" %>>Otro</option>
                             </select>
                         </div>
 
@@ -123,7 +123,7 @@
                             </div>
                             <input class="casilleroTextoProfile" type="text" id="city" name="city" placeholder="Ciudad"
                                 value="<%= profileToEdit.city %>">
-                            <select class="casilleroTextoProfile" name="country" placeholder="Pais">
+                            <select class="casilleroTextoProfile" name="countries_idcountries" placeholder="Pais">
                                 <option disabled>País</option>
                                 <% for (let i=0; i<paises.length; i++) { %>
                                 <option value="<%=paises[i].idcountries%>"
