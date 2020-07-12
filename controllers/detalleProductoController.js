@@ -12,47 +12,60 @@ const productoNS = require('../services/carrouselNS');
 const productoS = require('../services/carrouselS');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 let menu = require('../services/menu');
+let db = require('../database/models');
 
 const detalleProductoController = {
-    detalleProducto: (req, res) => {
-        let prodIDparam = parseInt(req.params.id);
-        let finalSearch = productsJSON.filter(prod => {
-            return prod.id == prodIDparam;
+    detalleProducto: async (req, res) => {
+        const productsNewSeason = await db.Product.findAll({
+            where: {
+                new_season: 1
+            },
+            include: [
+                { association: "images" }
+            ]
+        })
 
-        });
-        const productsFinal = [];
-        for (product of finalSearch) {
-            let productImgColor = productsInfoJSON.filter(element => {
-                return element.product_id == product.id
-            })
-            imageArray = [];
-            colorArray = [];
-            for (const colors of productImgColor) {
-                let color = productsColorJSON.filter(element => {
-                    return element.id == colors.color_id
-                })
-                colorArray.push(color);
+        const productsSale = await db.Product.findAll({
+            where: {
+                sale: 1
+            },
+            include: [
+                { association: "images" }
+            ]
+        })
+        
+        
 
-                imageArray.push(colors.images);
-            }
+        const producto =  await db.Product.findByPk(req.params.id,{
+            include: [
+                {
+                association: "sizes"
+                },
+                {
+                  association: "images"
+                }
+              ]
+        })
 
-            const producto = {
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                colors: colorArray,
-                image: imageArray
-            }
-            productsFinal.push(producto);
-        }
-        console.log(productsFinal)
-
+        const productosDelGrupo =  await db.Product.findAll({
+            where: {group: producto.group},
+            include: [
+                {
+                association: "sizes"
+                },
+                {
+                  association: "images"
+                }
+              ]
+        })
+        console.log("asdfASDFASDFASDFASDFASDFASDFASDFASDFASDFASDFASDF",producto.images[0].idimage);
         res.render('detalleProducto', {
             user: req.session.user,
             menu: menu, 
-            productsOnSite: productsFinal,
-            productosNewSeason: productoNS,
-            productosSale: productoS,
+            productsOnSite: producto,
+            productsOnSiteGroup: productosDelGrupo,
+            productosNewSeason: productsNewSeason,
+            productosSale: productsSale,
             thousandGenerator: toThousand
         });
     }

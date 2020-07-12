@@ -50,7 +50,16 @@ const profileController = {
         console.log("ESTO MANDO EL FORMMM", req.body);
 
         let userID = req.params.userId;
-
+        if(req.files.length > 0){
+            await db.User.update({
+                avatar: req.files[0].filename
+            },{
+                where: {
+                    idusers: userID
+                }
+            });
+        }
+        console.log("GENERO",req.body.genders_idgenders,"PAIS",req.body.countries_idcountries);
         const user = await db.User.update({
             name: req.body.name,
             lastname: req.body.lastname,
@@ -58,7 +67,6 @@ const profileController = {
             password: bcrypt.hashSync(req.body.password, 10),
             birth_date: req.body.birth_date,
             document: req.body.document,
-            avatar: req.files[0].filename,
             address_street: req.body.address_street,
             address_number: req.body.address_number,
             address_floor: req.body.address_floor,
