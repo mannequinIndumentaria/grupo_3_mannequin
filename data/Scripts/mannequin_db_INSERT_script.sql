@@ -70,9 +70,9 @@ VALUES
 ('Vestido Lola VERDE','Vestido Lola VERDE',1520,NOW(),null,1,13,'#00FF00',1,1,40,8),
 ('Vestido Lola ROSA','Vestido Lola ROSA',1520,NOW(),null,1,13,'#FFC0CB',1,1,40,8),
 ('Vestido Lola AZUL','Vestido Lola AZUL',1520,NOW(),null,1,13,'#0000FF',1,1,40,8),
-('Camisa Paul rayada BLANCA','Camisa Paul rayada BLANCA',1130,NOW(),null,1,14,'#FFFFFF',1,1,0,6),
-('Camisa Paul rayada AZUL','Camisa Paul rayada AZUL',1130,NOW(),null,1,14,'#0000FF',1,1,0,6),
-('Camisa Paul rayada ROJO','Camisa Paul rayada ROJO',1130,NOW(),null,1,14,'#FF0000',1,1,0,6);
+('Camisa Paul rayada BLANCA','Camisa Paul rayada BLANCA',1130,NOW(),null,1,14,'#FFFFFF',1,1,0,13),
+('Camisa Paul rayada AZUL','Camisa Paul rayada AZUL',1130,NOW(),null,1,14,'#0000FF',1,1,0,13),
+('Camisa Paul rayada ROJO','Camisa Paul rayada ROJO',1130,NOW(),null,1,14,'#FF0000',1,1,0,13);
 
 
 INSERT INTO countries (name)

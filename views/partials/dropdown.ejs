@@ -1,9 +1,16 @@
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Ordenar por ▼</button>
   <div id="myDropdown" class="dropdown-content">
+    <% if (pagination.filtered == 2) {%>
+    <a href="/search?keywords=<%=pagination.keyword%>&page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=name">Nombre</a>
+    <a href="/search?keywords=<%=pagination.keyword%>&page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=price">Precio</a>
+    <a href="/search?keywords=<%=pagination.keyword%>&page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=color">Color</a>
+    <% }else{ %>
     <a href="?page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=name">Nombre</a>
     <a href="?page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=price">Precio</a>
     <a href="?page=<%= pagination.page_number+1%>&size=<%= pagination.page_size %>&order=color">Color</a>
+    <% }%>
+
   </div>
 </div>
 
