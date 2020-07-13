@@ -1,20 +1,24 @@
 <script>
     function elegirTalle(id){
         if(document.getElementById(id).className == "boton-talle"){
+            /* restauro el anterior*/
+            var talleAnterior = document.querySelector(".boton-talle-elegido");
+            if(talleAnterior){
+                talleAnterior.className = "boton-talle"
+            }
+            /* Actualizo el elegido*/
             document.getElementById(id).className = "boton-talle-elegido";
         }else{
             document.getElementById(id).className = "boton-talle";
         }
+        
     }
 </script>
 
 <div id="talles">
     <div>
-        <button class="boton-talle-elegido" onclick="elegirTalle('xs')" id="xs">XS</button>
-        <button class="boton-talle" onclick="elegirTalle('s')" id="s">S</button>
-        <button class="boton-talle" onclick="elegirTalle('m')" id="m">M</button>
-        <button class="boton-talle" onclick="elegirTalle('l')" id="l">L</button>
-        <button class="boton-talle" onclick="elegirTalle('xl')" id="xl">XL</button>
-        <button class="boton-talle" onclick="elegirTalle('xxl')" id="xxl">XXL</button>
+        <% for(let s = 0; s < productsOnSite.sizes.length; s++){%>
+        <button class="boton-talle" onclick="elegirTalle('talle<%= productsOnSite.sizes[s].idsizes %>')" id="talle<%= productsOnSite.sizes[s].idsizes %>"><%= productsOnSite.sizes[s].name %></button>
+        <%}%>
     </div>
 </div>
