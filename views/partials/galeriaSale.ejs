@@ -28,10 +28,12 @@
           <% for (let i=0; i < 4; i++) { %>
           <div class="col-xs-3 col-sm-3 col-md-3">
             <% if(typeof productosSale[i].images[0] != 'undefined') { %>
-            <a href="#"> <img src="/images/articulos/<%= productosSale[i].images[0].file_name%>"></a>
+            <a href="/detalleProducto/<%=productosSale[i].idproducts%>"> <img src="/images/articulos/<%= productosSale[i].images[0].file_name%>"></a>
+            <% } else { %>
+            <a href="/detalleProducto/<%=productosSale[i].idproducts%>"> <img src="/images/articulos/no_img.png"></a>
             <% } %>
             <p class="descripcionItem"><%= productosSale[i].name%></p>
-            <p class="precioItem"><%= thousandGenerator(productosSale[i].price)%></p>
+            <p class="precioItem">$<%= thousandGenerator(productosSale[i].price)%></p>
           </div>
           <% } %>
         </div>
@@ -40,10 +42,12 @@
           <% for (let i=4; i < 8; i++) { %>
           <div class="col-xs-3 col-sm-3 col-md-3">
             <% if(typeof productosSale[i].images[0] != 'undefined') { %>
-            <a href="#"> <img src="/images/articulos/<%= productosSale[i].images[0].file_name%>"> </a>
+            <a href="/detalleProducto/<%=productosSale[i].idproducts%>"> <img src="/images/articulos/<%= productosSale[i].images[0].file_name%>"> </a>
+            <% } else { %>
+            <a href="/detalleProducto/<%=productosSale[i].idproducts%>"> <img src="/images/articulos/no_img.png"></a>
             <% } %>
             <p class="descripcionItem"><%= productosSale[i].name%></p>
-            <p class="precioItem"><%= thousandGenerator(productosSale[i].price)%></p>
+            <p class="precioItem">$<%= thousandGenerator(productosSale[i].price)%></p>
           </div>
           <% } %>
         </div>
