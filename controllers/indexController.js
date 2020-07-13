@@ -72,7 +72,7 @@ const indexController = {
         }
         page_nu = pagina()
 
-        //Atrapo si no viene query param de page
+        //Atrapo si no viene query param de tamaño
         var tam_nu = 5
         function tamano() {
             if (req.query.size) { tam_nu = parseInt(req.query.size) }
