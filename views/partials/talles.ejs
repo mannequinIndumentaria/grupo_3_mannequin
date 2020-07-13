@@ -20,5 +20,6 @@
         <% for(let s = 0; s < productsOnSite.sizes.length; s++){%>
         <button class="boton-talle" onclick="elegirTalle('talle<%= productsOnSite.sizes[s].idsizes %>')" id="talle<%= productsOnSite.sizes[s].idsizes %>"><%= productsOnSite.sizes[s].name %></button>
         <%}%>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg" >Guia de talles</button>
     </div>
 </div>

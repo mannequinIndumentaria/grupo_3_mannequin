@@ -113,19 +113,10 @@
                                             <div>
                                                 <p class="color-elegido">Talles:</p>
                                                 <%- include('./partials/talles.ejs') %>
-                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg" >Guia</button>
+                                                
                                             </div>
                                         </div>
-                                        <!-- FAVORITO -->
-                                        <div class="col-12">
-                                            <div class="text-center">
-                                                <div class="boton-favorito-carrito" >
-                                                    <button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= productsOnSite.idproducts%>')"
-                                                        id="favorito<%= productsOnSite.idproducts%>"></button>
-                                                </div>
-                                                <span>Favorito</span>
-                                            </div>
-                                        </div>
+                                        
                                         <!-- DESCRIPCION -->
                                         <div class="col-12">
                                             <div>
@@ -133,31 +124,52 @@
                                                 <i><%= productsOnSite.description%></i>
                                             </div>
                                         </div>
-                                        
+
+                                        <!-- FAVORITO -->
+                                        <div class="col-12 mt-4">
+                                            <div class="text-center">
+                                                <div class="boton-favorito-carrito" >
+                                                    <button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= productsOnSite.idproducts%>')"
+                                                        id="favorito<%= productsOnSite.idproducts%>"></button>
+                                                        <a href="#" onclick="favoritos('<%= productsOnSite.idproducts%>')" class="text-dark">
+                                                            <span>Agregar a favoritos</span>
+                                                        </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mt-3 mb-3">
+                                            <button class="btn btn-dark btn-lg btn-block"> Agregar al carrito </button>
+                                        </div>
 
                                         <!-- REDES -->
                                         <div class="col-12">
+
                                             <p>
-                                                <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                    <i class="fas fa-share-alt-square"></i>
+                                                <a class="btn btn-light btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <i class="fas fa-share-alt-square" style="font-size: 30px;"></i>
+                                                    Compartir
                                                 </a>
                                             </p>
-                                            <div class="collapse" id="collapseExample">
-                                            <div class="">
-                                                <a href="www.instagram.com" >
-                                                    <i class="fab fa-instagram-square"></i>
-                                                </a>
-                                                <a href="www.facebook.com">
-                                                    <i class="fab fa-facebook-square"></i>
-                                                </a>
-                                                <a href="www.twitter.com">
-                                                    <i class="fab fa-twitter-square"></i>
-                                                </a>
-                                                <a href="www.whtatsapp.com">
-                                                    <i class="fab fa-whatsapp-square"></i>
-                                                </a>
-                                            </div>
-                                            </div>
+
+                                              <div class="collapse" id="collapseExample">
+                                                <div class="card card-group text-center">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
+                                                        <i class="fab fa-facebook-square" style="font-size: 50px; color: #3b5998"></i>
+                                                    </a>
+                                                    <a href="https://twitter.com/intent/tweet?text=Mannequin%0A<%= productsOnSite.name%>%0A<%= productsOnSite.description%>%0Ahttp://localhost:3000/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
+                                                        <i class="fab fa-twitter-square" style="font-size: 50px; color: #00acee"></i>
+                                                    </a>
+                                                    <a href=" https://wa.me/?text=Mannequin%0A<%= productsOnSite.name%>%0A<%= productsOnSite.description%>%0Ahttp://localhost:3000/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
+                                                        <i class="fab fa-whatsapp-square" style="font-size: 50px; color: #25d366"></i>
+                                                    </a>
+                                                    <a href="https://pinterest.com/pin/create/button/?url=http%3A//localhost%3A3000/detalleProducto/<%= productsOnSite.idproducts%>&media=http%3A//localhost%3A3000/images/articulos/<%= productsOnSite.images[0].file_name %>&description=<%= productsOnSite.description%>" target="_blank" class="mr-3">
+                                                        <i class="fab fa-pinterest-square" style="font-size: 50px; color: #bd081c"></i>
+                                                    </a>
+                                                    
+                                                    
+                                                </div>
+                                              </div>
                                             
                                         </div>
                                     </div>
