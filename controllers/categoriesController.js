@@ -16,12 +16,12 @@ const { Console } = require('console');
 
 const categoriesController = {
     categories: async (req, res) => {
-
+        //Inicializo un objeto Order
         let order = {
             query: [],
             url: 'name'
         }
-
+        //Si viene algo en el query param entonces lleno este objeto
         switch (req.query.order) {
             case 'name':
                 order.query = [['name', 'ASC']]
@@ -56,19 +56,17 @@ const categoriesController = {
             return tam_nu
         }
         tam_nu = tamano()
-        
 
 
+        //Armo objeto Pagination
         const pagination = {
             page_number: page_nu,
             page_size: tam_nu,
             pages: 0,
             total_products: 1,
-            filtered: 0,
+            filtered: 0, /*Cuando viene en 0 Total productos, 1 Filtrador por Categoría, 2 Search*/
             order: order.url
         };
-
-
 
         const products = await db.Product.findAndCountAll({
             include: [
@@ -136,17 +134,17 @@ const categoriesController = {
             return tam_nu
         }
         tam_nu = tamano()
-        
+
 
         let productsFinal = [];
         //const paramCategory = parseInt(req.params.category);
-        const paramSubcategory = parseInt(req.params.subcategory);
+        //const paramSubcategory = parseInt(req.params.subcategory);
         const pagination = {
             page_number: page_nu,
             page_size: tam_nu,
             pages: 1,
-            category: req.params.category,
-            subcategory: paramSubcategory,
+            category: parseInt(req.params.category),
+            subcategory: parseInt(req.params.subcategory),
             total_products: 1,
             filtered: 1,
             order: order.url
@@ -156,7 +154,7 @@ const categoriesController = {
 
         const products = await db.Product.findAndCountAll({
             where: {
-                product_categories_idproduct_categories: paramSubcategory
+                product_categories_idproduct_categories: pagination.subcategory
             },
 
             include: [
@@ -173,19 +171,40 @@ const categoriesController = {
         pagination.total_products = products.count
         pagination.pages = Math.ceil(pagination.total_products / pagination.page_size)
 
-        
+        let rutaBreadcrumb = {
+            categoryMenuName : "",
+            categoryMenuId: 0,
+            subcategoryMenuName : "",
+            subcategoryMenuId: 0
+        }
+
+        let categoryMenu = menu.filter(element => {
+            return element.category.idproduct_categories == pagination.category
+        });
+
+        rutaBreadcrumb.categoryMenuName = categoryMenu[0].category.name
+        rutaBreadcrumb.categoryMenuId = categoryMenu[0].category.idproduct_categories
+
+        let subcategoryMenu = categoryMenu[0].subcategories.filter(element => {
+            console.log(element.idproduct_categories == pagination.subcategory)
+            return element.idproduct_categories == pagination.subcategory
+        });
+
+        rutaBreadcrumb.subcategoryMenuName = subcategoryMenu[0].name;
+        rutaBreadcrumb.subcategoryMenuId = subcategoryMenu[0].idproduct_categories
+
+        //console.log(categoryMenu[0].category.name, subcategoryMenu[0].name)
 
         res.render('categories',
             {
                 user: req.session.user,
                 menu: menu,
                 products: products.rows,
-                productsOnSite: productsFinal,
+                //productsOnSite: productsFinal,
                 pagination: pagination,
+                rutaBreadcrumb: rutaBreadcrumb,
                 thousandGenerator: toThousand
             });
-            console.log(pagination.category)
-            console.log(pagination.subcategory)
 
     }
 
