@@ -4,17 +4,19 @@
 
     <% }else if (pagination.filtered == 1){ %>
 
+   <% /* %>
     <li><a href="/categories/?">Todas las Categorías</a></li>
-
-    <% /* %>
+   <% */ %>
+    
     <li><a
-            href="/categories/filter/<%=menu[pagination.category-1].category.idproduct_categories%>"><%=menu[pagination.category-1].category.name%></a>
+            href="/categories/filter/<%=rutaBreadcrumb.categoryMenuId%>"><%=rutaBreadcrumb.categoryMenuName%></a>
     </li>
-    <li><a
-            href="/categories/filter/<%=menu[pagination.category-1].category.idproduct_categories%>/<%=menu[pagination.category-1].subcategories[pagination.subcategory/2].idproduct_categories%>/"><%=menu[pagination.category-1].subcategories[(pagination.subcategory)/2].name%></a>
-    </li>
-    <% */ %>
 
+    <!-- 1/6 -->
+    <li><a
+            href="/categories/filter/<%=rutaBreadcrumb.categoryMenuId%>/<%=rutaBreadcrumb.subcategoryMenuId%>/"><%=rutaBreadcrumb.subcategoryMenuName%></a>
+    </li>
+    
     <% }else{ %>
     <li><a href="/categories/?">Todas las Categorías</a></li>
 
