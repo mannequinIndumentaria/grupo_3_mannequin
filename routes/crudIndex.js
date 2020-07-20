@@ -34,7 +34,7 @@ router.get('/product', crudProductController.index);
 router.delete('/product/delete/:idArticulo', crudProductController.delete);
 router.get('/product/edit/:idArticulo', crudProductController.edit);
 router.put('/product/edit/:idArticulo/', uploadProduct.any(), crudProductController.update);
-router.get('/product/new', crudProductController.new);
+router.get('/product/new:category?', crudProductController.new);
 router.post('/product/new', crudProductController.create);
 router.get('/product/search', crudProductController.search);
 

@@ -148,13 +148,27 @@ const crudProductController = {
         // console.log("ddd",obj.id);
     },
     new:async (req,res) =>{
+        console.log("PARAMETROOOOOOOOOOOOOOOOOOOOOOOOOOOOO",req.query.category);
+        const subc = req.query.category !== undefined ? req.query.category : 0;
+        console.log("param",subc);
+        // console.log("parametro",subc);
         const newId = await db.Product.max('idproducts');
-
-        res.render('cargaArticulo',{
-            articuloId: newId+1,
-            sizes: sizes,
-            categorias: categoriesJSON
-        });
+        // console.log("consultando categorias")
+        const categorias = await db.Product_category.findAll({where:{parent: null}});
+        // console.log("consultando subcategorias")
+        const subcategorias = await db.Product_category.findAll({where: {parent: subc}});
+        // console.log("categorias", categorias);
+        if(subc != 0){
+            console.log(subcategorias)
+            res.send(subcategorias);
+        }else{
+            // console.log("subcategorias", subcategorias);
+            res.render('cargaArticulo',{
+                articuloId: newId+1,
+                sizes: sizes,
+                categorias: categorias
+            });
+        }
     },
     create:(req,res)=>{
         let articulo = {
