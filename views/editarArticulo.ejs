@@ -41,8 +41,8 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                              <label for="inputState">Categoria</label>
-                                              <select id="inputState" class="form-control" name="category">
+                                              <label for="categories">Categoria</label>
+                                              <select id="categories" class="form-control" name="category">
                                                   <option selected>Seleccionar...</option>
                                                 <% for(categoria of categorias){%>
                                                     <option value="<%= categoria.id %>" <%= categoria.id == articulo.category ? "selected" : "" %>><%= categoria.name %></option>
@@ -62,15 +62,10 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                              <label for="inputState">Subcategoria</label>
-                                              <select id="inputState" class="form-control" name="subcategory">
-                                                <option selected>Seleccionar...</option>
-                                                <% for(categoria of categorias){
-                                                    for(subcategoria of categoria.subcategories){%>
-                                                    <option value="<%= subcategoria.scid %>" <%= subcategoria.scid == articulo.category ? "selected" : "" %>><%= subcategoria.name %></option>
-                                                <% }
-                                            
-                                                }%>
+                                              <label for="subcategories">Subcategoria</label>
+                                              <select id="subcategories" class="form-control" name="subcategory" disabled="disabled">
+                                                <option selected>Seleccione una categoria...</option>
+                                                
                                               </select>
                                             </div>
                                         </div>
@@ -229,6 +224,7 @@
           $(this).siblings(".custom-file-label").addClass("selected").html(filesNames);
         });
     </script>
+    <script src="/javascripts/subcategories.js"></script>
   </body>
 
 </html>
