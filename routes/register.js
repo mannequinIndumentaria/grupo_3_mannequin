@@ -3,10 +3,12 @@ var router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const registerController = require('../controllers/registerController');
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+// const usersFilePath = path.join(__dirname, '../data/users.json');
+// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { check, validationResult, body } = require('express-validator');
 const auth = require('../middlewares/usuarioLogueado');
+const db = require('../database/models');
+
 
 /*log-in*/
 router.get('/', auth, registerController.index);
@@ -29,14 +31,12 @@ router.post('/registro', [
   check('email').isEmail().withMessage('Ingrese un correo valido'),
 
   //Chequear usuario existente
-  body('email').custom(value => {
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].email == value) {
-        return false;
-      }
+  body('email').custom( async function(value) {
+    const usuario = await db.User.findAll({where:{email:value}});
+    if (usuario.length > 0) {
+        return Promise.reject();
     }
-    return true;
-  }).withMessage('Usuario ya existente'),
+    }).withMessage('Usuario ya existente'),
 
   //Validar email y repeatEmail 
 
@@ -64,7 +64,7 @@ router.post('/registro', [
 ],
   registerController.store);
 
-  /*Profile*/
-  router.get('/profile', auth, registerController.profile);
+  // /*Profile*/
+  // router.get('/profile', auth, registerController.profile);
 
 module.exports = router;

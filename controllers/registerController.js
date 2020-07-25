@@ -36,7 +36,7 @@ const registerController = {
 
             const newUserId = await db.User.max('idusers');
             const newUser = {
-                id: newUserId+1,
+                id: newUserId + 1,
                 name: req.body.name,
                 lastname: req.body.lastname,
                 email: req.body.email,
@@ -85,9 +85,9 @@ const registerController = {
                 if (req.body.recordarSesion != undefined) {
                     res.cookie('user', usuario.idusers, { maxAge: 100000000 })
                 }
-                if(usuario.admin){
+                if (usuario.admin) {
                     res.redirect('/crudIndex/');
-                }else{
+                } else {
                     res.redirect('/profile/' + usuario.idusers);
                 }
             } else {
@@ -107,16 +107,17 @@ const registerController = {
         res.cookie('user', req.session.user.idusers, { maxAge: -1 })
         req.session.destroy();
         res.redirect('/')
-    },
-    profile: (req, res, next) => {
-        if (req.session.user == undefined) {
-            return res.redirect('/register', {
-                name: req.session.user.name,
-                email: req.session.user.email
-            });
-        }
-        res.render('profile');
     }
+    //,
+    // profile: (req, res, next) => {
+    //     if (req.session.user == undefined) {
+    //         return res.redirect('/register', {
+    //             name: req.session.user.name,
+    //             email: req.session.user.email
+    //         });
+    //     }
+    //     res.render('profile');
+    // }
 
 };
 
