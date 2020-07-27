@@ -18,9 +18,22 @@ async function usuarioLogueado(req, res, next) {
             //     return user.id == req.cookies.user;
             // });
             req.session.user = usuario;
+            next();
+        }else{
+            // no hay session ni cookies
+            res.redirect('/register');
+        }
+    }else{
+        // hay sesion
+        // Validar que sea el usuario
+        console.log("parametro",req.params.userId)
+        console.log("sesion",req.session.user.idusers)
+        if(req.params.userId == req.session.user.idusers){
+            next();
+        }else{
+            res.redirect('/register');
         }
     }
-    next();
 }
 
 module.exports = usuarioLogueado;

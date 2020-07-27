@@ -1,0 +1,30 @@
+const fs = require('fs');
+const path = require('path');
+const bcrypt = require('bcrypt');
+
+const { check, validationResult, body } = require('express-validator');
+
+const usersFilePath = path.join(__dirname, '../../data/users.json');
+
+let menu = require('../../services/menu');
+const db = require('../../database/models');
+
+const usersController = {
+    getUserByEmail: async (req,res) =>{
+        const respuesta = await db.User.findAll(
+            {
+                where: {
+                    email: req.params.email
+                }
+            }
+        )
+        if(respuesta){
+            res.json(respuesta);
+        }else{
+            res.json("");
+        }
+    }
+}
+
+
+module.exports = usersController;
