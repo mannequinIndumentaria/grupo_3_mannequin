@@ -53,11 +53,9 @@ router.put('/:userId', upload.any(), [
 
     //password 
     check('password')
-        .isAlphanumeric().withMessage('La contraseña debe contener letras y numeros')
-        .isLength({ min: 8, max: 20 }).withMessage('La contraseña tener al menos de 8 caracteres'),
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)
+    .withMessage('La contraseña debe contener un minimo de 8 caracteres con al menos 1 Mayuscula, 1 Minuscula, 1 Numero, y 1 Simbolo'),
 
-    //date
-    check('password')
           
 ],
     profileController.update);

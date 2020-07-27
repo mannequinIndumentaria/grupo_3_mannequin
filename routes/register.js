@@ -11,14 +11,14 @@ const db = require('../database/models');
 
 
 /*log-in*/
-router.get('/', auth, registerController.index);
+router.get('/', registerController.index);
 router.post('/', registerController.login);
 
 /*log-out*/
 router.get('/logout', registerController.logout);
 
 /*Register*/
-router.get('/registro', auth, registerController.registro);
+router.get('/registro', registerController.registro);
 router.post('/registro', [
 
   //name 
@@ -50,8 +50,8 @@ router.post('/registro', [
 
   //password 
   check('password')
-    .isAlphanumeric().withMessage('La contraseña debe contener letras y numeros')
-    .isLength({ min: 8, max: 20 }).withMessage('La contraseña tener al menos de 8 caracteres'),
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)
+    .withMessage('La contraseña debe contener un minimo de 8 caracteres con al menos 1 Mayuscula, 1 Minuscula, 1 Numero, y 1 Simbolo'),
 
   //Validar password y repeatPassword
   body('repeatPassword').custom((value, { req }) => {

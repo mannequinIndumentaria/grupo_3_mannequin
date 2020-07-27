@@ -15,8 +15,8 @@ var detalleProductoRouter = require('./routes/detalleProducto');
 // var ejemploRouter = require('./routes/ejemplo');
 var crudIndexRouter = require('./routes/crudIndex');
 var cargaArticuloRouter = require('./routes/cargaArticulo');
-var profileRouter = require('./routes/profile')
-
+var profileRouter = require('./routes/profile');
+var apiUsersRouter = require('./routes/api/users');
 var app = express();
 
 // Implementacion de PUT y DELETE
@@ -49,7 +49,7 @@ app.use('/detalleProducto', detalleProductoRouter);
 app.use('/crudIndex', crudIndexRouter);
 app.use('/cargaArticulo', cargaArticuloRouter);
 app.use('/profile', profileRouter);
-
+app.use('/api/users', apiUsersRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
