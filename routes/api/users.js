@@ -4,5 +4,6 @@ const apiUsersController = require('../../controllers/api/usersController')
 
 /* GET home page. */
 router.get('/:email', apiUsersController.getUserByEmail);
+router.get('/', apiUsersController.getAllUsers);
 
 module.exports = router;

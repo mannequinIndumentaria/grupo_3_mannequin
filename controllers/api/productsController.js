@@ -9,6 +9,7 @@ const productController = {
         }else{
             res.json("");
         }
+        console.log(respuesta)
     }
 }
 
