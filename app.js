@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -17,7 +18,9 @@ var crudIndexRouter = require('./routes/crudIndex');
 var cargaArticuloRouter = require('./routes/cargaArticulo');
 var profileRouter = require('./routes/profile');
 var apiUsersRouter = require('./routes/api/users');
+var apiProductsRouter = require('./routes/api/products');
 var app = express();
+
 
 // Implementacion de PUT y DELETE
 const methodOverride = require('method-override');
@@ -37,6 +40,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+app.use(cors())
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -50,6 +55,7 @@ app.use('/crudIndex', crudIndexRouter);
 app.use('/cargaArticulo', cargaArticuloRouter);
 app.use('/profile', profileRouter);
 app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
