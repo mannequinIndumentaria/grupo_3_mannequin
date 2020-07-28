@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -20,6 +21,7 @@ var apiUsersRouter = require('./routes/api/users');
 var apiProductsRouter = require('./routes/api/products');
 var app = express();
 
+
 // Implementacion de PUT y DELETE
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
@@ -38,6 +40,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+app.use(cors())
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
