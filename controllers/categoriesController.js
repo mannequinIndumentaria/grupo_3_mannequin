@@ -194,7 +194,6 @@ const categoriesController = {
         rutaBreadcrumb.subcategoryMenuId = subcategoryMenu[0].idproduct_categories
 
         //console.log(categoryMenu[0].category.name, subcategoryMenu[0].name)
-
         res.render('categories',
             {
                 user: req.session.user,

@@ -4,7 +4,7 @@ const detalleProductoController = require('../controllers/detalleProductoControl
 const auth = require('../middlewares/usuarioLogueado');
 
 /* GET home page. */
-router.get('/', auth, detalleProductoController.detalleProducto);
-router.get('/:id', auth,  detalleProductoController.detalleProducto);
+router.get('/', detalleProductoController.detalleProducto);
+router.get('/:id',  detalleProductoController.detalleProducto);
 
 module.exports = router;

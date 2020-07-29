@@ -34,11 +34,24 @@
                                     id="foto<%= products[i].idproducts%>"  onclick="window.location.href='/detalleProducto/<%= products[i].idproducts%>'" width="220" height="292"> 
                             <% }%>
                             <div class="container-bag">
-                                <button class="addBag" onclick="window.location.href='/carrito'">Add to basket</button>
+                                <button class="addBag" id="addBag<%=products[i].idproducts%>">Add to basket</button>
+                                
+                                <script>
+                                    var botonBag = document.getElementById("addBag<%=products[i].idproducts%>")
+                                    botonBag.addEventListener("click",function(){
+                                        fetch("http://localhost:3000/api/products/cart",{
+                                                method: 'POST',
+                                                body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
+                                                headers: {
+                                                'Content-Type': 'application/json'
+                                                }
+                                        })
+                                    })
+                                </script>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title" id="productname<%=products[i].idproducts%>"><%= products[i].name %></h5>
+                            <h5 class="card-title" id="productname<%=products[i].idproducts%>"><%= products[i].name %> </h5>
                             <span class="precio-item-carrito" id="productprice<%=products[i].idproducts%>">$ <%= thousandGenerator(products[i].price) %></span>
                             <div class="barra-iconos-cat">
                                 <div class="selector-color-carrito">
