@@ -56,7 +56,7 @@ const carritoController = {
 
         const articulosParaLaVista = [];
         // Valor que me llego por parametro
-        const id_user = 1;
+        const id_user = req.params.userId;
         // Filtro de carrito los articulos del usuario
             // const carritoDelUsuario = await db.Cart.findOne(
             //     {
@@ -67,7 +67,7 @@ const carritoController = {
             // console.log("LKJBELKFBLFKJBWELFBJNWLEFKBNWE:LFJBEWLF",carritoDelUsuario);
 
             const carritoDelUsuario = await db.User.findAll({
-                where: {idusers: 6},
+                where: {idusers: id_user},
                 include: [
                     {
                     association: "sizes_carrito"

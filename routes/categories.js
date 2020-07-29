@@ -5,7 +5,7 @@ const auth = require('../middlewares/usuarioLogueado');
 
 
 /* GET home page. */
-router.get('/',auth,categoriesController.categories);
-router.get('/filter/:category/:subcategory',auth, categoriesController.filter);
+router.get('/',categoriesController.categories);
+router.get('/filter/:category/:subcategory', categoriesController.filter);
 
 module.exports = router;

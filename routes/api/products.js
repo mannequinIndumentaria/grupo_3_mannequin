@@ -4,5 +4,6 @@ const apiProductsController = require('../../controllers/api/ProductsController'
 
 /* GET home page. */
 router.get('/', apiProductsController.getAllProducts);
+router.post('/cart', apiProductsController.addToCart);
 
 module.exports = router;

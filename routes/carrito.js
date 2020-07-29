@@ -9,6 +9,6 @@ var router = express.Router();
 const carritoController = require('../controllers/carritoController')
 
 /* GET home page. */
-router.get('/', auth, carritoController.carrito);
+router.get('/:userId', auth, carritoController.carrito);
 router.post('/', carritoController.pagar);
 module.exports = router;
