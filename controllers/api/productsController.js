@@ -16,7 +16,7 @@ const productController = {
         const producto = Number(req.body.artId)
         // En la vista no se puede seleccionar talle por el momento
         const talle = 1
-        await db.Cart.create(
+        db.Cart.create(
             {
                 products_idproducts: producto,
                 users_idusers: usuario,
