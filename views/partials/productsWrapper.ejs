@@ -84,11 +84,28 @@
                                             /* Actualizar product-box*/
                                             var elementoaa = this.parentElement.parentElement.parentElement.parentElement.parentElement;
                                             
-                                             /* Actualizar basket button */
-                                            var addBag = document.getElementById("addBag"+elementoaa.id);
-                                            console.log("boton ",addBag)
-                                            addBag.id = "addBag<%= products[i].idproducts%>"
 
+                                                /* Actualizar basket button */
+                                                var addBag = document.getElementById("addBag"+elementoaa.id);
+                                                var padre = addBag.parentElement;
+                                                addBag.remove()
+
+                                                var addBag2 = document.createElement("button");
+                                                
+                                                addBag2.id = "addBag<%= products[i].idproducts%>"
+                                                addBag2.innerHTML = "Add to basket"
+                                                addBag2.className = "addBag"
+                                                addBag2.addEventListener("click",function(){
+                                                    console.log("este otro producto",<%= products[i].idproducts%>)
+                                                    fetch("http://localhost:3000/api/products/cart",{
+                                                            method: 'POST',
+                                                            body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
+                                                            headers: {
+                                                            'Content-Type': 'application/json'
+                                                            }
+                                                    })
+                                                })
+                                                padre.appendChild(addBag2)
                                             elementoaa.id = <%= products[i].idproducts%>
 
                                             /* Actualizar talles */
@@ -148,9 +165,14 @@
 
                         /* Actualizar basket button */
                         var addBag = document.getElementById("addBag"+elementoaa.id);
-                        console.log("boton ",addBag)
-                        addBag.id = "addBag<%= products[i].idproducts%>"
-                        addBag.addEventListener("click",function(){
+                        var padre = addBag.parentElement;
+                        addBag.remove();
+                        
+                        var addBag2 = document.createElement("button");
+                        addBag2.id = "addBag<%= products[i].idproducts%>"
+                        addBag2.innerHTML = "Add to basket"
+                        addBag2.className = "addBag"
+                        addBag2.addEventListener("click",function(){
                             console.log("este producto <%=products[i].idproducts%>");
                             fetch("http://localhost:3000/api/products/cart",{
                                     method: 'POST',
@@ -160,6 +182,7 @@
                                     }
                             })
                         })
+                        padre.appendChild(addBag2);
                         elementoaa.id = <%= products[i].idproducts%>
                         
                         /* Actualizar talles */
