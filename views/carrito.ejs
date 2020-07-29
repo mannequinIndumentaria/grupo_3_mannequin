@@ -76,9 +76,10 @@
 					  <div class="row prueba">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							<% if(typeof articulo.images[0] != 'undefined') { %>
-								<img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
+								<img class="foto-item-carrito" src="/images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
 							<% }else{ %>
 								<img class="foto-item-carrito" src="/images/articulos/no_img.png" alt="" id="foto<%= articulo.idproduct %>">
+								
 							<% }%>
 							<!-- <img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>"> -->
 						 </div>
@@ -89,6 +90,7 @@
 								<p id="nombreElegido<%= articulo.idproduct %>" class="color-elegido" name="color"></p>
 								<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
 							</div>
+							
 							<div class="botones-detalle-carrito">
 								<div class="botones-fav-del-carrito">
 									<div class="boton-favorito-carrito">

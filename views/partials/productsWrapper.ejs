@@ -35,10 +35,10 @@
                             <% }%>
                             <div class="container-bag">
                                 <button class="addBag" id="addBag<%=products[i].idproducts%>">Add to basket</button>
-                                
                                 <script>
                                     var botonBag = document.getElementById("addBag<%=products[i].idproducts%>")
                                     botonBag.addEventListener("click",function(){
+                                        console.log("este producto <%=products[i].idproducts%>");
                                         fetch("http://localhost:3000/api/products/cart",{
                                                 method: 'POST',
                                                 body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
@@ -75,9 +75,25 @@
                                             var nombre = document.getElementById("productname<%=products[i].idproducts %>");
                                             nombre.innerHTML = "<%= products[i].name %>"
                                             
+                                           
+                                            
                                             /* Actualizar precio */
                                             var precio = document.getElementById("productprice<%=products[i].idproducts %>");
                                             precio.innerHTML = "$ <%= thousandGenerator(products[i].price) %>"
+                                            
+                                            /* Actualizar product-box*/
+                                            var elementoaa = this.parentElement.parentElement.parentElement.parentElement.parentElement;
+                                            
+                                             /* Actualizar basket button */
+                                            var addBag = document.getElementById("addBag"+elementoaa.id);
+                                            console.log("boton ",addBag)
+                                            addBag.id = "addBag<%= products[i].idproducts%>"
+
+                                            elementoaa.id = <%= products[i].idproducts%>
+
+                                            /* Actualizar talles */
+                                            var parametro = <%= products[i].idproducts%>;
+                                            getSizes(parametro)
                                         })
                                         coloresPrincipal.appendChild(botonColor);
                                     </script>
@@ -88,6 +104,10 @@
                                             onclick="favoritos('<%=products[i].idproducts%>')"
                                             id="favorito<%=products[i].idproducts%>"></button>
                                     </div>
+                                </div>
+
+                                </script>
+                                <div id="talles<%=products[i].idproducts%>" class="talles">
                                 </div>
                             </div>
                         </div>
@@ -122,11 +142,35 @@
                         /* Actualizar precio */
                         var precio = document.getElementById("productprice<%=articuloCombinado %>");
                         precio.innerHTML = "$ <%= thousandGenerator(products[i].price) %>";
+
+                        /* Actualizar product-box*/
+                        var elementoaa = this.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+                        /* Actualizar basket button */
+                        var addBag = document.getElementById("addBag"+elementoaa.id);
+                        console.log("boton ",addBag)
+                        addBag.id = "addBag<%= products[i].idproducts%>"
+                        addBag.addEventListener("click",function(){
+                            console.log("este producto <%=products[i].idproducts%>");
+                            fetch("http://localhost:3000/api/products/cart",{
+                                    method: 'POST',
+                                    body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
+                                    headers: {
+                                    'Content-Type': 'application/json'
+                                    }
+                            })
+                        })
+                        elementoaa.id = <%= products[i].idproducts%>
+                        
+                        /* Actualizar talles */
+                        var parametro = <%= products[i].idproducts%>;
+                        getSizes(parametro)
                     })
                     colores.appendChild(botonColor);
                 </script>
             <%}%>
             <% grupoAnterior = products[i].group %>
+            
         <%}%>
     <% }else{ %>
         <div class="product-box">
@@ -135,4 +179,68 @@
             <h2>Tu búsqueda no arrojó resultados.</h2>
             <h3><a href="/categories/?">Volver</a></h3>
     <% }%>
+
+    <script>
+        function getSizes(id){
+            if(id == null){
+                id = ".product-box"
+                var productos = document.querySelectorAll(id);
+            }else{
+                console.log(id)
+                var produ = document.getElementById(id);
+                var productos = [produ]
+            }
+
+            productos.forEach(function(element){
+                var id = element.id;
+                var t = element.querySelector('.talles');
+                t.innerHTML = "";
+                var d = document.createElement('div');
+                var url = "/api/products/productsizes/"+id;
+                console.log("URL",url)
+                fetch(url)
+                .then(function(respuesta){
+                    return respuesta.json()
+                })
+                .then(function(info){
+                    info[0].sizes.forEach(function(talle){
+                        var b = document.createElement('button');
+                        b.innerHTML = talle.name;
+                        b.id = id+"-"+talle.idsizes;
+                        b.className = "boton-talle";
+                        b.style.marginRight = "3px";
+                        b.addEventListener("click",function(){
+                            if(this.className == "boton-talle"){
+                                /* restauro el anterior*/
+                                var talleAnterior = d.querySelector(".boton-talle-elegido");
+                                if(talleAnterior){
+                                    talleAnterior.className = "boton-talle"
+                                }
+                                /* Actualizo el elegido*/
+                                this.className = "boton-talle-elegido";
+                            }else{
+                                this.className = "boton-talle"
+                            }
+                        })
+                        d.appendChild(b)
+                    })
+                    t.appendChild(d);
+                });
+            })
+        }
+
+        getSizes();
+        // var talles = producto.querySelector(".talles")
+
+        //     idproduct = element.children[0].value;
+        //     divBotones = element.children[1];
+        //     var tall = [{size:0, name: 'M'},{size:1, name:'L'}];
+        //     tall.forEach(function(element){
+        //         var boton1 = document.createElement("button");
+        //         boton1.className = "boton-talle";
+        //         boton1.innerHTML = element.name;
+        //         boton1.value = element.size;
+        //         divBotones.appendChild(boton1);
+        //     })
+    </script>
 </div>

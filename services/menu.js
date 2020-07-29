@@ -33,5 +33,4 @@ async function formaMenu() {
 }
 
 formaMenu();
-console.log(menu)
 module.exports = menu;
