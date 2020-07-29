@@ -112,7 +112,32 @@
                                         <div class="col-12">
                                             <div>
                                                 <p class="color-elegido">Talles:</p>
-                                                <%- include('./partials/talles.ejs') %>
+                                                <script>
+                                                    function elegirTalle(id){
+                                                        var talles = document.querySelector("#talles<%= productsOnSite.idproducts%>")
+                                                        if(talles.querySelector("#"+id).className == "boton-talle"){
+                                                            /* restauro el anterior*/
+                                                            var talleAnterior = talles.querySelector(".boton-talle-elegido");
+                                                            if(talleAnterior){
+                                                                talleAnterior.className = "boton-talle"
+                                                            }
+                                                            /* Actualizo el elegido*/
+                                                            talles.querySelector("#"+id).className = "boton-talle-elegido";
+                                                        }else{
+                                                            talles.querySelector("#"+id).className = "boton-talle";
+                                                        }
+                                                        
+                                                    }
+                                                </script>
+                                                <div id="talles<%= productsOnSite.idproducts%>">
+                                                    <div>
+                                                        <% for(let s = 0; s < productsOnSite.sizes.length; s++){%>
+                                                        <button class="boton-talle" onclick="elegirTalle('talle<%= productsOnSite.sizes[s].idsizes %>')" id="talle<%= productsOnSite.sizes[s].idsizes %>"><%= productsOnSite.sizes[s].name %></button>
+                                                        <%}%>
+                                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg" >Guia de talles</button>
+                                                    </div>
+                                                </div>
+                                                
                                                 
                                             </div>
                                         </div>

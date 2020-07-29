@@ -9,13 +9,11 @@ const productController = {
         }else{
             res.json("");
         }
-        console.log(respuesta)
     },
 
     addToCart: async (req,res)=>{
         const usuario = Number(req.body.userId)
         const producto = Number(req.body.artId)
-        console.log("////////////////////////////////////////////////////////////////",usuario, "df", producto );
         // En la vista no se puede seleccionar talle por el momento
         const talle = 1
         await db.Cart.create(
@@ -25,7 +23,22 @@ const productController = {
                 sizes_idsizes: talle
             }
             )
-    }
+    },
+    getSizesByProductId: async (req,res)=>{
+        const producto = req.params.idproduct
+        // En la vista no se puede seleccionar talle por el momento
+        const talles = await db.Product.findAll(
+            {                   
+                where: {
+                    idproducts: producto
+                },
+                include: [
+                    { association: "sizes" }
+                ]
+            })
+        
+        res.json(talles);
+    },
 }
 
 module.exports = productController;
