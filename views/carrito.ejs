@@ -4,90 +4,33 @@
 <body>
    <div class="container-fluid">
 		<%- include('./partials/header.ejs') %>
-
-		<script>
-			function seleccionarColor(id,rutaImagen,color){
-				document.getElementById('foto'+id).src=rutaImagen;
-				document.getElementById('elegido'+id).value=color;
-				document.getElementById('nombreElegido'+id).innerHTML="Color elegido: "+color;
-			}
-
-			function cantidad(id,operacion,maxStock){
-				var objCantidad = document.getElementById('cantidadElegido'+id);
-				if(operacion ==='sumar'){
-					if(objCantidad.value < maxStock){
-						objCantidad.value++;
-						document.getElementById('stockMax'+id).innerHTML = "";
-					}else{
-						document.getElementById('stockMax'+id).innerHTML = "stock maximo";
-					}
-				}else{
-					if(objCantidad.value>1){
-						document.getElementById('stockMax'+id).innerHTML = "";
-						objCantidad.value--;
-					}
-				}
-				this.total();
-			}
-
-			function favoritos(id){
-				var objFavorito = document.getElementById('favorito'+id);
-				if(objFavorito.value == 1){
-					objFavorito.className ="heart-carrito far fa-heart";
-					objFavorito.value = 0;
-				}else{
-					objFavorito.className ="heart-carrito fas fa-heart";
-					objFavorito.value = 1;
-				}
-			}
-
-			function borrar(id){
-				var objArticulo = document.getElementById(id);
-				objArticulo.remove();
-			}
-
-			function total(){
-				var precios = document.getElementsByClassName("precio-item-carrito");
-				var cantidades = document.getElementsByClassName("cantidadCarrito");
-				var total = 0;
-				var subtotal = 0;
-				// console.log(precios[0].innerHTML);
-				for(var i = 0; i< precios.length;i++){
-					subtotal = Number(precios[i].innerHTML) * Number(cantidades[i].value);
-					// alert(cantidades[i].value); 
-					total += subtotal;
-				}
-				//TODO
-				var descuento = 0;
-				var subtotal = total;
-				document.getElementById('descuento').innerHTML = "$"+descuento;
-				document.getElementById('subtotal').innerHTML = "$"+subtotal;
-				document.getElementById('total').innerHTML = "$"+(descuento + subtotal);
-			}
-		</script>
 		<div class="contenido">
 			<div class="container carrito-contenedor-principal">
 				<form action="/carrito" method="POST">
 				 <div class="row">
 				<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
+					<% let subtotal = 0 %>
+					<% let descuentos = 0 %>
 				   <!-- <span class="tituloArticulos">Articulos<%= data.length %></span> -->
 					<% for(articulo of data.product_carrito){ %>
-					   <div class="articulo" id="<%= articulo.idproduct %>" name="idArticulo">
+					   <div class="articulo" id="<%= articulo.idproducts %>" name="idArticulo">
 					  <div class="row prueba">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							<% if(typeof articulo.images[0] != 'undefined') { %>
-								<img class="foto-item-carrito" src="/images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>">
+								<img class="foto-item-carrito" src="/images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproducts %>">
 							<% }else{ %>
-								<img class="foto-item-carrito" src="/images/articulos/no_img.png" alt="" id="foto<%= articulo.idproduct %>">
+								<img class="foto-item-carrito" src="/images/articulos/no_img.png" alt="" id="foto<%= articulo.idproducts %>">
 								
 							<% }%>
-							<!-- <img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproduct %>"> -->
+							<!-- <img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproducts %>"> -->
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
 							<span class="precio-item-carrito"><%= articulo.price %></span>
 							<span class="titulo-item-carrito"><%= articulo.name %></span>
+							<% subtotal += Number(articulo.price) %>
+							<% descuentos += Number(articulo.discount) %>
 							<div class="selector-color-carrito">
-								<p id="nombreElegido<%= articulo.idproduct %>" class="color-elegido" name="color"></p>
+								<p id="nombreElegido<%= articulo.idproducts %>" class="color-elegido" name="color"></p>
 								<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
 							</div>
 							
@@ -95,21 +38,22 @@
 								<div class="botones-fav-del-carrito">
 									<div class="boton-favorito-carrito">
 										<% if(articulo.favorito == 0){ %>
-											<button class="heart-carrito fas fa-heart" value="1" onclick="favoritos('<%= articulo.idproduct %>')" id="favorito<%= articulo.idproduct %>" name="favorito"></button>
+											<button class="heart-carrito fas fa-heart" value="1" onclick="favoritos('<%= articulo.idproducts %>')" id="favorito<%= articulo.idproducts %>" name="favorito"></button>
 										<% }else{ %>
-											<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.idproduct %>')" id="favorito<%= articulo.idproduct %>" name="favorito"></button>
+											<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.idproducts %>')" id="favorito<%= articulo.idproducts %>" name="favorito"></button>
 										<% } %>	
 									</div>
 									<div class="boton-borrar-carrito">
-										<button class="trash-carrito fas fa-trash-alt" onclick="borrar('<%= articulo.idproduct %>')" name="borrar"></button>
+										<script>
+											function deleteItem(id){
+												var objArticulo = document.getElementById(id);
+												objArticulo.remove();
+											}
+										</script>
+										<button class="trash-carrito fas fa-trash-alt" onclick="deleteItem('<%= articulo.idproducts %>')" name="borrar"></button>
 									</div>
 								</div>
-								<div class="selector-cantidad-carrito">
-									<button onclick="cantidad('<%= articulo.idproduct %>','restar',<%= articulo.stock %>)" class="botones-cantidad">-</button>
-									<input type="text" value="<%= articulo.cantidad %>" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= articulo.idproduct %>" name="cantidad"/>
-									<button onclick="cantidad('<%= articulo.idproduct %>','sumar', <%= articulo.stock %>) " class="botones-cantidad">+</button>
-									<div id="stockMax<%= articulo.idproduct%>"></div>
-								</div>
+								
 							</div>
 						 </div>
 					  </div>
@@ -119,12 +63,12 @@
 				  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 				   <div class="orden-de-compra">
 						<label for="code-discount" class="order-titulo">Cupon de descuento</label>
-						<input type="text" name="code-discount" id="code-discount" placeholder="32424249" class="order-discount">
+						<input type="text" name="code-discount" id="code-discount" placeholder="32424249" class="order-discount" disabled>
 						<label for="location" class="order-titulo">Opciones de envio</label>
-						<select name="location" id="location" class="order-location">
+						<select name="location" id="location" class="order-location" disabled>
 							<option value="1">(Location)</option>
 						</select>
-						<select name="type" id="type" class="order-type">
+						<select name="type" id="type" class="order-type" disabled>
 							<option value="1">(Type)</option>
 						</select>	
 						<label class="order-titulo">Resumen del pedido</label>
@@ -135,12 +79,12 @@
 							   <span>Total</span>
 						   </div>
 						   <div class="col-6  order-amounts">
-								<span id="subtotal">$0.00</span>
-								<span id="descuento">$0.00</span>
-								<span id="total" name="total">$0.00</span>
+								<span id="subtotal">$<%= subtotal %></span>
+								<span id="descuento">$<%= descuentos %></span>
+								<span id="total" name="total">$<%= (subtotal - descuentos) %> </span>
 							</div>
 						</div>
-						<button class="order-send" type="submit">PAGAR</button>
+						<button class="order-send" type="submit" id="pagarcarrito">PAGAR</button>
 						<label class ="order-titulo">Aceptamos</label>
 						<div class="medios-de-pago">
 							<img src="/images/Mediosdepago/visa.png" alt="Visa">
@@ -160,6 +104,50 @@
 		</div>
    </div>
 	<%- include('./partials/scriptBootstrap.ejs') %>
+	<script>
+			var comprar = document.getElementById("pagarcarrito");
+			comprar.addEventListener("click",function(event){
+				event.preventDefault();
+				alert("Proximamente, esta es una version demo!!");
+			})			
+	</script>
+
+<script>
+	function seleccionarColor(id,rutaImagen,color){
+		document.getElementById('foto'+id).src=rutaImagen;
+		document.getElementById('elegido'+id).value=color;
+		document.getElementById('nombreElegido'+id).innerHTML="Color elegido: "+color;
+	}
+
+	function cantidad(id,operacion,maxStock){
+		var objCantidad = document.getElementById('cantidadElegido'+id);
+		if(operacion ==='sumar'){
+			if(objCantidad.value < maxStock){
+				objCantidad.value++;
+				document.getElementById('stockMax'+id).innerHTML = "";
+			}else{
+				document.getElementById('stockMax'+id).innerHTML = "stock maximo";
+			}
+		}else{
+			if(objCantidad.value>1){
+				document.getElementById('stockMax'+id).innerHTML = "";
+				objCantidad.value--;
+			}
+		}
+		this.total();
+	}
+
+	function favoritos(id){
+		var objFavorito = document.getElementById('favorito'+id);
+		if(objFavorito.value == 1){
+			objFavorito.className ="heart-carrito far fa-heart";
+			objFavorito.value = 0;
+		}else{
+			objFavorito.className ="heart-carrito fas fa-heart";
+			objFavorito.value = 1;
+		}
+	}
+</script>
 </body>
 
 </html>
