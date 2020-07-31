@@ -6,6 +6,6 @@ const auth = require('../middlewares/usuarioLogueado');
 
 router.get('/', indexController.index);
 router.get('/search' , indexController.search);
-router.post('/', indexController.subscribe);
+//router.post('/', indexController.subscribe);
 
 module.exports = router;
