@@ -151,7 +151,7 @@ const indexController = {
             thousandGenerator: toThousand
         });
 
-    },
+    }/*,
     subscribe: async (req, res, next) => {
 
         const newSubscriberId = await db.Subscriber.max('idsubscribers');
@@ -166,15 +166,8 @@ const indexController = {
         console.log(newSubscriber);
 
         res.redirect('/');
-
-        /* const newSubscriber = {
-             id: subscribersJSON[subscribersJSON.length - 1].id + 1,
-             email: req.body.email,
-         };
-         const subscriberToSave = [...subscribersJSON, newSubscriber];
-         fs.writeFileSync(subscribersPath, JSON.stringify(subscriberToSave, null, ' '));
-        res.redirect('/');*/
-    }
+       
+    }*/
 };
 
 module.exports = indexController;

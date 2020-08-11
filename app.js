@@ -17,8 +17,10 @@ var detalleProductoRouter = require('./routes/detalleProducto');
 var crudIndexRouter = require('./routes/crudIndex');
 var cargaArticuloRouter = require('./routes/cargaArticulo');
 var profileRouter = require('./routes/profile');
+var privacyRouter = require('./routes/privacy');
 var apiUsersRouter = require('./routes/api/users');
 var apiProductsRouter = require('./routes/api/products');
+var apiSubscribersRouter = require('./routes/api/subscribers');
 var app = express();
 
 
@@ -54,8 +56,10 @@ app.use('/detalleProducto', detalleProductoRouter);
 app.use('/crudIndex', crudIndexRouter);
 app.use('/cargaArticulo', cargaArticuloRouter);
 app.use('/profile', profileRouter);
+app.use('/privacy', privacyRouter);
 app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter);
+app.use('/api/subscribers', apiSubscribersRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -1,4 +1,5 @@
 <footer>
+
     <div class="container-fluid">
 
         <div class="row parent">
@@ -7,10 +8,10 @@
                     <li><a href="#">AYUDA</a></li>
                     <li><a href="#">Formas de pago</a></li>
                     <li><a href="#">Cambios y devoluciones</a></li>
-                    <li><a href="#">Preguntas generales</a></li>
+                    <li><a href="/privacy">Preguntas generales</a></li>
                     <li><a href="#">Consultas de stock</a></li>
                     <li><a href="#">Costos de envío</a></li>
-                 
+
                 </ul>
 
                 <ul>
@@ -20,7 +21,7 @@
                     <li><a href="#">MI CUENTA</a></li>
                     <li><a href="#">Registrate</a></li>
                     <li><a href="#">Iniciar Sesión</a></li>
-                    
+
                 </ul>
 
                 <ul>
@@ -30,33 +31,35 @@
                     <li><a href="#">Sweaters</a></li>
                     <li><a href="#">Calzados</a></li>
                     <li><a href="#">Vestidos</a></li>
-                    
+
                 </ul>
 
             </div>
-           
+
 
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 col-suscribe">
-                
-                
-                <form class="form-suscribe" action="/" method="POST">
-                    <label id="leyenda">Suscribite a nuestro Newsletter:</label>
-                    <input type="email" name="email" placeholder="E-mail..." aria-label="suscribe">
-                    <button type="submit"><i class="fas fa-arrow-circle-right"></i></button>
-                </form>
 
+
+                <form class="form-suscribe" action="/api/subscribers" method="POST">
+                    <label id="leyenda">Suscribite a nuestro Newsletter:</label>
+                    <input id="subscribeText" type="email" name="email" placeholder="E-mail..." aria-label="subscribe">
+                    <button type="submit" class="subscribeBtn"><i class="fas fa-arrow-circle-right"></i></button>
+                </form>
+                <div class="row" id="aviso-suscripto">
+
+                </div>
                 <div class="row iconos-footer">
                     <a href="#" class="redes"><img src="/images/redes/instagram.png"></a>
                     <a href="#" class="redes"><img src="/images/redes/facebook.png"></a>
                     <a href="#" class="redes"><img src="/images/redes/twitter.png"></a>
                     <a href="#" class="redes"><img src="/images/redes/whatsapp.png"></a>
                     <a href="#" class="redes"><img src="/images/redes/youtube.png"></a>
-                 
+
                 </div>
-                
+
             </div>
-            
-        </div> 
+
+        </div>
 
         <div class="row">
 
@@ -70,12 +73,50 @@
             </div>
         </div>
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-legal">
-                    <p>© MANNEKIN SRL // OFFICIAL SITE</p>
-                </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-legal">
+                <p>© MANNEKIN SRL // OFFICIAL SITE</p>
+            </div>
 
         </div>
     </div>
 </footer>
+
+<script>
+    window.addEventListener('load', function () {
+        var subscribeBtn = document.querySelector(".subscribeBtn")
+        var avisoSuscripto = document.getElementById("aviso-suscripto")
+        var submitSubsc = subscribeBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            var email = document.getElementById("subscribeText").value;
+            console.log("Var email: ", email)
+            var data = { email: email }
+            console.log("Mail Front: ", data)
+            if (data != "") {
+                fetch('http://localhost:3000/api/subscribers', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+
+                })
+                    .then(function (res) {
+                        return res.json()
+                    })
+                    //.catch(error => console.error('Error:', error))
+                    .then(function (res) {
+                        console.log('Suscrito: ', res)
+                        if (res.status == 201) {
+                            avisoSuscripto.innerHTML = "¡Se ha suscrito a nuestro email!"
+                        } else if (res.status == 403) {
+                            avisoSuscripto.innerHTML = "¡El mail ya existe!"
+                        }
+                    })
+            } else {
+                avisoSuscripto.innerHTML = "¡Debes completar un mail!"
+            }
+        })
+    })
+</script>
