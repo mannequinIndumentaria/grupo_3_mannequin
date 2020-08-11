@@ -1,31 +1,3 @@
-<script>
-    window.addEventListener('load', function () {
-        var subscribeBtn = document.querySelector(".subscribeBtn")
-        var avisoSuscripto = document.querySelector(".aviso-suscrpito")
-        var submitSubsc = subscribeBtn.addEventListener("click", function (e) {
-            var data = document.querySelector(".form-suscribe").value
-            console.log(data)
-            e.preventDefault()
-            fetch('http://localhost:3000/api/subscribers', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Contant-Type': 'application/json'
-                }
-            })
-                .then(function (res) {
-                    if (res.status == 201) {
-                        avisoSuscripto.innerHTML = "¡Se ha suscrito a nuestro email!"
-                    }
-                })
-                .catch(error => console.error('Error:', error))
-                .then(function (res) {
-                    console.log('Suscrito: ', res)
-                })
-        })
-    })
-</script>
-
 <footer>
 
     <div class="container-fluid">
@@ -70,10 +42,10 @@
 
                 <form class="form-suscribe" action="/api/subscribers" method="POST">
                     <label id="leyenda">Suscribite a nuestro Newsletter:</label>
-                    <input type="email" name="email" placeholder="E-mail..." aria-label="subscribe">
+                    <input id="subscribeText" type="email" name="email" placeholder="E-mail..." aria-label="subscribe">
                     <button type="submit" class="subscribeBtn"><i class="fas fa-arrow-circle-right"></i></button>
                 </form>
-                <div class="row aviso-suscripto">
+                <div class="row" id="aviso-suscripto">
 
                 </div>
                 <div class="row iconos-footer">
@@ -110,3 +82,41 @@
         </div>
     </div>
 </footer>
+
+<script>
+    window.addEventListener('load', function () {
+        var subscribeBtn = document.querySelector(".subscribeBtn")
+        var avisoSuscripto = document.getElementById("aviso-suscripto")
+        var submitSubsc = subscribeBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            var email = document.getElementById("subscribeText").value;
+            console.log("Var email: ", email)
+            var data = { email: email }
+            console.log("Mail Front: ", data)
+            if (data != "") {
+                fetch('http://localhost:3000/api/subscribers', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+
+                })
+                    .then(function (res) {
+                        return res.json()
+                    })
+                    //.catch(error => console.error('Error:', error))
+                    .then(function (res) {
+                        console.log('Suscrito: ', res)
+                        if (res.status == 201) {
+                            avisoSuscripto.innerHTML = "¡Se ha suscrito a nuestro email!"
+                        } else if (res.status == 403) {
+                            avisoSuscripto.innerHTML = "¡El mail ya existe!"
+                        }
+                    })
+            } else {
+                avisoSuscripto.innerHTML = "¡Debes completar un mail!"
+            }
+        })
+    })
+</script>
