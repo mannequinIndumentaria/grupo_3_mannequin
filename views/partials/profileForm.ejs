@@ -1,3 +1,4 @@
+<script src="/js/funciones.js"></script>
 <div class="container-fluid generalProfile">
 
     <div class="row">
@@ -13,9 +14,8 @@
     </div>
 
     <div class="row d-flex justify-content-center">
-
-        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 menuContainerProfile">
-            <!--Menu-->
+        
+        <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 menuContainerProfile">
 
             <div class="d-flex justify-content-center">
                 <ul class="">
@@ -35,7 +35,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
         <div class="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-6 profileContenedorDerecho">
 
@@ -46,7 +46,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 profileSubContainerIzquierdo">
                     <!--Foto-->
                     <div class="fotoProfilContainer">
-                        <img class="imgFotoProfile" src="/images/users/<%= profileToEdit.avatar %>">
+                        <img id="imgProfile" class="imgFotoProfile" src="/images/users/<%= profileToEdit.avatar.length > 0 ?  profileToEdit.avatar : 'no-user-profile.jpg' %>">
                     </div>
                     <!-- <form action="/profile" method="POST" enctype="application/x-www-form-urlencoded">
                         <div class="custom-file">
@@ -63,8 +63,8 @@
                         method="POST" enctype="multipart/form-data">
                         <!--put-->
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="avatar">
-                            <label class="custom-file-label" for="validatedCustomFile">Elige una foto</label>
+                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="avatar" onchange="mostrar('validatedCustomFile','imgProfile','filename')">
+                            <label class="custom-file-label" for="validatedCustomFile" id="filename">Elige una foto</label>
                         </div>
                         <div class="margen">
                             <label for="name">Nombre</label>
@@ -157,5 +157,5 @@
         </div>
 
     </div>
-
+    
 </div>
