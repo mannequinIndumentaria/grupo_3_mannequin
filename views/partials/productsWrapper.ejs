@@ -37,6 +37,7 @@
                                 <button class="addBag" id="addBag<%=products[i].idproducts%>">Add to basket</button>
                                 <script>
                                     var botonBag = document.getElementById("addBag<%=products[i].idproducts%>")
+                                    <% if(user != undefined){%>
                                     botonBag.addEventListener("click",function(){
                                         console.log("este producto <%=products[i].idproducts%>");
                                         fetch("http://localhost:3000/api/products/cart",{
@@ -47,6 +48,9 @@
                                                 }
                                         })
                                     })
+                                    <%}else{%>
+                                        botonBag.style.display = "none"
+                                    <%}%>
                                 </script>
                             </div>
                         </div>
@@ -95,6 +99,7 @@
                                                 addBag2.id = "addBag<%= products[i].idproducts%>"
                                                 addBag2.innerHTML = "Add to basket"
                                                 addBag2.className = "addBag"
+                                                <% if(user != undefined){%>
                                                 addBag2.addEventListener("click",function(){
                                                     console.log("este otro producto",<%= products[i].idproducts%>)
                                                     fetch("http://localhost:3000/api/products/cart",{
@@ -105,6 +110,9 @@
                                                             }
                                                     })
                                                 })
+                                                <%}else{%>
+                                                    addBag2.style.display = "none"
+                                                <%}%>
                                                 padre.appendChild(addBag2)
                                             elementoaa.id = <%= products[i].idproducts%>
 
@@ -117,9 +125,11 @@
                                 </div>
                                 <div class="botones-fav-del-carrito">
                                     <div class="boton-favorito-carrito">
+                                        <% if(user != undefined){%>
                                         <button class="heart-carrito far fa-heart" value="0"
                                             onclick="favoritos('<%=products[i].idproducts%>')"
                                             id="favorito<%=products[i].idproducts%>"></button>
+                                        <%}%>
                                     </div>
                                 </div>
 
@@ -172,6 +182,7 @@
                         addBag2.id = "addBag<%= products[i].idproducts%>"
                         addBag2.innerHTML = "Add to basket"
                         addBag2.className = "addBag"
+                        <% if(user != undefined){%>
                         addBag2.addEventListener("click",function(){
                             console.log("este producto <%=products[i].idproducts%>");
                             fetch("http://localhost:3000/api/products/cart",{
@@ -182,6 +193,9 @@
                                     }
                             })
                         })
+                        <%}else{%>
+                            addBag2.style.display = "none"
+                        <%}%>
                         padre.appendChild(addBag2);
                         elementoaa.id = <%= products[i].idproducts%>
                         
