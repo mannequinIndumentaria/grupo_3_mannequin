@@ -281,6 +281,24 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`carts` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+-- -----------------------------------------------------
+-- Table `mannequin_db`.`discount_coupons`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mannequin_db`.`discount_coupons` ;
+
+CREATE TABLE IF NOT EXISTS `mannequin_db`.`discount_coupons` (
+  `iddiscount_coupons` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(45) NOT NULL,
+  `used` tinyint(1) DEFAULT 0,
+  `percentage_amount` int(11) DEFAULT 0,
+  `cash_amount` int(11) DEFAULT 0,
+  PRIMARY KEY (`iddiscount_coupons`),
+  UNIQUE KEY `code_UNIQUE` (`code`)
+) 
+ENGINE=InnoDB 
+AUTO_INCREMENT=3 
+DEFAULT CHARSET=utf8 
+COMMENT='cupones de descuento';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
