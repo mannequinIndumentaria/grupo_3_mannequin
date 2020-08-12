@@ -5,6 +5,7 @@ const crudIndexController = require('../controllers/crudIndexController')
 const crudProductController = require('../controllers/crudProductController')
 const crudUserController = require('../controllers/crudUserController')
 const multer = require('multer');
+const auth = require('../middlewares/adminLogueado');
 
 const storageProduct = multer.diskStorage({
     destination: function(req,file,cb){
@@ -29,21 +30,21 @@ const uploadProduct = multer({storage: storageProduct});
 const uploadUser = multer({storage: storageUser});
 
 /* GET home page. */
-router.get('/', crudIndexController.index);
-router.get('/product', crudProductController.index);
-router.delete('/product/delete/:idArticulo', crudProductController.delete);
-router.get('/product/edit/:idArticulo', crudProductController.edit);
-router.put('/product/edit/:idArticulo/', uploadProduct.any(), crudProductController.update);
-router.get('/product/new:category?', crudProductController.new);
-router.post('/product/new', crudProductController.create);
-router.get('/product/search', crudProductController.search);
+router.get('/', auth,crudIndexController.index);
+router.get('/product', auth,crudProductController.index);
+router.delete('/product/delete/:idArticulo', auth,crudProductController.delete);
+router.get('/product/edit/:idArticulo', auth,crudProductController.edit);
+router.put('/product/edit/:idArticulo/', auth,uploadProduct.any(), crudProductController.update);
+router.get('/product/new:category?', auth,crudProductController.new);
+router.post('/product/new', auth,crudProductController.create);
+router.get('/product/search', auth,crudProductController.search);
 
-router.get('/users', crudUserController.userIndex);
-router.get('/users/edit/:userId', crudUserController.userEdit);
-router.put('/users/edit/:userId', uploadUser.any(),crudUserController.userUpdate);
-router.delete('/users/delete/:userId', crudUserController.userDelete);
-router.get('/users/new', crudUserController.userNew);
-router.post('/users/new', uploadUser.any(),crudUserController.userCreate);
-router.get('/users/search', crudUserController.search);
+router.get('/users', auth,crudUserController.userIndex);
+router.get('/users/edit/:userId', auth,crudUserController.userEdit);
+router.put('/users/edit/:userId', auth,uploadUser.any(),crudUserController.userUpdate);
+router.delete('/users/delete/:userId', auth,crudUserController.userDelete);
+router.get('/users/new', auth,crudUserController.userNew);
+router.post('/users/new', auth,uploadUser.any(),crudUserController.userCreate);
+router.get('/users/search', auth,crudUserController.search);
 
 module.exports = router;

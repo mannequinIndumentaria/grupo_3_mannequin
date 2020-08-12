@@ -7,41 +7,12 @@
       <div class="contenido">
         <div class="row">
           <div class="col-12">
-            <canvas id="myCanvas" width="3000px" height="900px" ></canvas>
+              <img src="/images/otras/ADMIN.svg" width="100%">
           </div>
-           <!-- <img src="/images/otras/mannequin_admin.png" alt="" width="80%"> -->
         </div>
         <%- include('./partials/scriptBootstrap.ejs') %>
       </div>
     </div>
-    <script>
-      var cordenada = 0;
-      
-
-      function myCanvas(valor) {
-        var c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d");
-        ctx.clearRect(0, 0, 3000, 600);  
-        var img = document.createElement("img");
-        img.src= "/images/otras/mannequin_admin.png";
-        console.log(valor);
-        ctx.drawImage(img, 10, 10, 400, 400, valor-150, 0, 400, 400)
-      }
-      
-      var menu = document.getElementById('menuUl');
-
-      menu.onmousemove = function showCoords(event) {
-      
-        var x = event.clientX;
-        var y = event.clientY;
-        var coords = "X coords: " + x + ", Y coords: " + y;
-        cordenada = x;
-        myCanvas(cordenada);
-      }
-      
-      
-      // menu.onmousemove();
-      </script>
   </body>
 
 </html>
