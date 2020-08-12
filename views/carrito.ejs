@@ -2,11 +2,11 @@
 <html>
 <%- include('./partials/head.ejs') %>
 <body>
+	<script src="/js/funciones.js"></script>
    <div class="container-fluid">
 		<%- include('./partials/header.ejs') %>
 		<div class="contenido">
 			<div class="container carrito-contenedor-principal">
-				<form action="/carrito" method="POST">
 				 <div class="row">
 				<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
 					<% let subtotal = 0 %>
@@ -64,13 +64,7 @@
 				   <div class="orden-de-compra">
 						<label for="code-discount" class="order-titulo">Cupon de descuento</label>
 						<input type="text" name="code-discount" id="code-discount" placeholder="32424249" class="order-discount" disabled>
-						<label for="location" class="order-titulo">Opciones de envio</label>
-						<select name="location" id="location" class="order-location" disabled>
-							<option value="1">(Location)</option>
-						</select>
-						<select name="type" id="type" class="order-type" disabled>
-							<option value="1">(Type)</option>
-						</select>	
+						
 						<label class="order-titulo">Resumen del pedido</label>
 						<div class="row order-row">
 						   <div class="col-6 order-text-amounts">
@@ -84,7 +78,7 @@
 								<span id="total" name="total">$<%= (subtotal - descuentos) %> </span>
 							</div>
 						</div>
-						<button class="order-send" type="submit" id="pagarcarrito">PAGAR</button>
+						<button class="order-send" type="submit" id="pagarcarrito" onclick="sendPedido(<%= user.idusers %>)">Enviar pedido</button>
 						<label class ="order-titulo">Aceptamos</label>
 						<div class="medios-de-pago">
 							<img src="/images/Mediosdepago/visa.png" alt="Visa">
@@ -97,20 +91,19 @@
 					  </div>
 					</div>
 				</div>
-			</div>
-		</form> 
+			</div> 
 			
 			<%- include('./partials/footer.ejs') %>
 		</div>
    </div>
 	<%- include('./partials/scriptBootstrap.ejs') %>
-	<script>
+	<!-- <script>
 			var comprar = document.getElementById("pagarcarrito");
 			comprar.addEventListener("click",function(event){
 				event.preventDefault();
 				alert("Proximamente, esta es una version demo!!");
 			})			
-	</script>
+	</script> -->
 
 <script>
 	function seleccionarColor(id,rutaImagen,color){
@@ -148,6 +141,8 @@
 		}
 	}
 </script>
+
+
 </body>
 
 </html>

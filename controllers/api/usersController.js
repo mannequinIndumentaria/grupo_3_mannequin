@@ -24,6 +24,20 @@ const usersController = {
             res.json("");
         }
     },
+    getUserByID: async (req,res) =>{
+        const respuesta = await db.User.findAll(
+            {
+                where: {
+                    idusers: req.params.id
+                }
+            }
+        )
+        if(respuesta){
+            res.json(respuesta);
+        }else{
+            res.json("");
+        }
+    },
     getAllUsers: async (req,res) =>{
         const respuesta = await db.User.findAndCountAll()
         if(respuesta){

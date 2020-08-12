@@ -6,5 +6,5 @@ const apiProductsController = require('../../controllers/api/ProductsController'
 router.get('/', apiProductsController.getAllProducts);
 router.post('/cart', apiProductsController.addToCart);
 router.get('/productsizes/:idproduct', apiProductsController.getSizesByProductId);
-
+router.get('/usercart/:userId', apiProductsController.getUserCart);
 module.exports = router;
