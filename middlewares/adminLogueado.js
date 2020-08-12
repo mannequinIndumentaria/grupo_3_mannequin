@@ -18,7 +18,6 @@ async function usuarioLogueado(req, res, next) {
             // const usuario = users.find((user) => {
             //     return user.id == req.cookies.user;
             // });
-            console.log("esadmin", usuario.admin)
             if(usuario.admin == 1){
 
                 req.session.user = usuario;

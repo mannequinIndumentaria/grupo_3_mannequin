@@ -4,6 +4,7 @@ const path = require('path');
 const crudIndexController = require('../controllers/crudIndexController')
 const crudProductController = require('../controllers/crudProductController')
 const crudUserController = require('../controllers/crudUserController')
+const crudCouponController = require('../controllers/crudCouponController')
 const multer = require('multer');
 const auth = require('../middlewares/adminLogueado');
 
@@ -46,5 +47,11 @@ router.delete('/users/delete/:userId', auth,crudUserController.userDelete);
 router.get('/users/new', auth,crudUserController.userNew);
 router.post('/users/new', auth,uploadUser.any(),crudUserController.userCreate);
 router.get('/users/search', auth,crudUserController.search);
+
+router.get('/coupon', auth,crudCouponController.couponIndex);
+router.get('/coupon/new', auth,crudCouponController.couponNew);
+router.post('/coupon/new', auth,crudCouponController.couponCreate);
+router.delete('/coupon/delete/:couponId', auth,crudCouponController.couponDelete);
+router.get('/coupon/search', auth,crudCouponController.search);
 
 module.exports = router;

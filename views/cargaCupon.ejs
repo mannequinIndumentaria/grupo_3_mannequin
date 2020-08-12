@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <div class="container-fluid">
+        <%- include('./partials/headerCRUD.ejs') %>
+      <div class="contenido">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+
+                        <div id="accordion">
+                            <div class="card">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Informacion del cupon
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <form method="POST" action="/crudIndex/coupon/new">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputCodigo4">Codigo</label>
+                                                        <input type="text" class="form-control" id="inputCodigo4" placeholder="Codigo" name="code" required>
+                                                      </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputCashAmount4">Importe $</label>
+                                                        <input type="text" class="form-control" id="inputCashAmount4" placeholder="$0.00" name="cash_amount" required>  
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputPercentageAmount4">Importe %</label>
+                                                        <input type="text" class="form-control" id="inputPercentageAmount4" placeholder="%0" name="percentage_amount" required>  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-row">
+                                            <div class="form-group col-md-10">
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-3">
+
+                    </div>
+                </div>
+        </div>
+        <%- include('./partials/scriptBootstrap.ejs') %>
+      </div>
+    </div>
+  </body>
+
+</html>

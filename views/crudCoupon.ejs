@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <div class="container-fluid">
+        <%- include('./partials/headerCRUD.ejs') %>
+      <div class="contenido">
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12">
+                <form class="form-busqueda" action="/crudIndex/coupon/search" method='GET' >
+                  <input type="search" placeholder="Buscar..." aria-label="Search" name="keywords" style="width:90%;">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-10">
+                <h5>Productos</h5>
+              </div>
+              <div class="col-2">
+                <form method="GET" action="/crudIndex/coupon/new">
+                  <button>Crear cupon</button>
+                </form><br>
+              </div>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">%</th>
+                    <th scope="col">$</th>
+                    <th scope="col">Utilizado</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for( cupon of coupons){ %>
+                  <tr>
+                    <th scope="row"><%= cupon.iddiscount_coupons %></th>
+                    <td><%= cupon.code %></td>
+                    <td><%= cupon.percentage_amount %></td>
+                    <td><%= cupon.cash_amount %></td>
+                    <td><%= cupon.used == 0 ? 'No' : 'Si' %></td>
+                    <td>
+                        <form method="POST" action="/crudIndex/coupon/delete/<%= cupon.iddiscount_coupons %>?_method=DELETE">
+                            <button>
+                                <i class="fas fa-minus-square"></i>
+                            </button>
+                        </form>
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <%- include('./partials/scriptBootstrap.ejs') %>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -21,8 +21,7 @@ function sendEmail(subject, body){
 function sendPedido(iduser){
   console.log("dentro de send pedido")
   var username = "";
-  // var usuario = `Pedido del usuario N° ${iduser} - ${username}`;
-  var usuario =  "eppe"
+
   fetch(`http://localhost:3000/api/products/usercart/${iduser}`)
   .then(function(respuesta){
     return respuesta.json()
@@ -56,11 +55,11 @@ function sendPedido(iduser){
     cuerpoEmail += "%0D%09%09%09Subtotal: %09 $"+subtotal;
     cuerpoEmail += "%0D%09%09%09Descuentos: %09 $"+descuentos;
     cuerpoEmail += "%0D%09%09%09TOTAL: %09%09 $"+total+"%0D%0D";
+    this.username = informacion.name;
     console.log(cuerpoEmail)
-    this.sendEmail(usuario,cuerpoEmail);
+    this.sendEmail(this.username,cuerpoEmail);
   })
   .catch(function(error){
     console.log(error);
   })
-  console.log(cuerpoEmail);
 }
