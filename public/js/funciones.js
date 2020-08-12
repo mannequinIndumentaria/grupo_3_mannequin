@@ -28,13 +28,13 @@ function sendPedido(iduser){
     return respuesta.json()
   })
   .then(function(informacion){
-    var cuerpoEmail = "Datos de contacto%0D";
-    cuerpoEmail += `Usuario N°(${informacion.idusers})`;
+    var cuerpoEmail = "DATOS DE CONTACTO%0D";
+    cuerpoEmail += `Usuario N°(${informacion.idusers})%0D`;
     cuerpoEmail += `${informacion.name} ${informacion.lastname}%0D`;
-    cuerpoEmail += `%09Email: ${informacion.email} %0D`;
-    cuerpoEmail += `%09Telefono: ${informacion.telephone}%0D%0D`;
-    cuerpoEmail += "|Domicilio%0D"
-    cuerpoEmail += `|${informacion.address_street} ${informacion.address_number} piso: ${informacion.address_floor} ${informacion.address_dept} (C.P.${informacion.address_post_code})  ${informacion.city}%0D`;
+    cuerpoEmail += `Email: ${informacion.email} %0D`;
+    cuerpoEmail += `Telefono: ${informacion.telephone}%0D`;
+    cuerpoEmail += "Domicilio: "
+    cuerpoEmail += `${informacion.address_street} ${informacion.address_number} piso: ${informacion.address_floor} ${informacion.address_dept} (C.P.${informacion.address_post_code})  ${informacion.city}%0D`;
     cuerpoEmail += "%0D%0D### PEDIDO ###%0D%0D";
     console.log(informacion.product_carrito.length)
     cuerpoEmail += "Codigo%09Talle%09P.Unitario%09Descuento%09Importe%09Producto%0D"
