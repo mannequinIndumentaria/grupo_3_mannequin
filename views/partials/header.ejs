@@ -40,12 +40,13 @@
                         aria-expanded="false">
                         <%= item.category.name %>
                     </a>
-
+                    <% if(item.subcategories.length > 0){%>
                     <div class="dropdown-menu primerDropdown" aria-labelledby="navbarDropdownMenuLink">
                         <% for (subcategory of item.subcategories) { %>
                         <a class="dropdown-item" href="/categories/filter/<%= item.category.idproduct_categories%>/<%= subcategory.idproduct_categories%>/?page=<%=1%>&size=<%=8%>"><%= subcategory.name %></a>
                         <% } %>
                     </div>
+                    <%}%>
                 </li>
                 <% } %>
             </ul>
