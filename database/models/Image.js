@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     idimage: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     file_name: {
       type: DataTypes.STRING(45),
