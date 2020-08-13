@@ -78,9 +78,16 @@
                                               <label for="subcategories">Subcategoria</label>
                                               <select id="subcategories" class="form-control" name="subcategory" disabled="disabled">
                                                 <option selected>Seleccione una categoria...</option>
-                                                
                                               </select>
                                             </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputColor4">Grupo</label>
+                                                <input type="number" class="form-control" id="inputGrupo4" placeholder="Grupo" name="group" value="<%= articulo.group %>">
+                                              </div>
+                                              <div class="form-group col-md-2">
+                                                <label for="inputColor4">Color</label>
+                                                <input type="color" class="form-control" id="inputColor4" name="color" value="<%= articulo.color %>">
+                                              </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
@@ -112,6 +119,7 @@
                                             <div class="form-group col-md-4">
 
                                             </div>
+                                            <input type="hidden" name="seccion" value="info">
                                             <div class="form-group col-md-4">
                                                 <button type="submit" class="btn btn-primary">Guardar informacion del producto</button>
                                             </div>
@@ -157,6 +165,7 @@
                                             <div class="form-group col-md-4">
 
                                             </div>
+                                            <input type="hidden" name="seccion" value="imagenes">
                                             <div class="form-group col-md-4">
                                                 <button type="submit" class="btn btn-primary">Guardar imagenes</button>
                                             </div>
@@ -181,19 +190,54 @@
                                                     <% for(size of sizes){ %>
                                                         <% let si=0; %>
                                                         <% for(let i = 0; i < articulo.sizes.length; i++){%>
-                                                            <% if(size.idsizes == articulo.sizes[i].sizes_idsizes){%>
+                                                            <% if(size.idsizes == articulo.sizes[i].idsizes){%>
                                                                 <% si = 1;%>
                                                             <% } %>
                                                         <% } %>
-                                                            <a href="">
-                                                            </a>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" name="talles" value="<%= size.idsizes %>" id="<%= size.name %>" <%= si == 1 ? "checked" : "" %>>
-                                                            <label class="custom-control-label" for="<%= size.name %>"><%= size.name %></label>
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <div class="input-group">
+                                                                    <script>
+                                                                        function habilitaTalle(id){
+                                                                            var st = document.getElementById("stock"+id)
+                                                                            st.disabled = !st.disabled 
+                                                                        }
+                                                                    </script>
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="inputGroupPrepend">stock</span>
+                                                                    </div>
+                                                                    <% var canstk = 0 %>
+                                                                    <%for(var i = 0; i< stock.length; i++){%>
+                                                                        <% if(stock[i].sizes_idsizes == size.idsizes){%>
+                                                                            <% canstk = stock[i].stock %>
+                                                                            <% i = stock.length %>
+                                                                        <%}else{%> 
+                                                                            <% canstk = 0 %>
+                                                                        <%}%>
+                                                                    <%}%>
+                                                                    
+                                                                    <input type="number" class="form-control" name="stock" id="stock<%= size.idsizes %>" placeholder="0" aria-describedby="inputGroupPrepend" value="<%= canstk %>" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <div class="custom-control custom-checkboxes mt-1">
+                                                                    <% if(si == 1) {%>
+                                                                        <input type="checkbox" class="custom-control-input" name="talles" onclick="habilitaTalle(<%= size.idsizes %>)" value="<%= size.idsizes %>" id="<%= size.name %>" checked>
+                                                                        <label class="custom-control-label" for="<%= size.name %>"><%= size.name %></label>
+                                                                        <script>
+                                                                            habilitaTalle(<%= size.idsizes %>)
+                                                                        </script>
+                                                                    <%}else{%>
+                                                                        <input type="checkbox" class="custom-control-input" name="talles" onclick="habilitaTalle(<%= size.idsizes %>)" value="<%= size.idsizes %>" id="<%= size.name %>">
+                                                                        <label class="custom-control-label" for="<%= size.name %>"><%= size.name %></label>
+                                                                    <%}%>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <% si = 0 %>
                                                     <% } %>
                                                 </div>
+                                                <input type="hidden" name="seccion" value="talles">
                                                 <div class="form-group col-md-4">
                                                     <button type="submit" class="btn btn-primary">Guardar talles</button>
                                                 </div>
