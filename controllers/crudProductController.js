@@ -1,19 +1,19 @@
 const path = require('path');
 const fs= require('fs');
-const pathProducts = path.join("data","products.json");
-const fileProducts = fs.readFileSync(pathProducts,null,'');
-const products = JSON.parse(fileProducts);
-const categoriesFilePath = path.join(__dirname, '../data/categories.json');
-const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
-const pathProductsInfo = path.join("data","products-info.json");
-const fileProductsInfo = fs.readFileSync(pathProductsInfo,null,'');
-const productsInfo = JSON.parse(fileProductsInfo);
-const pathSizes = path.join("data","sizes.json");
-const fileSizes = fs.readFileSync(pathSizes,null,'');
-const sizes = JSON.parse(fileSizes);
-const pathColors = path.join("data","colors.json");
-const fileColors = fs.readFileSync(pathColors,null,'');
-const colors = JSON.parse(fileColors);
+// const pathProducts = path.join("data","products.json");
+// const fileProducts = fs.readFileSync(pathProducts,null,'');
+// const products = JSON.parse(fileProducts);
+// const categoriesFilePath = path.join(__dirname, '../data/categories.json');
+// const categoriesJSON = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+// const pathProductsInfo = path.join("data","products-info.json");
+// const fileProductsInfo = fs.readFileSync(pathProductsInfo,null,'');
+// const productsInfo = JSON.parse(fileProductsInfo);
+// const pathSizes = path.join("data","sizes.json");
+// const fileSizes = fs.readFileSync(pathSizes,null,'');
+// const sizes = JSON.parse(fileSizes);
+// const pathColors = path.join("data","colors.json");
+// const fileColors = fs.readFileSync(pathColors,null,'');
+// const colors = JSON.parse(fileColors);
 const db = require('../database/models');
 const { Console } = require('console');
 
@@ -38,6 +38,19 @@ const crudProductController = {
         }
         );
 
+        const categorias = await db.Product_category.findAll({
+            where: {
+                parent: null
+            }
+        })
+        
+        const subcategoriaProducto = producto.product_categories_idproduct_categories;
+        // Obtengo las subcategorias
+        const subcategoria = await db.Product_category.findOne({
+            where: {
+                idproduct_categories: subcategoriaProducto
+            }
+        })
         const sizes = await db.Size.findAll();
 
        
@@ -46,21 +59,21 @@ const crudProductController = {
             articulo: producto,
             // infoextra: productInfo,
             sizes: sizes,
-            categorias: categoriesJSON
+            categorias: categorias,
+            subcategoria: subcategoria
         });
     },
     update: async (req,res)=>{
         const idArticulo = req.params.idArticulo;
-        const producto = products.filter(elemento => {
-         return elemento.id == idArticulo
-        });
+        const producto = await db.Product.findAll({
+            where:{
+                idproducts: idArticulo
+            }
+        })
+        // TALLES DEL PRODUCTO
         if(req.body.talles){
             // Actualiza talles
-            const sizesOfProducts = await db.Product_has_size.findAll({where: {products_idproducts: idArticulo}});
             const sizes = await db.Size.findAll();
-            // const productInfo = sizesOfProducts.filter(element => element.product_id == idArticulo);
-            const arraySizes = [];
-
             // Busco y creo los talles que el producto no tenia
             for(size of req.body.talles){
                 // busco el talle seleccionado entre los del producto
@@ -73,9 +86,9 @@ const crudProductController = {
             }
             
             // Elimino los talles que no selecciono
-            console.log("ELIMINANDO TALLES");
             for(size of sizes){
-                const talle = req.body.talles.find(element => element == size.idsizes);
+                const t = req.body.talles;
+                const talle = t.find(element => element == size.idsizes);
                 if(talle == undefined){
                     await db.Product_has_size.destroy({
                         where: {
@@ -87,6 +100,7 @@ const crudProductController = {
             }
             
         }
+        // INFORMACION DEL PRODUCTO
         else if(req.body.name){
             let articulo = {
                 name : req.body.name,
@@ -97,7 +111,7 @@ const crudProductController = {
                 sale : req.body.sale !== undefined ? true : false,
                 new_season: req.body.new_season !== undefined ? true : false,
                 discount : Number(req.body.discount),
-                product_categories_idproduct_categories : 1
+                product_categories_idproduct_categories : req.body.subcategory
              }
 
              await db.Product.update(articulo,{
@@ -105,67 +119,118 @@ const crudProductController = {
              })
             
         }
+        // IMAGENES DEL PRODUCTO
         else{
-            const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
-            // Actualiza imagenes
-            //Imagenes nuevas
-            const imagenes = [];
+            // imagenes nuevas
             for(img of req.files){
-                imagenes.push(img.filename);
-            }
-            //Borrar imagenes
-            console.log(req.body.borrarImagen);
-            for(img of productInfo[0].images){
-                let borrar = "";
-                    if(req.body.borrarImagen !== undefined && typeof req.body.borrarImagen == 'object'){
-                        borrar = req.body.borrarImagen.find(elemento => elemento == img);
-                    }else if(req.body.borrarImagen !== undefined && typeof req.body.borrarImagen == 'string'){
-                        borrar = req.body.borrarImagen;
+                const imagen = await db.Image.create(
+                    {
+                        file_name: img.filename,
+                        idproducts: idArticulo
+                    }, 
+                    {
+                        include:[{
+                            association: 'products'
+                        }]
                     }
-                    if(img != borrar){
-                        imagenes.push(img);
+                )
+    
+                await db.Product_has_image.create(
+                    {
+                        products_idproducts: idArticulo,
+                        images_idimage: imagen.idimage
                     }
+                )
             }
-            // Reemplazo imagenes
-            productInfo[0].images = imagenes.length > 0 ? imagenes : productInfo[0].images;
+            // Eliminar de la tabla(images) las imagenes borradas
+            // Undefined: no elimino ninguna *
+            // Array (object): Elimino mas de una
+            // String: Elimino solo una
+            console.log("BORRARRRRRRRRRRRRR",req.body.borrarImagen)
+            if(req.body.borrarImagen !== undefined){
+                if(typeof req.body.borrarImagen == 'object'){
+                    for(imagen of req.body.borrarImagen){
+                        await db.Product_has_image.destroy({
+                            where: {
+                                products_idproducts: idArticulo,
+                                images_idimage: imagen
+                            }
+                        })
+                        await db.Image.destroy({
+                            where: {
+                                idimage: imagen
+                            }
+                        })
+                        
+                    }
+                }
 
-            // Reemplazo colores
-            const color = colors.filter(element => element.hexa.toLowerCase() == req.body.color )
-            if(color.length){
-                // Solo asigno un color si existe
-                productInfo[0].color_id = color[0].id;
-            }else{
-                // TODO: resolver con  base de datos
+                if(typeof req.body.borrarImagen == 'string'){
+                    await db.Product_has_image.destroy({
+                        where: {
+                            products_idproducts: idArticulo,
+                            images_idimage: req.body.borrarImagen
+                        }
+                    })
+                    await db.Image.destroy({
+                        where: {
+                            idimage: req.body.borrarImagen
+                        }
+                    })
+                    
+                }
             }
+        //     const productInfo = productsInfo.filter(element => element.product_id == idArticulo);
+        //     // Actualiza imagenes
+        //     //Imagenes nuevas
+        //     const imagenes = [];
+        //     for(img of req.files){
+        //         imagenes.push(img.filename);
+        //     }
+        //     //Borrar imagenes
+        //     for(img of productInfo[0].images){
+        //         let borrar = "";
+        //             if(req.body.borrarImagen !== undefined && typeof req.body.borrarImagen == 'object'){
+        //                 borrar = req.body.borrarImagen.find(elemento => elemento == img);
+        //             }else if(req.body.borrarImagen !== undefined && typeof req.body.borrarImagen == 'string'){
+        //                 borrar = req.body.borrarImagen;
+        //             }
+        //             if(img != borrar){
+        //                 imagenes.push(img);
+        //             }
+        //     }
+        //     // Reemplazo imagenes
+        //     productInfo[0].images = imagenes.length > 0 ? imagenes : productInfo[0].images;
+
+        //     // Reemplazo colores
+        //     const color = colors.filter(element => element.hexa.toLowerCase() == req.body.color )
+        //     if(color.length){
+        //         // Solo asigno un color si existe
+        //         productInfo[0].color_id = color[0].id;
+        //     }else{
+        //         // TODO: resolver con  base de datos
+        //     }
             
-            const newProductInfo = productsInfo.filter(element => element.product_id != idArticulo);
-            newProductInfo.push(productInfo[0]);
-            fs.writeFileSync(pathProductsInfo,JSON.stringify(newProductInfo,null,' '));
+        //     const newProductInfo = productsInfo.filter(element => element.product_id != idArticulo);
+        //     newProductInfo.push(productInfo[0]);
+        //     fs.writeFileSync(pathProductsInfo,JSON.stringify(newProductInfo,null,' '));
         }
-        // console.log(req);
         res.redirect('/crudIndex/product/edit/'+req.params.idArticulo);
         // const obj = JSON.parse(req.body.imagenEliminada[0]);
-        // console.log("ddd",obj.id);
     },
     new:async (req,res) =>{
-        console.log("PARAMETROOOOOOOOOOOOOOOOOOOOOOOOOOOOO",req.query.category);
         const subc = req.query.category !== undefined ? req.query.category : 0;
         console.log("param",subc);
-        // console.log("parametro",subc);
         const newId = await db.Product.max('idproducts');
-        // console.log("consultando categorias")
         const categorias = await db.Product_category.findAll({where:{parent: null}});
-        // console.log("consultando subcategorias")
         const subcategorias = await db.Product_category.findAll({where: {parent: subc}});
-        // console.log("categorias", categorias);
+        // consultando
         if(subc != 0){
-            console.log(subcategorias)
             res.send(subcategorias);
         }else{
-            // console.log("subcategorias", subcategorias);
             res.render('cargaArticulo',{
                 articuloId: newId+1,
-                sizes: sizes,
+                // sizes: sizes,
                 categorias: categorias
             });
         }
@@ -182,7 +247,7 @@ const crudProductController = {
            sale : req.body.sale !== undefined ? true : false,
            new_season: req.body.new_season !== undefined ? true : false,
            discount : Number(req.body.discount),
-           product_categories_idproduct_categories : 1
+           product_categories_idproduct_categories : req.body.subcategory
         }
 
 

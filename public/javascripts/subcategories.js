@@ -1,7 +1,12 @@
 window.addEventListener("load",function(){
     var cat = document.querySelector("#categories")
     cat.addEventListener("change",function(){
-      fetch(`/crudIndex/product/new?category=${cat.value}`)
+      getSubcategories(cat)
+    })
+})
+
+function getSubcategories(cat,subcategoria){
+  fetch(`/crudIndex/product/new?category=${cat.value}`)
       .then(function(response){
         return response.json();
       })
@@ -18,6 +23,15 @@ window.addEventListener("load",function(){
             for(var i = 0; i < informacion.length; i++){
               var option = document.createElement('option');
               option.value = informacion[i].idproduct_categories;
+              console.log("subcategoria1",subcategoria)
+              if(subcategoria != null){
+                console.log("subcategoria2",subcategoria)
+                
+                if(subcategoria == informacion[i].idproduct_categories ){
+                  console.log("subcategoria3",subcategoria)
+                  option.selected = "selected";
+                }
+              }
               option.innerHTML = informacion[i].name;
               subcat.appendChild(option);
             }
@@ -29,5 +43,4 @@ window.addEventListener("load",function(){
       .catch(function(error){
         console.log(error);
       })
-    })
-})
+}
