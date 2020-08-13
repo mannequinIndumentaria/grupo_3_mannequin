@@ -46,7 +46,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 profileSubContainerIzquierdo">
                     <!--Foto-->
                     <div class="fotoProfilContainer">
-                        <img id="imgProfile" class="imgFotoProfile" src="/images/users/<%= profileToEdit.avatar.length > 0 ?  profileToEdit.avatar : 'no-user-profile.jpg' %>">
+                        <img id="imgProfile" class="imgFotoProfile" src="/images/users/<%= profileToEdit.avatar != undefined ?  profileToEdit.avatar : 'no-user-profile.jpg' %>">
                     </div>
                     <!-- <form action="/profile" method="POST" enctype="application/x-www-form-urlencoded">
                         <div class="custom-file">

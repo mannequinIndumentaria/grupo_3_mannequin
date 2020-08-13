@@ -19,6 +19,7 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 let menu = require('../services/menu');
 const db = require('../database/models');
+const { Console } = require('console');
 
 const profileController = {
     index: async (req, res) => {
@@ -34,7 +35,7 @@ const profileController = {
                 ]
             }
         );
-
+        console.log(profileToEdit.length)
         res.render('profile', {
             user: req.session.user,
             menu: menu,
@@ -82,7 +83,7 @@ const profileController = {
                 idusers: userID
             }
         });
-        res.redirect('/');
+        res.redirect('/profile/' + userID);
     }
 
     // let profileToEdit = users.find(item => item.id == userID)
