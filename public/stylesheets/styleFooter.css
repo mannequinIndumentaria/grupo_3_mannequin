@@ -28,7 +28,7 @@ footer .container-fluid {
 }
 
 .col-footer ul li a, .col-subfooter ul li a{
-  padding: 30px;
+  padding: 0px 20px 0px 20px;
   height: 100%;
   color: white; 
   text-decoration: none;

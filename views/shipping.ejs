@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <div class="container-fluid">
+    <%- include('./partials/header.ejs') %>
+    <div class="contenido">
+      <div style="padding: 20px">
+        <div style="font-size: 13px;color: #333;line-height: 20px;">
+          <h1 class="title">Información de Envío</h1><div class="articleText"> <style>
+            .articleWrap .article_R h1.title {
+                background: none;
+                padding: 0;
+                color: #2d2d2d;
+                text-transform: uppercase;
+                margin: 20px 0;
+                height: auto;
+                line-height: normal;
+            }
+            .articleWrap .part-title {
+                color: #ffa800; font-size: 18px; font-family: OpenSans-Bold;
+                margin-bottom: 20px; margin-top: 30px;
+            }
+            .articleWrap .part-title::before {
+                content: ''; display: inline-block; margin-right: 5px; width: 18px; height: 18px; vertical-align: middle;
+                background: url(https://uidesign.zafcdn.com/ZF/image/others/20190724_11501/processing.png) no-repeat;
+            }
+            .articleWrap .part-title-two {
+                color: #32B57F;
+            }
+            .articleWrap .part-title-two:before {
+                background-image: url(https://uidesign.zafcdn.com/ZF/image/others/20190724_11501/shipping.png);
+            }
+            .articleWrap strong {
+                font-family: OpenSans-Bold; margin-top: 20px; display: block;
+            }
+            .part-content-container {
+                font-size: 13px; line-height: 24px;
+            }
+            .part-info {
+                color: #999;
+            }
+            .articleWrap h4 {
+                margin-top: 50px;
+            }
+            #country_select {
+                height: 50px; line-height: 50px; min-width: 500px;
+                padding: 0 20px; box-sizing: border-box; margin: 20px 0; border-radius: 6px;
+            }
+            .shipping-content-wrap table {
+                text-align: center; empty-cells: show;
+                width: 100%; border-collapse: collapse; border-spacing: 0;
+            }
+            .shipping-content-wrap thead {
+                background-color: #f4f4f4; height: 42px;
+            }
+            .shipping-content-wrap th, .shipping-content-wrap td {
+                border: none;
+            }
+            .shipping-content-wrap tbody tr{
+                border-bottom: 1px solid #ddd;
+            }
+            #shipping_content_body td {
+                vertical-align: middle; padding: 15px;
+            }
+           #shipping_content_body td:nth-child(n+2) {
+                color: #855623; font-family: OpenSans-Semibold;
+            }
+        </style>
+
+        <h3 class="part-title part-title-one">En procesamiento</h3>
+        <div class="part-content-container">
+            <p class="title-desc">El tiempo de procesamiento del producto depende del periodo de tiempo del control de calidad, el embalaje y también del contingente de la tienda del producto individual .
+            </p>
+
+            <p class="part-content">
+                <strong>¿ Qué es el tiempo de procesamiento?</strong>
+                El tiempo de procesamiento del artículo es el tiempo desde la recepción de su pedido hasta su envío físico.
+Después de recibir su pedido, llevamos a cabo rigurosos controles y pruebas de control de calidad para garantizar la calidad del producto antes del envío para satisfacer su satisfacción.Esto puede implicar controles internos detallados: p. calidad del material, cremalleras, costuras, adornos y motivos, interiores, forro, etc. El tiempo total de procesamiento varía según la complejidad, el diseño y el tamaño del producto o artículo específico. Los pedidos más grandes, naturalmente, tomarán más tiempo. Normalmente tardamos entre 3 y 7 días laborables en procesar su pedido. Sin embargo, tenga en cuenta que el tiempo de procesamiento también puede verse afectado por el estado del stock de artículos individuales, la época del año, las vacaciones nacionales, etc. Si su pedido incluye artículos muy populares que están experimentando problemas de disponibilidad de stock, entonces el pedido puede demorar entre 5 y 10 días laborables en procesarse y enviarse. Nos disculpamos de antemano por cualquier inconveniente causado por estos retrasos y le agradecemos su paciencia.
+            </p>
+
+            <p class="part-info">
+                Si desea cancelar un artículo pedido en espera en su pedido, simplemente envíenos su solicitud enviando un boleto, nos pondremos en contacto con usted dentro de las 24 horas.
+            </p>
+        </div>
+
+        <h3 class="part-title part-title-two">Envío</h3>
+        <div class="part-content-container">
+            <p class="title-desc">Un envío demora entre 3 y 10 días laborables en llegar, consulte la tabla a continuación para conocer los diferentes tiempos de envío a destinos internacionales.
+            </p>
+
+            <p class="part-content">
+                <strong>Para obtener información detallada sobre la entrega estándar y la entrega urgente, elija su país de envío o región de envío en el menú desplegable a continuación:</strong>
+            </p>
+
+            <div class="shipping-content-wrap">
+                <div class="shipping-country-select">
+                    <select id="country_select">
+                        <option value="">Por favor, elija el país / región de envío</option>
+                    <option selected="" value="55">Argentina</option><option value="69">Bolivia</option><option value="82">Chile</option><option value="14">Colombia</option><option value="89">Costa Rica</option><option value="91">Cuba</option><option value="286">Dominica</option><option value="170">El Salvador</option><option value="113">Guatemala</option><option value="117">Honduras</option><option value="26">Mexico</option><option value="155">Nicaragua</option><option value="159">Panama</option><option value="160">Paraguay</option><option value="232">Peru</option><option value="163">Puerto Rico</option><option value="211">Uruguay</option><option value="248">Venezuela</option></select>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr><th style="font-weight: bold;">Método de Envío</th>
+                        <th style="font-weight: bold;">Gasto</th>
+                        <th style="font-weight: bold;">Tiempo de envío</th>
+                    </tr></thead>
+                    <tbody id="shipping_content_body"><tr><td>Envío Estandar</td><td>Pedidos entre <span data-orgp="0" class="my_shop_price" data-bz="0.00">$0.00</span>-<span data-orgp="28.99" class="my_shop_price" data-bz="28.99">$28.99</span>,gasto de envío es de <span data-orgp="25" class="my_shop_price" data-bz="25.00">$25.00</span><br>Pedidos entre <span data-orgp="29" class="my_shop_price" data-bz="29.00">$29.00</span>-<span data-orgp="58.99" class="my_shop_price" data-bz="58.99">$58.99</span>,gasto de envío es de <span data-orgp="20" class="my_shop_price" data-bz="20.00">$20.00</span><br>Pedidos entre <span data-orgp="59" class="my_shop_price" data-bz="59.00">$59.00</span>-<span data-orgp="78.99" class="my_shop_price" data-bz="78.99">$78.99</span>,gasto de envío es de <span data-orgp="15" class="my_shop_price" data-bz="15.00">$15.00</span><br>Pedidos más de <span data-orgp="79" class="my_shop_price" data-bz="79.00">$79.00</span>,gasto de envío es gratis</td><td>10 - 25 business days</td></tr></tbody>
+                </table>
+            </div>
+           <p class="part-info mt30">
+                * El tiempo de envío se estima y comienza a partir de la fecha de envío, en lugar de la fecha de pedido, y puede demorar más de lo esperado debido a una dirección no válida, los procedimientos de despacho de aduanas u otras causas. <br>
+* Para el envío exprés: las posibles tarifas y otros posibles costos relacionados corren a cargo de los clientes
+            </p>
+            <h4>SOBRE IMPUESTOS</h4>
+            <p class="part-info">
+                Los envíos desde todos nuestros almacenes son aranceles de entrega sin pagar. Por lo tanto, todos los derechos de aduana o importación se cobran una vez que el paquete llega a su país de destino. En su caso, estos cargos deben ser pagados por los clientes. Los clientes asumen toda la responsabilidad por todos los costos de envío de devolución, cargos de aduana y tarifas de manejo si se niegan a aceptar un paquete debido a aranceles o impuestos de importación. Tenga en cuenta que, de acuerdo con las regulaciones de aduanas, Mannequin no puede declarar los artículos comprados como un regalo o enumerar una cantidad inferior al precio real del producto.
+            </p>
+        </div>
+       <script>
+            $(function () {
+                var $sel = $('#country_select'),
+                    $tbody = $('#shipping_content_body');
+
+                var getCountryList = $.ajax({
+                    url: '/co-country-ac-countryList.html',
+                    type: 'POST',
+                    dataType: 'json'
+                });
+
+                var getShippingInfo = function (countryId) {
+                    return $.ajax({
+                        url: '/co-country-ac-shippingMethod.html',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            countryId: countryId
+                        }
+                    }); 
+                };
+                setTimeout(function () {
+                    $.when(window.g_infocheck_promise, getCountryList).then(function (deferred1, deferred2) {
+                        var result1 = deferred1[0],
+                            result2 = deferred2[0];
+                        var selectedItem = g_BTSABTEST_OBJ.getCookie('selectedCountryItem');
+                  var curCountry = result1.country_code;
+
+                  if(selectedItem) {
+               var selectedArr = decodeURIComponent(selectedItem).split(',');
+               var curCountry = selectedArr[0];
+                  }
+                        if(result2 && result2.countryList) {
+                            var htmlStr = '';
+                            var isLocated = false;
+                            $.each(result2.countryList, function (idx, item) {
+                                if(curCountry === item.countryCode) {
+                                    isLocated = true;
+                                    htmlStr += '<option selected value="' + item.countryId + '">' + item.countryName + '</option>';
+                                }else {
+                                    htmlStr += '<option value="' + item.countryId + '">' + item.countryName + '</option>';
+                                }
+                            });
+                            $sel.append(htmlStr);
+                            if(!isLocated) {
+                                $sel.find('option:eq(1)').prop('selected', true);
+                            }
+                            $sel.trigger('change');
+                        }
+                    });
+                }, 0);
+                
+
+                $sel.on('change', function () {
+                    var val = this.value;
+                    if(val === '') {
+                        return;
+                    }
+                    getShippingInfo(val).done(function (res) {
+                        var htmlStr = '';
+                        if(res.status === 0 && res.shippingList) {
+                            $.each(res.shippingList, function (idx, item) {
+                                htmlStr += '<tr><td>' + item.shipName + '</td>' + 
+                                    '<td>' + item.shippingCost + '</td>' + 
+                                    '<td>' + item.shipDesc + '</td></tr>';
+                            });
+                            $tbody.html(htmlStr);
+                            GLOBAL.currency.change_html();
+                        }
+                    });
+                })
+            });
+        </script></div>
+        </div>
+      </div>
+      <%- include('./partials/footer.ejs') %>
+
+      <%- include('./partials/scriptBootstrap.ejs') %>
+
+    </div>
+  </div>
+</body>
+
+</html>
