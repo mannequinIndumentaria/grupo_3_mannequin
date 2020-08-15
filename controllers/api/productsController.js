@@ -70,6 +70,14 @@ const productController = {
         
         res.json(talles);
     },
+    getAllProductsPrices: async (req,res) =>{
+        const respuesta = await db.Product.findAndCountAll()
+        if(respuesta){
+            res.json(respuesta);
+        }else{
+            res.json("");
+        }
+    },
 }
 
 module.exports = productController;
