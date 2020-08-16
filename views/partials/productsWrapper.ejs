@@ -16,12 +16,12 @@
     }
 
 </script>
-
 <div class="card-group">
     <% if(products.length > 0){ %>
         <% var grupoAnterior = 0;%>
         <% var articuloCombinado = 0; %>
         <% for(let i = 0; i<products.length; i++) { %>
+            <input type="hidden" id="talleSeleccionado<%=products[i].idproducts%>" value="">
             <% if(products[i].group != grupoAnterior){%>
                 <div class="product-box" id="<%=products[i].idproducts%>">
                     <div class="card" style="width: 18rem;">
@@ -38,11 +38,12 @@
                                 <script>
                                     var botonBag = document.getElementById("addBag<%=products[i].idproducts%>")
                                     <% if(user != undefined){%>
-                                    botonBag.addEventListener("click",function(){
+                                        botonBag.addEventListener("click",function(){
+                                        var tt = document.getElementById("talleSeleccionado<%=products[i].idproducts%>").value;
                                         console.log("este producto <%=products[i].idproducts%>");
                                         fetch("http://localhost:3000/api/products/cart",{
                                                 method: 'POST',
-                                                body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
+                                                body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>, sizeId: tt}),
                                                 headers: {
                                                 'Content-Type': 'application/json'
                                                 }
@@ -100,11 +101,12 @@
                                                 addBag2.innerHTML = "Add to basket"
                                                 addBag2.className = "addBag"
                                                 <% if(user != undefined){%>
-                                                addBag2.addEventListener("click",function(){
+                                                    addBag2.addEventListener("click",function(){
+                                                    var tt = document.getElementById("talleSeleccionado<%=products[i].idproducts%>").value;
                                                     console.log("este otro producto",<%= products[i].idproducts%>)
                                                     fetch("http://localhost:3000/api/products/cart",{
                                                             method: 'POST',
-                                                            body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
+                                                            body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>, sizeId: tt}),
                                                             headers: {
                                                             'Content-Type': 'application/json'
                                                             }
@@ -183,11 +185,12 @@
                         addBag2.innerHTML = "Add to basket"
                         addBag2.className = "addBag"
                         <% if(user != undefined){%>
-                        addBag2.addEventListener("click",function(){
+                            addBag2.addEventListener("click",function(){
+                            var tt = document.getElementById("talleSeleccionado<%=products[i].idproducts%>").value;
                             console.log("este producto <%=products[i].idproducts%>");
                             fetch("http://localhost:3000/api/products/cart",{
                                     method: 'POST',
-                                    body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>}),
+                                    body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>, sizeId: tt}),
                                     headers: {
                                     'Content-Type': 'application/json'
                                     }
@@ -247,6 +250,9 @@
                         b.className = "boton-talle";
                         b.style.marginRight = "3px";
                         b.addEventListener("click",function(){
+                            /* Marco talle seleccionado */
+                            var jj = document.getElementById("talleSeleccionado"+id)
+                            jj.value = talle.idsizes
                             if(this.className == "boton-talle"){
                                 /* restauro el anterior*/
                                 var talleAnterior = d.querySelector(".boton-talle-elegido");
