@@ -33,6 +33,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 let menu = require('../services/menu');
 const db = require('../database/models');
 const Size = require('../database/models/Size');
+const { sequelize } = require('../database/models');
 
 const carritoController = {
     carrito: async (req,res) => {
@@ -58,44 +59,23 @@ const carritoController = {
         // Valor que me llego por parametro
         const id_user = req.params.userId;
         // Filtro de carrito los articulos del usuario
-            // const carritoDelUsuario = await db.Cart.findOne(
-            //     {
-            //         where: {users_idusers: id_user},
-            //     }
-            // )
 
-            // console.log("LKJBELKFBLFKJBWELFBJNWLEFKBNWE:LFJBEWLF",carritoDelUsuario);
+            const carritoDelUsuarioC = await sequelize.query(`
+                SELECT p.idproducts, p.name, p.description, p.price,p.discount, p.color,  i.file_name as image, s.name as size,phs.stock  FROM carts c
+                INNER JOIN products p ON p.idproducts = c.products_idproducts
+                INNER JOIN products_has_images phm ON phm.products_idproducts = c.products_idproducts
+                INNER JOIN images i ON i.idimage = phm.images_idimage
+                INNER JOIN sizes s ON s.idsizes = c.sizes_idsizes
+                INNER JOIN products_has_sizes phs ON phs.products_idproducts = p.idproducts and phs.sizes_idsizes = s.idsizes
+                where c.users_idusers = ${id_user}
+                group by p.idproducts, s.idsizes 
+            `);
 
-            const carritoDelUsuario = await db.User.findAll({
-                where: {idusers: id_user},
-                include: [
-                    {
-                    association: "sizes_carrito"
-                    },{
-                        association: "product_carrito",
-                        include: {
-                            association: "images"
-                        }
-                        },
-                  ]
-            })
             // console.log("\n\n CARITOOOOOOOOOOOOOOOOO")
-            // console.log("Cantidad de articulos en carrito",carritoDelUsuario[0].product_carrito.length)
-
-
-            // for(let i = 0; i < carritoDelUsuario[0].product_carrito.length;i++){
-            //     console.log("Articulo:",carritoDelUsuario[0].product_carrito[i].name)
-
-            //     for(let j = 0; j < carritoDelUsuario[0].product_carrito[i].images.length;j++){
-            //         console.log("Imagen n°"+j+":",carritoDelUsuario[0].product_carrito[i].images[j].file_name)
-            //     }
-
-            //     console.log("Talle:",carritoDelUsuario[0].sizes_carrito[i].name)
-                
-            // }
+            console.log("Cantidad de articulos en carrito",carritoDelUsuarioC)
         res.render('carrito',{
             user: req.session.user,
-            data: carritoDelUsuario[0],
+            data: carritoDelUsuarioC[0],
             menu: menu,
             productosNewSeason: productoNS,
             productosSale: productoS,

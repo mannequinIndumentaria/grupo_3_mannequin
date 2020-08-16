@@ -14,8 +14,8 @@ const productController = {
     addToCart: async (req,res)=>{
         const usuario = Number(req.body.userId)
         const producto = Number(req.body.artId)
+        const talle = Number(req.body.sizeId)
         // En la vista no se puede seleccionar talle por el momento
-        const talle = 1
         db.Cart.create(
             {
                 products_idproducts: producto,

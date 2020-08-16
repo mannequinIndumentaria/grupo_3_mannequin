@@ -12,26 +12,33 @@
 					<% let subtotal = 0 %>
 					<% let descuentos = 0 %>
 				   <!-- <span class="tituloArticulos">Articulos<%= data.length %></span> -->
-					<% for(articulo of data.product_carrito){ %>
+					<% for(articulo of data){ %>
 					   <div class="articulo" id="<%= articulo.idproducts %>" name="idArticulo">
 					  <div class="row prueba">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-							<% if(typeof articulo.images[0] != 'undefined') { %>
-								<img class="foto-item-carrito" src="/images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproducts %>">
+							<% if(typeof articulo.image != 'undefined') { %>
+								<img class="foto-item-carrito" src="/images/articulos/<%= articulo.image %>" alt="" id="foto<%= articulo.idproducts %>">
 							<% }else{ %>
 								<img class="foto-item-carrito" src="/images/articulos/no_img.png" alt="" id="foto<%= articulo.idproducts %>">
 							<% }%>
-							<!-- <img class="foto-item-carrito" src="images/articulos/<%= articulo.images[0].file_name %>" alt="" id="foto<%= articulo.idproducts %>"> -->
+							
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
 							<span class="precio-item-carrito"><%= articulo.price %></span>
 							<span class="titulo-item-carrito"><%= articulo.name %></span>
 							<% subtotal += Number(articulo.price) %>
 							<% descuentos += Number(articulo.discount) %>
-							<div class="selector-color-carrito">
-								<p id="nombreElegido<%= articulo.idproducts %>" class="color-elegido" name="color"></p>
-								<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
+							<!-- <div class="selector-color-carrito"> -->
+							<i>Talle: <%= articulo.size %></i>
+							<!-- CANTIDAD -->
+							<div class="selector-cantidad-carrito">
+								<button onclick="cantidad('<%= articulo.idproducts %>','restar',<%= articulo.stock %>)" class="botones-cantidad">-</button>
+								<input type="text" value="<%= articulo.cantidad %>" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= articulo.idproduct %>" name="cantidad"/>
+								<button onclick="cantidad('<%= articulo.idproducts %>','sumar', <%= articulo.stock %>) " class="botones-cantidad">+</button>
+								<div id="stockMax<%= articulo.idproducts%>"></div>
 							</div>
+							<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
+							<!-- </div> -->
 							
 							<div class="botones-detalle-carrito">
 								<div class="botones-fav-del-carrito">
