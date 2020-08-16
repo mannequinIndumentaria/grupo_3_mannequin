@@ -4,5 +4,7 @@ const apiCategoriesController = require('../../controllers/api/categoriesControl
 
 /* GET home page. */
 router.get('/', apiCategoriesController.getAllCategories);
+router.get('/withProducts', apiCategoriesController.getCategoriesWithProducts);
+
 
 module.exports = router;
