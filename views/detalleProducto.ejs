@@ -65,14 +65,30 @@
                                             document.getElementById('nombreElegido' + id).innerHTML = "Color elegido: " + color;
                                         }
                 
-                                        function favoritos(id) {
+                                        function favoritos(id,iduser) {
                                             var objFavorito = document.getElementById('favorito' + id);
+                                            // quitar de fav
                                             if (objFavorito.value == 1) {
                                                 objFavorito.className = "heart-carrito far fa-heart";
                                                 objFavorito.value = 0;
+                                                fetch("http://localhost:3000/api/products/favorite",{
+                                                    method: 'POST',
+                                                    body: JSON.stringify({artId: id, userId: iduser, action: 'remove'}),
+                                                    headers: {
+                                                    'Content-Type': 'application/json'
+                                                    }
+                                                })
                                             } else {
+                                            // agregar a fav
                                                 objFavorito.className = "heart-carrito fas fa-heart";
                                                 objFavorito.value = 1;
+                                                fetch("http://localhost:3000/api/products/favorite",{
+                                                    method: 'POST',
+                                                    body: JSON.stringify({artId: id, userId: iduser, action: 'add'}),
+                                                    headers: {
+                                                    'Content-Type': 'application/json'
+                                                    }
+                                                })
                                             }
                                         }
                                         function borrar(id) {
@@ -132,7 +148,11 @@
                                                 <div id="talles<%= productsOnSite.idproducts%>">
                                                     <div>
                                                         <% for(let s = 0; s < productsOnSite.sizes.length; s++){%>
-                                                        <button class="boton-talle" onclick="elegirTalle('talle<%= productsOnSite.sizes[s].idsizes %>')" id="talle<%= productsOnSite.sizes[s].idsizes %>"><%= productsOnSite.sizes[s].name %></button>
+                                                            <% if(s == 0){%>
+                                                                <button class="boton-talle-elegido" onclick="elegirTalle('talle<%= productsOnSite.sizes[s].idsizes %>')" id="talle<%= productsOnSite.sizes[s].idsizes %>"><%= productsOnSite.sizes[s].name %></button>
+                                                            <%}else{%>
+                                                                <button class="boton-talle" onclick="elegirTalle('talle<%= productsOnSite.sizes[s].idsizes %>')" id="talle<%= productsOnSite.sizes[s].idsizes %>"><%= productsOnSite.sizes[s].name %></button>
+                                                            <%}%>
                                                         <%}%>
                                                         <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg" >Guia de talles</button>
                                                     </div>
@@ -152,19 +172,61 @@
 
                                         <!-- FAVORITO -->
                                         <div class="col-12 mt-4">
+                                            <% if(user != undefined){%>
                                             <div class="text-center">
                                                 <div class="boton-favorito-carrito" >
-                                                    <button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= productsOnSite.idproducts%>')"
+                                                    <button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= productsOnSite.idproducts%>','<%= user.idusers %>')"
                                                         id="favorito<%= productsOnSite.idproducts%>"></button>
-                                                        <a href="#" onclick="favoritos('<%= productsOnSite.idproducts%>')" class="text-dark">
+                                                        <a href="#" onclick="favoritos('<%= productsOnSite.idproducts%>','<%= user.idusers %>')" class="text-dark">
                                                             <span>Agregar a favoritos</span>
                                                         </a>
+
+                                                    <script>
+                                                        fetch("http://localhost:3000/api/products/itsfavorite/<%= user.idusers %>/<%= productsOnSite.idproducts%>")
+                                                        .then(function(respuesta){
+                                                            return respuesta.json()
+                                                        })
+                                                        .then(function(info){
+                                                            var boton = document.getElementById("favorito<%= productsOnSite.idproducts%>");
+                                                            console.log("asdasdasd",info)
+                                                            if(info == 1){
+                                                                boton.className = "heart-carrito fas fa-heart"
+                                                            }else{
+                                                                boton.className = "heart-carrito far fa-heart"
+                                                            }
+                                                        })
+                                                    </script>
+                                                    
                                                 </div>
                                             </div>
+                                            <%}%>
                                         </div>
-
+                                        
                                         <div class="col-12 mt-3 mb-3">
-                                            <button class="btn btn-dark btn-lg btn-block"> Agregar al carrito </button>
+                                            <button class="btn btn-dark btn-lg btn-block" id="addBag"> Agregar al carrito </button>
+                                            <script>
+                                                var addBag2 = document.getElementById("addBag");
+                                                <% if(user != undefined){%>
+                                                    addBag2.addEventListener("click",function(){
+                                                    var talle = '1';
+                                                    var tt = document.getElementsByClassName("boton-talle-elegido")[0];
+                                                    if(typeof tt != 'undefined'){
+                                                        talle = tt.id.replace("talle", "");
+                                                    }
+                                                
+                                                    console.log("talle-elegido",talle);
+                                                    fetch("http://localhost:3000/api/products/cart",{
+                                                            method: 'POST',
+                                                            body: JSON.stringify({artId: <%= productsOnSite.idproducts%>, userId: <%= user.idusers %>, sizeId: talle}),
+                                                            headers: {
+                                                            'Content-Type': 'application/json'
+                                                            }
+                                                    })
+                                                })
+                                                <%}else{%>
+                                                    addBag2.style.display = "none"
+                                                <%}%>
+                                            </script>
                                         </div>
 
                                         <!-- REDES -->
@@ -212,7 +274,9 @@
             </div>
         </div>
         <%- include('./partials/scriptBootstrap.ejs') %>
+        <script>
 
+        </script>
 
         <div class="modal fade bd-example-modal-lg" id="tallesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

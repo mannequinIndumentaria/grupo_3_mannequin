@@ -9,15 +9,6 @@ module.exports = function (sequelize, DataTypes) {
         key: 'idproducts'
       }
     },
-    sizes_idsizes: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'sizes',
-        key: 'idsizes'
-      }
-    },
     users_idusers: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -26,18 +17,14 @@ module.exports = function (sequelize, DataTypes) {
         model: 'users',
         key: 'idusers'
       }
-    },
-    cantidad: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
     }
   };
   const config = {
-    tableName: 'carts',
+    tableName: 'favorites',
     timestamps: false
   };
 
-  const Cart = sequelize.define('Cart', cols, config);
+  const Favorite = sequelize.define('Favorite', cols, config);
 
   // Cart.associate = function (models) {
   //   Cart.belongsTo(models.User, {
@@ -50,5 +37,5 @@ module.exports = function (sequelize, DataTypes) {
   //   })
   // }
 
-  return Cart;
+  return Favorite;
 };
