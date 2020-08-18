@@ -259,6 +259,7 @@ CREATE TABLE IF NOT EXISTS `mannequin_db`.`carts` (
   `users_idusers` INT(11) NOT NULL,
   `products_idproducts` INT(11) NOT NULL,
   `sizes_idsizes` INT(11) NOT NULL,
+  `cantidad` int(11) DEFAULT 1,
   PRIMARY KEY (`users_idusers`, `products_idproducts`, `sizes_idsizes`),
   INDEX `fk_users_has_products_products1_idx` (`products_idproducts` ASC) ,
   INDEX `fk_users_has_products_users1_idx` (`users_idusers` ASC) ,
