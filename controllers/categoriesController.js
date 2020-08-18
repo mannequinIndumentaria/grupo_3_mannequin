@@ -205,6 +205,97 @@ const categoriesController = {
                 thousandGenerator: toThousand
             });
 
+    },
+    favorites: async(req,res)=>{
+        //Inicializo un objeto Order
+        let order = {
+            query: [],
+            url: 'name'
+        }
+        //Si viene algo en el query param entonces lleno este objeto
+        switch (req.query.order) {
+            case 'name':
+                order.query = [['name', 'ASC']]
+                order.url = 'name'
+                break;
+            case 'price':
+                order.query = [['price', 'ASC']]
+                order.url = 'price'
+                break;
+            case 'color':
+                order.query = [['color', 'ASC']]
+                order.url = 'color'
+                break;
+            default:
+                order.query = [['name', 'ASC']]
+                order.url = 'name'
+        }
+
+        //Atrapo si no viene query param de page
+        var page_nu = 0
+        function pagina() {
+            if (req.query.page) { page_nu = parseInt(req.query.page) - 1 }
+            return page_nu
+        }
+        page_nu = pagina()
+
+        //Atrapo si no viene query param de page
+        var tam_nu = 8
+        function tamano() {
+            if (req.query.size) { tam_nu = parseInt(req.query.size) }
+
+            return tam_nu
+        }
+        tam_nu = tamano()
+
+
+        //Armo objeto Pagination
+        const pagination = {
+            page_number: page_nu,
+            page_size: tam_nu,
+            pages: 0,
+            total_products: 1,
+            filtered: 0, /*Cuando viene en 0 Total productos, 1 Filtrador por Categoría, 2 Search*/
+            order: order.url
+        };
+
+        const products = await db.Product.findAndCountAll({
+            include: [
+                {
+                    association: 'users',
+                    where:{
+                        idusers: 7
+                    }
+                },
+                {
+                    association: 'images'
+                },
+                {
+                    association: 'sizes'
+                }
+            ],
+            
+            limit: pagination.page_size,
+            offset: pagination.page_size * pagination.page_number,
+            distinct: true,
+            order: order.query
+        })
+
+
+        console.log("products",products);
+
+        pagination.total_products = products.count
+        pagination.pages = Math.ceil(pagination.total_products / pagination.page_size)
+
+        res.render('categories',
+        {
+            user: req.session.user,
+            menu: menu,
+            products: products.rows,
+            //productsOnSite: productsFinal,
+            pagination: pagination,
+            thousandGenerator: toThousand
+        });
     }
 
 }
