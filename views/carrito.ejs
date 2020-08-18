@@ -3,6 +3,7 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<script src="/js/funciones.js"></script>
+	<script src="/js/latido.js"></script>
 	<script>
 		function agregarEvento(idproduct,idsize){
 		var selectorCantidad = document.getElementById("cantidadElegido"+idproduct+"s"+idsize);
@@ -76,11 +77,25 @@
 							<div class="botones-detalle-carrito">
 								<div class="botones-fav-del-carrito">
 									<div class="boton-favorito-carrito">
-										<% if(articulo.favorito == 0){ %>
-											<button class="heart-carrito fas fa-heart" value="1" onclick="favoritos('<%= articulo.idproducts %>')" id="favorito<%= articulo.idproducts %>" name="favorito"></button>
-										<% }else{ %>
-											<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.idproducts %>')" id="favorito<%= articulo.idproducts %>" name="favorito"></button>
-										<% } %>	
+										<button class="heart-carrito far fa-heart" value="0" onclick="favoritos('<%= articulo.idproducts%>','<%= user.idusers %>')"
+											id="favorito<%= articulo.idproducts%>"></button>
+
+
+										<script>
+											fetch("http://localhost:3000/api/products/itsfavorite/<%= user.idusers %>/<%= articulo.idproducts%>")
+											.then(function(respuesta){
+												return respuesta.json()
+											})
+											.then(function(info){
+												var boton = document.getElementById("favorito<%= articulo.idproducts%>");
+												console.log("asdasdasd",info)
+												if(info == 1){
+													boton.className = "heart-carrito fas fa-heart"
+												}else{
+													boton.className = "heart-carrito far fa-heart"
+												}
+											})
+										</script>
 									</div>
 									<div class="boton-borrar-carrito">
 										<script>
@@ -170,14 +185,31 @@
 		document.getElementById('nombreElegido'+id).innerHTML="Color elegido: "+color;
 	}
 
-	function favoritos(id){
-		var objFavorito = document.getElementById('favorito'+id);
-		if(objFavorito.value == 1){
-			objFavorito.className ="heart-carrito far fa-heart";
+	function favoritos(id,iduser) {
+		latido();
+		var objFavorito = document.getElementById('favorito' + id);
+		// quitar de fav
+		if (objFavorito.value == 1) {
+			objFavorito.className = "heart-carrito far fa-heart";
 			objFavorito.value = 0;
-		}else{
-			objFavorito.className ="heart-carrito fas fa-heart";
+			fetch("http://localhost:3000/api/products/favorite",{
+				method: 'POST',
+				body: JSON.stringify({artId: id, userId: iduser, action: 'remove'}),
+				headers: {
+				'Content-Type': 'application/json'
+				}
+			})
+		} else {
+		// agregar a fav
+			objFavorito.className = "heart-carrito fas fa-heart";
 			objFavorito.value = 1;
+			fetch("http://localhost:3000/api/products/favorite",{
+				method: 'POST',
+				body: JSON.stringify({artId: id, userId: iduser, action: 'add'}),
+				headers: {
+				'Content-Type': 'application/json'
+				}
+			})
 		}
 	}
 </script>
