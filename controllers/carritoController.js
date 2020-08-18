@@ -61,7 +61,7 @@ const carritoController = {
         // Filtro de carrito los articulos del usuario
 
             const carritoDelUsuarioC = await sequelize.query(`
-                SELECT p.idproducts, p.name, p.description, p.price,p.discount, p.color,  i.file_name as image, s.name as size,phs.stock  FROM carts c
+                SELECT p.idproducts, p.name, p.description, p.price,p.discount, p.color,  i.file_name as image, s.name as size, s.idsizes as idsize,phs.stock, c.cantidad  FROM carts c
                 INNER JOIN products p ON p.idproducts = c.products_idproducts
                 INNER JOIN products_has_images phm ON phm.products_idproducts = c.products_idproducts
                 INNER JOIN images i ON i.idimage = phm.images_idimage

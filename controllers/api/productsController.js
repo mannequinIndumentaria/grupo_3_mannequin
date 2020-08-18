@@ -17,7 +17,46 @@ const productController = {
             res.json("");
         }
     },
-
+    addToFavorites: async (req, res) => {
+        const usuario = Number(req.body.userId)
+        const producto = Number(req.body.artId)
+        const action = req.body.action
+        if(action == "add"){
+            // En la vista no se puede seleccionar talle por el momento
+            db.Favorite.create(
+                {
+                    products_idproducts: producto,
+                    users_idusers: usuario
+                }
+            )
+        }else{
+            db.Favorite.destroy(
+                {
+                    where: {
+                        products_idproducts: producto,
+                        users_idusers: usuario
+                    }
+                }
+            )
+        }
+        res.json("ok")
+    },
+    itsFavorite: async (req, res) => {
+        const usuario = Number(req.params.userId)
+        const producto = Number(req.params.artId)
+        const respuesta = await db.Favorite.findOne({
+            where:
+            {
+                products_idproducts: producto,
+                    users_idusers: usuario
+            }
+        })
+        if(respuesta){
+            res.json(1)
+        }else{
+            res.json(0)
+        }
+    },
     addToCart: async (req, res) => {
         const usuario = Number(req.body.userId)
         const producto = Number(req.body.artId)
@@ -27,9 +66,61 @@ const productController = {
             {
                 products_idproducts: producto,
                 users_idusers: usuario,
-                sizes_idsizes: talle
+                sizes_idsizes: talle,
+                cantidad: 1
             }
         )
+        res.json("ok")
+    },
+    removeFromCart: async (req, res) => {
+        const usuario = Number(req.body.iduser)
+        const producto = Number(req.body.idproduct)
+        const talle = Number(req.body.idsize)
+        // En la vista no se puede seleccionar talle por el momento
+        db.Cart.destroy(
+            {
+                where: {
+                    products_idproducts: producto,
+                    users_idusers: usuario,
+                    sizes_idsizes: talle,
+                }
+            }
+        )
+        res.json("Borrado");
+    },
+    getStockProduct: async (req,res) => {
+        const productId = req.params.productId;
+        const sizeId = req.params.sizeId;
+        const respuesta = await db.Product_has_size.findAll({
+            where:{
+                products_idproducts: productId,
+                sizes_idsizes: sizeId
+            }
+        })
+        console.log("respuesta stock",respuesta[0].stock)
+        if (respuesta) {
+            res.json(respuesta[0].stock);
+        } else {
+            res.json("");
+        }
+    },
+    setCantidad: async (req,res) => {
+        const productId = req.body.idproduct;
+        const sizeId = req.body.idsize;
+        const cantidad = req.body.cantidad;
+        const userId = req.body.iduser;
+        const dato = {
+            cantidad: cantidad
+        }
+
+        const respuest = await db.Cart.update(dato,{
+            where: {
+                users_idusers: userId,
+                products_idproducts:productId,
+                sizes_idsizes:sizeId
+            }
+        })
+        res.json("respondido")
     },
     getUserCart: async (req, res) => {
         const usuario = Number(req.params.userId)

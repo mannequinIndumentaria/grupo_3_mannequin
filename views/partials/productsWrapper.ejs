@@ -4,14 +4,30 @@
         document.getElementById('elegido' + id).value = color;
         document.getElementById('nombreElegido' + id).innerHTML = "Color elegido: " + color;
     }
-    function favoritos(id) {
+    function favoritos(id,iduser) {
         var objFavorito = document.getElementById('favorito' + id);
+        // quitar de fav
         if (objFavorito.value == 1) {
             objFavorito.className = "heart-carrito far fa-heart";
             objFavorito.value = 0;
+            fetch("http://localhost:3000/api/products/favorite",{
+                method: 'POST',
+                body: JSON.stringify({artId: id, userId: iduser, action: 'remove'}),
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            })
         } else {
+        // agregar a fav
             objFavorito.className = "heart-carrito fas fa-heart";
             objFavorito.value = 1;
+            fetch("http://localhost:3000/api/products/favorite",{
+                method: 'POST',
+                body: JSON.stringify({artId: id, userId: iduser, action: 'add'}),
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            })
         }
     }
 
@@ -129,8 +145,23 @@
                                     <div class="boton-favorito-carrito">
                                         <% if(user != undefined){%>
                                         <button class="heart-carrito far fa-heart" value="0"
-                                            onclick="favoritos('<%=products[i].idproducts%>')"
+                                            onclick="favoritos('<%=products[i].idproducts%>','<%= user.idusers %>')"
                                             id="favorito<%=products[i].idproducts%>"></button>
+                                            <script>
+                                                fetch("http://localhost:3000/api/products/itsfavorite/<%= user.idusers %>/<%=products[i].idproducts%>")
+                                                .then(function(respuesta){
+                                                    return respuesta.json()
+                                                })
+                                                .then(function(info){
+                                                    var boton = document.getElementById("favorito<%=products[i].idproducts%>");
+                                                    console.log("asdasdasd",info)
+                                                    if(info == 1){
+                                                        boton.className = "heart-carrito fas fa-heart"
+                                                    }else{
+                                                        boton.className = "heart-carrito far fa-heart"
+                                                    }
+                                                })
+                                            </script>
                                         <%}%>
                                     </div>
                                 </div>

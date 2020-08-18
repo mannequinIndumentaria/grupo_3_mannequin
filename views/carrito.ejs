@@ -3,6 +3,37 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<script src="/js/funciones.js"></script>
+	<script>
+		function agregarEvento(idproduct,idsize){
+		var selectorCantidad = document.getElementById("cantidadElegido"+idproduct+"s"+idsize);
+		selectorCantidad.addEventListener("change",function(){
+			console.log("SLECR")
+			var data = {
+				idproduct: idproduct,
+				idsize:idsize,
+				iduser: <%= user.idusers %>,
+				cantidad: this.value
+			}
+			console.log("DATA", data);
+			// Descuento
+			fetch("http://localhost:3000/api/products/discountStock",
+			{
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-type': 'application/json'
+				}
+			})
+			.then(function(res){
+				return res.json()
+			})
+			.then(function(res){
+				console.log('llego esta data',res)
+			})
+			//Obtengo stock actual.
+		})
+	}
+	</script>
    <div class="container-fluid">
 		<%- include('./partials/header.ejs') %>
 		<div class="contenido">
@@ -13,7 +44,7 @@
 					<% let descuentos = 0 %>
 				   <!-- <span class="tituloArticulos">Articulos<%= data.length %></span> -->
 					<% for(articulo of data){ %>
-					   <div class="articulo" id="<%= articulo.idproducts %>" name="idArticulo">
+					   <div class="articulo" id="<%= articulo.idproducts %>p<%= articulo.idsize %>" name="idArticulo">
 					  <div class="row prueba">
 						 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							<% if(typeof articulo.image != 'undefined') { %>
@@ -24,19 +55,21 @@
 							
 						 </div>
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
-							<span class="precio-item-carrito"><%= articulo.price %></span>
+							<span class="precio-item-carrito">$<%= articulo.price %></span>
 							<span class="titulo-item-carrito"><%= articulo.name %></span>
 							<% subtotal += Number(articulo.price) %>
 							<% descuentos += Number(articulo.discount) %>
 							<!-- <div class="selector-color-carrito"> -->
 							<i>Talle: <%= articulo.size %></i>
-							<!-- CANTIDAD -->
-							<div class="selector-cantidad-carrito">
-								<button onclick="cantidad('<%= articulo.idproducts %>','restar',<%= articulo.stock %>)" class="botones-cantidad">-</button>
-								<input type="text" value="<%= articulo.cantidad %>" maxlength="3" class="cantidadCarrito" id="cantidadElegido<%= articulo.idproduct %>" name="cantidad"/>
-								<button onclick="cantidad('<%= articulo.idproducts %>','sumar', <%= articulo.stock %>) " class="botones-cantidad">+</button>
-								<div id="stockMax<%= articulo.idproducts%>"></div>
-							</div>
+							<label for="cantidadElegido<%= articulo.idproducts %>s<%= articulo.idsize %>">Cantidad</label>
+							<select name="cantidad" class="form-control form-control-sm" id="cantidadElegido<%= articulo.idproducts %>s<%= articulo.idsize %>">
+								<%for(var i = 1; i <= articulo.stock; i++){%>
+									<option value="<%= i %>" <%= i == articulo.cantidad ? 'selected' : ''%>><%= i %></option>
+								<%}%>
+							</select>
+							<script>
+								agregarEvento("<%= articulo.idproducts %>","<%= articulo.idsize %>")
+							</script>
 							<button class="boton-slector-color" style="background-color: <%= articulo.color %>"></button>
 							<!-- </div> -->
 							
@@ -51,12 +84,31 @@
 									</div>
 									<div class="boton-borrar-carrito">
 										<script>
-											function deleteItem(id){
-												var objArticulo = document.getElementById(id);
-												objArticulo.remove();
+											function deleteItem(idproduct,idsize){
+												var data = {
+													idproduct: idproduct,
+													idsize:idsize,
+													iduser: <%= user.idusers %>
+												}
+
+												fetch("http://localhost:3000/api/products/cart/removeitem",{
+													method: 'POST',
+													body: JSON.stringify(data),
+													headers: {
+														'Content-type': 'application/json'
+													}
+												})
+												.then(function(res){
+													return res.json()
+												})
+												.then(function(res){
+													var objArticulo = document.getElementById(idproduct+'p'+idsize);
+													console.log("removiendo", objArticulo)
+													objArticulo.remove();
+												})
 											}
 										</script>
-										<button class="trash-carrito fas fa-trash-alt" onclick="deleteItem('<%= articulo.idproducts %>')" name="borrar"></button>
+										<button class="trash-carrito fas fa-trash-alt" onclick="deleteItem('<%= articulo.idproducts %>','<%= articulo.idsize %>')" name="borrar"></button>
 									</div>
 								</div>
 								
@@ -116,24 +168,6 @@
 		document.getElementById('foto'+id).src=rutaImagen;
 		document.getElementById('elegido'+id).value=color;
 		document.getElementById('nombreElegido'+id).innerHTML="Color elegido: "+color;
-	}
-
-	function cantidad(id,operacion,maxStock){
-		var objCantidad = document.getElementById('cantidadElegido'+id);
-		if(operacion ==='sumar'){
-			if(objCantidad.value < maxStock){
-				objCantidad.value++;
-				document.getElementById('stockMax'+id).innerHTML = "";
-			}else{
-				document.getElementById('stockMax'+id).innerHTML = "stock maximo";
-			}
-		}else{
-			if(objCantidad.value>1){
-				document.getElementById('stockMax'+id).innerHTML = "";
-				objCantidad.value--;
-			}
-		}
-		this.total();
 	}
 
 	function favoritos(id){
