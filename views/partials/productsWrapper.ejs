@@ -1,3 +1,4 @@
+<script src="/js/latido.js"></script>
 <script>
     function seleccionarColor(id, rutaImagen, color) {
         document.getElementById('foto' + id).src = rutaImagen;
@@ -5,6 +6,7 @@
         document.getElementById('nombreElegido' + id).innerHTML = "Color elegido: " + color;
     }
     function favoritos(id,iduser) {
+        latido()
         var objFavorito = document.getElementById('favorito' + id);
         // quitar de fav
         if (objFavorito.value == 1) {
@@ -32,6 +34,7 @@
     }
 
 </script>
+
 <div class="card-group">
     <% if(products.length > 0){ %>
         <% var grupoAnterior = 0;%>
@@ -56,7 +59,7 @@
                                     <% if(user != undefined){%>
                                         botonBag.addEventListener("click",function(){
                                         var tt = document.getElementById("talleSeleccionado<%=products[i].idproducts%>").value;
-                                        console.log("este producto <%=products[i].idproducts%>");
+                                        newitem()
                                         fetch("http://localhost:3000/api/products/cart",{
                                                 method: 'POST',
                                                 body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>, sizeId: tt}),
@@ -119,7 +122,7 @@
                                                 <% if(user != undefined){%>
                                                     addBag2.addEventListener("click",function(){
                                                     var tt = document.getElementById("talleSeleccionado<%=products[i].idproducts%>").value;
-                                                    console.log("este otro producto",<%= products[i].idproducts%>)
+                                                    newitem()
                                                     fetch("http://localhost:3000/api/products/cart",{
                                                             method: 'POST',
                                                             body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>, sizeId: tt}),
@@ -218,7 +221,7 @@
                         <% if(user != undefined){%>
                             addBag2.addEventListener("click",function(){
                             var tt = document.getElementById("talleSeleccionado<%=products[i].idproducts%>").value;
-                            console.log("este producto <%=products[i].idproducts%>");
+                            newitem()
                             fetch("http://localhost:3000/api/products/cart",{
                                     method: 'POST',
                                     body: JSON.stringify({artId: <%=products[i].idproducts%>, userId: <%= user.idusers %>, sizeId: tt}),
