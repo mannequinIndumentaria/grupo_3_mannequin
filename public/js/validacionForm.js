@@ -136,7 +136,7 @@ window.addEventListener("load", function () {
         mostrarError(this.id, validarString)
         mostrarError(this.id, validateEmail)   
 
-        fetch(`/api/users/${campoEmail.value}`)
+        fetch(`/api/users/email/${campoEmail.value}`)
         .then(function(response){
             return response.json();
         })
