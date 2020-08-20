@@ -28,36 +28,53 @@ function sendPedido(iduser){
   })
   .then(function(informacion){
     var cuerpoEmail = "DATOS DE CONTACTO%0D";
-    cuerpoEmail += `Usuario N°(${informacion.idusers})%0D`;
-    cuerpoEmail += `${informacion.name} ${informacion.lastname}%0D`;
-    cuerpoEmail += `Email: ${informacion.email} %0D`;
-    cuerpoEmail += `Telefono: ${informacion.telephone}%0D`;
-    cuerpoEmail += "Domicilio: "
-    cuerpoEmail += `${informacion.address_street} ${informacion.address_number} piso: ${informacion.address_floor} ${informacion.address_dept} (C.P.${informacion.address_post_code})  ${informacion.city}%0D`;
-    cuerpoEmail += "%0D%0D### PEDIDO ###%0D%0D";
-    console.log(informacion.product_carrito.length)
-    cuerpoEmail += "Codigo%09Talle%09P.Unitario%09Descuento%09Importe%09Producto%0D"
-    var total = 0;
-    var subtotal = 0;
-    var descuentos = 0;
-    for(item of informacion.product_carrito){
-      descuentos += Number(item.discount);
-      subtotal += Number(item.price);
-      total += item.price - item.discount;
-      console.log("estoy en el for");
-      cuerpoEmail += item.idproducts + "%09";
-      cuerpoEmail += 'S' + "%09";
-      cuerpoEmail += "$"+item.price + "%09";
-      cuerpoEmail += "$"+item.discount + "%09%09";
-      cuerpoEmail += "$"+(item.price - item.discount) + "%09%09";
-      cuerpoEmail += item.name + "%0D";
-    }
-    cuerpoEmail += "%0D%09%09%09Subtotal: %09 $"+subtotal;
-    cuerpoEmail += "%0D%09%09%09Descuentos: %09 $"+descuentos;
-    cuerpoEmail += "%0D%09%09%09TOTAL: %09%09 $"+total+"%0D%0D";
-    this.username = informacion.name;
-    console.log(cuerpoEmail)
-    this.sendEmail(this.username,cuerpoEmail);
+    fetch(`http://localhost:3000/api/users/${iduser}`)
+    .then(function(respuesta){
+      return respuesta.json()
+    })
+    .then(function(usuarioinfo){
+      console.log("USUARIO", usuarioinfo)
+      cuerpoEmail += `Usuario N°(${usuarioinfo.idusers})%0D`;
+      cuerpoEmail += `${usuarioinfo.name} ${usuarioinfo.lastname}%0D`;
+      cuerpoEmail += `Email: ${usuarioinfo.email} %0D`;
+      cuerpoEmail += `Telefono: ${usuarioinfo.telephone}%0D`;
+      cuerpoEmail += "Domicilio: "
+      cuerpoEmail += `${usuarioinfo.address_street} ${usuarioinfo.address_number} piso: ${usuarioinfo.address_floor} ${usuarioinfo.address_dept} (C.P.${usuarioinfo.address_post_code})  ${usuarioinfo.city}%0D`;
+      // PEDIDO
+      cuerpoEmail += "%0D%0D### PEDIDO ###%0D%0D";
+      cuerpoEmail += "Codigo%09Cantidad%09Talle%09P.Unitario%09Descuento%09Subtotal%09Total%09%09Producto%0D"
+      var total = 0;
+      var subtotal = 0;
+      var descuentos = 0;
+      for(item of informacion){
+        descuentos += Number(item.descuento);
+        subtotal += Number(item.subtotal);
+        total += Number(item.total);
+
+        console.log("estoy en el for");
+        cuerpoEmail += item.idproducts + "%09";
+        cuerpoEmail += item.cantidad + "%09%09";
+        cuerpoEmail += item.talle + "%09";
+        cuerpoEmail += "$"+item.unitario + "%09";
+        cuerpoEmail += "$"+item.descuento + "%09%09";
+        cuerpoEmail += "$"+item.subtotal + "%09";
+        cuerpoEmail += "$"+item.total + "%09";
+        cuerpoEmail += item.name + "%0D";
+      }
+      var cupon = document.getElementById('mensajecupon').innerHTML;
+      if(cupon != ""){
+        cuerpoEmail += "%0D%09%09%09Subtotal: %09 "+document.getElementById('subtotal').innerHTML;
+        cuerpoEmail += "%0D%09%09%09Descuentos: %09 "+document.getElementById('descuento').innerHTML;
+        cuerpoEmail += "%0D%09%09%09TOTAL: %09%09 "+document.getElementById('total').innerHTML+"%0D%0D";
+      }else{
+        cuerpoEmail += "%0D%09%09%09Subtotal: %09 $"+subtotal;
+        cuerpoEmail += "%0D%09%09%09Descuentos: %09 $"+descuentos;
+        cuerpoEmail += "%0D%09%09%09TOTAL: %09%09 $"+total+"%0D%0D";
+      }
+      this.username = informacion.name;
+      console.log(cuerpoEmail)
+      this.sendEmail(this.username,cuerpoEmail);
+    })
   })
   .catch(function(error){
     console.log(error);

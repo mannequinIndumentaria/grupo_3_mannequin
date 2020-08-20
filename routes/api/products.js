@@ -13,4 +13,7 @@ router.get('/:productId/:sizeId', apiProductsController.getStockProduct)
 router.post('/discountStock', apiProductsController.setCantidad)
 router.post('/favorite', apiProductsController.addToFavorites);
 router.get('/itsfavorite/:userId/:artId', apiProductsController.itsFavorite);
+router.post('/aplicarDescuento', apiProductsController.aplicarDescuento);
+router.post('/getTotales', apiProductsController.getTotalCart);
+
 module.exports = router;
