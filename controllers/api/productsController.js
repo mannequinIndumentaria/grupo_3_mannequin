@@ -1,5 +1,6 @@
 let menu = require('../../services/menu');
 const db = require('../../database/models');
+const { sequelize } = require('../../database/models');
 
 const productController = {
     getAllProducts: async (req, res) => {
@@ -72,6 +73,23 @@ const productController = {
         )
         res.json("ok")
     },
+    getTotalCart: async (req, res) => {
+        console.log("entreeeeeeee")
+        const usuario = Number(req.body.user)
+        // En la vista no se puede seleccionar talle por el momento
+        const respuesta = await sequelize.query(`
+            SELECT sum(totales.total) as total, sum(totales.descuentoTotal) as descuentos, sum(totales.subtotal) as subtotal from (SELECT p.idproducts, c.cantidad,p.price as unitario,p.discount as descuento,(p.price * c.cantidad) as subtotal,(p.discount* c.cantidad) as descuentototal,(p.price-p.discount) * cantidad as total   FROM carts c
+            INNER JOIN products p ON p.idproducts = c.products_idproducts
+            INNER JOIN products_has_images phm ON phm.products_idproducts = c.products_idproducts
+            INNER JOIN images i ON i.idimage = phm.images_idimage
+            INNER JOIN sizes s ON s.idsizes = c.sizes_idsizes
+            INNER JOIN products_has_sizes phs ON phs.products_idproducts = p.idproducts and phs.sizes_idsizes = s.idsizes
+            where c.users_idusers = ${usuario}
+            group by p.idproducts, s.idsizes ) as totales 
+        `)
+        const totales = respuesta[0][0];
+        res.json(totales)
+    },
     removeFromCart: async (req, res) => {
         const usuario = Number(req.body.iduser)
         const producto = Number(req.body.idproduct)
@@ -125,26 +143,29 @@ const productController = {
     getUserCart: async (req, res) => {
         const usuario = Number(req.params.userId)
         // En la vista no se puede seleccionar talle por el momento
-        const respuesta = await db.User.findAll({
-            where: { idusers: usuario },
-            include: [
-                {
-                    association: "sizes_carrito"
-                }, {
-                    association: "product_carrito",
-                    include: {
-                        association: "images"
-                    }
-                },
-            ]
-        })
-        const nuevo = respuesta[0].product_carrito.map((item) => {
-            idproduct: item.idproduct
-            name: item.name
-            price: item.price
-        })
-
-        console.log(nuevo);
+        // const respuesta = await db.User.findAll({
+        //     where: { idusers: usuario },
+        //     include: [
+        //         {
+        //             association: "sizes_carrito"
+        //         }, {
+        //             association: "product_carrito",
+        //             include: {
+        //                 association: "images"
+        //             }
+        //         },
+        //     ]
+        // })
+        const respuesta = await sequelize.query(`
+        SELECT c.cantidad, p.idproducts, s.name as talle ,p.price as unitario,p.discount as descuento,(p.price * c.cantidad) as subtotal,(p.discount* c.cantidad) as descuentototal,(p.price-p.discount) * cantidad as total, p.name   FROM carts c
+            INNER JOIN products p ON p.idproducts = c.products_idproducts
+            INNER JOIN products_has_images phm ON phm.products_idproducts = c.products_idproducts
+            INNER JOIN images i ON i.idimage = phm.images_idimage
+            INNER JOIN sizes s ON s.idsizes = c.sizes_idsizes
+            INNER JOIN products_has_sizes phs ON phs.products_idproducts = p.idproducts and phs.sizes_idsizes = s.idsizes
+            where c.users_idusers =${usuario}
+            group by p.idproducts, s.idsizes
+        `)
 
         if (respuesta) {
             console.log("TE RESPONDO ESTO", respuesta[0]);
@@ -174,6 +195,43 @@ const productController = {
             res.json(respuesta);
         } else {
             res.json("");
+        }
+    },
+    aplicarDescuento: async (req, res) => {
+        const codigo = req.body.code;
+        const cupon = await db.Discount_coupon.findOne(
+            {
+                where: {
+                    code: codigo,
+                    used: 0
+                }
+            }
+        )
+
+        const respuesta = {
+            estado: 0,
+            mensaje: '',
+            cupon: Object
+        }
+
+        console.log("RESPUESTA CUPON", cupon);
+        // const respuesta = await db.Product.findAndCountAll()
+        if (cupon != null) {
+            await db.Discount_coupon.update({used: 1},{
+                where:{
+                    code: codigo
+                }
+            })
+            respuesta.estado = 200;
+            respuesta.mensaje = "aplicado";
+            respuesta.cupon = cupon;
+            console.log("RESPUESTA",respuesta)
+            res.json(respuesta);
+        } else {
+            respuesta.estado = 404;
+            respuesta.mensaje = "rechazado";
+            respuesta.cupon = {};
+            res.json(respuesta);
         }
     },
     getLastProduct: async (req, res) => {
