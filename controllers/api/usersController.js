@@ -33,7 +33,7 @@ const usersController = {
             }
         )
         if(respuesta){
-            res.json(respuesta);
+            res.json(respuesta[0]);
         }else{
             res.json("");
         }

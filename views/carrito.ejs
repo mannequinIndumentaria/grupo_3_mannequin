@@ -5,6 +5,25 @@
 	<script src="/js/funciones.js"></script>
 	<script src="/js/latido.js"></script>
 	<script>
+		function setTotales(){
+			fetch("http://localhost:3000/api/products/getTotales",
+			{
+				method:'POST',
+				body: JSON.stringify({ user: <%= user.idusers %>}),
+				headers: {
+					'Content-type':'application/json'
+				}
+			})
+			.then(respuesta => respuesta.json())
+			.then(function(info){
+				document.getElementById("total").innerHTML = "$"+info.total
+				document.getElementById("subtotal").innerHTML = "$"+info.subtotal
+				document.getElementById("descuento").innerHTML = "$"+info.descuentos
+			})
+	
+		}
+	</script>
+	<script>
 		function agregarEvento(idproduct,idsize){
 		var selectorCantidad = document.getElementById("cantidadElegido"+idproduct+"s"+idsize);
 		selectorCantidad.addEventListener("change",function(){
@@ -30,6 +49,7 @@
 			})
 			.then(function(res){
 				console.log('llego esta data',res)
+				setTotales()
 			})
 			//Obtengo stock actual.
 		})
@@ -41,8 +61,6 @@
 			<div class="container carrito-contenedor-principal">
 				 <div class="row">
 				<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"> 
-					<% let subtotal = 0 %>
-					<% let descuentos = 0 %>
 				   <!-- <span class="tituloArticulos">Articulos<%= data.length %></span> -->
 					<% for(articulo of data){ %>
 					   <div class="articulo" id="<%= articulo.idproducts %>p<%= articulo.idsize %>" name="idArticulo">
@@ -58,8 +76,6 @@
 						 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 detalle-item-carrito">
 							<span class="precio-item-carrito">$<%= articulo.price %></span>
 							<span class="titulo-item-carrito"><%= articulo.name %></span>
-							<% subtotal += Number(articulo.price) %>
-							<% descuentos += Number(articulo.discount) %>
 							<!-- <div class="selector-color-carrito"> -->
 							<i>Talle: <%= articulo.size %></i>
 							<label for="cantidadElegido<%= articulo.idproducts %>s<%= articulo.idsize %>">Cantidad</label>
@@ -120,6 +136,7 @@
 													var objArticulo = document.getElementById(idproduct+'p'+idsize);
 													console.log("removiendo", objArticulo)
 													objArticulo.remove();
+													setTotales()
 												})
 											}
 										</script>
@@ -136,8 +153,15 @@
 				  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 				   <div class="orden-de-compra">
 						<label for="code-discount" class="order-titulo">Cupon de descuento</label>
-						<input type="text" name="code-discount" id="code-discount" placeholder="32424249" class="order-discount" disabled>
-						
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+								<input type="text" name="code-discount" id="code-discount" placeholder="Codigo de descuento" class="order-discount">
+								<p class="font-weight-light text-center" id="mensajecupon"></p>
+							</div>
+							<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+								<button type="button" class="btn btn-dark" onclick="aplicarDescuento()">Aplicar</button>
+							</div>
+						</div>
 						<label class="order-titulo">Resumen del pedido</label>
 						<div class="row order-row">
 						   <div class="col-6 order-text-amounts">
@@ -146,9 +170,9 @@
 							   <span>Total</span>
 						   </div>
 						   <div class="col-6  order-amounts">
-								<span id="subtotal">$<%= subtotal %></span>
-								<span id="descuento">$<%= descuentos %></span>
-								<span id="total" name="total">$<%= (subtotal - descuentos) %> </span>
+								<span id="subtotal"></span>
+								<span id="descuento"></span>
+								<span id="total" name="total"></span>
 							</div>
 						</div>
 						<button class="order-send" type="submit" id="pagarcarrito" onclick="sendPedido(<%= user.idusers %>)">Enviar pedido</button>
@@ -212,6 +236,54 @@
 			})
 		}
 	}
+</script>
+<script>
+	function aplicarDescuento(){
+		var codigo = document.getElementById("code-discount").value;
+		var data = {
+			code: codigo
+		} 
+		fetch("http://localhost:3000/api/products/aplicarDescuento",
+		{
+			method: 'POST',
+			body:JSON.stringify(data),
+			headers: {
+				'Content-Type': 'application/json'
+			} 
+		})
+		.then(respuesta => {return respuesta.json()})
+		.then(function(info){
+			var objdescuentos = document.getElementById("descuento");
+			var descuentos = Number(objdescuentos.innerHTML.substr(1,objdescuentos.innerHTML.length));
+			var objsubtotal = document.getElementById("subtotal");
+			var subtotal = Number(objsubtotal.innerHTML.substr(1,objsubtotal.innerHTML.length));
+			var objtotal = document.getElementById("total");
+			var total = Number(objtotal.innerHTML.substr(1,objtotal.innerHTML.length));
+			var newDesc = 0;
+			var objmensaje = document.getElementById("mensajecupon");
+			if(info.estado == 200){
+				console.log("INFO",info)
+				if(info.cupon.percentage_amount > 0){
+					newDesc = subtotal * (info.cupon.percentage_amount / 100)
+				}
+				if(info.cupon.cash_amount > 0){
+					newDesc = newDesc + info.cupon.cash_amount
+				}
+				descuentos = descuentos + newDesc
+				total = subtotal - descuentos;
+				objdescuentos.innerHTML = "$"+descuentos;
+				objtotal.innerHTML = "$"+total;
+				objmensaje.style.color = 'green';
+				objmensaje.innerHTML = "Cupon " + info.mensaje;
+				console.log("TOTAL", total, "DESCUENTOS", descuentos)
+			}else{
+				objmensaje.style.color = 'red';
+				objmensaje.innerHTML = "Cupon " + info.mensaje;
+			}
+		})
+
+	}
+	setTotales()
 </script>
 
 
