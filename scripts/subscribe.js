@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
     var avisoSuscripto = document.querySelector(".aviso-suscrpito")
     var submitSubsc = subscribeBtn.addEventListener("click", function (e) {
         e.preventDefault()
-        fetch('http://localhost:3000/api/subscribers', {
+        fetch('https://mannequin-indumentaria.herokuapp.com/api/subscribers', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

@@ -73,7 +73,7 @@
                                             if (objFavorito.value == 1) {
                                                 objFavorito.className = "heart-carrito far fa-heart";
                                                 objFavorito.value = 0;
-                                                fetch("http://localhost:3000/api/products/favorite",{
+                                                fetch("https://mannequin-indumentaria.herokuapp.com/api/products/favorite",{
                                                     method: 'POST',
                                                     body: JSON.stringify({artId: id, userId: iduser, action: 'remove'}),
                                                     headers: {
@@ -84,7 +84,7 @@
                                             // agregar a fav
                                                 objFavorito.className = "heart-carrito fas fa-heart";
                                                 objFavorito.value = 1;
-                                                fetch("http://localhost:3000/api/products/favorite",{
+                                                fetch("https://mannequin-indumentaria.herokuapp.com/api/products/favorite",{
                                                     method: 'POST',
                                                     body: JSON.stringify({artId: id, userId: iduser, action: 'add'}),
                                                     headers: {
@@ -184,7 +184,7 @@
                                                         </a>
 
                                                     <script>
-                                                        fetch("http://localhost:3000/api/products/itsfavorite/<%= user.idusers %>/<%= productsOnSite.idproducts%>")
+                                                        fetch("https://mannequin-indumentaria.herokuapp.com/api/products/itsfavorite/<%= user.idusers %>/<%= productsOnSite.idproducts%>")
                                                         .then(function(respuesta){
                                                             return respuesta.json()
                                                         })
@@ -216,7 +216,7 @@
                                                         talle = tt.id.replace("talle", "");
                                                     }
                                                     newitem();
-                                                    fetch("http://localhost:3000/api/products/cart",{
+                                                    fetch("https://mannequin-indumentaria.herokuapp.com/api/products/cart",{
                                                             method: 'POST',
                                                             body: JSON.stringify({artId: <%= productsOnSite.idproducts%>, userId: <%= user.idusers %>, sizeId: talle}),
                                                             headers: {
@@ -242,13 +242,13 @@
 
                                               <div class="collapse" id="collapseExample">
                                                 <div class="card card-group text-center">
-                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://mannequin-indumentaria.herokuapp.com/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
                                                         <i class="fab fa-facebook-square" style="font-size: 50px; color: #3b5998"></i>
                                                     </a>
-                                                    <a href="https://twitter.com/intent/tweet?text=Mannequin%0A<%= productsOnSite.name%>%0A<%= productsOnSite.description%>%0Ahttp://localhost:3000/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
+                                                    <a href="https://twitter.com/intent/tweet?text=Mannequin%0A<%= productsOnSite.name%>%0A<%= productsOnSite.description%>%0Ahttps://mannequin-indumentaria.herokuapp.com/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
                                                         <i class="fab fa-twitter-square" style="font-size: 50px; color: #00acee"></i>
                                                     </a>
-                                                    <a href=" https://wa.me/?text=Mannequin%0A<%= productsOnSite.name%>%0A<%= productsOnSite.description%>%0Ahttp://localhost:3000/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
+                                                    <a href=" https://wa.me/?text=Mannequin%0A<%= productsOnSite.name%>%0A<%= productsOnSite.description%>%0Ahttps://mannequin-indumentaria.herokuapp.com/detalleProducto/<%= productsOnSite.idproducts%>" target="_blank" class="mr-3">
                                                         <i class="fab fa-whatsapp-square" style="font-size: 50px; color: #25d366"></i>
                                                     </a>
                                                     <a href="https://pinterest.com/pin/create/button/?url=http%3A//localhost%3A3000/detalleProducto/<%= productsOnSite.idproducts%>&media=http%3A//localhost%3A3000/images/articulos/<%= productsOnSite.images[0].file_name %>&description=<%= productsOnSite.description%>" target="_blank" class="mr-3">

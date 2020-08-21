@@ -6,7 +6,7 @@
 	<script src="/js/latido.js"></script>
 	<script>
 		function setTotales(){
-			fetch("http://localhost:3000/api/products/getTotales",
+			fetch("https://mannequin-indumentaria.herokuapp.com/api/products/getTotales",
 			{
 				method:'POST',
 				body: JSON.stringify({ user: <%= user.idusers %>}),
@@ -36,7 +36,7 @@
 			}
 			console.log("DATA", data);
 			// Descuento
-			fetch("http://localhost:3000/api/products/discountStock",
+			fetch("https://mannequin-indumentaria.herokuapp.com/api/products/discountStock",
 			{
 				method: 'POST',
 				body: JSON.stringify(data),
@@ -98,7 +98,7 @@
 
 
 										<script>
-											fetch("http://localhost:3000/api/products/itsfavorite/<%= user.idusers %>/<%= articulo.idproducts%>")
+											fetch("https://mannequin-indumentaria.herokuapp.com/api/products/itsfavorite/<%= user.idusers %>/<%= articulo.idproducts%>")
 											.then(function(respuesta){
 												return respuesta.json()
 											})
@@ -122,7 +122,7 @@
 													iduser: <%= user.idusers %>
 												}
 
-												fetch("http://localhost:3000/api/products/cart/removeitem",{
+												fetch("https://mannequin-indumentaria.herokuapp.com/api/products/cart/removeitem",{
 													method: 'POST',
 													body: JSON.stringify(data),
 													headers: {
@@ -216,7 +216,7 @@
 		if (objFavorito.value == 1) {
 			objFavorito.className = "heart-carrito far fa-heart";
 			objFavorito.value = 0;
-			fetch("http://localhost:3000/api/products/favorite",{
+			fetch("https://mannequin-indumentaria.herokuapp.com/api/products/favorite",{
 				method: 'POST',
 				body: JSON.stringify({artId: id, userId: iduser, action: 'remove'}),
 				headers: {
@@ -227,7 +227,7 @@
 		// agregar a fav
 			objFavorito.className = "heart-carrito fas fa-heart";
 			objFavorito.value = 1;
-			fetch("http://localhost:3000/api/products/favorite",{
+			fetch("https://mannequin-indumentaria.herokuapp.com/api/products/favorite",{
 				method: 'POST',
 				body: JSON.stringify({artId: id, userId: iduser, action: 'add'}),
 				headers: {
@@ -243,7 +243,7 @@
 		var data = {
 			code: codigo
 		} 
-		fetch("http://localhost:3000/api/products/aplicarDescuento",
+		fetch("https://mannequin-indumentaria.herokuapp.com/api/products/aplicarDescuento",
 		{
 			method: 'POST',
 			body:JSON.stringify(data),
