@@ -1,8 +1,8 @@
 module.export = {
     getHostBackend: ()=>{
-       return "https://mannequin-indumentaria.herokuapp.com";    
+       return "http://localhost:3000";    
     },
     getHostFrontend: ()=>{
-        return "https://mannequin-indumentaria.herokuapp.com";    
+        return "http://localhost:3000";    
     },
 }

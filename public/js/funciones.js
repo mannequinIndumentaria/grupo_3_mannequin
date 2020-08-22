@@ -22,13 +22,13 @@ function sendPedido(iduser){
   console.log("dentro de send pedido")
   var username = "";
 
-  fetch(`https://mannequin-indumentaria.herokuapp.com/api/products/usercart/${iduser}`)
+  fetch(`http://localhost:3000/api/products/usercart/${iduser}`)
   .then(function(respuesta){
     return respuesta.json()
   })
   .then(function(informacion){
     var cuerpoEmail = "DATOS DE CONTACTO%0D";
-    fetch(`https://mannequin-indumentaria.herokuapp.com/api/users/${iduser}`)
+    fetch(`http://localhost:3000/api/users/${iduser}`)
     .then(function(respuesta){
       return respuesta.json()
     })
